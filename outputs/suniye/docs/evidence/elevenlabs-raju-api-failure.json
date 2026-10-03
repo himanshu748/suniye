@@ -1,0 +1,19 @@
+{
+  "checkedAt": "2026-10-02T07:40:31.837Z",
+  "status": 200,
+  "providerStatus": 402,
+  "providerErrorCode": "payment_required",
+  "latencyMs": 836,
+  "pipeline": "Fastify -> Mastra reading workflow -> ElevenLabs",
+  "syntheticText": "नमस्ते। सुनिए में फिर सुनिए दबाकर पाठ दोबारा सुन सकते हैं।",
+  "sourcePreserved": true,
+  "spokenTextPreserved": true,
+  "model": "eleven_multilingual_v2",
+  "speed": 0.85,
+  "audioBytes": 0,
+  "audioFile": null,
+  "actualProviderAudio": false,
+  "listeningAssessment": "pending human listening; not parent feedback",
+  "voice": "Raju – Clear, Natural and Warm (library)",
+  "assessment": "API returned payment_required; no paid upgrade made. Website narration remains available."
+}

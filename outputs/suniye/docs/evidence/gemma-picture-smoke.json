@@ -1,0 +1,13 @@
+{
+  "testedAt": "2026-10-02T06:54:47.646Z",
+  "provider": "local Ollama Gemma 3 4B",
+  "workflow": "actual Mastra pipeline, no fake model",
+  "fixture": "shape-fixture.png",
+  "milliseconds": 69281,
+  "httpStatus": 503,
+  "result": {
+    "code": "READ_FAILED",
+    "message": "यह पढ़ नहीं पाया। फिर कोशिश करें।"
+  },
+  "humanAssessment": "Failed: request timed out after the prompt revision. Earlier shape and room tests returned unnecessary retakes; no successful non-text description is claimed."
+}

@@ -1,0 +1,99 @@
+{
+  "checkedAt": "2026-10-03T06:25:24.741522+00:00",
+  "method": "Bounded synthetic live checks; configured secrets never written to report",
+  "rows": [
+    {
+      "integration": "Mastra",
+      "status": "live-pass",
+      "httpStatus": 200,
+      "latencyMs": 30,
+      "scope": "Actual Fastify/Mastra workflow, exact synthetic source text, no generated OCR"
+    },
+    {
+      "integration": "Gemma",
+      "status": "live-pass",
+      "httpStatus": 200,
+      "latencyMs": 17769,
+      "scope": "Actual local Gemma explanation through Mastra; one synthetic sample",
+      "previousAttempt": {
+        "status": "failed",
+        "httpStatus": 503,
+        "code": "MODEL_UNAVAILABLE",
+        "reason": "Sandbox prevented Metal model initialization; owned server restarted with GPU access"
+      },
+      "syntheticReply": "\u092f\u0939 \u0906\u0938\u093e\u0928 \u092d\u093e\u0937\u093e \u092e\u0947\u0902 \u0938\u092e\u091d\u093e\u092f\u093e \u0917\u092f\u093e \u0939\u0948\u0964 \u092c\u093f\u0932 \u20b91,250 \u0915\u093e \u0939\u0948\u0964 \u0924\u093e\u0930\u0940\u0916 02/10/2026 \u0939\u0948\u0964"
+    },
+    {
+      "integration": "ElevenLabs",
+      "status": "live-pass",
+      "httpStatus": 200,
+      "latencyMs": 1650,
+      "audioBytes": 18016,
+      "sourcePreserved": true,
+      "scope": "One short synthetic Hindi API narration; listener assessment pending"
+    },
+    {
+      "integration": "SerpApi",
+      "status": "partial",
+      "code": "GUIDE_SEARCH_UNAVAILABLE",
+      "scope": "Actual API HTTP 200; zero approved official articles; guide stopped before synthesis. October 2 successful guide remains historical.",
+      "previousAttempt": {
+        "status": "failed",
+        "code": "Error"
+      },
+      "network": [
+        {
+          "service": "SerpApi",
+          "httpStatus": 200,
+          "latencyMs": 355,
+          "apiError": false,
+          "organicResults": 3
+        },
+        {
+          "service": "SerpApi",
+          "httpStatus": 200,
+          "latencyMs": 850,
+          "apiError": false,
+          "organicResults": 10
+        }
+      ],
+      "latestDiagnostic": {
+        "httpStatuses": [
+          200,
+          200
+        ],
+        "resultStates": [
+          "Results for exact spelling",
+          "Fully empty"
+        ],
+        "approvedArticles": 0,
+        "modelCalls": 0
+      }
+    },
+    {
+      "integration": "MongoDB Atlas",
+      "status": "blocked",
+      "reason": "No configured working application connection; browser sign-in grant pending"
+    },
+    {
+      "integration": "Sentry",
+      "status": "blocked",
+      "reason": "DSN missing; browser sign-in grant pending"
+    },
+    {
+      "integration": "Backboard",
+      "status": "blocked",
+      "reason": "Account verification and limited project key needed"
+    },
+    {
+      "integration": "Render",
+      "status": "blocked",
+      "reason": "No Suniye deployment or reachable hosted Gemma endpoint; account dashboard accessible"
+    },
+    {
+      "integration": "Entire",
+      "status": "live-pass",
+      "reason": "Local metadata-only lookup resolved checkpoint 16dd21b68ec8 with one imported session; full history not exported"
+    }
+  ]
+}

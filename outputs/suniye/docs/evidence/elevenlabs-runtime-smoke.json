@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-10-02T07:42:02.951Z",
+  "status": 200,
+  "providerStatus": 200,
+  "providerErrorCode": null,
+  "latencyMs": 1757,
+  "pipeline": "Fastify -> Mastra reading workflow -> ElevenLabs",
+  "syntheticText": "नमस्ते। सुनिए में फिर सुनिए दबाकर पाठ दोबारा सुन सकते हैं।",
+  "sourcePreserved": true,
+  "spokenTextPreserved": true,
+  "model": "eleven_multilingual_v2",
+  "speed": 0.85,
+  "audioBytes": 42466,
+  "audioFile": "elevenlabs-runtime-smoke.mp3",
+  "actualProviderAudio": true,
+  "listeningAssessment": "pending human listening; not parent feedback",
+  "voice": "Roger (official preset)",
+  "requestedCharacters": 58,
+  "apiCreditCharge": "not verified in dashboard"
+}

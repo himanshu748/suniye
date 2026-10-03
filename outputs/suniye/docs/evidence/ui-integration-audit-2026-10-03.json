@@ -1,0 +1,233 @@
+{
+  "checkedAt": "2026-10-03T06:37:41.225988+00:00",
+  "workspace": "Local n/suniye; no iCloud build writes",
+  "backend": {
+    "tests": 44,
+    "passed": 44,
+    "failed": 0,
+    "providerTests": "Injected doubles except separately identified live receipts"
+  },
+  "android11": {
+    "api": 30,
+    "display": "720x1280; density 320",
+    "fontScales": [
+      1.3,
+      1.6
+    ],
+    "nightMode": "checked at 1.6; fixed palette",
+    "checks": [
+      {
+        "check": "ux-api30-final-picker",
+        "status": "passed",
+        "scope": "synthetic fixture; no real-family data",
+        "results": [
+          "inputPicker=PASS: visible paper/photo/Stop at large fonts, picker cancellation, selected photo/PDF OCR, malformed image/text extras and file URI rejection, visible first setup",
+          "tests=PASS: original text, daily controls, stale capture, replay, slower playback preference, late backend cancellation"
+        ]
+      },
+      {
+        "check": "ux-api30-final-errors",
+        "status": "passed",
+        "scope": "synthetic fixture; no real-family data",
+        "results": [
+          "errorLanguage=PASS: framework/setup/network errors replaced with Hindi, invalid remote preferences rejected, authored prompt preserved, Stop enabled",
+          "tests=PASS: original text, daily controls, stale capture, replay, slower playback preference, late backend cancellation"
+        ]
+      },
+      {
+        "check": "ux-api30-final-history",
+        "status": "passed",
+        "scope": "synthetic fixture; no real-family data",
+        "results": [
+          "historyShare=PASS: fresh activity ignores share replay from history without starting speech"
+        ]
+      },
+      {
+        "check": "ux-picker-font13",
+        "status": "passed",
+        "scope": "synthetic fixture; no real-family data",
+        "results": [
+          "inputPicker=PASS: visible paper/photo/Stop at large fonts, picker cancellation, selected photo OCR, PDF result, external file URI rejection and visible first setup",
+          "tests=PASS: original text, daily controls, stale capture, replay, slower playback preference, late backend cancellation"
+        ]
+      },
+      {
+        "check": "ux-picker-night",
+        "status": "passed",
+        "scope": "synthetic fixture; no real-family data",
+        "results": [
+          "inputPicker=PASS: visible paper/photo/Stop at large fonts, picker cancellation, selected photo OCR, PDF result, external file URI rejection and visible first setup",
+          "tests=PASS: original text, daily controls, stale capture, replay, slower playback preference, late backend cancellation"
+        ]
+      },
+      {
+        "check": "ux-setup-stop",
+        "status": "passed",
+        "scope": "synthetic fixture; no real-family data",
+        "results": [
+          "setupStop=PASS: visible Stop in caregiver settings cancels work at large fonts",
+          "tests=PASS: original text, daily controls, stale capture, replay, slower playback preference, late backend cancellation"
+        ]
+      },
+      {
+        "check": "ux-sticky-stop",
+        "status": "passed",
+        "scope": "synthetic fixture; no real-family data",
+        "results": [
+          "stickyStop=PASS: visible at both scroll positions, unchanged bounds, click cancels work",
+          "tests=PASS: original text, daily controls, stale capture, replay, slower playback preference, late backend cancellation"
+        ]
+      },
+      {
+        "check": "ux-camera",
+        "status": "passed",
+        "scope": "synthetic fixture; no real-family data",
+        "results": [
+          "cameraShortcut=PASS: large-font preview, shutter and Stop fully visible; emulator rear camera capture returns to reading screen with Stop",
+          "tests=PASS: original text, daily controls, stale capture, replay, slower playback preference, late backend cancellation"
+        ]
+      },
+      {
+        "check": "ux-pdf",
+        "status": "passed",
+        "scope": "synthetic fixture; no real-family data",
+        "results": [
+          "pdfLifecycle=PASS: untyped VIEW, loading survives recreation, page 2 preserved, one cache copy, Stop available, Forget removes cached PDF",
+          "tests=PASS: original text, daily controls, stale capture, replay, slower playback preference, late backend cancellation"
+        ]
+      }
+    ],
+    "finalApkChecks": [
+      "picker/photo/PDF/malformed shares",
+      "authored error recovery",
+      "history-share replay guard"
+    ]
+  },
+  "android15": {
+    "api": 35,
+    "display": "720x1280; density 320",
+    "fontScale": 1.6,
+    "nightMode": true,
+    "checks": [
+      {
+        "check": "ux-api35-picker-final",
+        "status": "passed",
+        "scope": "synthetic fixture; no real-family data",
+        "results": [
+          "inputPicker=PASS: visible paper/photo/Stop at large fonts, picker cancellation, selected photo/PDF OCR, malformed image/text extras and file URI rejection, visible first setup",
+          "tests=PASS: original text, daily controls, stale capture, replay, slower playback preference, late backend cancellation"
+        ]
+      },
+      {
+        "check": "ux-api35-history-final",
+        "status": "passed",
+        "scope": "synthetic fixture; no real-family data",
+        "results": [
+          "historyShare=PASS: fresh activity ignores share replay from history without starting speech"
+        ]
+      },
+      {
+        "check": "ux-api35-sticky",
+        "status": "passed",
+        "scope": "synthetic fixture; no real-family data",
+        "results": [
+          "stickyStop=PASS: visible at both scroll positions, unchanged bounds, click cancels work",
+          "tests=PASS: original text, daily controls, stale capture, replay, slower playback preference, late backend cancellation"
+        ]
+      },
+      {
+        "check": "ux-api35-setup",
+        "status": "passed",
+        "scope": "synthetic fixture; no real-family data",
+        "results": [
+          "setupStop=PASS: visible Stop in caregiver settings cancels work at large fonts",
+          "tests=PASS: original text, daily controls, stale capture, replay, slower playback preference, late backend cancellation"
+        ]
+      },
+      {
+        "check": "ux-api35-pdf",
+        "status": "passed",
+        "scope": "synthetic fixture; no real-family data",
+        "results": [
+          "pdfLifecycle=PASS: untyped VIEW, loading survives recreation, page 2 preserved, one cache copy, Stop available, Forget removes cached PDF",
+          "tests=PASS: original text, daily controls, stale capture, replay, slower playback preference, late backend cancellation"
+        ]
+      },
+      {
+        "check": "ux-api35-camera",
+        "status": "passed",
+        "scope": "synthetic fixture; no real-family data",
+        "results": [
+          "cameraShortcut=PASS: large-font preview, shutter and Stop fully visible; emulator rear camera capture returns to reading screen with Stop",
+          "tests=PASS: original text, daily controls, stale capture, replay, slower playback preference, late backend cancellation"
+        ]
+      },
+      {
+        "check": "ux-api35-errors",
+        "status": "passed",
+        "scope": "synthetic fixture; no real-family data",
+        "results": [
+          "errorLanguage=PASS: framework/setup/network errors replaced with Hindi, invalid remote preferences rejected, authored prompt preserved, Stop enabled",
+          "tests=PASS: original text, daily controls, stale capture, replay, slower playback preference, late backend cancellation"
+        ]
+      },
+      {
+        "check": "ux-api35-delay",
+        "status": "passed",
+        "scope": "synthetic fixture; no real-family data",
+        "results": [
+          "stickyStop=PASS: visible at both scroll positions, unchanged bounds, click cancels work",
+          "tests=PASS: original text, daily controls, stale capture, replay, slower playback preference, late backend cancellation"
+        ]
+      }
+    ],
+    "actualDelayedSyntheticHttpCalls": 1,
+    "initialFailure": "Malformed text extra was defused to null; previous reading was not preserved. Null/empty guard added; final picker rerun passed."
+  },
+  "claudeCode": {
+    "model": "Opus 5.5 Medium",
+    "method": "Read-only source review; no runtime tests",
+    "verdict": "Known P1 and three P2s confirmed fixed; no new P0/P1 in final reviewed eight-file scope",
+    "afterReview": "Narrow RuntimeException getter guards and null/empty text recovery compiled and tested on final APK at Android 11 and 15; not attributed to the source reviewer"
+  },
+  "apk": {
+    "sha256": "f821c2b0f5fc44db05eced3044ae4ae48fba109d5fdf414170034a855b9451be",
+    "bytes": 53269642,
+    "signature": "v2 verified; debug signer"
+  },
+  "sourceHashes": {
+    "android/app/src/debug/java/in/suniye/app/DebugProbe.java": "9ba00d2db33f7b6e1c15b8fdc41c0835829dcbcff2d73ca2ee08837e0c5bafaa",
+    "android/app/src/main/AndroidManifest.xml": "9c5ddfc2280b9ae19cd2d100e3a7f2623bb74e06439d4f431ffc44d9ee171fb3",
+    "android/app/src/main/java/in/suniye/app/BackendClient.java": "9e632ebea07345049160d7d545c410526ecbbfbd2a1a8dc3205d4592ed2e5237",
+    "android/app/src/main/java/in/suniye/app/CameraActivity.java": "669bbfd1b0850ba10211794929d9261a34b845f068c6b849945f087d6b866655",
+    "android/app/src/main/java/in/suniye/app/Config.java": "32670087daabbf5ac1775164bb9fe75c58d81d33556b5ad56e5d3f62efd2d6d7",
+    "android/app/src/main/java/in/suniye/app/ImageInput.java": "917cd951f4a65d0d0263aa0843fafbf3b0168cdf30b55a0734921bdaba91c818",
+    "android/app/src/main/java/in/suniye/app/LocalText.java": "fdc4a56e45fa0c5874e8abbacd3a965395ace735f5ac7675e02242fd5d6a62ec",
+    "android/app/src/main/java/in/suniye/app/MainActivity.java": "3e978a13e059a8f4671c81c8c41bb80247f9d10a2bd142b27115d05511a18344",
+    "android/app/src/main/java/in/suniye/app/PreferencesClient.java": "474552f1caffa0a4b8af6bd024bebb762d47c718c3f7dd297f132b0c5db6ac2d",
+    "android/app/src/main/java/in/suniye/app/ReaderController.java": "32e0cf5c9edd592c3b71e0f71167b55fc7630849357294a0cd29df177362672f",
+    "android/app/src/main/java/in/suniye/app/ScreenReaderService.java": "c71bc47460a2e5ea4e8be288ea7f9f18f27bbadd28512298dd2829ee37e3ef89",
+    "android/app/src/main/java/in/suniye/app/SetupActivity.java": "870077a0349735f1c96a3f472b7f44f8f12d805b1a7d551b7089418be671508d",
+    "android/app/src/main/java/in/suniye/app/SuniyeApp.java": "5f18f4daa5093e17ca4f9b054c7da81700cbc53bd3e19f846434d2a3c6e4e173",
+    "android/app/src/main/java/in/suniye/app/Ui.java": "ca5bf7a81f09cb0233ea348fbd0c5a403af4c5b254e26d7123ba3fa120b67d13",
+    "android/app/src/main/java/in/suniye/app/UserMessage.java": "cc47511b649f08b527482e844270a463972095061ac49bdc58875dfb753b20da",
+    "android/app/src/main/res/values/styles.xml": "7fc2519e1029f4c77270d678231447f31cc87fa7e84cc4ef3969b0fba19bd98c",
+    "backend/evaluation/setup-guide.mjs": "ed1d4a71e49add0171823b40580669a7c829ea451b07419023f69608a7bd416d",
+    "backend/src/contracts.js": "395fe956b994ea901d060fa415865b9764a79c98b7ff9b082881436e1e515bac",
+    "backend/src/providers.js": "39c6106c493c60df663d02b5f449d0e9d7c36b426b249797d1c2ee98e79e7e95",
+    "backend/src/server.js": "9e22b1c9ac4fdd14f1c5ddfcc4f95eb0b003e37f9f7188d0620f5433b84040f3",
+    "backend/src/telemetry.js": "c9c1b345634b988ca9c8d221ca0d01da9350222a47a4d5d48d53bce6d5a504e0",
+    "backend/src/workflow.js": "cafa9d255d62355002ce2846251ae45ca546108c650702cf7c73e13d0b5e8614",
+    "backend/test/setup-guide.test.js": "50b758a583a9408c3a94dc6d5860092d8800c218f1733c1ee14f1feaa996283d"
+  },
+  "integrationEvidence": "integration-recheck-2026-10-03.json",
+  "limitations": [
+    "No real Redmi A4/WhatsApp/firmware checks",
+    "No installed offline Hindi voice in emulators; audible voice and number pronunciation unverified",
+    "No parent task feedback; user currently in another city",
+    "Gemma latency and known description/faithfulness failures remain",
+    "Four sponsor integrations need credentials/deployment; current SerpApi guide fails closed",
+    "Source indices and OCR confidence are heuristics, not factual accuracy guarantees"
+  ],
+  "privacyNote": "Local Claude session identifier omitted from publication evidence"
+}

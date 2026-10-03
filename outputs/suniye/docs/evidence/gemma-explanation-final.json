@@ -1,0 +1,16 @@
+{
+  "testedAt": "2026-10-02T07:19:19.293Z",
+  "workflow": "Actual Gemma 3 4B through Mastra",
+  "source": "बिल ₹1,250 है। तारीख 02/10/2026 है।",
+  "milliseconds": 25016,
+  "httpStatus": 200,
+  "result": {
+    "kind": "reading",
+    "originalText": "बिल ₹1,250 है। तारीख 02/10/2026 है।",
+    "spokenText": "यह आसान भाषा में समझाया गया है। बिल ₹1,250 का है। तारीख 02/10/2026 है।",
+    "isExplanation": true,
+    "isDescription": false,
+    "retakeReason": ""
+  },
+  "assessment": "Pass for this synthetic example: Hindi explanation retained ₹1,250 and 02/10/2026 without adding a meeting/visit or other event. One inspected example is not a general accuracy guarantee."
+}

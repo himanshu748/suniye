@@ -1,0 +1,25 @@
+{
+  "recordedAt": "2026-10-03T08:38:46.356Z",
+  "scope": "Synthetic bill only; real provider calls, no credentials or private material",
+  "calls": [
+    {
+      "service": "ElevenLabs",
+      "httpStatus": 200,
+      "elapsedMs": 1569
+    },
+    {
+      "service": "Gemma",
+      "httpStatus": 200,
+      "elapsedMs": 3039,
+      "syntheticModelOutput": "बिजली का बिल ₹1,250 रुपये का है। तारीख 02 अक्टूबर 2026 है।"
+    }
+  ],
+  "recordings": [
+    {
+      "file": "speech-1.mp3",
+      "text": "बिजली का बिल ₹1,250 है। तारीख 02/10/2026 है।",
+      "bytes": 57722,
+      "receivedAt": "2026-10-03T08:38:26.954Z"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "retrievedAt": "2026-10-02T08:00:52.664Z",
+  "queries": [
+    "site:support.google.com/android restricted settings accessibility downloaded app",
+    "site:mi.com support Redmi A4 5G background autostart accessibility"
+  ],
+  "sources": [
+    {
+      "title": "Learn about restricted settings - Android Help",
+      "url": "https://support.google.com/android/answer/12623953?hl=en",
+      "snippet": "When you enable restricted settings, you allow apps to get access to sensitive info that could put your personal data at risk."
+    },
+    {
+      "title": "Change app permissions on your Android phone",
+      "url": "https://support.google.com/android/answer/9431959?hl=en",
+      "snippet": "On your device, open the Settings app. Tap Apps. Tap the app you want to change. Then, choose your app. Tap Permissions. Learn about restricted settings"
+    }
+  ],
+  "summary": "यह आसान भाषा में समझाया गया है। जब आप प्रतिबंधित सेटिंग्स सक्षम करते हैं, तो ऐप्स आपकी व्यक्तिगत जानकारी को खतरे में डाल सकते हैं। ऐप परमिट बदलने के लिए, सेटिंग्स ऐप खोलें और ऐप चुनें।"
+}

@@ -1,0 +1,11 @@
+{
+  "recordedAt": "2026-10-03T08:41:36.833Z",
+  "service": "ElevenLabs",
+  "httpStatus": 200,
+  "elapsedMs": 4591,
+  "text": "This is Suniye, an Android reading aid with large Hindi controls. This emulator demo uses a synthetic bill. Shared text is spoken using ElevenLabs. Slow and Stop work locally. Gemma attempts a separate explanation. The guard rejects changed date formatting, and the original remains available to replay. Camera, photo and PDF routes have emulator checks. Hindi voice and real Redmi WhatsApp behavior still need device testing.",
+  "characters": 426,
+  "bytes": 243923,
+  "attribution": "elevenlabs.io",
+  "scope": "English demo narration, separate from device audio"
+}

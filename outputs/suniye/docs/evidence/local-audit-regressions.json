@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-02",
+  "localWorkspace": "/Users/himanshujha/n/suniye",
+  "originalPreserved": true,
+  "copiedFilesVerified": 19341,
+  "gitHead": "384b7aaf3c5613b7630744ee2e5b3ed612aab851",
+  "sourceMatchesBeforeLocalPathUpdates": true,
+  "backendTests": 37,
+  "encodedRouteBeforeFix": {
+    "encodedUnauthenticated": 200,
+    "canonicalUnauthenticated": 401
+  },
+  "encodedRouteRegressionAfterFix": "pass: read and preference endpoints require authorization",
+  "sourceHashes": {
+    "backend/src/telemetry.js": "c9c1b345634b988ca9c8d221ca0d01da9350222a47a4d5d48d53bce6d5a504e0",
+    "backend/src/server.js": "9e22b1c9ac4fdd14f1c5ddfcc4f95eb0b003e37f9f7188d0620f5433b84040f3",
+    "backend/src/workflow.js": "cafa9d255d62355002ce2846251ae45ca546108c650702cf7c73e13d0b5e8614",
+    "backend/src/providers.js": "3dde89b3ed61884b4786fe7c7aff7279634c581443ab948dacaee183556576bc",
+    "backend/src/contracts.js": "395fe956b994ea901d060fa415865b9764a79c98b7ff9b082881436e1e515bac",
+    "android/app/src/main/java/in/suniye/app/SuniyeApp.java": "5f18f4daa5093e17ca4f9b054c7da81700cbc53bd3e19f846434d2a3c6e4e173",
+    "android/app/src/main/java/in/suniye/app/BackendClient.java": "9e632ebea07345049160d7d545c410526ecbbfbd2a1a8dc3205d4592ed2e5237",
+    "android/app/src/main/java/in/suniye/app/LocalText.java": "fdc4a56e45fa0c5874e8abbacd3a965395ace735f5ac7675e02242fd5d6a62ec",
+    "android/app/src/main/java/in/suniye/app/MainActivity.java": "67dd4869bbc51385f600a5db9e00056560a6bb6472f0bb0fe0ebfad811ea58dc",
+    "android/app/src/main/java/in/suniye/app/ImageInput.java": "917cd951f4a65d0d0263aa0843fafbf3b0168cdf30b55a0734921bdaba91c818",
+    "android/app/src/main/java/in/suniye/app/Ui.java": "853a2e08e35644997bd4fd6db0c6e2b499dacfda02b9412472acfb2b4e7262ba",
+    "android/app/src/main/java/in/suniye/app/UserMessage.java": "31d28f9eda50787b9097a8fa519115105a80909046335098cd842680cf1e2365",
+    "android/app/src/main/java/in/suniye/app/ReaderController.java": "32e0cf5c9edd592c3b71e0f71167b55fc7630849357294a0cd29df177362672f",
+    "android/app/src/main/java/in/suniye/app/PreferencesClient.java": "82a1e13ed4769dab9a986ca7bfd82ec64deac6c4b42c8feff78a15e6c185d362",
+    "android/app/src/main/java/in/suniye/app/Config.java": "11c3bf3a1aeb9e406da8da359f52eac19887a0ec1cf9cf6c056d080cab05f15a",
+    "android/app/src/main/java/in/suniye/app/CameraActivity.java": "669bbfd1b0850ba10211794929d9261a34b845f068c6b849945f087d6b866655",
+    "android/app/src/main/java/in/suniye/app/ScreenReaderService.java": "c71bc47460a2e5ea4e8be288ea7f9f18f27bbadd28512298dd2829ee37e3ef89",
+    "android/app/src/main/java/in/suniye/app/SetupActivity.java": "505e8838e66eebef3bb1ada1cae09292ac70bba8b2b3008162404e70b3fb2883",
+    "android/app/src/debug/java/in/suniye/app/DebugProbe.java": "13fb07636c0c97b3c863c5502f59e019caddbf69b7ebc070f8fd2e5692fc76b0",
+    "android/app/src/debug/java/in/suniye/app/FixtureActivity.java": "0269a564448a892f1ca45b85f4e9eec7c97a0fb98e182907b3a21f957fd06532",
+    "android/app/src/debug/java/in/suniye/app/DebugPdfProvider.java": "87cebee62566ac8a6939c810c3e2541687e2a4da15f40ff0d46881579d4eb312"
+  },
+  "claudeCode": {
+    "session": "local_05f33fc6-afad-4329-94e3-b0f6a3bd9f52",
+    "mode": "local Code, Opus 5.5 Medium",
+    "review": "read-only source inspection, tests not executed by reviewer",
+    "finalScope": "known negation fixes and regression cases",
+    "verdict": "no P0/P1 remains in reviewed changes; heuristic does not prove meaning"
+  },
+  "android11": {
+    "fontScale": 1.6,
+    "stickyStop": "passed: actual scroll movement, full bounds unchanged, click cancellation and rendered Stop pixels",
+    "pdfLifecycle": "passed again: untyped VIEW, in-flight recreation, page 2, one copy, Forget removes cached PDF",
+    "errorLanguage": "passed: framework errors private, authored Hindi retained, Stop enabled",
+    "cameraShortcut": "passed: full preview/shutter/Stop at font 1.6; returned MainActivity has input focus and Stop works",
+    "emulatorRecovery": "System UI ANR dismissed before final visible-app tests; earlier obscured screenshots replaced"
+  },
+  "apkSha256": "2d56a2a7ae25a9b40e162fdedbaa6eeccce7e0c8381427d7f9c0bf07b3917324"
+}

@@ -1,0 +1,24 @@
+{
+  "name": "suniye-backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env src/server.js",
+    "test": "node --test test/*.test.js",
+    "check": "node --check src/server.js",
+    "compare:backboard": "node --env-file-if-exists=.env evaluation/compare-backboard.mjs",
+    "guide:caregiver": "node --env-file-if-exists=.env evaluation/setup-guide.mjs"
+  },
+  "dependencies": {
+    "@mastra/core": "^1.47.0",
+    "@sentry/node": "^10.0.0",
+    "fastify": "^5.6.0",
+    "@fastify/rate-limit": "^10.3.0",
+    "mongodb": "^6.20.0",
+    "zod": "^4.1.0"
+  }
+}

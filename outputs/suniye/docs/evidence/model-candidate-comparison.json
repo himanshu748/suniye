@@ -1,0 +1,83 @@
+{
+  "variant": "candidate",
+  "checkedAt": "2026-10-02T14:47:41.188Z",
+  "scope": "Three synthetic fixtures; same local Gemma 3 4B. First call may include model load. Not an accuracy benchmark.",
+  "cases": [
+    {
+      "id": "bill-date",
+      "latencyMs": 23951,
+      "httpStatus": 200,
+      "result": {
+        "kind": "reading",
+        "originalText": "बिल ₹1,250 है। तारीख 02/10/2026 है।",
+        "spokenText": "यह आसान भाषा में समझाया गया है। बिल ₹1,250 है। तारीख 02/10/2026 है।",
+        "isExplanation": true,
+        "isDescription": false,
+        "retakeReason": ""
+      },
+      "metrics": [
+        {
+          "httpStatus": 200,
+          "requestMs": 23776,
+          "loadMs": 12472,
+          "promptMs": 4028,
+          "generationMs": 7056,
+          "inputTokens": 103,
+          "outputTokens": 24
+        }
+      ],
+      "assessment": "Amount and date preserved in this synthetic fixture."
+    },
+    {
+      "id": "invitation",
+      "latencyMs": 7193,
+      "httpStatus": 200,
+      "result": {
+        "kind": "reading",
+        "originalText": "कल शाम चार बजे आइए।",
+        "spokenText": "यह आसान भाषा में समझाया गया है। कल शाम चार बजे आना है। यह स्रोत एक वाक्य है।",
+        "isExplanation": true,
+        "isDescription": false,
+        "retakeReason": ""
+      },
+      "metrics": [
+        {
+          "httpStatus": 200,
+          "requestMs": 7171,
+          "loadMs": 1135,
+          "promptMs": 3559,
+          "generationMs": 2453,
+          "inputTokens": 86,
+          "outputTokens": 14
+        }
+      ],
+      "assessment": "Time preserved; unnecessary statement about the source being a sentence."
+    },
+    {
+      "id": "shape-picture",
+      "latencyMs": 43494,
+      "httpStatus": 200,
+      "result": {
+        "kind": "reading",
+        "originalText": "",
+        "spokenText": "यह चित्र का वर्णन है। सफेद पृष्ठभूमि पर लाल वृत्त और नीले आयत हैं।",
+        "isExplanation": false,
+        "isDescription": true,
+        "retakeReason": ""
+      },
+      "metrics": [
+        {
+          "httpStatus": 200,
+          "requestMs": 43473,
+          "loadMs": 954,
+          "promptMs": 34896,
+          "generationMs": 7515,
+          "inputTokens": 423,
+          "outputTokens": 37
+        }
+      ],
+      "assessment": "Colors preserved; square described less precisely as rectangle. Positions omitted; no improvement over baseline."
+    }
+  ],
+  "decision": "Retain OpenAI-compatible protocol and baseline prompts. Candidate showed no latency improvement in this small, non-controlled local run."
+}

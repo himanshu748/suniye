@@ -1,0 +1,49 @@
+{
+  "recordedAt": "2026-10-03T08:38:55.595688Z",
+  "environment": "Android 15 emulator, synthetic input, real backend providers",
+  "input": "बिजली का बिल ₹1,250 है। तारीख 02/10/2026 है।",
+  "events": [
+    {
+      "name": "home",
+      "elapsedMs": 2762
+    },
+    {
+      "name": "share-text",
+      "elapsedMs": 6780
+    },
+    {
+      "name": "reading-complete",
+      "elapsedMs": 16219
+    },
+    {
+      "name": "slower-replay",
+      "elapsedMs": 19177
+    },
+    {
+      "name": "stopped",
+      "elapsedMs": 22070
+    },
+    {
+      "name": "explain-start",
+      "elapsedMs": 24938
+    },
+    {
+      "name": "explanation-rejected-unfaithful",
+      "elapsedMs": 28106
+    },
+    {
+      "name": "original-replay",
+      "elapsedMs": 32506
+    },
+    {
+      "name": "final-stop",
+      "elapsedMs": 35394
+    }
+  ],
+  "originalPreserved": true,
+  "slowerAndStop": true,
+  "audioCapture": "Provider MP3 captured separately; screenrecord does not record device audio",
+  "recordedApkSha256": "48d3e79c27c37adf1028d52316391d0ded16f4dd1fa5ea761858c3acc094e66b",
+  "productionSourcesMatchEarlierAndroid11And15Audit": true,
+  "audioMix": "Actual provider MP3 aligned approximately; slow/repeat segments time-stretched by 0.7/0.85"
+}

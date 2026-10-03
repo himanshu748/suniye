@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: suniye-reader
+    runtime: node
+    rootDir: outputs/suniye/backend
+    plan: free
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 22.18.0
+      - key: FAMILY_TOKEN
+        generateValue: true
+      - key: MODEL_BASE_URL
+        sync: false
+      - key: MODEL_ID
+        value: google/gemma-3-4b-it
+      - key: MODEL_API_KEY
+        sync: false
+      - key: ELEVENLABS_API_KEY
+        sync: false
+      - key: ELEVENLABS_VOICE_ID
+        sync: false
+      - key: MONGODB_URI
+        sync: false
+      - key: SENTRY_DSN
+        sync: false

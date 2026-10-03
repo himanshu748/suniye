@@ -1,0 +1,13 @@
+{
+  "platform": "Android 11 emulator",
+  "test": "Standalone accessibility overlay tap, no instrumentation",
+  "serviceBound": true,
+  "syntheticTextPreserved": "कल शाम चार बजे आइए। ₹1,250 — 02/10/2026",
+  "alsoIncluded": "fixture heading and explanatory subtitle",
+  "audio": "not verified; offline Hindi voice missing on emulator",
+  "imageStop": "pending",
+  "screenshots": [
+    "android11-overlay-text-before.png",
+    "android11-overlay-text-after.png"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "testedAt": "2026-10-02T06:47:09.812Z",
+  "provider": "local Ollama Gemma 3 4B",
+  "workflow": "actual Mastra pipeline, no fake model",
+  "fixture": "Android SDK emulator bundled default.jpg, private test reference only",
+  "milliseconds": 27960,
+  "httpStatus": 200,
+  "result": {
+    "kind": "retake",
+    "originalText": "",
+    "spokenText": "",
+    "isExplanation": false,
+    "isDescription": false,
+    "retakeReason": "छवि थोड़ी धुंधली है। कृपया छवि को थोड़ा और करीब से क्रॉप करें।"
+  },
+  "humanAssessment": "Conservative retake, not a successful description. The reference image shows recognizable room objects but also small book/paper text; the instruction can legitimately reject visible text, while its blur reason is not an independently verified image-quality assessment."
+}

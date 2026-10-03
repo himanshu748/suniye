@@ -1,0 +1,19 @@
+{
+  "checkedAt": "2026-10-03",
+  "scope": "All publication snapshot file bytes and all decoded APK members, using installed secret-scan known patterns; no credential values included",
+  "sourceFiles": 111,
+  "apkMembers": 483,
+  "findings": [
+    {
+      "file": "outputs/suniye/backend/test/reader.test.js",
+      "type": "Credential assignment"
+    },
+    {
+      "file": "outputs/suniye/backend/test/setup-guide.test.js",
+      "type": "Credential assignment"
+    }
+  ],
+  "reviewedTestFixtures": 2,
+  "unexpectedFindings": 0,
+  "limits": "Known patterns only; not Git history, unknown credential formats or general security audit. Image/audio pixels and perceptual content separately inspected. Exact configured credential/private-key scan also covers source archive."
+}

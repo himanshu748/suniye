@@ -1,0 +1,17 @@
+{
+  "recordedAt": "2026-10-03T08:55:50.513Z",
+  "httpStatus": 200,
+  "elapsedMs": 45308,
+  "method": "Real local Gemma via Mastra; Fastify inject, no Android playback in this check",
+  "syntheticSource": "आवेदन के सत्यापन हेतु पहचान दस्तावेज़ की स्पष्ट प्रति संलग्न करना अनिवार्य है।",
+  "result": {
+    "kind": "reading",
+    "originalText": "आवेदन के सत्यापन हेतु पहचान दस्तावेज़ की स्पष्ट प्रति संलग्न करना अनिवार्य है।",
+    "spokenText": "यह आसान भाषा में समझाया गया है। आवेदन को मान्य करने के लिए पहचान दस्तावेज़ की स्पष्ट कॉपी ज़रूर जमा करें।",
+    "isExplanation": true,
+    "isDescription": false,
+    "retakeReason": ""
+  },
+  "scope": "One synthetic document sentence; manually compare meaning, no accuracy-rate claim",
+  "manualAssessment": "The response is simpler Hindi but changes attach (संलग्न) to submit (जमा). The anchor guard does not catch this wording change. Treat this as a received explanation, not proof of semantic equivalence."
+}
