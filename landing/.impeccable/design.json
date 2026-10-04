@@ -58,7 +58,7 @@
       "name": "Version disclosure",
       "kind": "custom",
       "description": "Native release-version disclosure.",
-      "html": "<details class=\"ds-disclosure\"><summary>कौन-सा संस्करण?</summary><p>सार्वजनिक APK 0.2 है।</p></details>",
+      "html": "<details class=\"ds-disclosure\"><summary>कौन-सा संस्करण?</summary><p>वर्तमान सार्वजनिक APK 0.3 है।</p></details>",
       "css": ".ds-disclosure{border-block:1px solid var(--line);padding-block:12px;font:400 1.125rem/1.85 var(--font);color:var(--ink)}.ds-disclosure summary{min-height:48px;padding-block:10px;font-weight:600;color:var(--teal);cursor:pointer}.ds-disclosure summary:hover{text-decoration:underline}.ds-disclosure summary:focus-visible{outline:3px solid var(--teal);outline-offset:5px}"
     }
   ],
