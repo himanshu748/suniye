@@ -22,7 +22,8 @@ Help parents hear small print from messages, pictures, paper and PDFs, with larg
 
 - Android 11+ pilot. Bundled OCR supplies text; original text remains visible. New speech needs internet and an authenticated backend. Cached Raju audio supports repeat and slower playback.
 - ElevenLabs Raju is speech, not reasoning. Optional Gemma explanations are experimental and separate from the original; hosted Gemma is unconfigured.
-- The public linked download is 0.2.0-elevenlabs. The parent orchestrator selected a separate 0.1 APK for Appetize cloud-emulator checks; no family-use outcome is claimed. Local 0.3.0-parent-ux and newer backend fixes are not in that download.
+- Current public download is 0.3.0-parent-ux, verified from release metadata and source version. Historical 0.2 and older demo/Appetize-selected 0.1 remain separate. Separate local backend adapter fixes are not claimed in this APK.
+- The 0.3 release reports 160% internal layout/Raju assertions, but System UI overlay and emulator crashes blocked the full touch walkthrough. Clean visual/touch, Redmi and parent checks remain open.
 - Actual WhatsApp use, physical Redmi performance, listening comfort and real Hindi voice recognition remain separate checks. Dense OCR, amounts, dates and medicine labels require human checking.
 - No invented testimonials, family outcomes, general accuracy or accessibility certification.
 

@@ -1,0 +1,59 @@
+{
+  "checkedAt": "2026-10-04T16:48:50.303077+00:00",
+  "scope": "Copy/href/ledger artifact correction; static/source assertions; no broad browser or provider/API execution",
+  "passed": 10,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Public non-draft release exists",
+      "status": "passed"
+    },
+    {
+      "name": "Actual public source declares version3",
+      "status": "passed"
+    },
+    {
+      "name": "CTA exactly matches published APK asset URL",
+      "status": "passed"
+    },
+    {
+      "name": "Displayed current version and first ledger row are 0.3",
+      "status": "passed"
+    },
+    {
+      "name": "Historical0.2 asset retained",
+      "status": "passed"
+    },
+    {
+      "name": "Old0.1 video and Appetize scope retained",
+      "status": "passed"
+    },
+    {
+      "name": "Internal assertions distinguished from blocked walkthrough",
+      "status": "passed"
+    },
+    {
+      "name": "Current limitations link points to parent UX evidence",
+      "status": "passed"
+    },
+    {
+      "name": "Style/player/media unchanged",
+      "status": "passed"
+    },
+    {
+      "name": "Every rebuilt source hash matches",
+      "status": "passed"
+    }
+  ],
+  "buildBytes": 282761,
+  "buildElapsedMs": 191,
+  "buildOutput": "landing/build/2026-10-04T16-47-58-734Z",
+  "releaseUrl": "https://github.com/himanshu748/suniye/releases/tag/parent-ux-2026-10-04",
+  "releaseAsset": {
+    "bytes": 53618122,
+    "metadataDigest": "sha256:39d5484833272ead0147788823ee7c0e8790ed1454555b48f721e807c1d2cdfd",
+    "url": "https://github.com/himanshu748/suniye/releases/download/parent-ux-2026-10-04/suniye-parent-ux.apk",
+    "binaryDownloaded": false
+  },
+  "priorBrowserEvidence": "Before latest version-copy correction; retained unchanged."
+}

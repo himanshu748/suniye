@@ -23,7 +23,9 @@ The builder validates local references and anchors, metadata and script syntax, 
 
 The source Raju receipt records “नमस्ते। बिजली का बिल एक हज़ार दो सौ पचास रुपये है। फिर सुनने के लिए फिर सुनिए दबाएँ।” Playback on this page is not new TTS generation. Voice is not model reasoning. Screenshot and MP3 file hashes are recorded by the build.
 
-Public download: `0.2.0-elevenlabs`, linked to the existing release. The 82-second film is an older `0.1` pilot with synthetic inputs and separately mixed provider audio. A separate `0.1` APK was selected for the parent orchestrator's Appetize cloud-emulator checks; this page claims no outcome from that check. Newer `0.3.0-parent-ux` and backend refinements are local work outside the public download. Existing links are taken from supplied repository/docs; no fresh public release fetch, APK binary scan or cloud test was performed by this landing task.
+Current public download: `0.3.0-parent-ux`, verified read-only from the `parent-ux-2026-10-04` GitHub release metadata (published 15:36:48 UTC) and its tag's versionName. The current DEV article was edited at 15:37:57 UTC and links the same APK. Historical `0.2.0-elevenlabs` remains linked in the ledger. The 82-second film is an older `0.1` pilot with synthetic inputs and separately mixed provider audio. A separate `0.1` APK was selected for the parent orchestrator's Appetize cloud-emulator checks; this page claims no outcome from that check or verification of current 0.3 through that older APK.
+
+The parent-UX release reports internal layout/bundled-Raju playback assertions at 160% fonts, followed by a System UI overlay and emulator crashes blocking the full touch walkthrough. A clean walkthrough and physical Redmi/parent use remain open. Separately authored local backend adapter work is not claimed to be included in this APK. This landing correction read only public release metadata and source version text; no APK download, execution, binary scan, new cloud test or provider call occurred. Earlier browser receipts and captures predate this factual copy correction and retain their historical version labels.
 
 ## Verification scope
 
