@@ -1,0 +1,22 @@
+{
+  "recordedAt": "2026-10-03T10:26:58.655Z",
+  "service": "ElevenLabs",
+  "voice": "Raju - Clear, Natural and Warm",
+  "voiceId": "zT03pEAEi0VHKciJODfn",
+  "catalogue": {
+    "language": "Hindi",
+    "accent": "Standard"
+  },
+  "model": "eleven_multilingual_v2",
+  "httpStatus": 200,
+  "elapsedMs": 1717,
+  "originalText": "नमस्ते। बिजली का बिल ₹1,250 है। फिर सुनने के लिए फिर सुनिए दबाएँ।",
+  "ttsInput": "नमस्ते। बिजली का बिल एक हज़ार दो सौ पचास रुपये है। फिर सुनने के लिए फिर सुनिए दबाएँ।",
+  "normalizationMatches": true,
+  "characters": 84,
+  "bytes": 53333,
+  "outcome": "Real production speechProvider returned audio",
+  "scope": "Synthetic backend API generation, not parent-phone feedback; prior user preference was browser sample B",
+  "accountObserved": "Creator active, cancellation scheduled November 3; MLH advertises three months, account currently shows one month",
+  "keyScope": "Existing TTS-only restricted key; no permission or credit-limit expansion"
+}

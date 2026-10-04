@@ -1,0 +1,18 @@
+{
+  "checkedAt": "2026-10-03",
+  "apkSha256": "419f8647f65a096c787dd28cdfdf6e14debd265fb92af671ef21762fa4c7f443",
+  "commandParser": "33 cases passed, including negation, embedded commands and both nukta spellings",
+  "android15": "INSTRUMENTATION_RESULT: scope=Synthetic recognition callbacks; no microphone/ASR accuracy or Redmi claim\nINSTRUMENTATION_RESULT: voice=PASS: caregiver opt-in, visible Stop/Speak, bounded Hindi request, unknown rejection, Repeat/Slow/Stop routing, late callback and dismissal cleanup, permission-error spoken recovery, Android 12+ Hindi engine fallback\nINSTRUMENTATION_CODE: -1",
+  "cameraAndroid15": "INSTRUMENTATION_RESULT: cameraShortcut=PASS: large-font preview, shutter and Stop fully visible; emulator rear camera capture returns to reading screen with Stop\nINSTRUMENTATION_RESULT: speech=Hindi voice installation and audible pronunciation still require real-device verification\nINSTRUMENTATION_RESULT: tests=PASS: original text, daily controls, stale capture, replay, slower playback preference, late backend cancellation\nINSTRUMENTATION_CODE: -1",
+  "inputPickerAndroid15": "INSTRUMENTATION_RESULT: inputPicker=PASS: visible paper/photo/Stop at large fonts, picker cancellation, selected photo/PDF OCR, malformed image/text extras and file URI rejection, visible first setup\nINSTRUMENTATION_RESULT: speech=Hindi voice installation and audible pronunciation still require real-device verification\nINSTRUMENTATION_RESULT: tests=PASS: original text, daily controls, stale capture, replay, slower playback preference, late backend cancellation\nINSTRUMENTATION_CODE: -1",
+  "fontScale": 1.6,
+  "scope": "Actual native UI/action routing with synthetic recognizer callbacks; not real microphone recognition",
+  "remaining": [
+    "Real Hindi ASR and language/service behavior on Redmi A4",
+    "Actual first camera microphone permission interaction",
+    "Parent phrasing, pronunciation and unassisted use"
+  ],
+  "android11": "INSTRUMENTATION_RESULT: scope=Synthetic recognition callbacks; no microphone/ASR accuracy or Redmi claim\nINSTRUMENTATION_RESULT: voice=PASS: caregiver opt-in, visible Stop/Speak, bounded Hindi request, unknown rejection, Repeat/Slow/Stop routing, late callback and dismissal cleanup, permission-error spoken recovery, Android 12+ Hindi engine fallback\nINSTRUMENTATION_CODE: -1",
+  "android11StickyStop": "INSTRUMENTATION_RESULT: speech=Hindi voice installation and audible pronunciation still require real-device verification\nINSTRUMENTATION_RESULT: stickyStop=PASS: visible at both scroll positions, unchanged bounds, click cancels work\nINSTRUMENTATION_RESULT: tests=PASS: original text, daily controls, stale capture, replay, slower playback preference, late backend cancellation\nINSTRUMENTATION_CODE: -1",
+  "conditionalScope": "On-device Hindi fallback exercised on Android 15 only; Android 11 uses the standard-service path. Runtime microphone permission pre-granted for these emulator callback tests."
+}

@@ -37,11 +37,12 @@ public final class ReaderController {
     private MediaPlayer player;private File audioFile;private Future<?> job;
     private final android.media.AudioManager audio;private android.media.AudioFocusRequest focus;private boolean waiting=false;
     private boolean busy=false;private String status="एक बटन दबाएँ, फिर आराम से सुनें।";
-    private String original="",lastSpoken="",lastSource="";private byte[] lastAudio;private int speechChunks=0;
+    private String original="",lastSpoken="",lastSource="";private byte[] lastAudio;private float lastAudioRate=.85f;private int speechChunks=0;
 
     public ReaderController(Context context){
         this.context=context;audio=context.getSystemService(android.media.AudioManager.class);config=new Config(context);cache=context.getSharedPreferences("last-reading",Context.MODE_PRIVATE);
         original=cache.getString("original","");lastSpoken=cache.getString("spoken","");lastSource=cache.getString("source","");
+        lastAudioRate=cache.getFloat("audioBaseRate",.85f);if(lastAudioRate!=.85f&&lastAudioRate!=1f)lastAudioRate=.85f;
         File saved=new File(context.getFilesDir(),"last-reading.mp3");try{if(saved.exists()&&saved.length()<=5_000_000)lastAudio=java.nio.file.Files.readAllBytes(saved.toPath());}catch(Exception ignored){}
         tts=new TextToSpeech(context,result->main.post(()->{
             ttsFinished=true;
@@ -110,10 +111,11 @@ public final class ReaderController {
             if("retake".equals(response.optString("kind"))){announceFor(response.optString("retakeReason","पास से साफ़ चित्र दोबारा लें।"),id);return;}
             String spoken=response.optString("spokenText","");if(!"reading".equals(response.optString("kind"))||spoken.isBlank()||spoken.length()>16000){announceFor("यह साफ़ पढ़ नहीं पाया। दोबारा चित्र लें।",id);return;}
             byte[] audio=null;try{String encoded=response.optString("audioBase64","");if(!encoded.isEmpty()&&encoded.length()<6_800_000)audio=Base64.decode(encoded,Base64.DEFAULT);}catch(Exception ignored){}
+            double providerRate=response.optDouble("audioBaseRate",.85);final float audioRate=(providerRate==1)?1f:.85f;
             if(!"explain".equals(mode)){
-                original=response.optString("originalText","");lastSpoken=spoken;lastSource=original.isBlank()?spoken:original;lastAudio=audio;saveLast();
+                lastAudioRate=audioRate;original=response.optString("originalText","");lastSpoken=spoken;lastSource=original.isBlank()?spoken:original;lastAudio=audio;saveLast();
             }
-            status="explain".equals(mode)?"आसान भाषा में समझा रहे हैं।":"सुनिए।";notifyListeners();speak(spoken,audio,id);
+            status="explain".equals(mode)?"आसान भाषा में समझा रहे हैं।":"सुनिए।";notifyListeners();speak(spoken,audio,id,audioRate);
         });
     }
     private void fail(Exception error,long id){main.post(()->{if(!current(id))return;String message=error instanceof UserMessage?error.getMessage():"अभी पढ़ नहीं पा रहे हैं। इंटरनेट जाँचकर फिर कोशिश करें।";announceFor(message,id);});}
@@ -127,7 +129,8 @@ public final class ReaderController {
         if(!ttsFinished){pendingSpeech=()->prompt(message,id);return;}
         if(ttsReady&&current(id)){tts.setSpeechRate(config.speed());tts.speak(message,TextToSpeech.QUEUE_FLUSH,null,"prompt");}
     }
-    private void speak(String text,byte[] audio,long id){
+    private void speak(String text,byte[] audio,long id){speak(text,audio,id,lastAudioRate);}
+    private void speak(String text,byte[] audio,long id,float baseRate){
         if(!current(id))return;
         abandonFocus();waiting=false;tts.stop();
         if(this.audio.getStreamVolume(android.media.AudioManager.STREAM_MUSIC)==0){busy=false;status="आवाज़ बंद है। फ़ोन का आवाज़ बढ़ाने वाला बटन दबाएँ।";haptic();notifyListeners();return;}
@@ -137,18 +140,19 @@ public final class ReaderController {
         busy=true;notifyListeners();
         if(audio!=null&&audio.length>0){
             try{releasePlayer();audioFile=File.createTempFile("voice-",".mp3",context.getCacheDir());try(FileOutputStream out=new FileOutputStream(audioFile)){out.write(audio);}player=new MediaPlayer();player.setAudioAttributes(attributes);player.setDataSource(audioFile.getAbsolutePath());
-                player.setOnPreparedListener(p->{if(!current(id)){releasePlayer();return;}p.setPlaybackParams(p.getPlaybackParams().setSpeed(config.speed()/.85f));p.start();});
+                player.setOnPreparedListener(p->{if(!current(id)){releasePlayer();return;}p.setPlaybackParams(p.getPlaybackParams().setSpeed(config.speed()/baseRate));p.start();});
                 player.setOnCompletionListener(p->{if(current(id)){releasePlayer();abandonFocus();busy=false;status="फिर सुनने के लिए फिर सुनिए दबाएँ।";notifyListeners();}});
                 player.setOnErrorListener((p,w,e)->{if(current(id)){releasePlayer();speak(text,null,id);}return true;});player.prepareAsync();return;
             }catch(Exception ignored){releasePlayer();}
         }
         if(!ttsFinished){pendingSpeech=()->speak(text,null,id);return;}
         if(!ttsReady){abandonFocus();busy=false;status="हिंदी आवाज़ अभी तैयार नहीं है। परिवार की सेटिंग में हिंदी आवाज़ चुनें।";notifyListeners();return;}
+        String pronunciation=HindiSpeech.format(text);
         tts.setSpeechRate(config.speed());int max=Math.min(3500,TextToSpeech.getMaxSpeechInputLength()-1);List<String> chunks=new ArrayList<>();
-        for(int p=0;p<text.length();){int end=Math.min(text.length(),p+max);if(end<text.length()){int space=text.lastIndexOf(' ',end);if(space>p)end=space;}chunks.add(text.substring(p,end));p=end;}
+        for(int p=0;p<pronunciation.length();){int end=Math.min(pronunciation.length(),p+max);if(end<pronunciation.length()){int space=pronunciation.lastIndexOf(' ',end);if(space>p)end=space;}chunks.add(pronunciation.substring(p,end));p=end;}
         speechChunks=chunks.size();for(int i=0;i<chunks.size();i++)if(current(id)){int result=tts.speak(chunks.get(i),i==0?TextToSpeech.QUEUE_FLUSH:TextToSpeech.QUEUE_ADD,null,id+"-"+i);if(result==TextToSpeech.ERROR){abandonFocus();tts.stop();busy=false;status="हिंदी आवाज़ की सेटिंग फिर जाँचें।";notifyListeners();break;}}
     }
-    private void saveLast(){cache.edit().putString("original",original).putString("spoken",lastSpoken).putString("source",lastSource).apply();File file=new File(context.getFilesDir(),"last-reading.mp3");try{if(lastAudio==null)file.delete();else try(FileOutputStream out=new FileOutputStream(file)){out.write(lastAudio);}}catch(Exception ignored){file.delete();}}
+    private void saveLast(){cache.edit().putString("original",original).putString("spoken",lastSpoken).putString("source",lastSource).putFloat("audioBaseRate",lastAudioRate).apply();File file=new File(context.getFilesDir(),"last-reading.mp3");try{if(lastAudio==null)file.delete();else try(FileOutputStream out=new FileOutputStream(file)){out.write(lastAudio);}}catch(Exception ignored){file.delete();}}
     public void forget(){stop();SuniyeApp.document(context).clear();original="";lastSpoken="";lastSource="";lastAudio=null;cache.edit().clear().apply();new File(context.getFilesDir(),"last-reading.mp3").delete();status="पिछला पढ़ना मिटा दिया।";notifyListeners();}
     private void abandonFocus(){if(focus!=null){audio.abandonAudioFocusRequest(focus);focus=null;}}
     private void releasePlayer(){if(player!=null){player.setOnPreparedListener(null);player.setOnCompletionListener(null);player.setOnErrorListener(null);try{player.stop();}catch(Exception ignored){}player.release();player=null;}if(audioFile!=null){audioFile.delete();audioFile=null;}}

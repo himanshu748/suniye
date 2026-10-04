@@ -1,0 +1,12 @@
+{
+  "createdAt": "2026-10-03T11:55:59.860Z",
+  "purpose": "Separate demo introduction, not app output",
+  "text": "सुनिए एक एंड्रॉइड ऐप है। मेरे माता-पिता को छोटी लिखावट पढ़ने में दिक्कत होती है। यह संदेश और बिल हिंदी में पढ़कर सुनाता है।",
+  "characters": 123,
+  "voice": "Raju - Clear, Natural and Warm",
+  "model": "eleven_v4",
+  "httpStatus": 200,
+  "bytes": 76739,
+  "elapsedMs": 7704,
+  "scope": "Existing restricted TTS-only key and account credits, no access expansion"
+}

@@ -1,0 +1,28 @@
+{
+  "checkedAt": "2026-10-03",
+  "artifact": "suniye-demo.mp4",
+  "sha256": "ed09fb6ef38e489530ef04e716e48b92a041a69cbedee0e454b4c5d5d33f76dc",
+  "videoSeconds": 32.866667,
+  "audioSeconds": 32.852,
+  "channels": 2,
+  "sampleRate": 48000,
+  "fullDecode": "pass",
+  "audibleSignalChecks": {
+    "intro": {
+      "startSeconds": 0,
+      "durationSeconds": 9,
+      "meanDb": -22.1
+    },
+    "bill": {
+      "startSeconds": 16.53829411764706,
+      "durationSeconds": 2.5,
+      "meanDb": -20.2
+    },
+    "repeat": {
+      "startSeconds": 25.216,
+      "durationSeconds": 2.5,
+      "meanDb": -20.2
+    }
+  },
+  "limits": "Measured decoded signal, not parent listening or device audibility"
+}

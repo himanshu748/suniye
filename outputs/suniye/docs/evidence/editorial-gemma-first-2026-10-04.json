@@ -1,0 +1,16 @@
+{
+  "testedAt": "2026-10-04T07:15:08.481Z",
+  "method": "Actual local Gemma 3 4B through Fastify/Mastra; synthetic text; no Android playback or speech provider call",
+  "source": "कृपया इस पत्र को पढ़ने के बाद दरवाज़ा बंद करें।",
+  "httpStatus": 200,
+  "elapsedMs": 23019,
+  "result": {
+    "kind": "reading",
+    "originalText": "कृपया इस पत्र को पढ़ने के बाद दरवाज़ा बंद करें।",
+    "spokenText": "यह आसान भाषा में समझाया गया है। कृपया इस पत्र को पढ़ने के बाद दरवाजा बंद करें।",
+    "isExplanation": true,
+    "isDescription": false,
+    "retakeReason": ""
+  },
+  "manualAssessment": "Meaning preserved for this one synthetic invitation: after reading the letter, close the door. Output only removes the nukta from दरवाज़ा; little simplification benefit. Not a general accuracy or phone-playback claim."
+}

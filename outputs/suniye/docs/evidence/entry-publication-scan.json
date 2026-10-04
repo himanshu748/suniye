@@ -1,7 +1,7 @@
 {
-  "checkedAt": "2026-10-03",
+  "checkedAt": "2026-10-04",
   "scope": "All publication snapshot file bytes and all decoded APK members, using installed secret-scan known patterns; no credential values included",
-  "sourceFiles": 111,
+  "sourceFiles": 165,
   "apkMembers": 483,
   "findings": [
     {

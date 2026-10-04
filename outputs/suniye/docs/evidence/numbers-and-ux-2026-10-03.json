@@ -1,0 +1,22 @@
+{
+  "createdAt": "2026-10-03",
+  "apkSha256": "14cfea5f08bf7521effc0a60d8861ed3507a2b0480dcfdb4aa7e342bdc7d424c",
+  "backendTests": {
+    "passed": 87,
+    "failed": 0
+  },
+  "sharedJavaPronunciationCases": 38,
+  "android15FontScale": 1.6,
+  "checks": {
+    "numberUX": "PASS",
+    "inputPicker": "PASS",
+    "stickyStop": "PASS"
+  },
+  "v4NativeReceipt": "android15-raju-v4-native-2026-10-03.json",
+  "nativeRecordedBuildDiffersFromFinal": "Final build additionally fixes spaced currency aliases and restricts model IDs; playback-rate implementation unchanged.",
+  "limits": [
+    "Synthetic emulator checks only",
+    "Actual Redmi, WhatsApp, offline Hindi listening and parent usability pending",
+    "No public backend deployed"
+  ]
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "source": "नमस्ते",
+    "recognized": "नमस्ते",
+    "lowestConfidence": 0.7890625
+  },
+  {
+    "source": "धन्यवाद",
+    "recognized": "धन्यवाद",
+    "lowestConfidence": 0.9190848469734192
+  },
+  {
+    "source": "भारत",
+    "recognized": "भारत",
+    "lowestConfidence": 0.9326171875
+  },
+  {
+    "source": "बिल",
+    "recognized": "बिल",
+    "lowestConfidence": 0.9466145634651184
+  },
+  {
+    "source": "कल शाम",
+    "recognized": "कल शाम",
+    "lowestConfidence": 0.8203125
+  },
+  {
+    "source": "चार बजे आइए।",
+    "recognized": "चार बजे आइए।",
+    "lowestConfidence": 0.8369140625
+  },
+  {
+    "source": "पन्ना दो",
+    "recognized": "पन्ना दो",
+    "lowestConfidence": 0.794921875
+  }
+]

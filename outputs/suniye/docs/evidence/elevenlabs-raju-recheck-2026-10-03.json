@@ -1,0 +1,29 @@
+{
+  "checkedAt": "2026-10-03T09:53:12.008Z",
+  "voice": "Raju - Clear, Natural and Warm",
+  "voiceId": "zT03pEAEi0VHKciJODfn",
+  "languageLabel": "Hindi",
+  "accentLabel": "Standard",
+  "speakerDescription": "Indian speaker, as described in the selected catalogue record",
+  "userListeningPreference": "User preferred sample B (Raju) over sample A on October 3; not parent feedback or an accuracy measurement",
+  "text": "नमस्ते। बिजली का बिल ₹1,250 है। तारीख 02/10/2026 है।",
+  "characters": 52,
+  "httpStatus": 402,
+  "errorCode": "payment_required",
+  "contentType": "application/json",
+  "elapsedMs": 1802,
+  "actualProviderAudio": false,
+  "paidUpgrade": false,
+  "keyScopeUnchanged": true,
+  "model": "eleven_multilingual_v2",
+  "speed": 0.85,
+  "browserSelectionSaved": true,
+  "runtimeEnabled": false,
+  "reason": "Free-tier library API restriction; keep installed Hindi TTS fallback rather than substitute an American or user-rejected voice.",
+  "observedOffer": {
+    "apiPage": "Starter first month $1, taxes not determined; no purchase",
+    "creativePage": "Starter first month INR 88, displayed subsequent monthly price INR 528",
+    "cancellation": "Can cancel at any time; remains active until the end of current billing cycle, then downgrades to Free",
+    "verifiedAt": "2026-10-03"
+  }
+}

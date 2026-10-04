@@ -1,0 +1,56 @@
+{
+  "recordedAt": "2026-10-03T11:26:52.434200Z",
+  "environment": "Android 15 emulator, synthetic input, real backend providers",
+  "input": "बिजली का बिल ₹1,250 है। तारीख 02/10/2026 है।",
+  "events": [
+    {
+      "name": "home",
+      "elapsedMs": 4530
+    },
+    {
+      "name": "share-text",
+      "elapsedMs": 9203
+    },
+    {
+      "name": "reading-complete",
+      "elapsedMs": 22699
+    },
+    {
+      "name": "amount-words",
+      "elapsedMs": 24202
+    },
+    {
+      "name": "slower-replay",
+      "elapsedMs": 27601
+    },
+    {
+      "name": "stopped",
+      "elapsedMs": 30895
+    },
+    {
+      "name": "explain-start",
+      "elapsedMs": 34411
+    },
+    {
+      "name": "explanation-rejected-unfaithful",
+      "elapsedMs": 74780
+    },
+    {
+      "name": "original-replay",
+      "elapsedMs": 79172
+    },
+    {
+      "name": "final-stop",
+      "elapsedMs": 82052
+    }
+  ],
+  "originalPreserved": true,
+  "slowerAndStop": true,
+  "voiceModel": "eleven_v4",
+  "voiceName": "Raju - Clear, Natural and Warm",
+  "audioBaseRate": 1,
+  "slowPlaybackRate": 0.7,
+  "audioCapture": "Provider MP3 captured separately; screenrecord does not record device audio",
+  "screenRecordingOffsetSeconds": 0.71,
+  "recordedApkSha256": "892a6fcf2190590a937247d951966aaaaa97626749d53300f9bdf5cb90bcc8c0"
+}

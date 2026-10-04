@@ -1,0 +1,19 @@
+{
+  "observedAt": "2026-10-03",
+  "offerSource": "https://hacktoberfest.com/my/promos",
+  "advertisedOffer": "Three free months of ElevenLabs Creator, no credit card required; one code per account",
+  "redemptionDialog": "Creator free for 1 months at checkout",
+  "activation": "User completed activation directly",
+  "currentPlan": "Creator",
+  "renewal": "Cancelled; ends November 3",
+  "autoTopUp": "Off",
+  "latestInvoice": {
+    "date": "October 3",
+    "status": "Paid",
+    "amountUSD": 0
+  },
+  "creditAllowanceObserved": 129719,
+  "remainingAfterInitialRajuChecks": 129653,
+  "assessment": "Zero-dollar invoice and current access confirmed. Three full months not established by the observed cancellation date. No paid upgrade performed by this agent.",
+  "privacy": "Coupon value, invoice identifiers, billing links and account details excluded"
+}

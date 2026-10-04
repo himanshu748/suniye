@@ -1,0 +1,22 @@
+{
+  "recordedAt": "2026-10-03T13:02:28.902Z",
+  "scope": "Synthetic bill only; real provider calls, no credentials or private material",
+  "calls": [
+    {
+      "service": "ElevenLabs",
+      "httpStatus": 200,
+      "elapsedMs": 2475,
+      "voiceId": "zT03pEAEi0VHKciJODfn",
+      "ttsInput": "बिजली का बिल एक हज़ार दो सौ पचास रुपये है।"
+    }
+  ],
+  "recordings": [
+    {
+      "file": "speech-1.mp3",
+      "text": "बिजली का बिल ₹1,250 है।",
+      "audioBaseRate": 1,
+      "bytes": 26166,
+      "receivedAt": "2026-10-03T13:02:28.881Z"
+    }
+  ]
+}

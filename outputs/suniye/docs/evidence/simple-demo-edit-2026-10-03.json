@@ -1,0 +1,11 @@
+{
+  "createdAt": "2026-10-03",
+  "seconds": 32.866667,
+  "introSeconds": 10.5,
+  "nativePlaybackSpeed": "normal; no waits cut",
+  "task": "One bill, Hindi reading, cached Repeat and Stop",
+  "voiceRecognitionStaged": false,
+  "audio": "Raju v4 purpose narration plus fresh bill MP3 mixed separately at observed .85 speed; approximate event alignment; not device microphone capture",
+  "nativeReceipt": "simple-native-2026-10-03.json",
+  "scope": "Android 15 emulator; synthetic bill; no parent/Redmi/WhatsApp claim"
+}

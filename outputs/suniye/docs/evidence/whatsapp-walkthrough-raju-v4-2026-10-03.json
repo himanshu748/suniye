@@ -1,0 +1,11 @@
+{
+  "createdAt": "2026-10-03T13:24:29.480Z",
+  "purpose": "Separate Hindi narration for Suniye WhatsApp help walkthrough; not WhatsApp runtime proof",
+  "text": "व्हाट्सऐप में संदेश खोलिए। हरा सुनिए बटन दबाइए। फ़ोटो या पीडीएफ के लिए शेयर दबाइए और सुनिए चुनिए।",
+  "characters": 97,
+  "voice": "Raju - Clear, Natural and Warm",
+  "model": "eleven_v4",
+  "httpStatus": 200,
+  "bytes": 63991,
+  "scope": "Existing restricted key and credits; no broader access"
+}

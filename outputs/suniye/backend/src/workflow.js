@@ -27,7 +27,7 @@ export function makeReadingWorkflow(model, speech, trace = (_name, fn) => fn()) 
       if(signal?.aborted)throw new PublicError('CANCELLED','पढ़ना रोक दिया गया।',499);
       const audioBase64=request.wantAudio?await trace('suniye.narrate',()=>speech.narrate(spokenText,signal)):undefined;
       if(signal?.aborted)throw new PublicError('CANCELLED','पढ़ना रोक दिया गया।',499);
-      return {kind:'reading',originalText:source.originalText,spokenText,isExplanation,isDescription,retakeReason:'',...(audioBase64?{audioBase64}:{})};
+      return {kind:'reading',originalText:source.originalText,spokenText,isExplanation,isDescription,retakeReason:'',...(audioBase64?{audioBase64,audioBaseRate:speech.baseRate??.85}:{})};
     })});
   const workflow=createWorkflow({id:'hindi-reading',inputSchema:readInput,outputSchema:reading,options:{shouldPersistSnapshot:()=>false}}).then(extract).then(speak).commit();
   workflow.__setLogger(noopLogger);

@@ -1,20 +1,25 @@
-# Recorded demo, October 3
+# A simpler Suniye demo
 
-The actual 79.5-second video is `releases/suniye-demo.mp4`. Publish under the title **Suniye Android pilot | Voice: elevenlabs.io**. It contains no private family material, credentials or account screens.
+The current film is 32.9 seconds and shows one task: a synthetic electricity bill enters through Android Share, Raju reads ₹1,250 as “एक हज़ार दो सौ पचास रुपये,” Repeat plays the saved reading and Stop cancels it. A 10.5-second opening explains the parents’ small-print problem in Hindi. The phone occupies most of the portrait frame; captions are short. There are no model explanations, date parsing or sponsor panels in this film.
 
-- 0:00–0:31.5: three actual Android 15 screenshots at font scale 1.6, with an English overview generated through ElevenLabs. These are identified as screenshots before the recorded demonstration.
-- 0:31.5–0:38.3: actual Android 15 recording starts. A debug-only driver launches the real app and sends an Android Share intent containing the synthetic bill.
-- 0:38.3–0:48.5: the real backend returns Hindi ElevenLabs audio; Android MediaPlayer finishes the reading. The bill's saved amount and date remain unchanged.
-- 0:48.5–0:55: Slow replays the cached original at 0.7 instead of the 0.85 base rate, then Stop cancels it.
-- 0:55–1:02: a real local Gemma call changes the numeric date to a written month and adds a duplicate currency word. The conservative guard rejects that explanation. This is not proof of an incorrect calendar date, and the rejection is retained in the film.
-- 1:02–1:11.5: Repeat replays the original, then Stop cancels it again. No late or refused explanation replaces the saved original.
+The recorded APK contains the new fixed बोलिए and रोकिए controls and puts the original text above replay controls. This film does not stage microphone recognition. Actual ASR on the parents’ Redmi A4 phones remains unverified. [Voice callback checks](evidence/voice-controls-2026-10-03.json) are separate evidence.
 
-All native video runs at normal speed; the model wait in this recording is about three seconds. Other cold-model tests were slower. The provider audio was captured separately by a local synthetic-only wrapper and aligned approximately to the visible playback phases. The English overview is separate narration. Android screenrecord contains no device sound, so the mix is not a microphone recording or proof of real-phone pronunciation. Existing Android 11/15 camera, photo/PDF and late cancellation evidence is linked in the entry report; those paths are not acted out in this video.
+A fresh ElevenLabs v4 request used Raju - Clear, Natural and Warm and returned HTTP 200 in 2,475 ms. Android played it and cached it with base rate 1. Repeat’s actual MediaPlayer rate was .85; Stop ended it. No Gemma generation was needed for this already supplied text. [Native receipt](evidence/simple-native-2026-10-03.json) identifies the recorded APK; [provider receipt](evidence/simple-providers-2026-10-03.json) records the synthetic speech input.
 
-Receipts: `evidence/entry-demo-receipt-2026-10-03.json`, `evidence/entry-demo-providers-2026-10-03.json`, `evidence/entry-narration-receipt.json`. Raw recording and runtime wrapper stay in the ignored local work folder. The reusable debug driver is in `android/app/src/debug/java/in/suniye/app/EntryDemo.java`; release source sets exclude it.
+The native flow runs at normal speed, with no waits cut. Android screenrecord does not capture device sound, so the actual provider MP3 is mixed separately at .85 speed and approximately aligned with the instrumentation events. The intro reuses the separately generated Raju purpose narration. Video and full stereo PCM are rendered separately and then muxed. Full decoding and non-silent intro, bill and Repeat segments passed; [audio check](evidence/demo-audio-check-2026-10-03.json) records the measured levels. This is not physical-phone audibility or parent feedback.
 
-The family handover, offline Hindi listening test, real WhatsApp overlay and Redmi camera focus remain pending. The film is a pilot demonstration and contains no parent feedback.
+Older native v4 Slow/Stop/Repeat and Gemma refusal receipts remain dated supplementary evidence. The older 60.2-second edit receipt describes that previous film; it does not describe the current release file. [Current edit receipt](evidence/simple-demo-edit-2026-10-03.json).
 
-The final eight seconds show the actual October 2 successful Gemma/Mastra backend receipt, which kept the numeric amount and date. This section is labeled as a separate saved receipt, not recorded Android playback. Slow/Repeat audio was time-stretched by 0.7/0.85 to match the app setting.
+Family-phone installation, offline Hindi listening, real WhatsApp, Redmi camera focus and parent usability remain pending. No family handover is claimed. API calls use plan credits; the free v4 web/mobile promotion excludes API.
 
-Hindi caption correction: the initial generated receipt card lacked Devanagari shaping and misplaced the vowel mark in बिल. The final export uses native Core Text shaping, inspected for बिल, तारीख, समझाया and the rupee symbol. Android screenshots retain their original native rendering.
+## Image, PDF and WhatsApp walkthrough
+
+The companion film shows a synthetic image entering through Android Share and being read as नमस्ते, then a two-page PDF: बिल on page 1 and धन्यवाद on page 2. Actual Hindi provider audio is mixed separately at the observed playback rate. Native OCR, page count, page change and playback completion passed on Android 11. [Recording receipt](evidence/media-native-2026-10-03.json).
+
+The WhatsApp portion shows the app’s help screen with separately generated Hindi instructions. It explains the green सुनिए button for messages and Share → Suniye for photos and PDFs. The footer labels this a setup walkthrough with real WhatsApp testing pending. [Edit and audio checks](evidence/media-demo-edit-2026-10-03.json).
+
+## Combined judge walkthrough, October 4
+
+The combined film opens with the bill and Hindi purpose narration, then shows each exact PNG/PDF source before its recorded reading. Three source previews add nine seconds; the native recordings run at normal speed. A final eight-second slide displays a fresh Gemma/Mastra backend receipt, with an English gloss. That slide is a saved synthetic result, not Android playback.
+
+The two original APK hashes remain in their native receipts. The released APK matches the later image/PDF recording; production app code did not change during this edit. This export adds no staged microphone recognition or real WhatsApp test. [Combined edit checks](evidence/judge-demo-edit-2026-10-04.json).

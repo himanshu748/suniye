@@ -62,3 +62,37 @@ Implementation update: fixed Stop footer on reading/camera screens; public model
 Release hashes and packaging checks are in releases/manifest.json. Secret checks cover exact configured credentials and private-key markers in source and decoded APK contents; third-party binaries/model weights and private agent history are excluded.
 
 Emulator environment: a System UI ANR covered early local screenshots. Those images were replaced after recovery. The final harness rejects a foreign foreground window, checks actual scroll movement and camera input focus, and waits for rendered Stop pixels. It uses synthetic source material and a test backend. This does not establish phone speech or parent usability.
+
+
+## Hindi number and v4 final checks, October 3
+
+The current build passed 87 backend tests and 38 shared pure Java pronunciation cases. Final Android 15 instrumentation at font scale 1.6 passed the purpose/amount/help screen and input picker, including selected image/PDF OCR, malformed shares, cancelled pickers and visible setup. The fixed Stop scroll check passed. A real Raju v4 native run verified online playback, cache base rate 1, actual Slow/Repeat rate .7 and Stop. Gemma’s separate explanation was refused and did not replace the original. The recorded APK and final package are identified separately: the latter also fixes spaced currency-alias signs and restricts supported voice model IDs. [Final receipt](evidence/numbers-and-ux-2026-10-03.json).
+
+The 60.2-second replacement film uses Raju v4 and opens with the audience/task. It cuts and labels 32.369 seconds of model waiting. The provider MP3 is mixed separately, not device sound capture. Physical Redmi, actual WhatsApp, offline Hindi listening and parent usability remain unverified. No public deployment or submission is claimed.
+
+
+Demo export correction: the earlier MP4 had silent/truncated audio despite the native app playback passing. The corrected export muxes a complete stereo track separately, adds Raju Hindi TTS at the opening, and simplifies captions. Decoded sound levels passed for intro, bill, Slow and Repeat; full decoding passed. This is a media correction, with no APK/code changes. [Audio receipt](evidence/demo-audio-check-2026-10-03.json).
+
+## Spoken controls and simpler film, October 3
+
+The updated APK built and its debug v2 signature verified. Exact voice parsing passed 33 cases, including both nukta forms, negation and embedded-command rejection. Android 15 at font 1.6 passed real UI/action routing with synthetic recognizer callbacks: caregiver opt-in, fixed Stop/Speak, hi-IN bounded request, unknown recovery, Repeat/Slow/Stop, late callback/dismissal cleanup, spoken permission errors and one standard-service fallback when the device engine lacks Hindi. Camera capture and image/PDF input checks passed with the new footer. Actual microphone recognition, Redmi language models and the first camera permission interaction remain unverified. [Voice receipt](evidence/voice-controls-2026-10-03.json).
+
+The replacement 32.9-second portrait film shows one bill with Hindi purpose narration, fresh Raju v4 bill audio, cached Repeat and Stop. It uses the updated APK. There is no staged voice recognition or model explanation. The actual provider MP3 is mixed separately; no native waits are cut. Full audio duration, decoded levels for intro/bill/Repeat and full decoding passed. [Current recording notes](demo-script.md).
+
+The same packaged APK also passed Android 11 voice callbacks and sticky Stop at font 1.6. On-device language fallback is an Android 12+ branch exercised on Android 15; Android 11 uses the standard-service path. Microphone permission was pre-granted in the synthetic callback tests, so they do not establish the physical permission dialog or microphone recognition.
+
+## Image/PDF Share walkthrough, October 3
+
+Android 11 at font scale 1.3 passed synthetic ACTION_SEND image/PDF intents with actual MediaStore content URIs. The image recognized नमस्ते; PDF page 1 recognized बिल and page 2 recognized धन्यवाद. Three real Raju v4 requests returned HTTP 200, and Android playback completed with cached audio base rate 1. PDF count, next-page index and Stop passed. The test harness drives native controls. [Native receipt](evidence/media-native-2026-10-03.json), [provider calls](evidence/media-providers-2026-10-03.json).
+
+This demonstrates the receiver used by Android Share. No real WhatsApp sender, share chooser, Redmi installation or parent success is inferred. The film’s WhatsApp section shows Suniye’s own instructions: after caregiver setup, open a message and tap the green सुनिए control; for photos/PDFs, open the item, Share and choose Suniye.
+
+The initial PDF invitation triggered low-confidence recovery. A rendering probe measured कल शाम at .8203 and चार बजे आइए। at .8369, below the unchanged .85 guard. बिल and धन्यवाद passed at .9466 and .9191. The film uses these simpler fixtures; it is not an OCR accuracy benchmark. [Probe](evidence/media-pdf-ocr-probe-2026-10-03.json).
+
+A separate attempt to record the actual file picker did not pass. Android 15 runs encountered System UI/Digital Wellbeing ANRs and a focus timeout; Android 11 selection automation did not reliably return to Suniye. One Android 11 image-picker reading completed, but the combined picker recording remained incomplete. Earlier picker tests supplied synthetic URI results and must not be treated as full chooser navigation.
+
+## Submission revision, October 4
+
+Two actual local Gemma checks ran through the current Fastify/Mastra backend without a speech provider. The first preserved the instruction but barely simplified it, taking 23,019 ms. The second turned प्रवेश से पूर्व अपने जूते उतारना अनिवार्य है। into प्रवेश करने से पहले अपने जूते निकालें।, preserving the remove-shoes-before-entering instruction in a warm 2,660 ms call. Both are single synthetic cases with manually compared meanings; no accuracy rate, phone latency or Android playback is claimed. [First check](evidence/editorial-gemma-first-2026-10-04.json), [Second check](evidence/editorial-gemma-2026-10-04.json).
+
+The revised film combines the existing bill and media recordings with exact source previews and a separate saved Gemma result. No production Android/backend code changed for the article/video revision.

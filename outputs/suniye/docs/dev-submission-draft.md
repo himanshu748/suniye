@@ -4,76 +4,78 @@ published: false
 tags: devchallenge, weekendchallenge, hf26challenge
 ---
 
-*Prepared for the [Hacktoberfest Weekend Challenge: Build for a Friend](https://dev.to/challenges/hacktoberfest-weekend-2026-10-01). Publication is pending the public demo and source links.*
+*Built for the [Hacktoberfest Weekend Challenge: Build for a Friend](https://dev.to/challenges/hacktoberfest-weekend-2026-10-01).*
 
 ## What I Built
 
 My mother and father ask me to read WhatsApp messages, pictures, labels and documents. Both have weak eyesight and use Redmi A4 phones. I am in another city right now, so that request can mean waiting for me to be available.
 
-I built Suniye, or सुनिए, an Android reading aid with large Hindi buttons. They can listen, stop, listen again or slow the voice down. A separate button asks for an explanation in simpler Hindi. The pilot supports Android 11 and later.
+I built Suniye, or सुनिए, an Android reading aid for those moments. It reads small print aloud in Hindi and keeps the controls large: रोकिए to stop, फिर सुनिए to hear it again, धीरे सुनिए to slow down. The pilot supports Android 11 and later.
 
-The interface follows the tasks they already ask me to do. कागज़ पढ़िए opens the camera, फ़ोटो पढ़िए selects a photo and फ़ाइल पढ़िए opens a PDF. Shared text, images and PDFs can enter through Android's Share or Open actions. The intended WhatsApp route adds a floating सुनिए control after caregiver setup, so they can read from the message they have open.
+Reading an amount aloud took more care than sending the printed text to a voice API. `₹1,250` now becomes “एक हज़ार दो सौ पचास रुपये” in the speech input. The original stays visible, with a separate amount hint. Dates keep their written field order.
 
-रोकिए stays below the scrolling content. It remains reachable when a document is long, the font is enlarged or the model is still working. Repeat and Slow appear after a reading exists. Provider settings stay on a separate caregiver screen.
+The daily screen follows the things they already ask me to do. कागज़ पढ़िए opens the camera, फ़ोटो पढ़िए selects a photo, and फ़ाइल पढ़िए opens a PDF. Android Share accepts text, images and PDFs. A floating सुनिए control is the intended WhatsApp route after caregiver setup.
 
-I have tested synthetic material on Android 11 and Android 15 emulators, including enlarged fonts and dark mode. I have not put this build on my parents' phones or collected their feedback. The WhatsApp overlay checks used a synthetic app window; real WhatsApp and Redmi firmware behavior remain unverified.
+रोकिए stays below the scrolling content, so a long document or enlarged font cannot push it away. Provider settings and optional tap-to-speak commands live behind caregiver setup; Redmi speech recognition remains untested.
+
+I have tested synthetic material on Android emulators. I have not handed the app to my parents or collected their feedback. Real WhatsApp, Redmi firmware and offline Hindi listening remain unverified.
 
 ## Demo
 
-**Recorded demo (voice: elevenlabs.io):** [PUBLIC_DEMO_URL]
+[Watch the complete walkthrough](https://github.com/himanshu748/suniye/releases/download/v0.1.0-pilot/suniye-demo-judge.mp4) · [Download the pilot APK](https://github.com/himanshu748/suniye/releases/download/v0.1.0-pilot/suniye-debug.apk)
 
-The recording shows a real Android app receiving a synthetic electricity bill. The caregiver-enabled online voice returns Hindi ElevenLabs audio through the backend, and the app plays it. Slow starts a slower replay; Stop cancels it.
+The film opens with the problem in Hindi, then shows a bill read as Hindi amount words, Repeat and Stop. It shows the exact image and PDF source files before their recognized text: नमस्ते from an image, बिल from PDF page 1 and धन्यवाद from page 2. The WhatsApp section is labelled as a setup walkthrough.
 
-Gemma then attempts a separate explanation. It changes `02/10/2026` into a written month format and adds a duplicate currency word, so the conservative guard rejects the result. Neither change proves an incorrect calendar date or amount. The original bill remains available through Repeat. This is a recorded refusal, not a successful explanation substituted into the video. A [separate dated live test](evidence/gemma-explanation-final.json) produced a Hindi explanation that preserved the amount and date.
+These are synthetic Android Share inputs using real content URIs, bundled OCR and live Raju v4 audio. Android screenrecord did not capture device sound, so I mixed the provider MP3s separately at the observed playback rate. Source previews are inserted stills; native waiting remains in the film. [Recording notes](https://github.com/himanshu748/suniye/blob/v0.1.0-pilot/outputs/suniye/docs/demo-script.md).
 
-The video identifies the emulator and synthetic inputs. Its audio combines English narration and the actual Hindi API MP3 captured separately; Android's screen recorder did not capture device sound. The Slow and Repeat segments use the same API MP3 time-stretched to match the app's selected rate. The [native receipt](evidence/entry-demo-receipt-2026-10-03.json) identifies the recorded debug APK by SHA-256. ElevenLabs attribution: [elevenlabs.io](https://elevenlabs.io).
-
-[Evidence and limitations](evidence/entry-readiness-2026-10-03.md) include input, camera, PDF, large-font and cancellation checks. Hearing Hindi on the parents' phones and checking spoken amounts still require a real device.
+For WhatsApp messages, the intended steps are: open the message, then tap the green सुनिए control. For a photo or PDF, open the item, choose Share, then Suniye. Real WhatsApp testing remains pending.
 
 ## Code
 
-**Source:** [PUBLIC_REPOSITORY_URL]
+[Source repository](https://github.com/himanshu748/suniye) · [Tests and limitations](https://github.com/himanshu748/suniye/blob/v0.1.0-pilot/outputs/suniye/docs/verification.md)
 
-Suniye's source is MIT licensed. The repository includes Android source, the Node backend, tests, caregiver instructions and dated evidence. The downloadable pilot APK is a debug build with synthetic fixtures and instrumentation. The APK and recorded demo are separate release downloads; production source sets exclude the debug harness. Provider keys, model weights, private chat history and family messages are excluded.
-
-I began this project's scaffold during the challenge on October 2. Gemma, Android tools and the dependencies existed before it; I did not train Gemma or write Google's OCR SDK. [Third-party notes](third-party.md) describe those boundaries.
+I began the scaffold on October 2 during the challenge. Code is MIT licensed. The debug APK includes synthetic fixtures; production source excludes them. Provider keys and family messages stay out of the repository. [Third-party notes](https://github.com/himanshu748/suniye/blob/v0.1.0-pilot/outputs/suniye/docs/third-party.md).
 
 ## How I Built It
 
-Android reads accessible text or runs bundled Devanagari and Latin OCR on images. An installed offline Hindi voice can read the original without a backend. The app also offers caregiver-enabled online speech. It keeps the last reading privately on the phone for Repeat, with a control to delete it.
+The phone first reads accessible text or runs bundled Devanagari and Latin OCR. If OCR finds text, the image stays on the phone. Online speech sends the text through the backend to ElevenLabs. If OCR finds no text, an online description sends the image to the backend and its model. An installed offline Hindi voice can read the original without a backend; Redmi listening remains untested.
 
-For explanations and non-text picture descriptions, Gemma 3 4B runs through Ollama on my laptop. Mastra runs the backend's extraction, validation, explanation and optional speech stages. The phone sends a request only for a deliberate reading action. Provider keys stay on the backend. The family access token is encrypted on the phone.
+Mastra runs the online reading workflow. Two stages check the source, prepare an original reading or Gemma explanation, and optionally request speech. Each run has its own cancellation signal. Stop invalidates the phone's operation, cancels the request and discards late callbacks. A deliberately delayed-response test confirmed that reading did not restart after Stop.
 
-An early synthetic bill exposed errors in both generative OCR and bundled OCR. Gemma changed a word and took about 56 seconds. Bundled OCR misread the dense fixture with a lowest confidence of 0.72. I made OCR run first and ask for a clearer crop below 0.85. A larger नमस्ते fixture read correctly at 0.93. The threshold is a retake heuristic; these samples do not establish accuracy across handwriting or labels.
+Gemma 3 4B runs locally through Ollama for explanations and non-text picture descriptions. In a fresh backend check, “प्रवेश से पूर्व अपने जूते उतारना अनिवार्य है।” became “प्रवेश करने से पहले अपने जूते निकालें।” Both tell the reader to remove their shoes before entering. The warm model returned this meaning-preserving instruction through Mastra in 2.66 seconds. The film includes the saved reply, labelled as a separate backend check. [Receipt](https://github.com/himanshu748/suniye/blob/v0.1.0-pilot/outputs/suniye/docs/evidence/editorial-gemma-2026-10-04.json).
 
-Gemma cannot supply guessed image text when OCR finds none. Its picture descriptions still need work: one test described a square as a rectangle, and earlier calls retook or timed out. Explanations can also add context. The numeric and negation checks catch some changes, but they do not prove that every explanation preserves meaning. The app keeps original reading separate, and important amounts, dates and medicine labels still need someone to check them.
+Other samples changed a date or replaced “attach” with “submit”. The quantity/negation guard caught some changes and missed others. Explanations remain experimental and separate from the original. [Model results](https://github.com/himanshu748/suniye/blob/v0.1.0-pilot/outputs/suniye/docs/model-evaluation.md).
 
-Stop invalidates the operation, cancels work and discards late callbacks. A deliberately delayed backend test confirmed that a response arriving after Stop did not resume playback. PDF loading and the selected page also survive activity recreation; deleting the reading removes its cached PDF.
+OCR also failed on a dense bill. I added a retake below .85 confidence. The PDF invitation used in an early recording triggered that guard, so the final demonstration uses simpler text. This is a recovery heuristic, not an accuracy guarantee. Important amounts, dates and medicine labels still need a family member's check.
 
-Claude reviewed the PRD, spec and selected implementation files through the desktop Code view. I fixed the issues it identified, including malformed shares, raw setup errors and unchecked links in a generated caregiver guide. Its source review and my runtime checks are recorded separately. The backend has 44 passing tests; injected provider tests are identified separately from live calls.
+I selected Raju after listening to two Hindi samples. Its catalogue labels it Hindi with an Indian accent. Real Eleven v4 API audio played in Android, including the Hindi amount, cached Repeat and Stop. The [evidence ledger](https://github.com/himanshu748/suniye/blob/v0.1.0-pilot/outputs/suniye/docs/verification.md) contains 87 backend tests, pronunciation checks and dated runtime results.
+
+Claude reviewed the PRD, spec and selected source. I fixed its findings and ran separate runtime checks. Source review helped find issues; it did not establish how the app feels to my parents.
 
 ## Why Does Open Innovation Matter?
 
-Local Gemma lets me inspect a failure on synthetic Hindi material, change the prompt and run the same case again. Mastra's source and tests make the reading stages inspectable. Another builder can change those stages or remove an optional provider without rebuilding the idea from scratch.
+I can inspect Mastra's workflow, change its stages and test cancellation without handing the reading policy to a closed agent. The model and speech providers are separate modules. Both can be replaced without changing the Android controls.
 
-The model's roughly 3.3 GB weights stay on the laptop; the debug APK is about 51 MB. Remote phones need a reachable authenticated HTTPS backend for explanations and descriptions. Local development inference does not make those features offline on a phone.
+Local Gemma lets me repeat a failure on synthetic Hindi material and inspect the response. Gemma runs on my laptop, not inside the APK. Remote phones need an authenticated HTTPS backend for explanations and descriptions. The open workflow is running in the online reading demo; the original-reading path does not need a generative rewrite.
 
-Suniye's code is open source. Gemma weights use separate Gemma terms, and Google's bundled OCR is proprietary. I disclose those dependencies because someone trying to reuse the app needs to know what they can change and distribute.
+Gemma weights have their own terms, and Google's OCR SDK is proprietary. I disclose both because another builder needs to know what they can reuse.
+
+While preparing this write-up, I read [Samajh](https://dev.to/adityaanenenu5/samajh-a-reader-for-the-letters-my-mother-couldnt-read-2emg) by [adityaanenenu5](https://dev.to/adityaanenenu5), which focuses on document explanations tied to source quotes, and [ReadAloud](https://dev.to/yramstech/i-find-reading-hard-so-i-built-a-text-to-speech-reader-for-android-heres-how-31ci) by [yramstech](https://dev.to/yramstech), which focuses on following spoken words. My focus here is my parents' small-print problem, Hindi amounts and reachable Android controls.
 
 ## My Agent Session
 
-I used Entire to import the development session locally and recover my instruction that the UI needed to work specifically for my parents. That explains the large Hindi controls and separate caregiver setup. Another checkpoint recovered the request to use multiple fitting sponsors. [The curated provenance note](build-provenance.md) connects those instructions to the code. Full private transcripts remain private.
+I used Entire to import the development session locally. A checkpoint lookup recovered my instruction: “they ask me to do it so ux and ui needs to be specifically for them”. That explains the large Hindi controls and separate caregiver setup. [Curated provenance](https://github.com/himanshu748/suniye/blob/v0.1.0-pilot/outputs/suniye/docs/build-provenance.md) connects those instructions to the code; full private transcripts remain private.
 
 ## Prize Categories
 
-I am entering the Gemma, Mastra, ElevenLabs, Entire and SerpApi categories, with the following evidence and limits:
+I am entering five categories with these evidence boundaries:
 
-- **Gemma:** local Gemma 3 4B explanation and picture trials, including successful output and recorded failures.
-- **Mastra:** the reading workflow used by the live backend and Android demo, with cancellation and validation checks.
-- **ElevenLabs:** actual Hindi API audio in the app plus demo narration. Phone pronunciation and listening comfort remain untested.
-- **Entire:** imported development checkpoints and actual lookups used to explain interface decisions.
-- **SerpApi:** October 2 searches supplied two official Google help articles for a Gemma caregiver summary. October 3 searches produced no approved articles, and the guide refused to generate. It is a dated development use, not a claim that current Redmi setup instructions work.
+- **ElevenLabs:** Raju v4 Hindi API audio played by Android and used in the film. Attribution: [elevenlabs.io](https://elevenlabs.io).
+- **Mastra:** the online reading workflow, validation and cancellation checks.
+- **Gemma:** local explanation and picture trials, with dated successes and unresolved failures.
+- **Entire:** imported checkpoint lookups explaining interface decisions.
+- **SerpApi:** searches supplied two official Google Android help articles for a Gemma caregiver summary on October 2. The next day's search returned no approved articles and stopped generation. This is dated development use.
 
-Atlas preference sync, Sentry tracing, a Backboard comparison runner and a Render blueprint are implemented or prepared, but their live application checks are incomplete. I am not entering those categories on the strength of an SDK, account or configuration file.
+Atlas, Sentry, Backboard and Render lack complete live application evidence, so I am leaving those categories out. [Sponsor ledger](https://github.com/himanshu748/suniye/blob/v0.1.0-pilot/outputs/suniye/docs/sponsor-tracks.md).
 
-The next family check is concrete: have each parent open one message, read one paper, stop and replay the reading without my help. I can record those results once the app reaches their phones.
+My next check is to have each parent open a message, read a paper, stop and replay without my help. Those results still need to be collected.

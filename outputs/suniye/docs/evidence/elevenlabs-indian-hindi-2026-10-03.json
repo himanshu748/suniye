@@ -1,0 +1,35 @@
+{
+  "recordedAt": "2026-10-03T09:37:23.127Z",
+  "voice": {
+    "name": "Suniye Hindi — Indian",
+    "voiceId": "asCmJTmthKs0PMrHVNid",
+    "category": "generated",
+    "languageLabel": "Hindi",
+    "accentLabel": "Standard",
+    "design": "Synthetic warm Indian woman; North Indian native Hindi pronunciation; calm and unhurried. No real person cloned.",
+    "accentVerification": "User rejected the accent or pronunciation after listening; do not select this voice/model combination for runtime."
+  },
+  "scope": "Actual production speechProvider call; synthetic text only; no family messages.",
+  "httpStatus": 200,
+  "contentType": "audio/mpeg",
+  "elapsedMs": 5653,
+  "text": "नमस्ते। मैं सुनिए हूँ। बिजली का बिल ₹1,250 है। तारीख 02/10/2026 है। फिर सुनने के लिए फिर सुनिए दबाएँ।",
+  "characters": 101,
+  "request": {
+    "model": "eleven_multilingual_v2",
+    "language": "hi",
+    "speed": 0.85
+  },
+  "success": true,
+  "paidUpgrade": false,
+  "credentialScopeUnchanged": true,
+  "replaces": "Roger preset; prior Roger receipts remain historical",
+  "bytes": 107459,
+  "sha256": "3df378f90186dc6f2b18273650c2545118a2fb7dc911aee2412869d4c4a80074",
+  "selectedForRuntime": false,
+  "previousVoiceVerifiedAccent": "Roger: American, observed in signed-in My Voices catalogue on October 3.",
+  "voiceDesignPreviewCharacters": 204,
+  "voiceDesignGenerationCount": 1,
+  "savedVoiceCount": 1,
+  "defaultRuntimeVoice": "Installed offline Hindi TTS; optional online voice currently disabled until approved."
+}

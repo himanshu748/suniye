@@ -1,3 +1,4 @@
+import { hindiSpeech } from './hindi-speech.js';
 import { PublicError, parseExtraction } from './contracts.js';
 import { traceModel, recordModelUsage } from './telemetry.js';
 
@@ -80,14 +81,20 @@ export function modelProvider(env = process.env, fetcher = fetch) {
 }
 
 export function speechProvider(env = process.env, fetcher = fetch) {
-  const configured = Boolean(env.ELEVENLABS_API_KEY && env.ELEVENLABS_VOICE_ID);
-  return { configured, narrate: async (text,signal) => {
+  const model=env.ELEVENLABS_MODEL_ID || 'eleven_multilingual_v2';
+  const configured=Boolean(env.ELEVENLABS_API_KEY && env.ELEVENLABS_VOICE_ID && ['eleven_multilingual_v2','eleven_v4','eleven_v4_turbo'].includes(model));
+  const v4=/^eleven_v4(?:_turbo)?$/.test(model);
+  const baseRate=v4?1:.85;
+  const voiceSettings=v4?{stability:.5,similarity_boost:.75}:{stability:.75,similarity_boost:.75,speed:.85};
+  return { configured, baseRate, narrate: async (text,signal) => {
     if (!configured) return undefined;
+    const pronunciation=hindiSpeech(text);
+    if(pronunciation.length>10000)return undefined;
     const combined = signal ? AbortSignal.any([signal,AbortSignal.timeout(20000)]) : AbortSignal.timeout(20000);
     try {
       const response = await fetcher(`https://api.elevenlabs.io/v1/text-to-speech/${encodeURIComponent(env.ELEVENLABS_VOICE_ID)}?output_format=mp3_44100_64`, {
         method:'POST', signal:combined, headers:{'xi-api-key':env.ELEVENLABS_API_KEY,'content-type':'application/json'},
-        body:JSON.stringify({text,model_id:env.ELEVENLABS_MODEL_ID || 'eleven_multilingual_v2',language_code:'hi',voice_settings:{stability:0.75,similarity_boost:0.75,speed:0.85}}),
+        body:JSON.stringify({text:pronunciation,model_id:model,language_code:'hi',voice_settings:voiceSettings}),
       });
       if (!response.ok || !response.headers.get('content-type')?.startsWith('audio/')){await response.body?.cancel().catch(()=>{});return undefined;}
       // Bounded reads protect the backend from an oversized provider response.

@@ -1,0 +1,53 @@
+{
+  "createdAt": "2026-10-04",
+  "file": "suniye-demo-judge.mp4",
+  "seconds": 82.243,
+  "sha256": "6d6f9706da0643b08b894bf9d603b61b03ca04110c1ac1751358522dd52b17dc",
+  "sourceRecordings": [
+    "simple-native-2026-10-03.json",
+    "media-native-2026-10-03.json"
+  ],
+  "editing": "Combined previous bill and media recordings at normal speed; inserted three 3-second source cards rendered from the exact supplied PNG and PDF; no native waiting removed. Existing provider audio remains separately mixed. Two original recorded APK hashes remain in their receipts; no new native run or voice recognition claimed. Appended an 8-second native-shaped Hindi slide from editorial-gemma-2026-10-04.json with an English gloss; separate warm local backend result, no phone playback. Final editorial pass labels the saved backend slide in Hindi as not phone playback.",
+  "checks": {
+    "fullDecode": "pass",
+    "completeStereoAudio": "pass",
+    "audioSeconds": 82.243,
+    "videoSeconds": 82.233333,
+    "mediaSignalLevels": {
+      "image": {
+        "startSeconds": 39.597,
+        "meanDb": -25.5
+      },
+      "pdf-page-one": {
+        "startSeconds": 48.496,
+        "meanDb": -21.8
+      },
+      "pdf-page-two": {
+        "startSeconds": 57.061,
+        "meanDb": -23.5
+      },
+      "whatsapp-narration": {
+        "startSeconds": 61.103,
+        "meanDb": -18.2
+      }
+    },
+    "openingSignalLevels": {
+      "intro": {
+        "startSeconds": 0,
+        "durationSeconds": 9,
+        "meanDb": -20.8
+      },
+      "bill": {
+        "startSeconds": 16.53829411764706,
+        "durationSeconds": 2.5,
+        "meanDb": -20.7
+      },
+      "repeat": {
+        "startSeconds": 25.216,
+        "durationSeconds": 2.5,
+        "meanDb": -20.8
+      }
+    }
+  },
+  "limits": "Synthetic input material and Share intents. WhatsApp section is a Suniye help walkthrough. Redmi, real WhatsApp, family handover and actual Hindi ASR unverified."
+}

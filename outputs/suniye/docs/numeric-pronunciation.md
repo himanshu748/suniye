@@ -1,0 +1,11 @@
+# Hindi number pronunciation
+
+This is a deterministic pronunciation layer, applied only to the offline Android TTS input and the ElevenLabs request text. Original text, saved readings and the explanation guard remain unchanged.
+
+`बिल ₹1,250 है।` becomes `बिल एक हज़ार दो सौ पचास रुपये है।` for speech. The reading screen also shows the amount in words. Both ASCII and Devanagari digits are supported. ₹, Rs., INR and रु prefixes are recognized, along with trailing /- and signs touching ₹ or the currency digits. A spaced punctuation hyphen stays punctuation. Indian and Western comma grouping are recognized; malformed grouping is read with explicit commas rather than repaired. One or two currency decimal places become paise without rounding; longer fractional precision is spoken digit by digit after दशमलव.
+
+Ordinary unlabelled integers up to six digits use Hindi cardinal words. Comma-grouped amounts and explicit rupee amounts use cardinal words up to nine digits; larger values, leading-zero numbers and labelled OTP/PIN/phone/account values use individual digits. Separated labelled IDs retain their zeros. Spaced Indian mobile numbers use individual digits when labelled or prefixed with +91. Two unlabelled five-digit quantities stay separate. Word-adjacent identifiers, URLs and email addresses are retained. Dates and colon-separated fields are spoken in their written order with separator names. No calendar format is inferred.
+
+The same corpus is in `backend/test/hindi-speech-cases.json`. Run `npm test` in the backend, then `JAVA_HOME=/path/to/jdk17 python3 scripts/check-hindi-speech.py` from the project root. The second check compiles the pure Java formatter without Android dependencies and verifies both spoken text and amount hints.
+
+These checks verify pronunciation text, not accent or real-phone listening. The preferred online voice is Raju, catalogue-labelled Hindi/Standard; its API access succeeded after partner-plan redemption on October 3. Optional online narration now uses it. A new native Android v4 recording uses the formatter; Slow, Stop and Repeat passed. Square brackets are spoken as literal bracket names so incoming text cannot supply v4 audio tags. The original text remains unchanged.

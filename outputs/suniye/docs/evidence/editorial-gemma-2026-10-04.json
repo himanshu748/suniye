@@ -1,0 +1,16 @@
+{
+  "testedAt": "2026-10-04T07:17:09.447Z",
+  "method": "Actual local Gemma 3 4B through Fastify/Mastra; synthetic text; no Android playback or speech provider call",
+  "source": "प्रवेश से पूर्व अपने जूते उतारना अनिवार्य है।",
+  "httpStatus": 200,
+  "elapsedMs": 2660,
+  "result": {
+    "kind": "reading",
+    "originalText": "प्रवेश से पूर्व अपने जूते उतारना अनिवार्य है।",
+    "spokenText": "यह आसान भाषा में समझाया गया है। प्रवेश करने से पहले अपने जूते निकालें।",
+    "isExplanation": true,
+    "isDescription": false,
+    "retakeReason": ""
+  },
+  "manualAssessment": "Meaning preserved in this one synthetic instruction: remove your shoes before entering. पूर्व became पहले, and the mandatory instruction stayed an imperative. Warm local backend call only; no Android playback and no general accuracy/latency claim."
+}

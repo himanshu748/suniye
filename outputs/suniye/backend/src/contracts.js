@@ -23,6 +23,7 @@ export const extracted = z.object({
 export const reading = z.object({
   kind: z.enum(['reading', 'retake']), originalText: z.string(), spokenText: z.string(),
   isExplanation: z.boolean(), isDescription: z.boolean(), retakeReason: z.string(),
+  audioBaseRate: z.union([z.literal(.85),z.literal(1)]).optional(),
   audioBase64: z.string().optional(),
 });
 

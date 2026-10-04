@@ -14,7 +14,3 @@ outputs/suniye/**/.env.*
 .entire/tmp/
 *.log
 .DS_Store
-
-.entire/
-.backboard/
-outputs/suniye/releases/

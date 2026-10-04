@@ -19,6 +19,8 @@ public final class Config {
     public String placement(){return prefs.getString("placement","left");}
     public boolean onlineVoice(){return prefs.getBoolean("onlineVoice",false);}
     public void setOnlineVoice(boolean enabled){prefs.edit().putBoolean("onlineVoice",enabled).apply();}
+    public boolean voiceCommandsEnabled(){return prefs.getBoolean("voiceCommandsEnabled",false);}
+    public void setVoiceCommandsEnabled(boolean enabled){prefs.edit().putBoolean("voiceCommandsEnabled",enabled).apply();}
     public float speed(){return prefs.getFloat("speed",0.85f);}
     public String profile(){return prefs.getString("profile","parent");}
     public boolean acknowledged(){return prefs.getBoolean("screenConsent",false);}

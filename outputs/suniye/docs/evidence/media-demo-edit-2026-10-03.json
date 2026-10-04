@@ -1,0 +1,34 @@
+{
+  "createdAt": "2026-10-03",
+  "file": "suniye-demo-media.mp4",
+  "seconds": 32.266667,
+  "sha256": "801bd546636ce0b0ea0f382b410b119638c5cfbb9764a96a11f1a1684b2b32ca",
+  "nativeReceipt": "media-native-2026-10-03.json",
+  "environment": "Android 11 emulator, font scale 1.3",
+  "editing": "Normal-speed native flow; no waits cut. Portrait frame and English captions added. Actual Raju provider MP3s mixed separately at observed .85 speed; separately generated WhatsApp guidance at .95 speed; approximate alignment, not device microphone capture.",
+  "checks": {
+    "fullDecode": "pass",
+    "fullStereoAudio": "pass",
+    "videoSeconds": 32.266667,
+    "audioSeconds": 32.261,
+    "audibleSignalLevels": {
+      "image": {
+        "startSeconds": 3.7308235294117633,
+        "meanDb": -27.7
+      },
+      "pdf-page-one": {
+        "startSeconds": 9.628941176470587,
+        "meanDb": -23.6
+      },
+      "pdf-page-two": {
+        "startSeconds": 15.194705882352942,
+        "meanDb": -25.9
+      },
+      "whatsapp-narration": {
+        "startSeconds": 19.236,
+        "meanDb": -19.6
+      }
+    }
+  },
+  "scope": "Synthetic Android ACTION_SEND image/PDF intents, real content URIs, bundled OCR and actual Raju API/playback. WhatsApp section is Suniye help only; no real WhatsApp/Redmi/parent claim."
+}

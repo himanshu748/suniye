@@ -1,0 +1,11 @@
+{
+  "createdAt": "2026-10-03",
+  "seconds": 60.2,
+  "introScreenshotsSeconds": 12,
+  "omittedModelWaitSeconds": 32.369,
+  "nativePlaybackSpeed": "normal",
+  "introNarration": "Separate Raju v4 Hindi purpose narration starts at time zero; English captions simplified",
+  "audio": "Actual Raju v4 provider MP3, mixed separately and time-stretched to observed .85 / .7 playback rates; approximate event alignment",
+  "nativeReceipt": "android15-raju-v4-native-2026-10-03.json",
+  "scope": "Android emulator and synthetic bill; no real WhatsApp or parent feedback"
+}

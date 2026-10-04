@@ -1,0 +1,41 @@
+{
+  "recordedAt": "2026-10-03T13:02:43.165034Z",
+  "environment": "Android 15 emulator, synthetic input, real backend providers",
+  "input": "बिजली का बिल ₹1,250 है।",
+  "events": [
+    {
+      "name": "home",
+      "elapsedMs": 2151
+    },
+    {
+      "name": "share-text",
+      "elapsedMs": 4666
+    },
+    {
+      "name": "reading-complete",
+      "elapsedMs": 11954
+    },
+    {
+      "name": "amount-words",
+      "elapsedMs": 13458
+    },
+    {
+      "name": "original-replay",
+      "elapsedMs": 16867
+    },
+    {
+      "name": "final-stop",
+      "elapsedMs": 20726
+    }
+  ],
+  "originalPreserved": true,
+  "repeatAndStop": true,
+  "voiceModel": "eleven_v4",
+  "voiceName": "Raju - Clear, Natural and Warm",
+  "audioBaseRate": 1,
+  "repeatPlaybackRate": 0.85,
+  "audioCapture": "Provider MP3 captured separately; screenrecord does not record device audio",
+  "screenRecordingOffsetSeconds": 0.707,
+  "apkSha256": "419f8647f65a096c787dd28cdfdf6e14debd265fb92af671ef21762fa4c7f443",
+  "scope": "Fresh synthetic bill, actual backend/API and Android playback; no Gemma model call needed for supplied plain text"
+}

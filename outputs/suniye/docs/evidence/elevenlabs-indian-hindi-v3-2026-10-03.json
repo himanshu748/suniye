@@ -1,0 +1,13 @@
+{
+  "recordedAt": "2026-10-03T09:40:39.068Z",
+  "voice": "Suniye Hindi — Indian",
+  "model": "eleven_v3",
+  "text": "नमस्ते। बिजली का बिल एक हज़ार दो सौ पचास रुपये है। फिर सुनने के लिए फिर सुनिए दबाएँ।",
+  "characters": 84,
+  "httpStatus": 200,
+  "elapsedMs": 5761,
+  "scope": "Alternative model experiment; not yet selected for runtime",
+  "listeningAssessment": "User preferred Raju sample B over this sample A on October 3.",
+  "bytes": 60648,
+  "selectedForRuntime": false
+}

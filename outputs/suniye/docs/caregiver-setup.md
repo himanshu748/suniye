@@ -14,6 +14,14 @@ For paper, tap कागज़ पढ़िए on the home screen or use the lau
 
 For a saved image, tap फ़ोटो पढ़िए and select one item in Android’s picker. For a PDF, tap फ़ाइल पढ़िए and use the large page controls. Cancelling a picker leaves the reading unchanged. Android 11 may open the picker’s Recent view; finding a WhatsApp image there has not been tested with the parents. Neither route requests access to the entire photo library. WhatsApp → Share → Suniye also accepts text, images and PDFs.
 
+## Optional spoken controls
+
+In परिवार की सेटिंग, enable बोलकर चलाना चालू करें only after explaining the microphone and speech service. It is off by default. Tap बोलिए on the home or camera screen and allow microphone access when asked. After the beep, say one command: पढ़िए, फिर सुनिए, धीरे सुनिए or रोकिए. In the camera, frame the paper first, then say फोटो लो. Spoken error prompts ask for another attempt; the large buttons remain available.
+
+Android 12+ prefers an on-device recognizer. If that recognizer lacks Hindi, Suniye tries the phone's standard service once. The standard service may transmit audio even when offline recognition is requested. Sessions are short, foreground and started by a tap. Suniye stores neither commands nor microphone audio. This feature does not continuously listen for a wake word or Stop during playback.
+
+Test those four commands on each Redmi, then check denied microphone permission, missing Hindi models, offline behavior and comfortable volume. Emulator callback tests verify action routing and cleanup, not microphone accuracy. If a phone cannot recognize the parent's speech reliably, use the large controls while recording that limitation.
+
 ## Connect Gemma
 
 Run Ollama/Gemma and the backend on the laptop first. Put provider keys only in backend/.env. Generate a random FAMILY_TOKEN, and enter that family token in phone setup. It is distinct from ElevenLabs/MongoDB/Backboard credentials and is encrypted with Android Keystore. Remote phones require a valid token-protected HTTPS endpoint. Render needs an externally reachable Gemma endpoint; deploying the Node service alone will not expose local Ollama.
@@ -26,6 +34,8 @@ adb -s PHONE_SERIAL reverse tcp:8787 tcp:8787
 ```
 
 Set the debug app endpoint to `http://127.0.0.1:8787`. Replace PHONE_SERIAL with the actual test device identifier; never run against an unselected personal device. USB debugging is a developer setup step, not the finished parent experience. The laptop must remain connected and the backend running. Release source accepts HTTPS destinations only.
+
+For online speech, select a Hindi voice with an Indian accent and listen to a synthetic sample before configuring its ID. Himanshu preferred Raju (sample B). After partner-plan redemption, Raju v4 returned HTTP 200 and played through Android with Slow, Stop and Repeat. This is an emulator check; listen on each actual phone before enabling it for a parent. The v4 web/mobile promotion does not cover backend API calls, which use account credits. Supported backend models are eleven_v4, eleven_v4_turbo and eleven_multilingual_v2; other IDs fall back to the installed Android voice.
 
 Optional online voice is off by default. Enable it only after explaining that reading text reaches the configured backend and ElevenLabs. Atlas preference sync stores speed/size/placement, not messages or pictures. If sync is unavailable, local settings remain usable.
 

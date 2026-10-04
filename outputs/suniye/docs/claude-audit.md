@@ -68,3 +68,27 @@ Android 15 then exposed a behavior difference: an invalid text extra was defused
 Claude Code reviewed the draft, README, demo receipts and debug recording harness. It found no invented result in the reviewed scope, but publication links remained placeholders. Useful edits made the opt-in online voice explicit, described both currency/date rewording, linked the successful explanation receipt, identified the recorded APK and disclosed time-stretched mixed audio. No new runtime checks are attributed to this review.
 
 Two source concerns were stale: ReaderController.forget already clears the application-owned PDF, and SHA-256 comparisons show MainActivity, ReaderController, Config, PreferencesClient and SetupActivity unchanged from the 06:37 UTC emulator audit through the 08:38 UTC recording. The publication tree preserves outputs/suniye, so the Render rootDir remains correct. The review suggested a concrete family scene; no unobserved family experience was added. Public links must still be resolved and read back before publication.
+
+## Hindi numbers and home clarity, October 3
+
+Claude reviewed the deterministic Java/JavaScript pronunciation layer and the new home/WhatsApp guidance through the desktop Code view. This was source review, with no playback or independent test execution. It found two P1 issues: separated identifiers could lose leading zeros, and the default WhatsApp dialog had small text. The formatter now detects labelled identifiers before interpreting separator fields and retains leading zeros in longer fields. WhatsApp guidance is a full screen with 24sp steps, large buttons and a fixed Back control.
+
+P2 fixes add Rs./INR/रु formats, trailing /-, signs before the rupee symbol, spaced Indian phone numbers, more OTP labels, rupee/paise grammar, an explicit notice after three amount hints, and Unicode numeric/mark boundary parity. The shared corpus grew to 33 cases and the backend suite to 79. Separator names retain written date order; how comfortably parents understand them remains a listening/usability check. The follow-up found a spaced punctuation hyphen being interpreted as a negative amount. Signs now must touch the rupee symbol; shared cases cover the difference. It also prompted an identifier left boundary, an accurate home WhatsApp label, help using the configured overlay side, fractional plural and separate five-digit quantities.
+
+
+The final bounded Code recheck found no remaining P1 in the reviewed changes and confirmed the v4 base-rate handling, Repeat cache and original preservation. It found two P2s: spaced signs after Rs/INR/रु, and unverified settings for other voice models. Both were fixed after that source review: a sign after those aliases must touch its digits; the backend now permits only v2, v4 and v4_turbo. Unknown IDs make no API request. The final independent suite passed 87 backend tests and 38 shared Java cases. Claude did not execute those checks. Native Android v4 Slow/Repeat rates and Stop passed separately; parent listening remains unverified.
+
+## October 3 spoken controls review
+
+Claude desktop Code reviewed VoiceControls, VoiceCommand, MainActivity, CameraActivity, Config, SetupActivity, the manifest and VoiceProbe without executing them. It found no P0/P1 and identified three P2s: a Hindi model missing from the on-device recognizer, the camera losing the voice dialog during its first microphone permission request, and recovery messages being visual only.
+
+The fixes retry the standard phone speech service once for unsupported/unavailable Hindi, retain the camera dialog while microphone permission is pending while closing it onStop, and announce recovery only after destroying recognition. A dialog identity guard also prevents a late dismissal from disposing a replacement session. Both Unicode nukta spellings are tested. The bounded follow-up read three files and reported no P1/P2 regression; its conclusions are source review, not runtime evidence.
+
+Two P3 observations remain: the camera voice dialog covers its preview, so the paper must be framed first; a reading that starts during listening is stopped by the recovery prompt. Actual Hindi ASR, Redmi permission/language services and parent phrasing remain unverified.
+
+
+## October 4 editorial review
+
+Claude desktop Code session reviewed only the article, fresh Gemma receipt, combined film edit receipt and Mastra workflow source. Its conclusion was “READY at this editorial scope”; no runtime or video viewing was performed. It confirmed the bounded warm Gemma example, meaningful workflow stages/cancellation and synthetic Share/WhatsApp boundaries.
+
+Applied its suggestions: describe text transmission to ElevenLabs and no-text image transmission to the backend model; mark the backend result slide in Hindi as not phone playback; use the release tag for article evidence links. Removed the redundant sentence about existing reading aids. This is an editorial/source review, separate from runtime receipts and still-open family/Redmi checks.
