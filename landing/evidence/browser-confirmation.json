@@ -1,0 +1,243 @@
+{
+  "checkedAt": "2026-10-04T16:26:24.411Z",
+  "elapsedMs": 224229,
+  "pass": "confirmation",
+  "method": "One batched desktop/mobile Chromium inspection with keyboard, reduced-motion, no-JS and controlled local media-failure checks",
+  "origin": "http://127.0.0.1:3074",
+  "browserAvailability": "Browser plugin not available in this session; existing local Playwright used under explicit local-validation authorization",
+  "targetFlow": "Hindi landing -> deliberate recorded audio -> Slow / Stop / Repeat and clear failure recovery",
+  "passed": 16,
+  "failed": 1,
+  "checks": [
+    {
+      "name": "desktop: identity, meaningful content and no error overlay",
+      "status": "passed",
+      "evidence": {
+        "url": "http://127.0.0.1:3074/",
+        "title": "सुनिए — छोटी लिखावट, आराम से सुनिए",
+        "meaningfulMain": true,
+        "frameworkOverlay": false
+      }
+    },
+    {
+      "name": "desktop: responsive layout and genuine native images",
+      "status": "passed",
+      "evidence": {
+        "viewport": 1440,
+        "scroll": 1440,
+        "images": [
+          {
+            "loaded": true,
+            "width": 720
+          },
+          {
+            "loaded": true,
+            "width": 720
+          }
+        ],
+        "heading": 676.921875,
+        "imagesAfterDecode": [
+          {
+            "loaded": true,
+            "width": 720
+          },
+          {
+            "loaded": true,
+            "width": 720
+          }
+        ]
+      }
+    },
+    {
+      "name": "desktop: targets and body type",
+      "status": "passed",
+      "evidence": {
+        "smallTargets": [],
+        "bodySize": "18px"
+      }
+    },
+    {
+      "name": "mobile: identity, meaningful content and no error overlay",
+      "status": "passed",
+      "evidence": {
+        "url": "http://127.0.0.1:3074/",
+        "title": "सुनिए — छोटी लिखावट, आराम से सुनिए",
+        "meaningfulMain": true,
+        "frameworkOverlay": false
+      }
+    },
+    {
+      "name": "mobile: responsive layout and genuine native images",
+      "status": "passed",
+      "evidence": {
+        "viewport": 390,
+        "scroll": 390,
+        "images": [
+          {
+            "loaded": true,
+            "width": 720
+          },
+          {
+            "loaded": false,
+            "width": 0
+          }
+        ],
+        "heading": 350,
+        "imagesAfterDecode": [
+          {
+            "loaded": true,
+            "width": 720
+          },
+          {
+            "loaded": true,
+            "width": 720
+          }
+        ]
+      }
+    },
+    {
+      "name": "mobile: targets and body type",
+      "status": "passed",
+      "evidence": {
+        "smallTargets": [],
+        "bodySize": "17px"
+      }
+    },
+    {
+      "name": "No autoplay, API, font network request or document submission",
+      "status": "passed",
+      "evidence": {
+        "requestsBeforeAudio": 14,
+        "externalRequests": 0
+      }
+    },
+    {
+      "name": "Keyboard skip link and visible focus",
+      "status": "passed",
+      "evidence": {
+        "style": "solid",
+        "width": "3px"
+      }
+    },
+    {
+      "name": "Source, recorded transcript, download version and setup are available",
+      "status": "passed",
+      "evidence": {
+        "publicApk": "0.2",
+        "cloudSelectedApk": "0.1",
+        "localOnly": "0.3",
+        "links": "source-based; not fetched"
+      }
+    },
+    {
+      "name": "Mobile audio and readable collapsed/expanded version ledger",
+      "status": "passed",
+      "evidence": {
+        "width": 390,
+        "scroll": 390,
+        "tableScrollable": true
+      }
+    },
+    {
+      "name": "Reduced motion and 200% type without page overflow",
+      "status": "passed",
+      "evidence": {
+        "initial": {
+          "scroll": "auto",
+          "transition": "0s"
+        },
+        "textScale": "200%",
+        "width": {
+          "width": 390,
+          "scroll": 390,
+          "bodySize": 34
+        }
+      }
+    },
+    {
+      "name": "No-JavaScript content, links and native audio fallback",
+      "status": "passed",
+      "evidence": "Static content and native audio remain available; no script dependency for download/setup"
+    },
+    {
+      "name": "Audio failure gives recovery and releases player controls",
+      "status": "passed",
+      "evidence": "Controlled local MP3 failure; Hindi download/retry recovery"
+    },
+    {
+      "name": "Stop during a pending local audio load discards late playback",
+      "status": "passed",
+      "evidence": "Controlled delayed local asset; no provider call, no automatic replay"
+    },
+    {
+      "name": "No uncaught browser error and no external requests",
+      "status": "passed",
+      "evidence": {
+        "errors": [],
+        "external": [],
+        "normalConsole": [],
+        "controlledMediaFailureConsole": [
+          {
+            "type": "error",
+            "text": "Failed to load resource: net::ERR_FAILED"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Measured text contrast for actual page palette",
+      "status": "passed",
+      "evidence": [
+        {
+          "name": "body",
+          "ratio": 12.91,
+          "minimum": 4.5
+        },
+        {
+          "name": "secondary text",
+          "ratio": 6.25,
+          "minimum": 4.5
+        },
+        {
+          "name": "primary button",
+          "ratio": 7.41,
+          "minimum": 4.5
+        },
+        {
+          "name": "voice-panel secondary text",
+          "ratio": 5.72,
+          "minimum": 4.5
+        },
+        {
+          "name": "download button",
+          "ratio": 8.4,
+          "minimum": 4.5
+        }
+      ]
+    }
+  ],
+  "failures": [
+    {
+      "name": "Existing local audio plays on tap, Slow and Stop work, then Repeat remains available",
+      "status": "failed",
+      "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#stop-sample')\u001b[22m\n\u001b[2m    - locator resolved to <button disabled type=\"button\" id=\"stop-sample\" class=\"button player-stop\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    33 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not enabled\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "screenshots": [
+    "suniye-landing-desktop-confirmation-2026-10-04.png",
+    "suniye-landing-desktop-viewport-confirmation-2026-10-04.png",
+    "suniye-landing-mobile-confirmation-2026-10-04.png",
+    "suniye-landing-mobile-viewport-confirmation-2026-10-04.png"
+  ],
+  "notRun": [
+    "Physical phone/parent listening",
+    "Screen-reader audit",
+    "Measured real-device performance",
+    "APK execution or binary scan",
+    "Live provider/API calls",
+    "External release links not fetched"
+  ],
+  "processPolicy": "Browser and static server are left running; no process was stopped. Browser runner session is reported separately."
+}

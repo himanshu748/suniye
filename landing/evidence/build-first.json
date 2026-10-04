@@ -1,0 +1,53 @@
+{
+  "builtAt": "2026-10-04T15:53:30.185Z",
+  "elapsedMs": 561,
+  "bytes": 281251,
+  "scope": "Static local build; no minifier, dependency install, runtime provider call or deployment",
+  "files": [
+    {
+      "file": "index.html",
+      "bytes": 18533,
+      "sha256": "99eb5be9856b40cf169c311e1ab17a756dfe357b5b2cd5a14324fdb7c3ff409b"
+    },
+    {
+      "file": "style.css",
+      "bytes": 14340,
+      "sha256": "000dc2bbd68877ca91f158b5a08e314ac825df6ada47f2a64904fdac91e16d03"
+    },
+    {
+      "file": "app.js",
+      "bytes": 3795,
+      "sha256": "558503833dce3854c2e20c1e078ef87ea6056467427ee4e8af634d079ea89696"
+    },
+    {
+      "file": "assets/mark.svg",
+      "bytes": 215,
+      "sha256": "d5d33fe4000a84e5e0cc42d97a34525225a6981c397abe1bdbe03b331461b6d5"
+    },
+    {
+      "file": "assets/android-home.png",
+      "bytes": 76591,
+      "sha256": "65afda9b69a2fe9e659018b54eec034dd841fb51f522921a6b88a6dad4b0f503"
+    },
+    {
+      "file": "assets/android-reading.png",
+      "bytes": 75821,
+      "sha256": "cf147e541170b971275a2945bd09243714cebdbf0b6d4cbb41ba57bc4d48b1d8"
+    },
+    {
+      "file": "assets/raju-bill-sample.mp3",
+      "bytes": 62737,
+      "sha256": "4a2ec90ed531fb16d6dd59ec598a72f55c23c3d2f8420b1694ff0c44d2b28646"
+    },
+    {
+      "file": "assets/manrope-latin.woff2",
+      "bytes": 24836,
+      "sha256": "a30ddcd349703aff7464c34bef3fffdff405ee50c113440d7c8693c02d210972"
+    },
+    {
+      "file": "assets/MANROPE-OFL.txt",
+      "bytes": 4383,
+      "sha256": "d826ab6583b12c26807d8716a545bdbbb672df04f48608a364ba9efdbe501c30"
+    }
+  ]
+}

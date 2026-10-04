@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-04T16:20:20.257468+00:00",
+  "title": "Design System: Suniye landing",
+  "extensions": {
+    "shadows": [],
+    "motion": [
+      {
+        "name": "player-state",
+        "value": "background-color 240ms ease-out",
+        "purpose": "Playback region only; disabled under reduced motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "narrow-desktop",
+        "value": "1000px"
+      },
+      {
+        "name": "mobile",
+        "value": "700px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Existing landing control variant.",
+      "html": "<button class=\"ds-button\">सुनिए</button>",
+      "css": ".ds-button{background:var(--teal);color:var(--paper);border:1px solid transparent;font:600 1.125rem/1.65 var(--font);min-height:56px;padding:13px 22px;border-radius:12px;cursor:pointer}.ds-button:hover{background:var(--teal-dark);}.ds-button:focus-visible{outline:3px solid var(--teal);outline-offset:5px}"
+    },
+    {
+      "name": "Secondary button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Existing landing control variant.",
+      "html": "<button class=\"ds-button\">ऐप देखें</button>",
+      "css": ".ds-button{color:var(--teal);background:transparent;border:1px solid var(--teal);font:600 1.125rem/1.65 var(--font);min-height:56px;padding:13px 22px;border-radius:12px;cursor:pointer}.ds-button:hover{background:#eaf0e5;}.ds-button:focus-visible{outline:3px solid var(--teal);outline-offset:5px}"
+    },
+    {
+      "name": "Download button",
+      "kind": "button",
+      "refersTo": "button-download",
+      "description": "Existing landing control variant.",
+      "html": "<button class=\"ds-button\">Android APK डाउनलोड</button>",
+      "css": ".ds-button{background:var(--ochre);color:var(--ink);border:1px solid transparent;font:600 1.125rem/1.65 var(--font);min-height:56px;padding:13px 22px;border-radius:12px;cursor:pointer}.ds-button:hover{background:#f5d790;}.ds-button:focus-visible{outline:3px solid var(--teal);outline-offset:5px}"
+    },
+    {
+      "name": "Wrapped navigation",
+      "kind": "nav",
+      "description": "Always visible mobile navigation.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#demo\">पहले सुनिए</a><a href=\"#download\">ऐप लें</a></nav>",
+      "css": ".ds-nav{display:flex;flex-wrap:wrap;gap:28px;font:600 1.125rem/1.85 var(--font);color:var(--ink)}.ds-nav a{display:inline-flex;align-items:center;min-height:48px;color:inherit;text-decoration:none}.ds-nav a:hover{text-decoration:underline}.ds-nav a:focus-visible{outline:3px solid var(--teal);outline-offset:5px}"
+    },
+    {
+      "name": "Version disclosure",
+      "kind": "custom",
+      "description": "Native release-version disclosure.",
+      "html": "<details class=\"ds-disclosure\"><summary>कौन-सा संस्करण?</summary><p>सार्वजनिक APK 0.2 है।</p></details>",
+      "css": ".ds-disclosure{border-block:1px solid var(--line);padding-block:12px;font:400 1.125rem/1.85 var(--font);color:var(--ink)}.ds-disclosure summary{min-height:48px;padding-block:10px;font-weight:600;color:var(--teal);cursor:pointer}.ds-disclosure summary:hover{text-decoration:underline}.ds-disclosure summary:focus-visible{outline:3px solid var(--teal);outline-offset:5px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "A family reading guide",
+    "overview": "The native app's warm paper and deep teal define this dedicated web surface. Large Hindi type, calm spacing and real native captures make reading and listening approachable. This document records the landing implementation; it does not change the Android design system.",
+    "keyCharacteristics": [
+      "Hindi first, with restrained Latin labels.",
+      "Flat tonal regions, light rules and unchanged native screenshots.",
+      "Deliberate audio controls with a reachable Stop and visible focus."
+    ],
+    "rules": [],
+    "dos": [
+      "Do preserve the app's cream and teal identity and unchanged screenshots.",
+      "Do keep source text adjacent to speech and control states understandable in Hindi.",
+      "Do keep keyboard focus, native fallbacks and reduced motion visible in new page work."
+    ],
+    "donts": [
+      "Don't invent family testimonials, model proof or release outcomes as decoration.",
+      "Don't add heavy 3D, remote fonts or autoplay to this landing surface."
+    ]
+  }
+}

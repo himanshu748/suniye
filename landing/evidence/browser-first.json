@@ -1,0 +1,173 @@
+{
+  "checkedAt": "2026-10-04T16:04:04.259Z",
+  "elapsedMs": 42069,
+  "pass": "first",
+  "method": "One batched desktop/mobile Chromium inspection with keyboard, reduced-motion, no-JS and controlled local media-failure checks",
+  "origin": "http://127.0.0.1:3074",
+  "passed": 11,
+  "failed": 3,
+  "checks": [
+    {
+      "name": "desktop: responsive layout and genuine native images",
+      "status": "passed",
+      "evidence": {
+        "viewport": 1440,
+        "scroll": 1440,
+        "images": [
+          {
+            "loaded": true,
+            "width": 720
+          },
+          {
+            "loaded": true,
+            "width": 720
+          }
+        ],
+        "heading": 676.921875
+      }
+    },
+    {
+      "name": "desktop: targets and body type",
+      "status": "passed",
+      "evidence": {
+        "smallTargets": [],
+        "bodySize": "18px"
+      }
+    },
+    {
+      "name": "mobile: responsive layout and genuine native images",
+      "status": "passed",
+      "evidence": {
+        "viewport": 390,
+        "scroll": 390,
+        "images": [
+          {
+            "loaded": true,
+            "width": 720
+          },
+          {
+            "loaded": false,
+            "width": 0
+          }
+        ],
+        "heading": 350
+      }
+    },
+    {
+      "name": "mobile: targets and body type",
+      "status": "passed",
+      "evidence": {
+        "smallTargets": [],
+        "bodySize": "17px"
+      }
+    },
+    {
+      "name": "No autoplay, API, font network request or document submission",
+      "status": "passed",
+      "evidence": {
+        "requestsBeforeAudio": 14,
+        "externalRequests": 0
+      }
+    },
+    {
+      "name": "Source, recorded transcript, download version and setup are available",
+      "status": "passed",
+      "evidence": {
+        "publicApk": "0.2",
+        "cloudSelectedApk": "0.1",
+        "localOnly": "0.3",
+        "links": "source-based; not fetched"
+      }
+    },
+    {
+      "name": "Existing local audio plays on tap, Slow and Stop work, then Repeat remains available",
+      "status": "passed",
+      "evidence": {
+        "method": "Headless Chromium media-state checks; no listening-comfort judgment",
+        "source": "existing local MP3",
+        "speed": 0.85
+      }
+    },
+    {
+      "name": "Mobile audio and readable collapsed/expanded version ledger",
+      "status": "passed",
+      "evidence": {
+        "width": 390,
+        "scroll": 390,
+        "tableScrollable": true
+      }
+    },
+    {
+      "name": "No-JavaScript content, links and native audio fallback",
+      "status": "passed",
+      "evidence": "Static content and native audio remain available; no script dependency for download/setup"
+    },
+    {
+      "name": "No uncaught browser error and no external requests",
+      "status": "passed",
+      "evidence": {
+        "errors": [],
+        "external": []
+      }
+    },
+    {
+      "name": "Measured text contrast for actual page palette",
+      "status": "passed",
+      "evidence": [
+        {
+          "name": "body",
+          "ratio": 12.91,
+          "minimum": 4.5
+        },
+        {
+          "name": "secondary text",
+          "ratio": 6.25,
+          "minimum": 4.5
+        },
+        {
+          "name": "primary button",
+          "ratio": 7.41,
+          "minimum": 4.5
+        },
+        {
+          "name": "voice-panel secondary text",
+          "ratio": 5.72,
+          "minimum": 4.5
+        },
+        {
+          "name": "download button",
+          "ratio": 8.4,
+          "minimum": 4.5
+        }
+      ]
+    }
+  ],
+  "failures": [
+    {
+      "name": "Keyboard skip link and visible focus",
+      "status": "failed",
+      "error": "Skip link must move keyboard focus to main\n\n'' !== 'main'\n"
+    },
+    {
+      "name": "Reduced motion and 200% type without page overflow",
+      "status": "failed",
+      "error": "{\"width\":390,\"scroll\":490}"
+    },
+    {
+      "name": "Audio failure gives recovery and releases player controls",
+      "status": "failed",
+      "error": "page.waitForFunction: Timeout 10000ms exceeded."
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "notRun": [
+    "Physical phone/parent listening",
+    "Screen-reader audit",
+    "Measured real-device performance",
+    "APK execution or binary scan",
+    "Live provider/API calls",
+    "External release links not fetched"
+  ],
+  "processPolicy": "Browser and static server are left running; no process was stopped. Browser runner session is reported separately."
+}
