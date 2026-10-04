@@ -24,6 +24,6 @@ The project began during the October 2–5, 2026 challenge. Code is MIT licensed
 
 The caregiver preparation tools now demonstrate local Temporal worker recovery and pgvector retrieval over three official Android setup references. They run separately from the parent app and create no cloud resources. [Instructions and scope](outputs/suniye/backend/caregiver/README.md).
 
-## Landing release preparation
+## Live project page
 
-The tested Hindi landing is prepared for the existing Free Render service root; publication has not been executed by this branch. [Source and release ledger](landing/release-ledger.md) records the exact route/assets integration, current APK and historical evidence, plus the current video capture blocker. [New video capture plan](landing/current-video-plan.md).
+The [Hindi project page is live](https://suniye-reader.onrender.com/) on the existing Render service. On October 4, all nine public landing files matched the reviewed release, and trusted Play/Stop clicks passed under its deployed security policy. It links the current 0.3 APK; embedded Android screenshots and older films are explicitly historical. The current 0.3 native walkthrough remains uncaptured. [Source and release ledger](landing/release-ledger.md) records the evidence and the exact deployed backend SHA limitation. [New video capture plan](landing/current-video-plan.md).
