@@ -25,7 +25,7 @@ public final class ElevenOnlyProbe extends Instrumentation {
   setup("delayed");runOnMainSync(()->reader.readText("परीक्षण संदेश"));Thread.sleep(200);runOnMainSync(reader::stop);String stopped=reader.status();Thread.sleep(3000);
   if(reader.busy()||value("player")!=null||!reader.status().equals(stopped))throw new AssertionError("Late audio resumed after Stop");
   result.putString("playback","PASS: Raju-only media, cached offline Repeat/Slow, Stop release, missing/foreign/corrupt audio recovery, late-result rejection");
-  result.putString("scope","Android 15 emulator and synthetic local server with genuine recorded ElevenLabs audio; not Redmi or family testing");finish(Activity.RESULT_OK,result);
+  result.putString("scope","Android "+android.os.Build.VERSION.RELEASE+" emulator and synthetic local server with genuine recorded ElevenLabs audio; not Redmi or family testing");finish(Activity.RESULT_OK,result);
  }catch(Throwable error){result.putString("failure",error.toString());finish(Activity.RESULT_CANCELED,result);}}
  private Object value(String name)throws Exception{Field f=ReaderController.class.getDeclaredField(name);f.setAccessible(true);return f.get(reader);}
  private void setup(String mode){runOnMainSync(()->{try{config.save("http://10.0.2.2:9461/"+mode,"synthetic-token-0123456789abcdef012345","fixture");}catch(Exception e){throw new RuntimeException(e);}});}

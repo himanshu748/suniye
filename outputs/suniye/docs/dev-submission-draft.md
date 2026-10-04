@@ -22,15 +22,15 @@ Reading an amount aloud took more care than sending the printed text to a voice 
 
 The daily screen follows the things they already ask me to do. कागज़ पढ़िए opens the camera, फ़ोटो पढ़िए selects a photo, and फ़ाइल पढ़िए opens a PDF. Android Share accepts text, images and PDFs. A floating सुनिए control is the intended WhatsApp route after caregiver setup.
 
-रोकिए stays below the scrolling content, so a long document or enlarged font cannot push it away. Provider settings and optional tap-to-speak commands live behind caregiver setup; Redmi speech recognition remains untested.
+रोकिए stays below the scrolling content, so a long document or enlarged font cannot push it away. Repeat and Slow appear before the text; a four-line preview can open the full original. The Slow button can return to the usual speed. “कैसे चलाएँ? सुनिए” plays bundled Raju instructions, including without internet. The microphone button appears after caregiver opt-in, and experimental explanations sit under “और विकल्प”. Provider settings stay in caregiver setup; Redmi speech recognition remains untested.
 
-The pilot passed bounded Android 11 and 15 emulator checks for image/PDF inputs, large text, Stop and replay, with real Hindi audio. My parents are in another city, so I have not observed them using it on their Redmi A4s.
+The pilot passed bounded Android 11 and 15 emulator checks for image/PDF inputs, large text, Stop and replay, with real Hindi audio. My parents are in another city, so I have not observed them using it on their Redmi A4s. The parent-focused revision passed internal layout and bundled-Raju playback assertions at 160% fonts. An emulator System UI dialog covered the capture, and later system crashes blocked the full touch walkthrough. I am keeping that check open. [Parent check and limits](https://github.com/himanshu748/suniye/blob/parent-ux-2026-10-04/outputs/suniye/docs/evidence/parent-usability-check-2026-10-04.json).
 
 ## Demo
 
 The short showcase follows **image or PDF → bundled OCR → Hindi text → Raju speech**. These are simple synthetic fixtures; they establish the tested path, not dense-document accuracy. [Download the image](https://raw.githubusercontent.com/himanshu748/suniye/media-showcase-2026-10-04/outputs/suniye/docs/evidence/media-sample-image.png) · [Download the two-page PDF](https://raw.githubusercontent.com/himanshu748/suniye/media-showcase-2026-10-04/outputs/suniye/docs/evidence/media-sample-two-pages.pdf) · [Showcase checks](https://github.com/himanshu748/suniye/blob/media-showcase-2026-10-04/outputs/suniye/docs/evidence/image-pdf-showcase-2026-10-04.json).
 
-[Watch the complete walkthrough](https://github.com/himanshu748/suniye/releases/download/v0.1.0-pilot/suniye-demo-judge.mp4) · [Download the ElevenLabs-only APK](https://github.com/himanshu748/suniye/releases/download/niche-integrations-2026-10-04/suniye-elevenlabs-only.apk)
+[Watch the complete walkthrough](https://github.com/himanshu748/suniye/releases/download/v0.1.0-pilot/suniye-demo-judge.mp4) · [Download the ElevenLabs-only APK](https://github.com/himanshu748/suniye/releases/download/parent-ux-2026-10-04/suniye-parent-ux.apk)
 
 The film opens with the problem in Hindi, then shows a bill read as Hindi amount words, Repeat and Stop. It shows the exact image and PDF source files before their recognized text: नमस्ते from an image, बिल from PDF page 1 and धन्यवाद from page 2. The WhatsApp section is labelled as a setup walkthrough.
 

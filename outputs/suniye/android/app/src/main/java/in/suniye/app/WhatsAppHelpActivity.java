@@ -12,7 +12,7 @@ public final class WhatsAppHelpActivity extends Activity {
   Ui.add(root,Ui.text(this,"३. आवाज़ सुनें। रोकने के लिए फिर हरा बटन दबाएँ।",24,Ui.INK,false),-2,20);
   Button open=Ui.button(this,"WhatsApp खोलिए",true);open.setOnClickListener(v->open());Ui.add(root,open,-2,24);
   Ui.add(root,Ui.text(this,"फ़ोटो या PDF",26,Ui.INK,true),-2,32);
-  Ui.add(root,Ui.text(this,"फ़ोटो या PDF खोलें। भेजने वाला बटन (Share) दबाएँ, फिर ऐप की सूची में सुनिए चुनें।",24,Ui.INK,false),-2,16);
+  Ui.add(root,Ui.text(this,"फ़ोटो या PDF खोलें। Share (शेयर) चुनें, फिर ऐप की सूची में सुनिए दबाएँ। किसी संपर्क को भेजने की ज़रूरत नहीं।",24,Ui.INK,false),-2,16);
   Ui.add(root,Ui.text(this,"हरा बटन नहीं दिखता? परिवार की सेटिंग में उसे चालू करवाएँ।",24,Ui.INK,false),-2,24);
   Button setup=Ui.button(this,"परिवार की सेटिंग",false);setup.setOnClickListener(v->startActivity(new Intent(this,SetupActivity.class)));Ui.add(root,setup,-2,20);
  }

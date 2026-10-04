@@ -3,6 +3,7 @@ package in.suniye.app;
 public final class VoicePrompts {
     private VoicePrompts(){}
     public static String asset(String message){
+        if(message.startsWith("बिल या कागज़ के लिए"))return "parent-help";
         if(message.contains("आवाज़ नहीं मिली")||message.contains("इंटरनेट"))return "unavailable";
         if(message.contains("सेटिंग सहेज"))return "saved";
         if(message.contains("सुरक्षित स्क्रीन"))return "protected";

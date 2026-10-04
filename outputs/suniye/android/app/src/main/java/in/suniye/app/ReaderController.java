@@ -45,6 +45,7 @@ public final class ReaderController {
     public void removeListener(Listener l){listeners.remove(l);}
     public void documentChanged(){notifyListeners();}
     public boolean busy(){return busy;}
+    public boolean hasAudio(){return player!=null;}
     public String status(){return status;}
     public String original(){return original;}
     public String spoken(){return lastSpoken;}
@@ -111,12 +112,16 @@ public final class ReaderController {
     private void prompt(String message,long id){
         if(!current(id))return;
         String asset=VoicePrompts.asset(message);if(asset==null)return;
-        try {releasePlayer();android.content.res.AssetFileDescriptor clip=context.getAssets().openFd("voice/"+asset+".mp3");
+        try {releasePlayer();abandonFocus();
+            if(audio.getStreamVolume(android.media.AudioManager.STREAM_MUSIC)==0){status="आवाज़ बंद है। फ़ोन का आवाज़ बढ़ाने वाला बटन दबाएँ।";notifyListeners();return;}
+            focus=new android.media.AudioFocusRequest.Builder(android.media.AudioManager.AUDIOFOCUS_GAIN_TRANSIENT).setAudioAttributes(attributes()).setOnAudioFocusChangeListener(change->{if(change==android.media.AudioManager.AUDIOFOCUS_LOSS||change==android.media.AudioManager.AUDIOFOCUS_LOSS_TRANSIENT)main.post(()->{if(current(id))stop();});}).build();
+            if(audio.requestAudioFocus(focus)!=android.media.AudioManager.AUDIOFOCUS_REQUEST_GRANTED){abandonFocus();return;}
+            android.content.res.AssetFileDescriptor clip=context.getAssets().openFd("voice/"+asset+".mp3");
             MediaPlayer p=new MediaPlayer();player=p;p.setAudioAttributes(attributes());p.setDataSource(clip.getFileDescriptor(),clip.getStartOffset(),clip.getLength());clip.close();
             p.setOnPreparedListener(ready->{if(!current(id)||player!=ready)return;ready.setPlaybackParams(ready.getPlaybackParams().setSpeed(config.speed()));ready.start();});
-            p.setOnCompletionListener(done->{if(player==done)releasePlayer();});
-            p.setOnErrorListener((failed,w,e)->{if(player==failed)releasePlayer();return true;});p.prepareAsync();
-        }catch(Exception ignored){releasePlayer();} // Missing bundled audio stays silent; never use another voice.
+            p.setOnCompletionListener(done->{if(player==done){releasePlayer();abandonFocus();}});
+            p.setOnErrorListener((failed,w,e)->{if(player==failed){releasePlayer();abandonFocus();}return true;});p.prepareAsync();
+        }catch(Exception ignored){releasePlayer();abandonFocus();} // Missing bundled audio stays silent; never use another voice.
     }
     private android.media.AudioAttributes attributes(){return new android.media.AudioAttributes.Builder().setUsage(android.media.AudioAttributes.USAGE_MEDIA).setContentType(android.media.AudioAttributes.CONTENT_TYPE_SPEECH).build();}
     private void speak(String text,byte[] clip,long id){speak(text,clip,id,lastAudioRate);}
