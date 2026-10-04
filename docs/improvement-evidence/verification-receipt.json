@@ -1,0 +1,45 @@
+{
+  "checkedAt": "2026-10-04T15:08:05.444457+00:00",
+  "branch": "improve/suniye-stop-privacy-20261004",
+  "publicBaseline": "461aa99c8675c362222f68760ae9ce3212949a43",
+  "implementationScope": [
+    "outputs/suniye/backend/src/workflow.js",
+    "outputs/suniye/backend/src/server.js",
+    "outputs/suniye/backend/test/reader.test.js"
+  ],
+  "changes": [
+    "Already-aborted operations fail CANCELLED before workflow creation. Cancellation is rechecked after asynchronous creation, immediately before provider callbacks, after extraction and before accepting final results.",
+    "Every matched /v1/ route sets Cache-Control: no-store before auth/parsing, including reading/settings successes and public errors."
+  ],
+  "offlineVerification": {
+    "node": "v22.14.0",
+    "fullBackendSuite": {
+      "command": "node --test --test-concurrency=1 test/*.test.js",
+      "passed": 93,
+      "failed": 0,
+      "log": "backend-tests.log",
+      "durationMs": 270181.934958
+    },
+    "finalFocusedRegressions": {
+      "command": "node --test --test-concurrency=1 --test-name-pattern='already stopped|asynchronous workflow creation|traced stage|never cacheable' test/reader.test.js",
+      "passed": 4,
+      "failed": 0,
+      "log": "focused-regressions.log",
+      "durationMs": 41797.036542
+    },
+    "dependencies": "Already-installed original dependencies linked through ignored node_modules symlinks; no installs or lockfile edits.",
+    "diffWhitespaceCheck": "pass after trailing whitespace cleanup"
+  },
+  "newProviderCalls": 0,
+  "uploads": 0,
+  "deployments": 0,
+  "purchases": 0,
+  "originalMutations": 0,
+  "limits": [
+    "Backend source fixes are isolated and unpushed; no deployment/API public behavior claim.",
+    "Public Android baseline differs from original 0.3 parent-UX source; unrelated Android changes were recorded only.",
+    "APK metadata inspection is not device usability verification.",
+    "No new Android build, emulator, cloud device, physical Redmi, WhatsApp, microphone, parent listening or handover test."
+  ],
+  "sourceComparison": "baseline.json compares 213 public tracked files with original paths, excluding .env examples; source drift listed. Early broad comparison enumerated ignored private prep/index filenames only; their contents were not read, copied or emitted. Final provenance uses the tracked-file manifest."
+}

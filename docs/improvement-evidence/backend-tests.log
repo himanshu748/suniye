@@ -1,0 +1,475 @@
+TAP version 13
+# Subtest: Hindi pronunciation: बिल ₹1,250 है। तारीख 02/10/2026 है।
+ok 1 - Hindi pronunciation: बिल ₹1,250 है। तारीख 02/10/2026 है।
+  ---
+  duration_ms: 1847.7765
+  ...
+# Subtest: Hindi pronunciation: ₹१२५०
+ok 2 - Hindi pronunciation: ₹१२५०
+  ---
+  duration_ms: 13.511042
+  ...
+# Subtest: Hindi pronunciation: ₹1,25,000.50
+ok 3 - Hindi pronunciation: ₹1,25,000.50
+  ---
+  duration_ms: 0.819375
+  ...
+# Subtest: Hindi pronunciation: ₹0.5
+ok 4 - Hindi pronunciation: ₹0.5
+  ---
+  duration_ms: 1.549875
+  ...
+# Subtest: Hindi pronunciation: ₹-12.05
+ok 5 - Hindi pronunciation: ₹-12.05
+  ---
+  duration_ms: 13.657666
+  ...
+# Subtest: Hindi pronunciation: ₹−१२.०५
+ok 6 - Hindi pronunciation: ₹−१२.०५
+  ---
+  duration_ms: 0.783584
+  ...
+# Subtest: Hindi pronunciation: ₹1.005
+ok 7 - Hindi pronunciation: ₹1.005
+  ---
+  duration_ms: 0.766042
+  ...
+# Subtest: Hindi pronunciation: ₹1,2,50
+ok 8 - Hindi pronunciation: ₹1,2,50
+  ---
+  duration_ms: 0.474875
+  ...
+# Subtest: Hindi pronunciation: ₹999,999,999
+ok 9 - Hindi pronunciation: ₹999,999,999
+  ---
+  duration_ms: 2.044334
+  ...
+# Subtest: Hindi pronunciation: ₹1000000000
+ok 10 - Hindi pronunciation: ₹1000000000
+  ---
+  duration_ms: 7.728917
+  ...
+# Subtest: Hindi pronunciation: OTP 1250, पिन 0125
+ok 11 - Hindi pronunciation: OTP 1250, पिन 0125
+  ---
+  duration_ms: 6.803083
+  ...
+# Subtest: Hindi pronunciation: फ़ोन 9876543210
+ok 12 - Hindi pronunciation: फ़ोन 9876543210
+  ---
+  duration_ms: 0.769666
+  ...
+# Subtest: Hindi pronunciation: खाता: 123456
+ok 13 - Hindi pronunciation: खाता: 123456
+  ---
+  duration_ms: 9.185625
+  ...
+# Subtest: Hindi pronunciation: 08/27 12:30 2026-10-02
+ok 14 - Hindi pronunciation: 08/27 12:30 2026-10-02
+  ---
+  duration_ms: 2.239458
+  ...
+# Subtest: Hindi pronunciation: -02/10/2026
+ok 15 - Hindi pronunciation: -02/10/2026
+  ---
+  duration_ms: 0.272625
+  ...
+# Subtest: Hindi pronunciation: 650 mg; 0.25 ml; -5; +12
+ok 16 - Hindi pronunciation: 650 mg; 0.25 ml; -5; +12
+  ---
+  duration_ms: 0.251667
+  ...
+# Subtest: Hindi pronunciation: A1250 दवा650 v3 abc@example1250.com https://example.com/1250
+ok 17 - Hindi pronunciation: A1250 दवा650 v3 abc@example1250.com https://example.com/1250
+  ---
+  duration_ms: 0.148458
+  ...
+# Subtest: Hindi pronunciation: ₹1,250, फिर ₹25।
+ok 18 - Hindi pronunciation: ₹1,250, फिर ₹25।
+  ---
+  duration_ms: 0.699792
+  ...
+# Subtest: Hindi pronunciation: ₹1 ₹2 ₹3 ₹4
+ok 19 - Hindi pronunciation: ₹1 ₹2 ₹3 ₹4
+  ---
+  duration_ms: 0.560917
+  ...
+# Subtest: Hindi pronunciation: पन्ना 1 / 25
+ok 20 - Hindi pronunciation: पन्ना 1 / 25
+  ---
+  duration_ms: 257.364167
+  ...
+# Subtest: Hindi pronunciation: 1234567 0001
+ok 21 - Hindi pronunciation: 1234567 0001
+  ---
+  duration_ms: 4.83375
+  ...
+# Subtest: Hindi pronunciation: बिल Rs. 1,250/- है।
+ok 22 - Hindi pronunciation: बिल Rs. 1,250/- है।
+  ---
+  duration_ms: 1.395041
+  ...
+# Subtest: Hindi pronunciation: रु 500, INR 500, -₹500
+ok 23 - Hindi pronunciation: रु 500, INR 500, -₹500
+  ---
+  duration_ms: 1.094667
+  ...
+# Subtest: Hindi pronunciation: फ़ोन 011-23456789
+ok 24 - Hindi pronunciation: फ़ोन 011-23456789
+  ---
+  duration_ms: 0.725167
+  ...
+# Subtest: Hindi pronunciation: खाता 0012-3456
+ok 25 - Hindi pronunciation: खाता 0012-3456
+  ---
+  duration_ms: 0.825292
+  ...
+# Subtest: Hindi pronunciation: फ़ोन 0120-456789
+ok 26 - Hindi pronunciation: फ़ोन 0120-456789
+  ---
+  duration_ms: 0.216375
+  ...
+# Subtest: Hindi pronunciation: 011-23456789
+ok 27 - Hindi pronunciation: 011-23456789
+  ---
+  duration_ms: 1.065583
+  ...
+# Subtest: Hindi pronunciation: +91 98765 43210
+ok 28 - Hindi pronunciation: +91 98765 43210
+  ---
+  duration_ms: 189.024541
+  ...
+# Subtest: Hindi pronunciation: OTP है 1250; 482193 is your code
+ok 29 - Hindi pronunciation: OTP है 1250; 482193 is your code
+  ---
+  duration_ms: 252.342
+  ...
+# Subtest: Hindi pronunciation: 15,00,000
+ok 30 - Hindi pronunciation: 15,00,000
+  ---
+  duration_ms: 57.593708
+  ...
+# Subtest: Hindi pronunciation: ²1250 1250² १२५०⃝
+ok 31 - Hindi pronunciation: ²1250 1250² १२५०⃝
+  ---
+  duration_ms: 0.545
+  ...
+# Subtest: Hindi pronunciation: HTTPS://example.com/1250
+ok 32 - Hindi pronunciation: HTTPS://example.com/1250
+  ---
+  duration_ms: 0.2295
+  ...
+# Subtest: Hindi pronunciation: ₹1,250/-
+ok 33 - Hindi pronunciation: ₹1,250/-
+  ---
+  duration_ms: 0.309666
+  ...
+# Subtest: Hindi pronunciation: दूध - ₹60; Total - ₹1,250
+ok 34 - Hindi pronunciation: दूध - ₹60; Total - ₹1,250
+  ---
+  duration_ms: 0.321042
+  ...
+# Subtest: Hindi pronunciation: You paid 1,250; बिजली-₹500
+ok 35 - Hindi pronunciation: You paid 1,250; बिजली-₹500
+  ---
+  duration_ms: 0.20075
+  ...
+# Subtest: Hindi pronunciation: 65000 70000
+ok 36 - Hindi pronunciation: 65000 70000
+  ---
+  duration_ms: 0.433167
+  ...
+# Subtest: Hindi pronunciation: [slowly] ₹1,250
+ok 37 - Hindi pronunciation: [slowly] ₹1,250
+  ---
+  duration_ms: 0.171375
+  ...
+# Subtest: Hindi pronunciation: दूध Rs - 60; INR -60; रु - 60
+ok 38 - Hindi pronunciation: दूध Rs - 60; INR -60; रु - 60
+  ---
+  duration_ms: 0.171875
+  ...
+# Subtest: ElevenLabs receives Hindi pronunciation while the caller retains the original
+ok 39 - ElevenLabs receives Hindi pronunciation while the caller retains the original
+  ---
+  duration_ms: 352.098041
+  ...
+# Subtest: Expanded pronunciation above the provider limit falls back without sending
+ok 40 - Expanded pronunciation above the provider limit falls back without sending
+  ---
+  duration_ms: 816.776667
+  ...
+# Subtest: v4 omits unsupported speed and exposes its actual audio base rate
+ok 41 - v4 omits unsupported speed and exposes its actual audio base rate
+  ---
+  duration_ms: 4.591209
+  ...
+# Subtest: workflow preserves audio base rate and source for Android repeat playback
+ok 42 - workflow preserves audio base rate and source for Android repeat playback
+  ---
+  duration_ms: 51986.518417
+  ...
+# Subtest: Unverified voice models do not send requests or assume a playback rate
+ok 43 - Unverified voice models do not send requests or assume a playback rate
+  ---
+  duration_ms: 47.573917
+  ...
+# Subtest: unauthorized requests never reach the model
+ok 44 - unauthorized requests never reach the model
+  ---
+  duration_ms: 3550.554292
+  ...
+# Subtest: text reading preserves amounts, dates and script
+ok 45 - text reading preserves amounts, dates and script
+  ---
+  duration_ms: 772.785458
+  ...
+# Subtest: both input types and unknown fields are rejected before extraction
+ok 46 - both input types and unknown fields are rejected before extraction
+  ---
+  duration_ms: 248.528
+  ...
+# Subtest: image dimensions and canonical encoding are bounded
+ok 47 - image dimensions and canonical encoding are bounded
+  ---
+  duration_ms: 506.1825
+  ...
+# Subtest: invalid, empty or unrecognized model JSON fails closed
+ok 48 - invalid, empty or unrecognized model JSON fails closed
+  ---
+  duration_ms: 266.60975
+  ...
+# Subtest: retake never calls a narration provider
+ok 49 - retake never calls a narration provider
+  ---
+  duration_ms: 744.331292
+  ...
+# Subtest: description and explanation are explicitly distinguished from original
+ok 50 - description and explanation are explicitly distinguished from original
+  ---
+  duration_ms: 50.889417
+  ...
+# Subtest: late extraction after cancellation cannot invoke narration
+ok 51 - late extraction after cancellation cannot invoke narration
+  ---
+  duration_ms: 382.377875
+  ...
+# Subtest: truncated model output is not announced as a complete reading
+ok 52 - truncated model output is not announced as a complete reading
+  ---
+  duration_ms: 194.578541
+  ...
+# Subtest: ElevenLabs failure leaves text available without substitute audio
+ok 53 - ElevenLabs failure leaves text available without substitute audio
+  ---
+  duration_ms: 96.441916
+  ...
+# Subtest: only preferences reach the optional Mongo store
+ok 54 - only preferences reach the optional Mongo store
+  ---
+  duration_ms: 56.529959
+  ...
+# Subtest: third concurrent request is bounded while two readers wait
+ok 55 - third concurrent request is bounded while two readers wait
+  ---
+  duration_ms: 147.266167
+  ...
+# Subtest: generative OCR is rejected when the phone found no readable text
+ok 56 - generative OCR is rejected when the phone found no readable text
+  ---
+  duration_ms: 3.488667
+  ...
+# Subtest: online narration is opt-in even when ElevenLabs is configured
+ok 57 - online narration is opt-in even when ElevenLabs is configured
+  ---
+  duration_ms: 74.605875
+  ...
+# Subtest: explanations reject omitted or invented numeric quantities
+ok 58 - explanations reject omitted or invented numeric quantities
+  ---
+  duration_ms: 50.219125
+  ...
+# Subtest: an explanation cannot drop a repeated amount
+ok 59 - an explanation cannot drop a repeated amount
+  ---
+  duration_ms: 14.523584
+  ...
+# Subtest: public model failures survive the Mastra workflow without leaking arbitrary provider errors
+ok 60 - public model failures survive the Mastra workflow without leaking arbitrary provider errors
+  ---
+  duration_ms: 510.847167
+  ...
+# Subtest: duplicate active request IDs cannot replace another run cancellation signal
+ok 61 - duplicate active request IDs cannot replace another run cancellation signal
+  ---
+  duration_ms: 10.436584
+  ...
+# Subtest: native Ollama pictures carry an explicit schema and preserve image bytes
+ok 62 - native Ollama pictures carry an explicit schema and preserve image bytes
+  ---
+  duration_ms: 6.340333
+  ...
+# Subtest: oversized model response is rejected before becoming a reading
+ok 63 - oversized model response is rejected before becoming a reading
+  ---
+  duration_ms: 3.249709
+  ...
+# Subtest: unfinished native model output is not accepted as a reading
+ok 64 - unfinished native model output is not accepted as a reading
+  ---
+  duration_ms: 2.362083
+  ...
+# Subtest: explanation cannot swap quantities assigned to different items
+ok 65 - explanation cannot swap quantities assigned to different items
+  ---
+  duration_ms: 1.191667
+  ...
+# Subtest: Hindi number words, dates, units, negations and times remain conservative anchors
+ok 66 - Hindi number words, dates, units, negations and times remain conservative anchors
+  ---
+  duration_ms: 4.489667
+  ...
+# Subtest: picture descriptions cannot smuggle generative OCR through empty originalText
+ok 67 - picture descriptions cannot smuggle generative OCR through empty originalText
+  ---
+  duration_ms: 3.773542
+  ...
+# Subtest: model retake instructions are replaced with an application-authored prompt
+ok 68 - model retake instructions are replaced with an application-authored prompt
+  ---
+  duration_ms: 81.381875
+  ...
+# Subtest: only an explicit completed stop reason permits a model response
+ok 69 - only an explicit completed stop reason permits a model response
+  ---
+  duration_ms: 4.914542
+  ...
+# Subtest: malformed short JPEG frame headers return a public image error
+ok 70 - malformed short JPEG frame headers return a public image error
+  ---
+  duration_ms: 0.553917
+  ...
+# Subtest: bad JSON and unsupported content types preserve 400 and 415 status
+ok 71 - bad JSON and unsupported content types preserve 400 and 415 status
+  ---
+  duration_ms: 456.021042
+  ...
+# Subtest: unauthorized bodies are rejected before parsing and do not consume family quota
+ok 72 - unauthorized bodies are rejected before parsing and do not consume family quota
+  ---
+  duration_ms: 180.578917
+  ...
+# Subtest: unused provider error bodies are cancelled
+ok 73 - unused provider error bodies are cancelled
+  ---
+  duration_ms: 3.381583
+  ...
+# Subtest: encoded protected routes require authentication before parsing or model use
+ok 74 - encoded protected routes require authentication before parsing or model use
+  ---
+  duration_ms: 389.309625
+  ...
+# Subtest: contractions and Hindi prohibitions cannot be omitted in an explanation
+ok 75 - contractions and Hindi prohibitions cannot be omitted in an explanation
+  ---
+  duration_ms: 10.454542
+  ...
+# Subtest: equivalent digit scripts and translated units may preserve the same quantities
+ok 76 - equivalent digit scripts and translated units may preserve the same quantities
+  ---
+  duration_ms: 1.778625
+  ...
+# Subtest: quoted words in pictures require local OCR rather than model transcription
+ok 77 - quoted words in pictures require local OCR rather than model transcription
+  ---
+  duration_ms: 1.690375
+  ...
+# Subtest: common cannot and WhatsApp Hindi negations cannot disappear
+ok 78 - common cannot and WhatsApp Hindi negations cannot disappear
+  ---
+  duration_ms: 4.048792
+  ...
+# Subtest: audio responses identify ElevenLabs and the configured voice; failure returns text only
+ok 79 - audio responses identify ElevenLabs and the configured voice; failure returns text only
+  ---
+  duration_ms: 10.2295
+  ...
+# Subtest: a foreign ElevenLabs voice is rejected before any credit-consuming request
+ok 80 - a foreign ElevenLabs voice is rejected before any credit-consuming request
+  ---
+  duration_ms: 0.395917
+  ...
+# Subtest: an already stopped reading never starts extraction, explanation or narration
+ok 81 - an already stopped reading never starts extraction, explanation or narration
+  ---
+  duration_ms: 4.605333
+  ...
+# Subtest: Stop during asynchronous workflow creation prevents the first provider stage
+ok 82 - Stop during asynchronous workflow creation prevents the first provider stage
+  ---
+  duration_ms: 1.376209
+  ...
+# Subtest: Stop while a traced stage is waiting prevents each provider from starting
+ok 83 - Stop while a traced stage is waiting prevents each provider from starting
+  ---
+  duration_ms: 25.545583
+  ...
+# Subtest: private readings and caregiver settings are never cacheable, including errors
+ok 84 - private readings and caregiver settings are never cacheable, including errors
+  ---
+  duration_ms: 422.543084
+  ...
+# Subtest: caregiver search uses fixed public queries and retains official HTTPS sources only
+ok 85 - caregiver search uses fixed public queries and retains official HTTPS sources only
+  ---
+  duration_ms: 60.511375
+  ...
+# Subtest: caregiver guide runs official search and source-bound Gemma synthesis through Mastra
+ok 86 - caregiver guide runs official search and source-bound Gemma synthesis through Mastra
+  ---
+  duration_ms: 573.322458
+  ...
+# Subtest: support synthesis rejects references outside the supplied source list
+ok 87 - support synthesis rejects references outside the supplied source list
+  ---
+  duration_ms: 16.108083
+  ...
+# Subtest: an empty manufacturer search preserves available official Android sources
+ok 88 - an empty manufacturer search preserves available official Android sources
+  ---
+  duration_ms: 125.40025
+  ...
+# Subtest: a search without official articles stops before model synthesis
+ok 89 - a search without official articles stops before model synthesis
+  ---
+  duration_ms: 761.223375
+  ...
+# Subtest: Mastra preserves the safe provider failure code for invalid guide synthesis
+ok 90 - Mastra preserves the safe provider failure code for invalid guide synthesis
+  ---
+  duration_ms: 605.753166
+  ...
+# Subtest: a missing search key reports configuration without starting network work
+ok 91 - a missing search key reports configuration without starting network work
+  ---
+  duration_ms: 26.222334
+  ...
+# Subtest: support summaries cannot add links or HTML beside the official references
+ok 92 - support summaries cannot add links or HTML beside the official references
+  ---
+  duration_ms: 365.887167
+  ...
+# Subtest: AI traces keep correlation and token metrics while discarding reading content and account identifiers
+ok 93 - AI traces keep correlation and token metrics while discarding reading content and account identifiers
+  ---
+  duration_ms: 15.9175
+  ...
+1..93
+# tests 93
+# suites 0
+# pass 93
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 270181.934958

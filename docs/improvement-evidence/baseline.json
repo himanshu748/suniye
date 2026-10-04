@@ -1,0 +1,1087 @@
+{
+  "recordedAt": "2026-10-04T15:03:29.043801+00:00",
+  "publicBaseline": "461aa99c8675c362222f68760ae9ce3212949a43",
+  "publicRepository": "https://github.com/himanshu748/suniye",
+  "originalRepositoryHead": "384b7aaf3c5613b7630744ee2e5b3ed612aab851",
+  "sourceOriginal": "/Users/himanshujha/n/suniye/outputs/suniye",
+  "isolation": "Public clone on dedicated improve/suniye-stop-privacy-20261004 branch; original dirty state untouched; ignored installed dependencies linked read-only for offline tests; credentials not copied or read.",
+  "originalDriftFromPublic": [
+    "outputs/suniye/android/app/build.gradle",
+    "outputs/suniye/android/app/src/debug/AndroidManifest.xml",
+    "outputs/suniye/android/app/src/debug/java/in/suniye/app/ElevenOnlyProbe.java",
+    "outputs/suniye/android/app/src/main/java/in/suniye/app/CameraActivity.java",
+    "outputs/suniye/android/app/src/main/java/in/suniye/app/MainActivity.java",
+    "outputs/suniye/android/app/src/main/java/in/suniye/app/ReaderController.java",
+    "outputs/suniye/android/app/src/main/java/in/suniye/app/SetupActivity.java",
+    "outputs/suniye/android/app/src/main/java/in/suniye/app/VoicePrompts.java",
+    "outputs/suniye/android/app/src/main/java/in/suniye/app/WhatsAppHelpActivity.java",
+    "outputs/suniye/docs/dev-submission-draft.md"
+  ],
+  "files": [
+    {
+      "path": "outputs/suniye/.gitignore",
+      "publicSha256": "4743e3418580ff1f874174f8ac48d5e74bb0f0be5ad1d52c08773bdb1e95eedb",
+      "originalSha256": "4743e3418580ff1f874174f8ac48d5e74bb0f0be5ad1d52c08773bdb1e95eedb"
+    },
+    {
+      "path": "outputs/suniye/LICENSE",
+      "publicSha256": "004007bc9074abf048ea20df42baab65051a4cb934d91070bdf8359b4ba35396",
+      "originalSha256": "004007bc9074abf048ea20df42baab65051a4cb934d91070bdf8359b4ba35396"
+    },
+    {
+      "path": "outputs/suniye/README.md",
+      "publicSha256": "5bfadb591bf85357ddb115541d56fb6da31e1c6128b118607a7e0d9abb4d4b16",
+      "originalSha256": "5bfadb591bf85357ddb115541d56fb6da31e1c6128b118607a7e0d9abb4d4b16"
+    },
+    {
+      "path": "outputs/suniye/android/app/build.gradle",
+      "publicSha256": "4801abd2203fe5d0d9248dec8a1fd21f95876b351da2a9a81cf070f3846a6bee",
+      "originalSha256": "1462069d4425a46b3f81cd265ab7a0e7c91905071070179860a05fd853bab204"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/debug/AndroidManifest.xml",
+      "publicSha256": "ba4e8f9dc2798e2c1f38da5fc6f3cdbfd2bef3a73fdf3b2e18aa3e5f9d5ee07a",
+      "originalSha256": "4b796943064a51f7d4d413f49e30815adfbfe7d676ff818b364b1c8443e5e8f5"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/debug/java/in/suniye/app/DebugPdfProvider.java",
+      "publicSha256": "0289514b259caa0fcf92c47bf96dff22cd24ccfb64054cdc74b25af6b26ab6d6",
+      "originalSha256": "0289514b259caa0fcf92c47bf96dff22cd24ccfb64054cdc74b25af6b26ab6d6"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/debug/java/in/suniye/app/DebugProbe.java",
+      "publicSha256": "992805b8dd087dccd6a7fc5468bfda763e126a31d327dfe8d7f1f8acb7a94710",
+      "originalSha256": "992805b8dd087dccd6a7fc5468bfda763e126a31d327dfe8d7f1f8acb7a94710"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/debug/java/in/suniye/app/ElevenOnlyProbe.java",
+      "publicSha256": "1f31857f4013e2c96dd90738ec7a11013670a957ac8fa661d4171bfe05f7dadd",
+      "originalSha256": "dcc3d8570cb54a41de53fde7cf7c552d4a40ee455916d2166109b1f2580f65d9"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/debug/java/in/suniye/app/EntryDemo.java",
+      "publicSha256": "b9df9ac004a43d735aba7c912035929d4bdbf777a54803f6b67085e98eefbe0d",
+      "originalSha256": "b9df9ac004a43d735aba7c912035929d4bdbf777a54803f6b67085e98eefbe0d"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/debug/java/in/suniye/app/FixtureActivity.java",
+      "publicSha256": "0269a564448a892f1ca45b85f4e9eec7c97a0fb98e182907b3a21f957fd06532",
+      "originalSha256": "0269a564448a892f1ca45b85f4e9eec7c97a0fb98e182907b3a21f957fd06532"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/debug/java/in/suniye/app/MediaDemo.java",
+      "publicSha256": "420e71acabd6b374c33b17b3eeaee39cccf31089ab4152953dc3b435f56cc9cf",
+      "originalSha256": "420e71acabd6b374c33b17b3eeaee39cccf31089ab4152953dc3b435f56cc9cf"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/debug/java/in/suniye/app/SimpleDemo.java",
+      "publicSha256": "ae4e5ccc56d045aa5844918c0e4216e5ba5d42b907bab381490446b825b9d7c6",
+      "originalSha256": "ae4e5ccc56d045aa5844918c0e4216e5ba5d42b907bab381490446b825b9d7c6"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/debug/java/in/suniye/app/VoiceProbe.java",
+      "publicSha256": "0afa0d90b281b79eb2262121064d463aa45e0166e1e5545d277e17636a22debc",
+      "originalSha256": "0afa0d90b281b79eb2262121064d463aa45e0166e1e5545d277e17636a22debc"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/AndroidManifest.xml",
+      "publicSha256": "bf7058a5f9a4de46386f4b7fd9df65ad0db7acf44cae705013088128a85f00c7",
+      "originalSha256": "bf7058a5f9a4de46386f4b7fd9df65ad0db7acf44cae705013088128a85f00c7"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/assets/voice/busy.mp3",
+      "publicSha256": "9b3212b156f57b9a6c9ac116d33efd76fdb29d2c36248e8d1696cfa61d2c4f66",
+      "originalSha256": "9b3212b156f57b9a6c9ac116d33efd76fdb29d2c36248e8d1696cfa61d2c4f66"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/assets/voice/changed.mp3",
+      "publicSha256": "a728514c93eaec03bbd22892363e6a57e5a6a46482947d3498edd062e974e34b",
+      "originalSha256": "a728514c93eaec03bbd22892363e6a57e5a6a46482947d3498edd062e974e34b"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/assets/voice/open.mp3",
+      "publicSha256": "28091a6765f61f7a0aba79fb8e92dd46502955defa264c705b9f76a35afb3e10",
+      "originalSha256": "28091a6765f61f7a0aba79fb8e92dd46502955defa264c705b9f76a35afb3e10"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/assets/voice/protected.mp3",
+      "publicSha256": "c26fb62702eaaa8c454201076965b7aec57bf20b1234b13c90d397db3b976660",
+      "originalSha256": "c26fb62702eaaa8c454201076965b7aec57bf20b1234b13c90d397db3b976660"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/assets/voice/retake.mp3",
+      "publicSha256": "9ae4b6478dda01e2816a73fc3a744d98661a46c0dd2a8474fbe0db5bee293c63",
+      "originalSha256": "9ae4b6478dda01e2816a73fc3a744d98661a46c0dd2a8474fbe0db5bee293c63"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/assets/voice/saved.mp3",
+      "publicSha256": "8b7bb2a803952e49f938e2faf5ad67134ff25b49a7797ba2721b45e2725f569d",
+      "originalSha256": "8b7bb2a803952e49f938e2faf5ad67134ff25b49a7797ba2721b45e2725f569d"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/assets/voice/setup.mp3",
+      "publicSha256": "792fc960193987efa94859481f8eb404c144a7273dde6b675d2cb6f8caf5e2a6",
+      "originalSha256": "792fc960193987efa94859481f8eb404c144a7273dde6b675d2cb6f8caf5e2a6"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/assets/voice/unavailable.mp3",
+      "publicSha256": "f4fd6e73d2369872f6ce2ef8f4450643b681a417fd3bfd9c05166ebe521763d9",
+      "originalSha256": "f4fd6e73d2369872f6ce2ef8f4450643b681a417fd3bfd9c05166ebe521763d9"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/java/in/suniye/app/BackendClient.java",
+      "publicSha256": "9e632ebea07345049160d7d545c410526ecbbfbd2a1a8dc3205d4592ed2e5237",
+      "originalSha256": "9e632ebea07345049160d7d545c410526ecbbfbd2a1a8dc3205d4592ed2e5237"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/java/in/suniye/app/CameraActivity.java",
+      "publicSha256": "94c8c69e7a1b77e818a0004cd0aee5ea5996c7ea40354ec101436a27c1823205",
+      "originalSha256": "5d47c878ffb7d9f614c91d4f9be4a5540ea56e67d97ab147e1d93dfcf03c5f76"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/java/in/suniye/app/Config.java",
+      "publicSha256": "d4fe71ceb439bbbf68a112d584b7a0aa6d5f9a98ac351ba1d6da957d79f51ed6",
+      "originalSha256": "d4fe71ceb439bbbf68a112d584b7a0aa6d5f9a98ac351ba1d6da957d79f51ed6"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/java/in/suniye/app/HindiSpeech.java",
+      "publicSha256": "797aefffa5848ed9913e68bdc20b0f9078d31376ab18dabfcb98606da98da128",
+      "originalSha256": "797aefffa5848ed9913e68bdc20b0f9078d31376ab18dabfcb98606da98da128"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/java/in/suniye/app/ImageInput.java",
+      "publicSha256": "917cd951f4a65d0d0263aa0843fafbf3b0168cdf30b55a0734921bdaba91c818",
+      "originalSha256": "917cd951f4a65d0d0263aa0843fafbf3b0168cdf30b55a0734921bdaba91c818"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/java/in/suniye/app/LocalText.java",
+      "publicSha256": "fdc4a56e45fa0c5874e8abbacd3a965395ace735f5ac7675e02242fd5d6a62ec",
+      "originalSha256": "fdc4a56e45fa0c5874e8abbacd3a965395ace735f5ac7675e02242fd5d6a62ec"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/java/in/suniye/app/MainActivity.java",
+      "publicSha256": "0cc9bb7a669a9e08955edd7822987f1d68d2331c01670d33805adb8a79277750",
+      "originalSha256": "3bae0d976a32657ac65ddf1ca894c53bf30b616756393fdb8ecca858fff8c71e"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/java/in/suniye/app/PreferencesClient.java",
+      "publicSha256": "474552f1caffa0a4b8af6bd024bebb762d47c718c3f7dd297f132b0c5db6ac2d",
+      "originalSha256": "474552f1caffa0a4b8af6bd024bebb762d47c718c3f7dd297f132b0c5db6ac2d"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/java/in/suniye/app/ReaderController.java",
+      "publicSha256": "727e067fa0dcd6f7bdffced2c7e0a656dfb0e8387e5c661958178dee517f0e91",
+      "originalSha256": "117f6ec53049277ff2824e2d123b01df4eadbc07b4098e73775d1281ca0229f0"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/java/in/suniye/app/ScreenReaderService.java",
+      "publicSha256": "c71bc47460a2e5ea4e8be288ea7f9f18f27bbadd28512298dd2829ee37e3ef89",
+      "originalSha256": "c71bc47460a2e5ea4e8be288ea7f9f18f27bbadd28512298dd2829ee37e3ef89"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/java/in/suniye/app/SetupActivity.java",
+      "publicSha256": "1a4897a204d2ed4f55e2409bcb0f4155bb7eba2faa6f92e65a6f43b546d20f3f",
+      "originalSha256": "f7dcccbef039a551bc9f39fee0a362d0dcb47831e8bd9938b74cfb3dbce1ffa9"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/java/in/suniye/app/SuniyeApp.java",
+      "publicSha256": "5f18f4daa5093e17ca4f9b054c7da81700cbc53bd3e19f846434d2a3c6e4e173",
+      "originalSha256": "5f18f4daa5093e17ca4f9b054c7da81700cbc53bd3e19f846434d2a3c6e4e173"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/java/in/suniye/app/Ui.java",
+      "publicSha256": "ca5bf7a81f09cb0233ea348fbd0c5a403af4c5b254e26d7123ba3fa120b67d13",
+      "originalSha256": "ca5bf7a81f09cb0233ea348fbd0c5a403af4c5b254e26d7123ba3fa120b67d13"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/java/in/suniye/app/UserMessage.java",
+      "publicSha256": "cc47511b649f08b527482e844270a463972095061ac49bdc58875dfb753b20da",
+      "originalSha256": "cc47511b649f08b527482e844270a463972095061ac49bdc58875dfb753b20da"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/java/in/suniye/app/VoiceCommand.java",
+      "publicSha256": "f55303dda623000de04f5380f5428756a891f82615576827cd9ff5826e7e3e95",
+      "originalSha256": "f55303dda623000de04f5380f5428756a891f82615576827cd9ff5826e7e3e95"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/java/in/suniye/app/VoiceControls.java",
+      "publicSha256": "e9db1dd6acdd101c59b0729e6cbaed5ede37c51c125b3ede8a21cfbfeaf13ded",
+      "originalSha256": "e9db1dd6acdd101c59b0729e6cbaed5ede37c51c125b3ede8a21cfbfeaf13ded"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/java/in/suniye/app/VoicePolicy.java",
+      "publicSha256": "b1bfab088f1465d9c6b8142fa029fc3d52d3f95585d7a95b3fc1dbd512530dbe",
+      "originalSha256": "b1bfab088f1465d9c6b8142fa029fc3d52d3f95585d7a95b3fc1dbd512530dbe"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/java/in/suniye/app/VoicePrompts.java",
+      "publicSha256": "6f8a77ccef94225aa6eca3155a80a5f790efaff0467867e3a7542b858e4cbf5f",
+      "originalSha256": "8f027a10256c74c2b16a981d3d0e8f7b95959dca88a78ac55f51f5d395f08391"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/java/in/suniye/app/WhatsAppHelpActivity.java",
+      "publicSha256": "ca5dd4b0ce5623543ddb11819a3eb91fe08d5cb669e739bab3b2f1c5cbbe8459",
+      "originalSha256": "3cf0adace9a2f579af2e23e812889fee06b6a633eab4f135c231fd7d1673cbc5"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/res/drawable/ic_suniye.xml",
+      "publicSha256": "687ed5f090a203e8e12dc0cb0e7f813bc792df51c19a58d96077e0e3b280e296",
+      "originalSha256": "687ed5f090a203e8e12dc0cb0e7f813bc792df51c19a58d96077e0e3b280e296"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/res/values/strings.xml",
+      "publicSha256": "bab5f782fc0df889d37510e2a2ab2c59460e720bf91bb3e3aa0ccbc284f9516d",
+      "originalSha256": "bab5f782fc0df889d37510e2a2ab2c59460e720bf91bb3e3aa0ccbc284f9516d"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/res/values/styles.xml",
+      "publicSha256": "7fc2519e1029f4c77270d678231447f31cc87fa7e84cc4ef3969b0fba19bd98c",
+      "originalSha256": "7fc2519e1029f4c77270d678231447f31cc87fa7e84cc4ef3969b0fba19bd98c"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/res/xml/accessibility_service.xml",
+      "publicSha256": "3fafa364772f9c64f82340bc7a7db50383f71afcdb7b2614b3d0763cbecda915",
+      "originalSha256": "3fafa364772f9c64f82340bc7a7db50383f71afcdb7b2614b3d0763cbecda915"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/res/xml/data_extraction_rules.xml",
+      "publicSha256": "9b63470201d0d30ddd34354d78b9e6b5745f77e19f223762f80f79babf32c969",
+      "originalSha256": "9b63470201d0d30ddd34354d78b9e6b5745f77e19f223762f80f79babf32c969"
+    },
+    {
+      "path": "outputs/suniye/android/app/src/main/res/xml/network_security.xml",
+      "publicSha256": "52bc0940716ec862125f4d9d0fff074e7b6e5bb2abda732dae14f02c3a890c77",
+      "originalSha256": "52bc0940716ec862125f4d9d0fff074e7b6e5bb2abda732dae14f02c3a890c77"
+    },
+    {
+      "path": "outputs/suniye/android/build.gradle",
+      "publicSha256": "9de6b514b57274d512554110fdec0d334ffd819cb7d5fe3229d039b4c7de655c",
+      "originalSha256": "9de6b514b57274d512554110fdec0d334ffd819cb7d5fe3229d039b4c7de655c"
+    },
+    {
+      "path": "outputs/suniye/android/gradle.properties",
+      "publicSha256": "cff721c8cba94dff80fc709008e00043b972439734b9181de61d66950f0738cb",
+      "originalSha256": "cff721c8cba94dff80fc709008e00043b972439734b9181de61d66950f0738cb"
+    },
+    {
+      "path": "outputs/suniye/android/gradle/wrapper/gradle-wrapper.jar",
+      "publicSha256": "b3a875ddc1f044746e1b1a55f645584505f4a10438c1afea9f15e92a7c42ec13",
+      "originalSha256": "b3a875ddc1f044746e1b1a55f645584505f4a10438c1afea9f15e92a7c42ec13"
+    },
+    {
+      "path": "outputs/suniye/android/gradle/wrapper/gradle-wrapper.properties",
+      "publicSha256": "a180163249c7252412ddaee1c7adcf59f6494b1183136f690fbd9a3b8aaed00e",
+      "originalSha256": "a180163249c7252412ddaee1c7adcf59f6494b1183136f690fbd9a3b8aaed00e"
+    },
+    {
+      "path": "outputs/suniye/android/gradlew",
+      "publicSha256": "fb68debc1b1acf8ec55dc0d5e5495e1dedd0bd6b61f304bee61613eeb2bd9b92",
+      "originalSha256": "fb68debc1b1acf8ec55dc0d5e5495e1dedd0bd6b61f304bee61613eeb2bd9b92"
+    },
+    {
+      "path": "outputs/suniye/android/gradlew.bat",
+      "publicSha256": "fedad02c18e266ec094995a5751b7fe1eb6e74f66bf75db64fae2e50eb22c234",
+      "originalSha256": "fedad02c18e266ec094995a5751b7fe1eb6e74f66bf75db64fae2e50eb22c234"
+    },
+    {
+      "path": "outputs/suniye/android/settings.gradle",
+      "publicSha256": "307302c42bbfd283bb3ec0a4d95d200fd4aaa765615fc0fbd2ff932af80ebcd6",
+      "originalSha256": "307302c42bbfd283bb3ec0a4d95d200fd4aaa765615fc0fbd2ff932af80ebcd6"
+    },
+    {
+      "path": "outputs/suniye/backend/caregiver/README.md",
+      "publicSha256": "ca62a9bc2b9c046428fd11cc21f298d7f15456b6671b4b129f8fce299729e6f6",
+      "originalSha256": "ca62a9bc2b9c046428fd11cc21f298d7f15456b6671b4b129f8fce299729e6f6"
+    },
+    {
+      "path": "outputs/suniye/backend/caregiver/activities.js",
+      "publicSha256": "2977ebf65bcf6324d6327aa5b746f922aaf9a63d0ef695e2048550acc44caa81",
+      "originalSha256": "2977ebf65bcf6324d6327aa5b746f922aaf9a63d0ef695e2048550acc44caa81"
+    },
+    {
+      "path": "outputs/suniye/backend/caregiver/audio.js",
+      "publicSha256": "3ffaee2b810d9382765aa0e53fe0c95b5e8d587119cc73c4c566c5ae00400c22",
+      "originalSha256": "3ffaee2b810d9382765aa0e53fe0c95b5e8d587119cc73c4c566c5ae00400c22"
+    },
+    {
+      "path": "outputs/suniye/backend/caregiver/evaluation/check-support.mjs",
+      "publicSha256": "e5b0173e1e86be0c1027af3c61f064f1da74c74849d10c67733be3fa9420fe2b",
+      "originalSha256": "e5b0173e1e86be0c1027af3c61f064f1da74c74849d10c67733be3fa9420fe2b"
+    },
+    {
+      "path": "outputs/suniye/backend/caregiver/evaluation/check-temporal.mjs",
+      "publicSha256": "9d824ab34a291e071fbd5d8b219a139bff353bc391b83697d25d8571807047e9",
+      "originalSha256": "9d824ab34a291e071fbd5d8b219a139bff353bc391b83697d25d8571807047e9"
+    },
+    {
+      "path": "outputs/suniye/backend/caregiver/evaluation/probe-worker.js",
+      "publicSha256": "22e15f047fd3c87eb7c8c1a7fe8778bb323fae835a5a038b079d5ecc955965d6",
+      "originalSha256": "22e15f047fd3c87eb7c8c1a7fe8778bb323fae835a5a038b079d5ecc955965d6"
+    },
+    {
+      "path": "outputs/suniye/backend/caregiver/export.js",
+      "publicSha256": "25a557745bae71779de91e74b749efc53b9fc117abef7eb6124b787f0781dd19",
+      "originalSha256": "25a557745bae71779de91e74b749efc53b9fc117abef7eb6124b787f0781dd19"
+    },
+    {
+      "path": "outputs/suniye/backend/caregiver/input.js",
+      "publicSha256": "7566c64676ce4443757dd23939db5c0ad63c7a0aa80e07edae5654b2d9187cb5",
+      "originalSha256": "7566c64676ce4443757dd23939db5c0ad63c7a0aa80e07edae5654b2d9187cb5"
+    },
+    {
+      "path": "outputs/suniye/backend/caregiver/package-lock.json",
+      "publicSha256": "0803d24cd365ca09c92983355ad1a0daffcd202ae647b1bb5ce4c993325128e5",
+      "originalSha256": "0803d24cd365ca09c92983355ad1a0daffcd202ae647b1bb5ce4c993325128e5"
+    },
+    {
+      "path": "outputs/suniye/backend/caregiver/package.json",
+      "publicSha256": "341c6be7f83eb590b0b0b51b6d6c80674cf291675ca59f2f05ba0d56c379c2e2",
+      "originalSha256": "341c6be7f83eb590b0b0b51b6d6c80674cf291675ca59f2f05ba0d56c379c2e2"
+    },
+    {
+      "path": "outputs/suniye/backend/caregiver/prepare.js",
+      "publicSha256": "2d8036f04737bb6d870fa2b1d6e5def4c5823f91b18e989a1c5785ba4f5fc675",
+      "originalSha256": "2d8036f04737bb6d870fa2b1d6e5def4c5823f91b18e989a1c5785ba4f5fc675"
+    },
+    {
+      "path": "outputs/suniye/backend/caregiver/store.js",
+      "publicSha256": "18fe9c936628e24b77fedca3463dca6e249e8dc61bc16c34635ef772b425ca58",
+      "originalSha256": "18fe9c936628e24b77fedca3463dca6e249e8dc61bc16c34635ef772b425ca58"
+    },
+    {
+      "path": "outputs/suniye/backend/caregiver/support-corpus.json",
+      "publicSha256": "7d554c9eafb68075565f06d6914e027824ee88d1d473960a1da9934c6bcfd3ee",
+      "originalSha256": "7d554c9eafb68075565f06d6914e027824ee88d1d473960a1da9934c6bcfd3ee"
+    },
+    {
+      "path": "outputs/suniye/backend/caregiver/support-search.js",
+      "publicSha256": "945999ab099b19729d1800509ca716262b6871a775281801968d729644b92ba6",
+      "originalSha256": "945999ab099b19729d1800509ca716262b6871a775281801968d729644b92ba6"
+    },
+    {
+      "path": "outputs/suniye/backend/caregiver/test/audio.test.js",
+      "publicSha256": "16db050f49f04ff9f61b46ef4379cc9f71be4f771cb0ae0a710e367f7d591865",
+      "originalSha256": "16db050f49f04ff9f61b46ef4379cc9f71be4f771cb0ae0a710e367f7d591865"
+    },
+    {
+      "path": "outputs/suniye/backend/caregiver/test/preparation.test.js",
+      "publicSha256": "460f1d9bd2a19ed472728b0298e10d560de8f6a92cad040f6afbc2914a514d42",
+      "originalSha256": "460f1d9bd2a19ed472728b0298e10d560de8f6a92cad040f6afbc2914a514d42"
+    },
+    {
+      "path": "outputs/suniye/backend/caregiver/worker.js",
+      "publicSha256": "a6f0652eb39d0d4afe5a6f71077e8b687643321ce4374df1d48c8dd1cb1a6e55",
+      "originalSha256": "a6f0652eb39d0d4afe5a6f71077e8b687643321ce4374df1d48c8dd1cb1a6e55"
+    },
+    {
+      "path": "outputs/suniye/backend/caregiver/workflows.cjs",
+      "publicSha256": "20f6b5eeae760556b0743cfcdf5c3f5ba643736a798d3e2cf47fbde83f02c02a",
+      "originalSha256": "20f6b5eeae760556b0743cfcdf5c3f5ba643736a798d3e2cf47fbde83f02c02a"
+    },
+    {
+      "path": "outputs/suniye/backend/evaluation/check-atlas-persistence.mjs",
+      "publicSha256": "84e3fa6af30d16c5aa1e10afcfe8695f6c8aa27284f1bbec67bb854e6ffb8c42",
+      "originalSha256": "84e3fa6af30d16c5aa1e10afcfe8695f6c8aa27284f1bbec67bb854e6ffb8c42"
+    },
+    {
+      "path": "outputs/suniye/backend/evaluation/compare-backboard.mjs",
+      "publicSha256": "17d9ab9d25ee1856926eaaa48d72b3a3103c85c9b40a8cf091c548ee301cfd21",
+      "originalSha256": "17d9ab9d25ee1856926eaaa48d72b3a3103c85c9b40a8cf091c548ee301cfd21"
+    },
+    {
+      "path": "outputs/suniye/backend/evaluation/setup-guide.mjs",
+      "publicSha256": "ed1d4a71e49add0171823b40580669a7c829ea451b07419023f69608a7bd416d",
+      "originalSha256": "ed1d4a71e49add0171823b40580669a7c829ea451b07419023f69608a7bd416d"
+    },
+    {
+      "path": "outputs/suniye/backend/package-lock.json",
+      "publicSha256": "435e570ef090353ae344f44c959a8490a1a9f873ccce8d680d974d55aa2079eb",
+      "originalSha256": "435e570ef090353ae344f44c959a8490a1a9f873ccce8d680d974d55aa2079eb"
+    },
+    {
+      "path": "outputs/suniye/backend/package.json",
+      "publicSha256": "783066675f92aad71a79e5f5450d5772c98d6b971aa4e6283a5a4bc463ca2574",
+      "originalSha256": "783066675f92aad71a79e5f5450d5772c98d6b971aa4e6283a5a4bc463ca2574"
+    },
+    {
+      "path": "outputs/suniye/backend/src/contracts.js",
+      "publicSha256": "54933ee414a06e7abf9e4ad7478a9b17aa3dcbcc381fa2cde0d1f15265578a46",
+      "originalSha256": "54933ee414a06e7abf9e4ad7478a9b17aa3dcbcc381fa2cde0d1f15265578a46"
+    },
+    {
+      "path": "outputs/suniye/backend/src/hindi-speech.js",
+      "publicSha256": "afe8ed0eb179a81c2b1eeac5419df9a06d662bce0504b2127809fc230fd152a3",
+      "originalSha256": "afe8ed0eb179a81c2b1eeac5419df9a06d662bce0504b2127809fc230fd152a3"
+    },
+    {
+      "path": "outputs/suniye/backend/src/providers.js",
+      "publicSha256": "eee0bae1e17230d5a604d1bb8093cfd3b64846f945f9efbb76a111ae6b11765a",
+      "originalSha256": "eee0bae1e17230d5a604d1bb8093cfd3b64846f945f9efbb76a111ae6b11765a"
+    },
+    {
+      "path": "outputs/suniye/backend/src/server.js",
+      "publicSha256": "9e22b1c9ac4fdd14f1c5ddfcc4f95eb0b003e37f9f7188d0620f5433b84040f3",
+      "originalSha256": "9e22b1c9ac4fdd14f1c5ddfcc4f95eb0b003e37f9f7188d0620f5433b84040f3"
+    },
+    {
+      "path": "outputs/suniye/backend/src/telemetry.js",
+      "publicSha256": "c9c1b345634b988ca9c8d221ca0d01da9350222a47a4d5d48d53bce6d5a504e0",
+      "originalSha256": "c9c1b345634b988ca9c8d221ca0d01da9350222a47a4d5d48d53bce6d5a504e0"
+    },
+    {
+      "path": "outputs/suniye/backend/src/workflow.js",
+      "publicSha256": "245535ef6d32d89529f5c5a184ed50aa0b490adcd79651e0f810f4aeb453803e",
+      "originalSha256": "245535ef6d32d89529f5c5a184ed50aa0b490adcd79651e0f810f4aeb453803e"
+    },
+    {
+      "path": "outputs/suniye/backend/test/hindi-speech-cases.json",
+      "publicSha256": "52bdff9fb4434ca49d1aaf55fda652fa912f6738a91851ff98f1ad5806b33f9b",
+      "originalSha256": "52bdff9fb4434ca49d1aaf55fda652fa912f6738a91851ff98f1ad5806b33f9b"
+    },
+    {
+      "path": "outputs/suniye/backend/test/hindi-speech.test.js",
+      "publicSha256": "344de78dafd34b2e92eef52e3f062f002ee5728742ea345f8768b46dbe853810",
+      "originalSha256": "344de78dafd34b2e92eef52e3f062f002ee5728742ea345f8768b46dbe853810"
+    },
+    {
+      "path": "outputs/suniye/backend/test/reader.test.js",
+      "publicSha256": "ef464f6e437c18d80d6b66707159289050d657bf2f6ccba9867d01b5758162c6",
+      "originalSha256": "ef464f6e437c18d80d6b66707159289050d657bf2f6ccba9867d01b5758162c6"
+    },
+    {
+      "path": "outputs/suniye/backend/test/setup-guide.test.js",
+      "publicSha256": "50b758a583a9408c3a94dc6d5860092d8800c218f1733c1ee14f1feaa996283d",
+      "originalSha256": "50b758a583a9408c3a94dc6d5860092d8800c218f1733c1ee14f1feaa996283d"
+    },
+    {
+      "path": "outputs/suniye/backend/test/telemetry.test.js",
+      "publicSha256": "ce4241dc4f70aae90666b8ec7363e6532bf909ac06dc4712892534bf05200fa1",
+      "originalSha256": "ce4241dc4f70aae90666b8ec7363e6532bf909ac06dc4712892534bf05200fa1"
+    },
+    {
+      "path": "outputs/suniye/docs/build-brief.md",
+      "publicSha256": "705879db25136344059197f60a422ccc9235b93abd281ef9d61d93c2bedcb56f",
+      "originalSha256": "705879db25136344059197f60a422ccc9235b93abd281ef9d61d93c2bedcb56f"
+    },
+    {
+      "path": "outputs/suniye/docs/build-provenance.md",
+      "publicSha256": "060f14c23249d28475cecf6ea43c9106535ee300dd0fbcd32b44fac676444595",
+      "originalSha256": "060f14c23249d28475cecf6ea43c9106535ee300dd0fbcd32b44fac676444595"
+    },
+    {
+      "path": "outputs/suniye/docs/caregiver-setup.md",
+      "publicSha256": "0a914ccb602cbf7c129e3af827b930f9b8fbf3b901e61ef8528d75af15e9380a",
+      "originalSha256": "0a914ccb602cbf7c129e3af827b930f9b8fbf3b901e61ef8528d75af15e9380a"
+    },
+    {
+      "path": "outputs/suniye/docs/claude-audit.md",
+      "publicSha256": "5fabcf3e6ae490d6ca1ffb58729988302ef8ec68e3b74ba0087e65df125d7922",
+      "originalSha256": "5fabcf3e6ae490d6ca1ffb58729988302ef8ec68e3b74ba0087e65df125d7922"
+    },
+    {
+      "path": "outputs/suniye/docs/demo-narration.txt",
+      "publicSha256": "60f793c4ebdc0428d57cc702d78b528814dc59197d7a1bf7a09aa76a3ea3741c",
+      "originalSha256": "60f793c4ebdc0428d57cc702d78b528814dc59197d7a1bf7a09aa76a3ea3741c"
+    },
+    {
+      "path": "outputs/suniye/docs/demo-script.md",
+      "publicSha256": "cd44a72bc688083307b22fd6f6e1185d93a1e4bb320435442998cfe3755d05bf",
+      "originalSha256": "cd44a72bc688083307b22fd6f6e1185d93a1e4bb320435442998cfe3755d05bf"
+    },
+    {
+      "path": "outputs/suniye/docs/dev-submission-draft.md",
+      "publicSha256": "4ac54a28a917fb6dd3785b478a46d5097a624560afbf5b00b19761699720c999",
+      "originalSha256": "875ff34c6910234bd2b66dc64125df5f9543d779c9e0fe11421f8f60eead4cc0"
+    },
+    {
+      "path": "outputs/suniye/docs/editorial-check.md",
+      "publicSha256": "100a9e16eb0dcad5e197e457ceae94c9c0fc13301e1e2a7e2c3cc02f8e74513e",
+      "originalSha256": "100a9e16eb0dcad5e197e457ceae94c9c0fc13301e1e2a7e2c3cc02f8e74513e"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/android11-camera-return-font16.png",
+      "publicSha256": "e9c978e0159621ed190b99e5bae93f26daa33476571aad91a1ddbee33fd126cc",
+      "originalSha256": "e9c978e0159621ed190b99e5bae93f26daa33476571aad91a1ddbee33fd126cc"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/android11-first-setup-font16.png",
+      "publicSha256": "af95134ec139574362119779961d7a86067f9972574cdf23faadfc1857be4d03",
+      "originalSha256": "af95134ec139574362119779961d7a86067f9972574cdf23faadfc1857be4d03"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/android11-font13.png",
+      "publicSha256": "3b8c3b5cc9c57bd906fba41703006ba1f70c6926804c4aed0183b93081f230cc",
+      "originalSha256": "3b8c3b5cc9c57bd906fba41703006ba1f70c6926804c4aed0183b93081f230cc"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/android11-font16.png",
+      "publicSha256": "28bc14a7e62ca586fcd363a5ce03237fa2d0884b6d9ba30d469b2c599062bb8b",
+      "originalSha256": "28bc14a7e62ca586fcd363a5ce03237fa2d0884b6d9ba30d469b2c599062bb8b"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/android11-home.png",
+      "publicSha256": "cb246c69d0bb3a3a47281520c38370ab68ab73781e476e4a264fa1983790b4fa",
+      "originalSha256": "cb246c69d0bb3a3a47281520c38370ab68ab73781e476e4a264fa1983790b4fa"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/android11-image-fixture.png",
+      "publicSha256": "a407045e779fc0121ce8aea517433383fe58b007b4a684d066fd4b7bf46daec7",
+      "originalSha256": "a407045e779fc0121ce8aea517433383fe58b007b4a684d066fd4b7bf46daec7"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/android11-input-home-font16.png",
+      "publicSha256": "41f564c36c760fadb9320c0add4c9510ae15e7767eef216c0124b0d739fde30d",
+      "originalSha256": "41f564c36c760fadb9320c0add4c9510ae15e7767eef216c0124b0d739fde30d"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/android11-overlay-text-after.png",
+      "publicSha256": "9b582c1800b3bd0faa96838c150867d8b3a04cdef1e30ef9b8c786347ae24702",
+      "originalSha256": "9b582c1800b3bd0faa96838c150867d8b3a04cdef1e30ef9b8c786347ae24702"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/android11-overlay-text-before.png",
+      "publicSha256": "b10c8088997c81f80eb4ee302901fa22dfe89ba5d43392015dd4f56d1ea2796b",
+      "originalSha256": "b10c8088997c81f80eb4ee302901fa22dfe89ba5d43392015dd4f56d1ea2796b"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/android11-service-check.png",
+      "publicSha256": "cf06d003e89d990a7645950ee25fc30902f7b084b11bfce23b77d4fd83b14ea0",
+      "originalSha256": "cf06d003e89d990a7645950ee25fc30902f7b084b11bfce23b77d4fd83b14ea0"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/android11-setup-stop-font16.png",
+      "publicSha256": "5893d08874c43402132c73b567a3a95ad30a2a155d938c488e75b907907d0c3c",
+      "originalSha256": "5893d08874c43402132c73b567a3a95ad30a2a155d938c488e75b907907d0c3c"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/android11-sticky-stop-font16.png",
+      "publicSha256": "00c7c8897f7d1d05a4600070ea29efa77210af7e9c8bd623c7c3c759326f7b77",
+      "originalSha256": "00c7c8897f7d1d05a4600070ea29efa77210af7e9c8bd623c7c3c759326f7b77"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/android15-camera-return-font16.png",
+      "publicSha256": "0500beb61b0fab96d257997abed6ef70850f8766e289a2bc98e1f3c13151374c",
+      "originalSha256": "0500beb61b0fab96d257997abed6ef70850f8766e289a2bc98e1f3c13151374c"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/android15-first-setup-font16.png",
+      "publicSha256": "9136f29d551bf601c4313d8e9b90d3c10b66f6f268ff7ab59c54ebef16595abc",
+      "originalSha256": "9136f29d551bf601c4313d8e9b90d3c10b66f6f268ff7ab59c54ebef16595abc"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/android15-input-home-font16.png",
+      "publicSha256": "d9fa374107a4246cd27764cbe209feb26d6bf5ae1b6a75e46c5d025389d896a1",
+      "originalSha256": "d9fa374107a4246cd27764cbe209feb26d6bf5ae1b6a75e46c5d025389d896a1"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/android15-number-home-font16.png",
+      "publicSha256": "c883d5ea209373916a0b4adb8e3d3a77bf50cfc7089d962e35f766d4d8e85d3f",
+      "originalSha256": "c883d5ea209373916a0b4adb8e3d3a77bf50cfc7089d962e35f766d4d8e85d3f"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/android15-number-reading-font16.png",
+      "publicSha256": "cf147e541170b971275a2945bd09243714cebdbf0b6d4cbb41ba57bc4d48b1d8",
+      "originalSha256": "cf147e541170b971275a2945bd09243714cebdbf0b6d4cbb41ba57bc4d48b1d8"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/android15-raju-v4-native-2026-10-03.json",
+      "publicSha256": "30baa6efb395b166b752e02865c0cf6e8b99f60aa3fa691b331174a994374d42",
+      "originalSha256": "30baa6efb395b166b752e02865c0cf6e8b99f60aa3fa691b331174a994374d42"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/android15-raju-v4-providers-2026-10-03.json",
+      "publicSha256": "e70a2b990f19c5de9d209ccfef3934d0be40771407e7189ccb5ec47b8156b4bd",
+      "originalSha256": "e70a2b990f19c5de9d209ccfef3934d0be40771407e7189ccb5ec47b8156b4bd"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/android15-raju-v4-speech-2026-10-03.mp3",
+      "publicSha256": "910945e2220d22def7e89d8f0ac0f6d2336f8d22af329f1792447070ddfa26d1",
+      "originalSha256": "910945e2220d22def7e89d8f0ac0f6d2336f8d22af329f1792447070ddfa26d1"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/android15-setup-stop-font16.png",
+      "publicSha256": "ce0b86a1b41853044e19a328db200fc4a14b617bd3f256403e2f9a4f41466453",
+      "originalSha256": "ce0b86a1b41853044e19a328db200fc4a14b617bd3f256403e2f9a4f41466453"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/android15-sticky-stop-font16.png",
+      "publicSha256": "63584be57553e23b114f95504285874a728a37c713db867ef6c4da74eb772ca6",
+      "originalSha256": "63584be57553e23b114f95504285874a728a37c713db867ef6c4da74eb772ca6"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/android15-voice-controls-font16.png",
+      "publicSha256": "ea1398a07bf32b8b650ec97cf5bee9975494f3127b5b801c7e9998735263a276",
+      "originalSha256": "ea1398a07bf32b8b650ec97cf5bee9975494f3127b5b801c7e9998735263a276"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/android15-voice-home-font16.png",
+      "publicSha256": "65afda9b69a2fe9e659018b54eec034dd841fb51f522921a6b88a6dad4b0f503",
+      "originalSha256": "65afda9b69a2fe9e659018b54eec034dd841fb51f522921a6b88a6dad4b0f503"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/android15-whatsapp-help-font16.png",
+      "publicSha256": "8d5d219a1ee14b8224d7a4ae4713bd2a6126e71ff99026e0a7a3c14982e3c117",
+      "originalSha256": "8d5d219a1ee14b8224d7a4ae4713bd2a6126e71ff99026e0a7a3c14982e3c117"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/atlas-persistence-2026-10-04.json",
+      "publicSha256": "4bf2f1513f8f69b7b4a75536c20f1bc88284680b597874546bf0dc9f64ccc40e",
+      "originalSha256": "4bf2f1513f8f69b7b4a75536c20f1bc88284680b597874546bf0dc9f64ccc40e"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/atlas-user-2026-10-04.jpg",
+      "publicSha256": "992a4334f0c4cf795fc4c1a12ae57f373826585f1f938e7c098d70cea70b31a5",
+      "originalSha256": "992a4334f0c4cf795fc4c1a12ae57f373826585f1f938e7c098d70cea70b31a5"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/backboard-comparison.json",
+      "publicSha256": "fa098e3393e1eec1e2e91733d40806dd51c455da797c31d3023e38523daa3970",
+      "originalSha256": "fa098e3393e1eec1e2e91733d40806dd51c455da797c31d3023e38523daa3970"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/backboard-live-2026-10-04.jpg",
+      "publicSha256": "6e97a5f697a245f865671f67e2cdb975f44aa28858bb895d70aace07826f71e4",
+      "originalSha256": "6e97a5f697a245f865671f67e2cdb975f44aa28858bb895d70aace07826f71e4"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/caregiver-live-guide.json",
+      "publicSha256": "2bd02f6184ac3c93ae351f98716a74304ebfbf1f316c318efa93153e55ce282a",
+      "originalSha256": "2bd02f6184ac3c93ae351f98716a74304ebfbf1f316c318efa93153e55ce282a"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/caregiver-live-guide.md",
+      "publicSha256": "4b1b0f984112daa8ad65a6bf8f70a753ba26bbd8363f899664662eae5955d6d7",
+      "originalSha256": "4b1b0f984112daa8ad65a6bf8f70a753ba26bbd8363f899664662eae5955d6d7"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/caregiver-search-receipt.json",
+      "publicSha256": "e7d8c6dabb6f11eac5e7fb2f970d8a5741961bb7114d4072612097b70a02a087",
+      "originalSha256": "e7d8c6dabb6f11eac5e7fb2f970d8a5741961bb7114d4072612097b70a02a087"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/demo-audio-check-2026-10-03.json",
+      "publicSha256": "8217842f14cea45603d48770d691e4631b26fa19ed29bcff5ab1cab5e91e5da0",
+      "originalSha256": "8217842f14cea45603d48770d691e4631b26fa19ed29bcff5ab1cab5e91e5da0"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/demo-intro-raju-v4-2026-10-03.json",
+      "publicSha256": "eb0cf84379b5ecc22b54215eb86912d2ba5e5d50fbf4d87c323d771f70e91be3",
+      "originalSha256": "eb0cf84379b5ecc22b54215eb86912d2ba5e5d50fbf4d87c323d771f70e91be3"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/demo-intro-raju-v4-2026-10-03.mp3",
+      "publicSha256": "6bed64ed9afb2341168c370ee4f09377b5d9bd5851ca5b9dd1af11dbeb36632a",
+      "originalSha256": "6bed64ed9afb2341168c370ee4f09377b5d9bd5851ca5b9dd1af11dbeb36632a"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/editorial-gemma-2026-10-04.json",
+      "publicSha256": "6adf0a89c00d74b835317c5fac923a3e63739a37ddca1b7e13b3809c087c7b5c",
+      "originalSha256": "6adf0a89c00d74b835317c5fac923a3e63739a37ddca1b7e13b3809c087c7b5c"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/editorial-gemma-first-2026-10-04.json",
+      "publicSha256": "69308a73f68e46b33bf3784983662a0bd1c39631575e0b7a619d9e18312090f4",
+      "originalSha256": "69308a73f68e46b33bf3784983662a0bd1c39631575e0b7a619d9e18312090f4"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/elevenlabs-bill.mp3",
+      "publicSha256": "7d9d6c499102fb44c4ff98480a1e039d847f8ded1edc5f73ecd6577bd872992c",
+      "originalSha256": "7d9d6c499102fb44c4ff98480a1e039d847f8ded1edc5f73ecd6577bd872992c"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/elevenlabs-demo.mp3",
+      "publicSha256": "7dc82255d76420b492c122ec37c49146dd99554e4671c0abb10a1c3bcce7b7e5",
+      "originalSha256": "7dc82255d76420b492c122ec37c49146dd99554e4671c0abb10a1c3bcce7b7e5"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/elevenlabs-indian-hindi-2026-10-03.json",
+      "publicSha256": "68d4bb707ad11e65cb33d64d3576a10713329ac0b45fb34149b6dfa9e7a7b32c",
+      "originalSha256": "68d4bb707ad11e65cb33d64d3576a10713329ac0b45fb34149b6dfa9e7a7b32c"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/elevenlabs-indian-hindi-2026-10-03.mp3",
+      "publicSha256": "3df378f90186dc6f2b18273650c2545118a2fb7dc911aee2412869d4c4a80074",
+      "originalSha256": "3df378f90186dc6f2b18273650c2545118a2fb7dc911aee2412869d4c4a80074"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/elevenlabs-indian-hindi-v3-2026-10-03.json",
+      "publicSha256": "84a78c1dbc7c36cab52dfa7f8b64ee630c717bed43674ff7470e1b3e9c2ee5d1",
+      "originalSha256": "84a78c1dbc7c36cab52dfa7f8b64ee630c717bed43674ff7470e1b3e9c2ee5d1"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/elevenlabs-indian-hindi-v3-2026-10-03.mp3",
+      "publicSha256": "97840495929c260ac439d3930777ef71eb96402056d8a8e8568f062dbb300188",
+      "originalSha256": "97840495929c260ac439d3930777ef71eb96402056d8a8e8568f062dbb300188"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/elevenlabs-only-android15-2026-10-04.json",
+      "publicSha256": "fc7ceaa87b5ecdf9c59769309ca2c4537c3c2ef6189a9cecbd3e5f32ee59810c",
+      "originalSha256": "fc7ceaa87b5ecdf9c59769309ca2c4537c3c2ef6189a9cecbd3e5f32ee59810c"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/elevenlabs-only-assets-2026-10-04.json",
+      "publicSha256": "15bc7686fe76f3e6b3e02c2877e1e20926ab9af04598cd894e240ae45a7dc9cb",
+      "originalSha256": "15bc7686fe76f3e6b3e02c2877e1e20926ab9af04598cd894e240ae45a7dc9cb"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/elevenlabs-only-browser-2026-10-04.json",
+      "publicSha256": "60a1569cbf67c88ec92957e74fd7adc48548dc6800c7c2c6ea1e8358d2cd1eba",
+      "originalSha256": "60a1569cbf67c88ec92957e74fd7adc48548dc6800c7c2c6ea1e8358d2cd1eba"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/elevenlabs-only-render-2026-10-04.json",
+      "publicSha256": "544e6d80abacbdc345542b945595cfdf27082771a44f1c45df65944a4119e88e",
+      "originalSha256": "544e6d80abacbdc345542b945595cfdf27082771a44f1c45df65944a4119e88e"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/elevenlabs-partner-plan-2026-10-03.json",
+      "publicSha256": "892bbc7ac0a0d79be62b2e34504e53e06a19199af6f2b5e5b0701e6cbb343026",
+      "originalSha256": "892bbc7ac0a0d79be62b2e34504e53e06a19199af6f2b5e5b0701e6cbb343026"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/elevenlabs-prepared-reader.html",
+      "publicSha256": "9f86e4cc76aa51f32d5da7f22939b028db29afcd4f60c36428ca3949fbe51a19",
+      "originalSha256": "9f86e4cc76aa51f32d5da7f22939b028db29afcd4f60c36428ca3949fbe51a19"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/elevenlabs-raju-api-failure.json",
+      "publicSha256": "351bc435c8cf3f313f8e6afd4b66b9f6987011674114401f38e2565a32d1bdc8",
+      "originalSha256": "351bc435c8cf3f313f8e6afd4b66b9f6987011674114401f38e2565a32d1bdc8"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/elevenlabs-raju-first-trial-2026-10-03.json",
+      "publicSha256": "7f9fda3bb5186200f56962e6df5acf8abbb85a0411f7b58144143fcf1555dda3",
+      "originalSha256": "7f9fda3bb5186200f56962e6df5acf8abbb85a0411f7b58144143fcf1555dda3"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/elevenlabs-raju-first-trial-2026-10-03.mp3",
+      "publicSha256": "98fd81bc00cf274f1849cda6fd9ff889a098fb47797b388960cec955c384e2ed",
+      "originalSha256": "98fd81bc00cf274f1849cda6fd9ff889a098fb47797b388960cec955c384e2ed"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/elevenlabs-raju-normalized-2026-10-03.json",
+      "publicSha256": "88479a50f295ae262a5a02f146e1c8e691e2a9eac6f01de4eac37d2be17b410c",
+      "originalSha256": "88479a50f295ae262a5a02f146e1c8e691e2a9eac6f01de4eac37d2be17b410c"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/elevenlabs-raju-normalized-2026-10-03.mp3",
+      "publicSha256": "05aa2e00b2e1154bbaa517aefe1a5e3a8d53e01bd7205d301b79d7a335dcd2e8",
+      "originalSha256": "05aa2e00b2e1154bbaa517aefe1a5e3a8d53e01bd7205d301b79d7a335dcd2e8"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/elevenlabs-raju-recheck-2026-10-03.json",
+      "publicSha256": "d1a994d82b37f03c62f0431c59eb793e1c6130bc0049283eb919e600b8e9d8d5",
+      "originalSha256": "d1a994d82b37f03c62f0431c59eb793e1c6130bc0049283eb919e600b8e9d8d5"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/elevenlabs-raju-v4-2026-10-03.json",
+      "publicSha256": "e50ab8b8d2637868cb91c2ece5077289d9c2d0dfeb270ba0b4045c5c9a278f67",
+      "originalSha256": "e50ab8b8d2637868cb91c2ece5077289d9c2d0dfeb270ba0b4045c5c9a278f67"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/elevenlabs-raju-v4-2026-10-03.mp3",
+      "publicSha256": "4a2ec90ed531fb16d6dd59ec598a72f55c23c3d2f8420b1694ff0c44d2b28646",
+      "originalSha256": "4a2ec90ed531fb16d6dd59ec598a72f55c23c3d2f8420b1694ff0c44d2b28646"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/elevenlabs-recheck.mp3",
+      "publicSha256": "9ebd539897cbdf92292321118849fdd69f6437cf85528deb97160f3a36a4c754",
+      "originalSha256": "9ebd539897cbdf92292321118849fdd69f6437cf85528deb97160f3a36a4c754"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/elevenlabs-runtime-smoke.json",
+      "publicSha256": "74bf09871d48e9688ce2b064c117180dc19bbde0b4e6fda29bfd271bacea9f74",
+      "originalSha256": "74bf09871d48e9688ce2b064c117180dc19bbde0b4e6fda29bfd271bacea9f74"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/elevenlabs-runtime-smoke.mp3",
+      "publicSha256": "f2601b773c1eec8807177b8029ecc6eef7e088741706ca9f1b665e25c59586b0",
+      "originalSha256": "f2601b773c1eec8807177b8029ecc6eef7e088741706ca9f1b665e25c59586b0"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/elevenlabs-shoe.mp3",
+      "publicSha256": "4c755580c6a3e9c4c18a05aa8160dcbd4c66adbc89d8380bb111474db94786f4",
+      "originalSha256": "4c755580c6a3e9c4c18a05aa8160dcbd4c66adbc89d8380bb111474db94786f4"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/entry-demo-providers-2026-10-03.json",
+      "publicSha256": "fd23fe93df85d290ca028521c193ff301fb3c7961cf09d730aa84dcac7cb9277",
+      "originalSha256": "fd23fe93df85d290ca028521c193ff301fb3c7961cf09d730aa84dcac7cb9277"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/entry-demo-receipt-2026-10-03.json",
+      "publicSha256": "9b1a80283e89da353c496cc3babd894593e550a5c8821251b309c89f29d75f29",
+      "originalSha256": "9b1a80283e89da353c496cc3babd894593e550a5c8821251b309c89f29d75f29"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/entry-narration-receipt.json",
+      "publicSha256": "835e9d72e9554b6dc193c47596c2722a18e24a12f1e89d3297396b4c6f6557a9",
+      "originalSha256": "835e9d72e9554b6dc193c47596c2722a18e24a12f1e89d3297396b4c6f6557a9"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/entry-positive-explanation-2026-10-03.json",
+      "publicSha256": "7e0f6cfb90ea4f9b706728091118e731b7a5732ad8fedaed93743daf7bd913f5",
+      "originalSha256": "7e0f6cfb90ea4f9b706728091118e731b7a5732ad8fedaed93743daf7bd913f5"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/entry-publication-scan.json",
+      "publicSha256": "214a4eda120d80b91f61f82748b900c34cdc2ae47b51a0130c3ac1d05b84476d",
+      "originalSha256": "214a4eda120d80b91f61f82748b900c34cdc2ae47b51a0130c3ac1d05b84476d"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/entry-readiness-2026-10-03.md",
+      "publicSha256": "fd44d0a43ab2d130969269a9dd4ce541001539b21162951c25f193db9a4b982d",
+      "originalSha256": "fd44d0a43ab2d130969269a9dd4ce541001539b21162951c25f193db9a4b982d"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/gemma-explanation-final.json",
+      "publicSha256": "d6a734405e1d910e096ba08332fb59817bac1f8a21da56fd0699e30997a852ad",
+      "originalSha256": "d6a734405e1d910e096ba08332fb59817bac1f8a21da56fd0699e30997a852ad"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/gemma-picture-smoke.json",
+      "publicSha256": "4f954c214a5d84e48ca427e543fc3b904d8931309e220bd244681ea42ea9ded3",
+      "originalSha256": "4f954c214a5d84e48ca427e543fc3b904d8931309e220bd244681ea42ea9ded3"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/gemma-room-smoke.json",
+      "publicSha256": "380005b3bef50ddf7f7242f0375514550d57a73c68bc58cd4b47e619bb8249ce",
+      "originalSha256": "380005b3bef50ddf7f7242f0375514550d57a73c68bc58cd4b47e619bb8249ce"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/image-pdf-showcase-2026-10-04.json",
+      "publicSha256": "41525498b57f71a96f9eb12bad461d94b427d37214d0469b1320dc149740a80b",
+      "originalSha256": "41525498b57f71a96f9eb12bad461d94b427d37214d0469b1320dc149740a80b"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/image-pdf-to-speech-preview.gif",
+      "publicSha256": "91ddf5e2b124802abe3e3fd009815f9251d0dd3ba186d4528672bcea77adb3ae",
+      "originalSha256": "91ddf5e2b124802abe3e3fd009815f9251d0dd3ba186d4528672bcea77adb3ae"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/integration-recheck-2026-10-03.json",
+      "publicSha256": "13be4786900e4236919874a55313f78f2fe584fe4d35deff72f23dea49e24353",
+      "originalSha256": "13be4786900e4236919874a55313f78f2fe584fe4d35deff72f23dea49e24353"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/judge-demo-edit-2026-10-04.json",
+      "publicSha256": "a89b260e969d7c570c39594a2b533fd214f22ac4c17bf1055e9ef80ee78561bb",
+      "originalSha256": "a89b260e969d7c570c39594a2b533fd214f22ac4c17bf1055e9ef80ee78561bb"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/judge-gemma-example.png",
+      "publicSha256": "4ab7b10a299ba3c83b2f2795e6a4c7624147a34e6a8f5ddbeb688fab147766d4",
+      "originalSha256": "4ab7b10a299ba3c83b2f2795e6a4c7624147a34e6a8f5ddbeb688fab147766d4"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/local-audit-regressions.json",
+      "publicSha256": "a7d142ab58ddd263076cd53fdd9dae79a60b237e53c87abad3613d379187f974",
+      "originalSha256": "a7d142ab58ddd263076cd53fdd9dae79a60b237e53c87abad3613d379187f974"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/media-demo-edit-2026-10-03.json",
+      "publicSha256": "cdf96ece006f9542f3dddde452c28e670440a4d3caf5f5b59e95f0f32a9f1482",
+      "originalSha256": "cdf96ece006f9542f3dddde452c28e670440a4d3caf5f5b59e95f0f32a9f1482"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/media-native-2026-10-03.json",
+      "publicSha256": "c228d1a5c429f636b7ee1c3c5c0aed58ab961e5da596dd3ee0409d1908e15437",
+      "originalSha256": "c228d1a5c429f636b7ee1c3c5c0aed58ab961e5da596dd3ee0409d1908e15437"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/media-pdf-ocr-probe-2026-10-03.json",
+      "publicSha256": "1dc79090e3510aab343ac891404136f777890a6dfe3f0957c06072e415c28017",
+      "originalSha256": "1dc79090e3510aab343ac891404136f777890a6dfe3f0957c06072e415c28017"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/media-providers-2026-10-03.json",
+      "publicSha256": "082df0222a715fe6a1b213ade50c24d8b5e4882299f6a4d5c088f61b843147d0",
+      "originalSha256": "082df0222a715fe6a1b213ade50c24d8b5e4882299f6a4d5c088f61b843147d0"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/media-sample-image.png",
+      "publicSha256": "bd835217c52205e0ff2c326503da3d8626795e0a28208b0ca1c117c8764d0841",
+      "originalSha256": "bd835217c52205e0ff2c326503da3d8626795e0a28208b0ca1c117c8764d0841"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/media-sample-two-pages.pdf",
+      "publicSha256": "8a0d2bba514789f98e72f2da7fdc7a0042b9f49ab12cf0deb09f99d0a2439f19",
+      "originalSha256": "8a0d2bba514789f98e72f2da7fdc7a0042b9f49ab12cf0deb09f99d0a2439f19"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/model-baseline-comparison.json",
+      "publicSha256": "06c9023cec2ef7f874cd31ea2d4c4bc3a6797d75239a2bfc72dfe8c4ea40f69a",
+      "originalSha256": "06c9023cec2ef7f874cd31ea2d4c4bc3a6797d75239a2bfc72dfe8c4ea40f69a"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/model-candidate-comparison.json",
+      "publicSha256": "f1ee2f1f36299525cc6415183aa53828ba6466cf885f906e2b782d0608af6596",
+      "originalSha256": "f1ee2f1f36299525cc6415183aa53828ba6466cf885f906e2b782d0608af6596"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/number-demo-edit-2026-10-03.json",
+      "publicSha256": "f8c8e1452b825aff6c5c66dd7f3027d265f9b6d0e21360eea8243db7ea733f40",
+      "originalSha256": "f8c8e1452b825aff6c5c66dd7f3027d265f9b6d0e21360eea8243db7ea733f40"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/numbers-and-ux-2026-10-03.json",
+      "publicSha256": "238d5640c9462cfcf6e1588b079c1e8f5befbbe6c33c69b4fc9919cf226ab721",
+      "originalSha256": "238d5640c9462cfcf6e1588b079c1e8f5befbbe6c33c69b4fc9919cf226ab721"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/overlay-text-result.json",
+      "publicSha256": "e636fe4dcc20e6a266c901093af5487010f83a11da79f517a6df6e331eca900b",
+      "originalSha256": "e636fe4dcc20e6a266c901093af5487010f83a11da79f517a6df6e331eca900b"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/pgvector-source-search-2026-10-04.json",
+      "publicSha256": "5246f48cb6a52051daf8bcaf9af22d4dd7babcc640455ce24fd9aac96d29d725",
+      "originalSha256": "5246f48cb6a52051daf8bcaf9af22d4dd7babcc640455ce24fd9aac96d29d725"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/render-credit-only-2026-10-04.json",
+      "publicSha256": "2511048c9dfb7d42b50d792ab3298c78f6fba679a56207bac5bb87ee4cac8749",
+      "originalSha256": "2511048c9dfb7d42b50d792ab3298c78f6fba679a56207bac5bb87ee4cac8749"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/render-live-2026-10-04.jpg",
+      "publicSha256": "61f32f80f5491c6db1334cb20d40f95e0bd267dfba5f519fbca95d4948e8ab38",
+      "originalSha256": "61f32f80f5491c6db1334cb20d40f95e0bd267dfba5f519fbca95d4948e8ab38"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/render-live-2026-10-04.json",
+      "publicSha256": "0315cfba2fdc779c279c13ef32a35ec487ea3a75bfd93c4b9c1ed9dc63110292",
+      "originalSha256": "0315cfba2fdc779c279c13ef32a35ec487ea3a75bfd93c4b9c1ed9dc63110292"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/sentry-agent-2026-10-04.jpg",
+      "publicSha256": "a45e2e254bcefd2e9041407a8ebbc9bb23c145264ba9a913066793e7ef992625",
+      "originalSha256": "a45e2e254bcefd2e9041407a8ebbc9bb23c145264ba9a913066793e7ef992625"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/sentry-live-2026-10-04.json",
+      "publicSha256": "0489aa094540d0d9eb873616f4f28cbf7f24920c26d5c18c11e69e63feefd751",
+      "originalSha256": "0489aa094540d0d9eb873616f4f28cbf7f24920c26d5c18c11e69e63feefd751"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/shape-fixture.png",
+      "publicSha256": "9f7794fc698b95927ea0e77d24ded9501a12efd7bfac3884304f2a61ebb35e5d",
+      "originalSha256": "9f7794fc698b95927ea0e77d24ded9501a12efd7bfac3884304f2a61ebb35e5d"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/simple-bill-raju-v4-2026-10-03.mp3",
+      "publicSha256": "991e7d9e9a4297c97a91bbaafcdc9e9b6f8c8704c891daed723c3d3a5556d62d",
+      "originalSha256": "991e7d9e9a4297c97a91bbaafcdc9e9b6f8c8704c891daed723c3d3a5556d62d"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/simple-demo-edit-2026-10-03.json",
+      "publicSha256": "09f53f18baed7814dec9b59a49a6fb5320738b401971ec4fa9b3ea9cc9f14b72",
+      "originalSha256": "09f53f18baed7814dec9b59a49a6fb5320738b401971ec4fa9b3ea9cc9f14b72"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/simple-native-2026-10-03.json",
+      "publicSha256": "fa4b6b0e79008f3fc48cd51745ca6172ceffe25389d05acdb554c3896987b12e",
+      "originalSha256": "fa4b6b0e79008f3fc48cd51745ca6172ceffe25389d05acdb554c3896987b12e"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/simple-providers-2026-10-03.json",
+      "publicSha256": "3fe6a11be67a2b2b83f29b7a9047bdad0175e98438c621b941f6b8323405723b",
+      "originalSha256": "3fe6a11be67a2b2b83f29b7a9047bdad0175e98438c621b941f6b8323405723b"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/temporal-recovery-2026-10-04.json",
+      "publicSha256": "6eb90d1e5813623d4a28c1d3f8ac50807204fb8405e135ea1ddb23ab97421486",
+      "originalSha256": "6eb90d1e5813623d4a28c1d3f8ac50807204fb8405e135ea1ddb23ab97421486"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/temporal-synthetic-two-pages.pdf",
+      "publicSha256": "f4f8e55031714c4fb03de53a67a05163b8c5831fd8e67165325efebafca0e270",
+      "originalSha256": "f4f8e55031714c4fb03de53a67a05163b8c5831fd8e67165325efebafca0e270"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/ui-integration-audit-2026-10-03.json",
+      "publicSha256": "455ac5b97c17752bf9a36308fc4b6d14f56ee141eecbc11833b1ddc01e70865a",
+      "originalSha256": "455ac5b97c17752bf9a36308fc4b6d14f56ee141eecbc11833b1ddc01e70865a"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/voice-controls-2026-10-03.json",
+      "publicSha256": "71459c20df1a0c21f9d0f5d4f09eb20f4adcfb4340462adc2ee7e147e65d60b5",
+      "originalSha256": "71459c20df1a0c21f9d0f5d4f09eb20f4adcfb4340462adc2ee7e147e65d60b5"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/voice-only-independent-review-2026-10-04.json",
+      "publicSha256": "ea8ba70a2a692544c513acd627d7f7fca2e32b5c1613fe4ada3a5afd30b75da1",
+      "originalSha256": "ea8ba70a2a692544c513acd627d7f7fca2e32b5c1613fe4ada3a5afd30b75da1"
+    },
+    {
+      "path": "outputs/suniye/docs/evidence/whatsapp-walkthrough-raju-v4-2026-10-03.json",
+      "publicSha256": "7cfeef8f250a3b77ef480621847c243820ef3fd35fe00b26757019f0b5867794",
+      "originalSha256": "7cfeef8f250a3b77ef480621847c243820ef3fd35fe00b26757019f0b5867794"
+    },
+    {
+      "path": "outputs/suniye/docs/family-test-notes.md",
+      "publicSha256": "9edf3c054789f250d583fa57aa1fe85d506b9b0d8a388d5603d5cb0f6ac1e31a",
+      "originalSha256": "9edf3c054789f250d583fa57aa1fe85d506b9b0d8a388d5603d5cb0f6ac1e31a"
+    },
+    {
+      "path": "outputs/suniye/docs/model-evaluation.md",
+      "publicSha256": "39ff5f5f46f8a2d390e34fbf69b735de56565bc43465fd594b7ad3f5a2aea7d4",
+      "originalSha256": "39ff5f5f46f8a2d390e34fbf69b735de56565bc43465fd594b7ad3f5a2aea7d4"
+    },
+    {
+      "path": "outputs/suniye/docs/numeric-pronunciation.md",
+      "publicSha256": "c3dbbf2ba045b234ab085aa08a488f79d023cb8734cb5eebce030707f311eb97",
+      "originalSha256": "c3dbbf2ba045b234ab085aa08a488f79d023cb8734cb5eebce030707f311eb97"
+    },
+    {
+      "path": "outputs/suniye/docs/prd.md",
+      "publicSha256": "2e214eeda2363b40ae2c0fecee6bad0b97505a611ede27d8812ca4171a45b8dd",
+      "originalSha256": "2e214eeda2363b40ae2c0fecee6bad0b97505a611ede27d8812ca4171a45b8dd"
+    },
+    {
+      "path": "outputs/suniye/docs/sponsor-tracks.md",
+      "publicSha256": "c3176058ea0865bcb94f2f29832efc2abee84a239372cf7023cc56671c1005a7",
+      "originalSha256": "c3176058ea0865bcb94f2f29832efc2abee84a239372cf7023cc56671c1005a7"
+    },
+    {
+      "path": "outputs/suniye/docs/technical-spec.md",
+      "publicSha256": "2615b711ec6f7a28600990613f4dc75dd499fcefd2e5ce82d19c69348b84c3fc",
+      "originalSha256": "2615b711ec6f7a28600990613f4dc75dd499fcefd2e5ce82d19c69348b84c3fc"
+    },
+    {
+      "path": "outputs/suniye/docs/third-party.md",
+      "publicSha256": "4acc1e5a1f863547aa31bbc5d690d1c3ee1d8edfc01ae781c068416afe663ce0",
+      "originalSha256": "4acc1e5a1f863547aa31bbc5d690d1c3ee1d8edfc01ae781c068416afe663ce0"
+    },
+    {
+      "path": "outputs/suniye/docs/verification.md",
+      "publicSha256": "4fadf5e982147b09ccb8a5f6cddf31c2e644b6a3a89a944ae0de4214398ef16f",
+      "originalSha256": "4fadf5e982147b09ccb8a5f6cddf31c2e644b6a3a89a944ae0de4214398ef16f"
+    },
+    {
+      "path": "outputs/suniye/render.yaml",
+      "publicSha256": "4679913adb1962afcc643515db04f6ea18a2ac166558b9d737acfa3c12365ae7",
+      "originalSha256": "4679913adb1962afcc643515db04f6ea18a2ac166558b9d737acfa3c12365ae7"
+    },
+    {
+      "path": "outputs/suniye/scripts/build-local.sh",
+      "publicSha256": "7f635cd756728ae10943125eadd6d0299f8ddc668757fa20246b55c2adda4ef5",
+      "originalSha256": "7f635cd756728ae10943125eadd6d0299f8ddc668757fa20246b55c2adda4ef5"
+    },
+    {
+      "path": "outputs/suniye/scripts/check-hindi-speech.py",
+      "publicSha256": "a9e3a7ee3519125bceda3e8c085c29d81c72e63f1fe71bcbf0cb81fa84b7094e",
+      "originalSha256": "a9e3a7ee3519125bceda3e8c085c29d81c72e63f1fe71bcbf0cb81fa84b7094e"
+    },
+    {
+      "path": "outputs/suniye/scripts/check-voice-commands.py",
+      "publicSha256": "2ec6d63881eb5b3f4ba1195ce4118d0413c2a5815826f1b55282dce73b59ac38",
+      "originalSha256": "2ec6d63881eb5b3f4ba1195ce4118d0413c2a5815826f1b55282dce73b59ac38"
+    },
+    {
+      "path": "outputs/suniye/scripts/prepare-dev-publication.py",
+      "publicSha256": "e330423a91d67debdd4be572dfc58aa5e3ac1f0f91c3f9f33bcd657c54a73faf",
+      "originalSha256": "e330423a91d67debdd4be572dfc58aa5e3ac1f0f91c3f9f33bcd657c54a73faf"
+    }
+  ]
+}

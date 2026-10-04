@@ -162,3 +162,60 @@ test('a foreign ElevenLabs voice is rejected before any credit-consuming request
  let calls=0;const p=speechProvider({ELEVENLABS_API_KEY:'test',ELEVENLABS_VOICE_ID:'foreign-voice',ELEVENLABS_MODEL_ID:'eleven_v4'},async()=>{calls++;return new Response(new Uint8Array([1]),{headers:{'content-type':'audio/mpeg'}});});
  assert.equal(p.configured,false);assert.equal(await p.narrate('नमस्ते'),undefined);assert.equal(calls,0);
 });
+
+
+test('an already stopped reading never starts extraction, explanation or narration',async()=>{
+ const stopped=new AbortController();stopped.abort();let calls=0;
+ const flow=makeReadingWorkflow({...model,extract:async i=>{calls++;return model.extract(i);},explain:async s=>{calls++;return model.explain(s);}},{narrate:async()=>{calls++;return undefined;}});
+ const request=input({mode:'explain',wantAudio:true});
+ await assert.rejects(flow.run(request,stopped.signal),e=>e.code==='CANCELLED'&&e.status===499);
+ assert.equal(calls,0);
+ // Cancellation must not reserve an ID or prevent an intentional fresh attempt.
+ assert.equal((await flow.run(request)).kind,'reading');assert.equal(calls,3);
+});
+
+test('Stop during asynchronous workflow creation prevents the first provider stage',async()=>{
+ const stopped=new AbortController();let calls=0;
+ const flow=makeReadingWorkflow({...model,extract:async i=>{calls++;return model.extract(i);}},speech);
+ const create=flow.workflow.createRun.bind(flow.workflow);
+ flow.workflow.createRun=async options=>{const run=await create(options);stopped.abort();return run;};
+ await assert.rejects(flow.run(input(),stopped.signal),e=>e.code==='CANCELLED');
+ assert.equal(calls,0);
+});
+
+test('Stop while a traced stage is waiting prevents each provider from starting',async()=>{
+ for(const stage of ['suniye.extract','suniye.explain','suniye.narrate']){
+  const stopped=new AbortController();let extracted=0,explained=0,narrated=0;
+  const flow=makeReadingWorkflow({...model,extract:async i=>{extracted++;return model.extract(i);},explain:async s=>{explained++;return model.explain(s);}},
+   {narrate:async()=>{narrated++;return undefined;}},
+   async(name,fn)=>{if(name===stage)stopped.abort();return fn();});
+  await assert.rejects(flow.run(input({mode:'explain',wantAudio:true}),stopped.signal),e=>e.code==='CANCELLED');
+  assert.equal(extracted,stage==='suniye.extract'?0:1);
+  assert.equal(explained,stage==='suniye.narrate'?1:0);
+  assert.equal(narrated,0);
+ }
+});
+
+test('private readings and caregiver settings are never cacheable, including errors',async t=>{
+ const app=await server(t,{preferenceStore:{findOne:async()=>({preferences:{language:'hi',speed:.85,textScale:1,placement:'left'}}),updateOne:async()=>{}}});
+ const cases=[
+  {method:'POST',url:'/v1/read',payload:input(),expected:200},
+  {method:'POST',url:'/%761/read',payload:input(),expected:200},
+  {method:'GET',url:'/v1/preferences/mother',expected:200},
+  {method:'PUT',url:'/v1/preferences/mother',payload:{language:'hi',speed:.85,textScale:1,placement:'left'},expected:200},
+  {method:'POST',url:'/v1/read',payload:input(),unauthorized:true,expected:401},
+  {method:'POST',url:'/v1/read',payload:'{',headers:{'content-type':'application/json'},expected:400},
+  {method:'PUT',url:'/v1/preferences/mother',payload:{originalText:'private'},expected:400},
+ ];
+ for(const {unauthorized,headers,expected,...request} of cases){
+  const response=await app.inject({...request,headers:{authorization:'Bearer '+(unauthorized?'wrong':token),...headers}});
+  assert.equal(response.headers['cache-control'],'no-store');
+  assert.equal(response.statusCode,expected);
+ }
+ const unavailable=await server(t);
+ const missing=await unavailable.inject({method:'GET',url:'/v1/preferences/mother',headers:{authorization:'Bearer '+token}});
+ assert.equal(missing.statusCode,503);assert.equal(missing.headers['cache-control'],'no-store');
+ const failing=await server(t,{preferenceStore:{findOne:async()=>{throw new Error('private store failure');}}});
+ const failed=await failing.inject({method:'GET',url:'/v1/preferences/mother',headers:{authorization:'Bearer '+token}});
+ assert.equal(failed.statusCode,500);assert.equal(failed.headers['cache-control'],'no-store');assert.ok(!failed.body.includes('private store'));
+});

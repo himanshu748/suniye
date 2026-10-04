@@ -1,0 +1,30 @@
+TAP version 13
+# Subtest: an already stopped reading never starts extraction, explanation or narration
+ok 1 - an already stopped reading never starts extraction, explanation or narration
+  ---
+  duration_ms: 532.922209
+  ...
+# Subtest: Stop during asynchronous workflow creation prevents the first provider stage
+ok 2 - Stop during asynchronous workflow creation prevents the first provider stage
+  ---
+  duration_ms: 1.668
+  ...
+# Subtest: Stop while a traced stage is waiting prevents each provider from starting
+ok 3 - Stop while a traced stage is waiting prevents each provider from starting
+  ---
+  duration_ms: 304.132792
+  ...
+# Subtest: private readings and caregiver settings are never cacheable, including errors
+ok 4 - private readings and caregiver settings are never cacheable, including errors
+  ---
+  duration_ms: 2729.295417
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 41797.036542

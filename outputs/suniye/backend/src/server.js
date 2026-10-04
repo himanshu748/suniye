@@ -16,7 +16,13 @@ export async function buildServer({env=process.env, model=modelProvider(env),spe
     const candidate=String(request.headers.authorization||'').replace(/^Bearer /,'');
     if(!timingSafeEqual(expected,createHash('sha256').update(candidate).digest())) return reply.code(401).send({code:'UNAUTHORIZED',message:'परिवार की सेटिंग में कनेक्शन जाँचें।'});
   };
-  app.addHook('onRequest',async(request,reply)=>{if(request.routeOptions.url?.startsWith('/v1/'))return auth(request,reply);});
+  app.addHook('onRequest',async(request,reply)=>{
+    if(request.routeOptions.url?.startsWith('/v1/')) {
+      // Readings and caregiver settings remain private, including auth/error replies.
+      reply.header('Cache-Control','no-store');
+      return auth(request,reply);
+    }
+  });
   await app.register(rateLimit,{max:60,timeWindow:'1 minute'});
   const trace=setupTelemetry(env); const pipeline=makeReadingWorkflow(model,speech,trace);
 

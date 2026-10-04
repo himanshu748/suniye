@@ -1,0 +1,38 @@
+[
+  {
+    "path": "/Users/himanshujha/n/suniye/outputs/suniye/releases/suniye-elevenlabs-only.apk",
+    "sha256": "6fc6b78d22c2a2db47264776888d1b1e9185bdd38c26ab4a19788f148ce41afb",
+    "bytes": 53487633,
+    "manifest": [
+      "package: name='in.suniye.app.debug' versionCode='2' versionName='0.2.0-elevenlabs' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'",
+      "sdkVersion:'30'",
+      "targetSdkVersion:'35'",
+      "uses-permission: name='android.permission.INTERNET'",
+      "uses-permission: name='android.permission.CAMERA'",
+      "uses-permission: name='android.permission.RECORD_AUDIO'",
+      "uses-permission: name='android.permission.VIBRATE'",
+      "uses-permission: name='in.suniye.app.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION'",
+      "uses-permission: name='android.permission.ACCESS_NETWORK_STATE'",
+      "application-debuggable",
+      "launchable-activity: name='in.suniye.app.MainActivity'  label='' icon=''"
+    ]
+  },
+  {
+    "path": "/Users/himanshujha/n/suniye/outputs/suniye/android/app/build/outputs/apk/debug/app-debug.apk",
+    "sha256": "2251d9082e15d8019cca00a5626f1064d337a9fd9b611368be1753e276a26644",
+    "bytes": 53352794,
+    "manifest": [
+      "package: name='in.suniye.app.debug' versionCode='3' versionName='0.3.0-parent-ux' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'",
+      "sdkVersion:'30'",
+      "targetSdkVersion:'35'",
+      "uses-permission: name='android.permission.INTERNET'",
+      "uses-permission: name='android.permission.CAMERA'",
+      "uses-permission: name='android.permission.RECORD_AUDIO'",
+      "uses-permission: name='android.permission.VIBRATE'",
+      "uses-permission: name='in.suniye.app.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION'",
+      "uses-permission: name='android.permission.ACCESS_NETWORK_STATE'",
+      "application-debuggable",
+      "launchable-activity: name='in.suniye.app.MainActivity'  label='' icon=''"
+    ]
+  }
+]

@@ -1,0 +1,51 @@
+ M .gitignore
+ M outputs/suniye/android/app/build.gradle
+ M outputs/suniye/android/app/src/main/AndroidManifest.xml
+ M outputs/suniye/android/app/src/main/res/values/styles.xml
+ M outputs/suniye/android/gradle.properties
+ M outputs/suniye/backend/.env.example
+ M outputs/suniye/backend/package.json
+ M outputs/suniye/backend/src/contracts.js
+ M outputs/suniye/backend/src/providers.js
+ M outputs/suniye/backend/src/server.js
+ M outputs/suniye/backend/src/telemetry.js
+ M outputs/suniye/backend/src/workflow.js
+ M outputs/suniye/docs/build-brief.md
+ M outputs/suniye/docs/prd.md
+ M outputs/suniye/docs/technical-spec.md
+ M outputs/suniye/render.yaml
+?? .entire/
+?? .impeccable/
+?? LICENSE
+?? README.md
+?? outputs/suniye/LICENSE
+?? outputs/suniye/README.md
+?? outputs/suniye/android/app/src/debug/
+?? outputs/suniye/android/app/src/main/assets/
+?? outputs/suniye/android/app/src/main/java/
+?? outputs/suniye/android/app/src/main/res/xml/data_extraction_rules.xml
+?? outputs/suniye/android/gradle/
+?? outputs/suniye/android/gradlew
+?? outputs/suniye/android/gradlew.bat
+?? outputs/suniye/backend/caregiver/
+?? outputs/suniye/backend/evaluation/
+?? outputs/suniye/backend/src/hindi-speech.js
+?? outputs/suniye/backend/test/
+?? outputs/suniye/docs/audit-bundle.txt
+?? outputs/suniye/docs/build-provenance.md
+?? outputs/suniye/docs/caregiver-setup.md
+?? outputs/suniye/docs/claude-audit.md
+?? outputs/suniye/docs/demo-narration.txt
+?? outputs/suniye/docs/demo-script.md
+?? outputs/suniye/docs/dev-submission-draft.md
+?? outputs/suniye/docs/editorial-check.md
+?? outputs/suniye/docs/evidence/
+?? outputs/suniye/docs/family-test-notes.md
+?? outputs/suniye/docs/model-evaluation.md
+?? outputs/suniye/docs/numeric-pronunciation.md
+?? outputs/suniye/docs/parent-usability.md
+?? outputs/suniye/docs/sponsor-tracks.md
+?? outputs/suniye/docs/third-party.md
+?? outputs/suniye/docs/verification.md
+?? outputs/suniye/releases/
+?? outputs/suniye/scripts/
