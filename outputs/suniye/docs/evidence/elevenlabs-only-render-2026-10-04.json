@@ -1,0 +1,13 @@
+{
+  "checkedAt": "2026-10-04T11:53:03.306Z",
+  "scope": "Synthetic bill through existing Free Render backend; one narration request, using existing ElevenLabs credits. Not real-phone/family testing.",
+  "origin": "https://suniye-reader.onrender.com",
+  "status": 200,
+  "sourcePreserved": true,
+  "provider": "elevenlabs",
+  "voiceId": "zT03pEAEi0VHKciJODfn",
+  "baseRate": 1,
+  "audioBytes": 27420,
+  "paidPlanActivated": false,
+  "sha256": "e07b6eb98db90ce7bf95bd5ffe49dadaa82a6d9ceaf593a247ac63d80dd5e866"
+}
