@@ -1,0 +1,19 @@
+{
+  "checkedAt": "2026-10-04",
+  "service": "suniye-reader",
+  "currentPlan": "Free",
+  "displayedCreditUsd": 50,
+  "creditLabel": "Hackathon Participant $50 credit (expires after 12 months)",
+  "proposedPlan": {
+    "name": "0.5c-512mb",
+    "monthlyUsd": 7,
+    "cpus": 0.5,
+    "ramMb": 512,
+    "instances": 1
+  },
+  "attemptResult": "blocked",
+  "dashboardError": "failed to update plan: invalid plan 0.5c-512mb. Plan requires payment information on file",
+  "paymentCardAdded": false,
+  "cashPurchaseMade": false,
+  "limitation": "Existing credit does not bypass Render payment-information requirement. No claim that the backend is always-on."
+}

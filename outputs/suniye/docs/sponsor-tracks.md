@@ -2,6 +2,24 @@
 
 Checked October 2, 2026 against the [official challenge](https://dev.to/challenges/hacktoberfest-weekend-2026-10-01). This is a build plan and evidence ledger, not a claim that every category is ready. One entry can list multiple qualifying categories; each needs actual use.
 
+## Integration roles
+
+The integrations have different jobs. Mastra, Gemma and ElevenLabs handle online reading; Render hosts the API. I use the other tools for development, setup and diagnosis.
+
+| Integration | How I use it | Why it belongs here |
+| --- | --- | --- |
+| **Mastra** | A two-step reading workflow validates the source, prepares an original reading or explanation, and optionally requests speech. Each request has its own cancellation signal. | Stop must discard late model or voice replies. The workflow also keeps a retake separate from a reading. |
+| **Gemma 3 4B** | Runs through Ollama on my laptop for simpler Hindi explanations and descriptions of pictures with no readable text. | Original reading covers small print; an optional explanation or description covers a different need. Added-context failures keep explanations experimental. |
+| **ElevenLabs** | Raju, labelled Indian Hindi, produces Eleven v4 audio after amounts are converted into Hindi words. Android caches it for replay and slower playback. | My parents need to hear the text. I chose the voice after listening to two samples. |
+| **Render** | Hosts the authenticated HTTPS API and keeps the ElevenLabs credential on the server. A real hosted bill request returned Hindi audio. | The phones need a reachable backend when I am in another city. This deployment supports original reading and speech; hosted Gemma is not connected yet. |
+| **Sentry Agent Tracing** | Records the reading agent, model duration, token counts and Ollama timing attributes, while omitting reading text from outgoing traces. | A 32.64-second model call spent 24.96 seconds loading. That tells me where to investigate a long wait. |
+| **Backboard** | Ran six synthetic Hindi calls, three each for Gemma 3 4B and Qwen 2.5 72B, with memory, search and tools disabled. | Literal checks missed two added-context errors. Comparing the replies supports keeping the original visible and explanations optional. |
+| **Entire** | Imported 18 development checkpoints. A lookup recovered my instruction to design the controls specifically for my parents. | It connects the interface decisions to the original family request. Curated provenance is public; full private sessions stay private. |
+| **SerpApi** | Searched public official Android help pages for the caregiver guide; Gemma summarized the approved results in Hindi. | Setup needs understandable references. When a later search returned no approved pages, the guide stopped instead of inventing instructions. |
+| **MongoDB Atlas** | Preference-only routes are written for language, speed, text scale and control placement. The free cluster has a temporary user restricted to `suniye.preferences`. | Settings sync would let a caregiver restore a parent's setup. The database password and live read/write check are still pending, so I am not entering this category yet. |
+
+Backboard, Entire, Sentry and SerpApi stay outside the daily parent screen. The six Backboard calls used synthetic text, and its temporary key was revoked afterward. SerpApi searches contain public setup questions, not family messages.
+
 ## October 4 live status
 
 Eight categories now have dated application or development evidence. Render is deployed on the free Singapore service and passed authenticated original-text Hindi speech. Sentry received a real local Gemma request and displayed the agent/model relationship, token counts and timing attributes. [Render receipt](evidence/render-live-2026-10-04.json), [Sentry receipt](evidence/sentry-live-2026-10-04.json).
@@ -16,12 +34,12 @@ The current private backend uses Raju, catalogue-labelled Indian Hindi, with Ele
 
 ## Nine useful targets
 
-| Category | Role in Suniye | Current evidence | Remaining gate |
+| Category | Role in Suniye | Current evidence | Scope or remaining check |
 | --- | --- | --- | --- |
 | Gemma | Hindi explanations and descriptions of non-text pictures | Actual local Gemma 3 4B calls; explanation returned Hindi, vision failure cases recorded | Improve description reliability; family checks of explanation accuracy |
-| Mastra | Extraction, output validation, explanation and optional speech in one cancellable workflow | Real Gemma calls passed through Mastra; backend tests exercise its workflow | Include a successful end-to-end demo and architecture in the post |
+| Mastra | Extraction, output validation, explanation and optional speech in one cancellable workflow | Real Gemma calls passed through Mastra; backend tests exercise its workflow | Real Redmi network/cancellation behavior remains untested |
 | ElevenLabs | Hindi narration; optional caregiver-enabled online speech | Real Raju v4 API audio played in Android; Hindi amount words, Slow/Stop/Repeat verified. User preferred Raju sample B | Real Redmi listening and parent comfort |
-| Entire | Explain interface decisions from saved development sessions | 18 local imported checkpoints; `checkpoint explain` recovered the family-specific UX instruction | Include the curated provenance explanation; keep full history private |
+| Entire | Explain interface decisions from saved development sessions | 18 local imported checkpoints; `checkpoint explain` recovered the family-specific UX instruction | Curated provenance is included; full private history stays excluded |
 | Render | Host the authenticated AI workflow backend | Free Singapore service live; `/health` HTTP 200, unauthenticated read HTTP 401, authenticated original read with real Raju audio HTTP 200 | Hosted Gemma explanation/vision and Atlas connection remain unconfigured; Free service can sleep |
 | MongoDB Atlas | Sync voice speed, button placement and other family preferences | Free SuniyePilot cluster; strict preference-only routes; one-week collection-scoped user and current-IP access created | User must recover the database password privately, then live preference read/write; Render outbound IP access is not granted |
 | Sentry Agent Tracing | Investigate Gemma latency and failures without logging message content | Real Gemma request ingested; Agent Activity shows Suniye → gemma3:4b, 143 input and 11 output tokens, 32.64-second model span; 24.96 seconds loading | Outgoing trace omits reading content; Sentry can add network metadata. Hosted traces and real-device latency remain separate |
@@ -58,3 +76,5 @@ Before partner-plan redemption, October 3 listening choice: Himanshu preferred R
 Current credit update, October 3: the user manually redeemed the Hacktoberfest Creator offer. The official offer stated three months; the actual redemption dialog stated one month. Account readback showed Creator, cancelled with access ending November 3, auto top-up off, and a paid $0 invoice. Only that current access is confirmed. No paid upgrade was made by this build. The restricted key remains TTS-only, capped at 1,000 credits and expires October 9. Raju v4 API calls succeeded using included credits. The free v4 promotion applies to web/mobile apps only, not API calls. [Plan receipt](evidence/elevenlabs-partner-plan-2026-10-03.json).
 
 October 4 Backboard credit update: the already-claimed partner code added $5 to the balance without a card or subscription. The dashboard displayed $0.0002 total spend after six calls. This used promotional credits; no new purchase was made.
+
+Render credit-only upgrade check, October 4: the dashboard confirms $50 of hackathon credit. The proposed 0.5c-512mb compute plan costs $7/month. Render rejected the approved credit-only upgrade because it requires payment information on file. No card was added and no cash purchase was made. The service remains Free. [Receipt](evidence/render-credit-only-2026-10-04.json).

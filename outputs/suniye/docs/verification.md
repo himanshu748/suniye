@@ -105,3 +105,5 @@ The revised film combines the existing bill and media recordings with exact sour
 - Backboard: six real synthetic calls completed and appeared in the usage dashboard. Builder review found two Gemma added-context errors despite all literal checks passing; Qwen avoided those errors on the same three cases. No general quality ranking is claimed. Own test assistant absence was checked; key revocation was confirmed by an empty dashboard key list and API HTTP 401. See [comparison](evidence/backboard-comparison.json).
 
 The APK and Android production source did not change for these checks. This verifies provider connections, not Redmi, WhatsApp or family usability.
+
+Render credit-only upgrade: $50 credit confirmed; $7/month paid compute attempted with approval. Render required payment information on file and rejected the update. No card or cash payment was added; service remains Free. [Receipt](evidence/render-credit-only-2026-10-04.json).

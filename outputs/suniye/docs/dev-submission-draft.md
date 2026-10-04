@@ -18,7 +18,7 @@ The daily screen follows the things they already ask me to do. कागज़ �
 
 रोकिए stays below the scrolling content, so a long document or enlarged font cannot push it away. Provider settings and optional tap-to-speak commands live behind caregiver setup; Redmi speech recognition remains untested.
 
-I have tested synthetic material on Android emulators. I have not handed the app to my parents or collected their feedback. Real WhatsApp, Redmi firmware and offline Hindi listening remain unverified.
+The pilot passed bounded Android 11 and 15 emulator checks for image/PDF inputs, large text, Stop and replay, with real Hindi audio. My parents are in another city, so I have not observed them using it on their Redmi A4s.
 
 ## Demo
 
@@ -50,11 +50,27 @@ OCR also failed on a dense bill. I added a retake below .85 confidence. The PDF 
 
 I selected Raju after listening to two Hindi samples. Its catalogue labels it Hindi with an Indian accent. Real Eleven v4 API audio played in Android, including the Hindi amount, cached Repeat and Stop. The [evidence ledger](https://github.com/himanshu748/suniye/blob/v0.1.0-pilot/outputs/suniye/docs/verification.md) contains 87 backend tests, pronunciation checks and dated runtime results.
 
-I deployed the original-reading backend on Render's free Singapore service. An authenticated bill request preserved its source and returned real Raju audio; an unauthenticated request returned 401. The service can sleep, and hosted Gemma explanations and Atlas sync are still unconfigured. [Live check](https://github.com/himanshu748/suniye/blob/live-evidence-2026-10-04/outputs/suniye/docs/evidence/render-live-2026-10-04.json).
+Render's Singapore service passed an authenticated bill request with real Raju audio and rejected an unauthenticated request with 401. I tried to use the $50 hackathon credit for the $7/month always-on compute plan. Render required payment information on file even with the credit, so the service remains Free and can sleep. Hosted Gemma and Atlas sync are still unconfigured. [Live request](https://github.com/himanshu748/suniye/blob/live-evidence-2026-10-04/outputs/suniye/docs/evidence/render-live-2026-10-04.json) · [Credit-only upgrade check](https://github.com/himanshu748/suniye/blob/integration-roles-2026-10-04/outputs/suniye/docs/evidence/render-credit-only-2026-10-04.json).
 
 Sentry's Agent Activity showed a local Gemma request taking 32.64 seconds: 24.96 seconds loading, 4.62 seconds evaluating the prompt and 2.73 seconds generating. It recorded 143 input and 11 output tokens without the reading text in the outgoing trace. That gives me a way to distinguish model loading from generation instead of blaming the voice. [Trace evidence](https://github.com/himanshu748/suniye/blob/live-evidence-2026-10-04/outputs/suniye/docs/evidence/sentry-live-2026-10-04.json).
 
 I also used Backboard for six synthetic Hindi calls comparing Gemma 3 4B with Qwen 2.5 72B. Every amount/date literal check passed, but Gemma added a meeting or event absent from the source. Qwen avoided that addition in these three cases. I am keeping original reading first and explanations experimental; this small comparison does not establish a general ranking. [Replies and source review](https://github.com/himanshu748/suniye/blob/live-evidence-2026-10-04/outputs/suniye/docs/evidence/backboard-comparison.json).
+
+The integrations have different jobs. Mastra, Gemma and ElevenLabs handle online reading; Render hosts the API. I use the other tools for development, setup and diagnosis.
+
+| Integration | How I use it | Why it belongs here |
+| --- | --- | --- |
+| **Mastra** | A two-step reading workflow validates the source, prepares an original reading or explanation, and optionally requests speech. Each request has its own cancellation signal. | Stop must discard late model or voice replies. The workflow also keeps a retake separate from a reading. |
+| **Gemma 3 4B** | Runs through Ollama on my laptop for simpler Hindi explanations and descriptions of pictures with no readable text. | Original reading covers small print; an optional explanation or description covers a different need. Added-context failures keep explanations experimental. |
+| **ElevenLabs** | Raju, labelled Indian Hindi, produces Eleven v4 audio after amounts are converted into Hindi words. Android caches it for replay and slower playback. | My parents need to hear the text. I chose the voice after listening to two samples. |
+| **Render** | Hosts the authenticated HTTPS API and keeps the ElevenLabs credential on the server. A real hosted bill request returned Hindi audio. | The phones need a reachable backend when I am in another city. This deployment supports original reading and speech; hosted Gemma is not connected yet. |
+| **Sentry Agent Tracing** | Records the reading agent, model duration, token counts and Ollama timing attributes, while omitting reading text from outgoing traces. | A 32.64-second model call spent 24.96 seconds loading. That tells me where to investigate a long wait. |
+| **Backboard** | Ran six synthetic Hindi calls, three each for Gemma 3 4B and Qwen 2.5 72B, with memory, search and tools disabled. | Literal checks missed two added-context errors. Comparing the replies supports keeping the original visible and explanations optional. |
+| **Entire** | Imported 18 development checkpoints. A lookup recovered my instruction to design the controls specifically for my parents. | It connects the interface decisions to the original family request. Curated provenance is public; full private sessions stay private. |
+| **SerpApi** | Searched public official Android help pages for the caregiver guide; Gemma summarized the approved results in Hindi. | Setup needs understandable references. When a later search returned no approved pages, the guide stopped instead of inventing instructions. |
+| **MongoDB Atlas** | Preference-only routes are written for language, speed, text scale and control placement. The free cluster has a temporary user restricted to `suniye.preferences`. | Settings sync would let a caregiver restore a parent's setup. The database password and live read/write check are still pending, so I am not entering this category yet. |
+
+Backboard, Entire, Sentry and SerpApi stay outside the daily parent screen. The six Backboard calls used synthetic text, and its temporary key was revoked afterward. SerpApi searches contain public setup questions, not family messages.
 
 Claude reviewed the PRD, spec and selected source. I fixed its findings and ran separate runtime checks. Source review helped find issues; it did not establish how the app feels to my parents.
 
@@ -86,6 +102,6 @@ I am entering eight categories with these evidence boundaries:
 - **Sentry Agent Tracing:** an ingested Suniye/Gemma agent trace exposed model loading as the main delay in one request.
 - **Backboard:** six real calls compared open-weight models on synthetic Hindi sources and exposed an added-context error.
 
-Atlas has a restricted temporary user, but its live preference read/write is still pending, so I am leaving that category out. [Sponsor ledger](https://github.com/himanshu748/suniye/blob/live-evidence-2026-10-04/outputs/suniye/docs/sponsor-tracks.md).
+Atlas has a restricted temporary user, but its live preference read/write is still pending, so I am leaving that category out. [Sponsor ledger](https://github.com/himanshu748/suniye/blob/integration-roles-2026-10-04/outputs/suniye/docs/sponsor-tracks.md).
 
-My next check is to have each parent open a message, read a paper, stop and replay without my help. Those results still need to be collected.
+The APK, narrated demo and provider evidence are available above. The remaining family check is specific: can each parent read a WhatsApp message and a paper label, then stop and replay without my help? I have not observed that yet. Emulator checks establish the tested app behavior; their Redmi phones and their own use need a separate check.
