@@ -37,11 +37,11 @@ Set the debug app endpoint to `http://127.0.0.1:8787`. Replace PHONE_SERIAL with
 
 For online speech, select a Hindi voice with an Indian accent and listen to a synthetic sample before configuring its ID. Himanshu preferred Raju (sample B). After partner-plan redemption, Raju v4 returned HTTP 200 and played through Android with Slow, Stop and Repeat. This is an emulator check; listen on each actual phone before enabling it for a parent. The v4 web/mobile promotion does not cover backend API calls, which use account credits. Supported backend models are eleven_v4, eleven_v4_turbo and eleven_multilingual_v2; other IDs fall back to the installed Android voice.
 
-Optional online voice is off by default. Enable it only after explaining that reading text reaches the configured backend and ElevenLabs. Atlas preference sync stores speed/size/placement, not messages or pictures. If sync is unavailable, local settings remain usable.
+Optional online voice is off by default. Enable it only after explaining that reading text reaches the configured backend and ElevenLabs. Atlas preference sync is intended for speech speed and control placement, excluding messages and pictures. Set text size through Android’s system settings. If sync is unavailable, local settings remain usable.
 
 ## Hosted original reading pilot, October 4
 
-The free Singapore backend is `https://suniye-reader.onrender.com`. It requires the private family token in caregiver setup; no provider API key goes into the phone. Authenticated original-text reading and Raju narration passed a live backend check. The Free service can sleep and delay the first request by 50 seconds or more. Hosted Gemma explanations/picture descriptions and Atlas preference sync are not configured yet. Local original reading remains available when its Hindi voice is installed.
+The free Singapore backend is `https://suniye-reader.onrender.com`. It requires the private family token in caregiver setup; no provider API key goes into the phone. Authenticated original-text reading and Raju narration passed a live backend check. The Free service can sleep and delay the first request by 50 seconds or more. Hosted Gemma explanations/picture descriptions and the Render-to-Atlas connection are not configured yet. Atlas preference persistence passed a separate local-backend check. Local original reading remains available when its Hindi voice is installed.
 
 ## Redmi checks
 

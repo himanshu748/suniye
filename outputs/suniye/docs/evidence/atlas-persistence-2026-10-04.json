@@ -1,0 +1,42 @@
+{
+  "testedAt": "2026-10-04T09:26:33.176Z",
+  "integration": "MongoDB Atlas",
+  "transport": "Actual HTTP requests to local Fastify backend using the real Atlas MongoDB driver connection",
+  "collection": "suniye.preferences",
+  "material": "Synthetic settings only; no family messages, images or documents",
+  "checks": {
+    "initialWriteRead": "HTTP 200; exact settings matched",
+    "backendRestartPersistence": "HTTP 200 from a new backend/driver instance; exact settings retained",
+    "preferenceUpdate": "HTTP 200; slower speech, larger text and left placement retained",
+    "messageFieldRejected": "HTTP 400",
+    "invalidWriteDidNotChangePreferences": "pass",
+    "unauthenticatedRead": "HTTP 401",
+    "ownedSyntheticRecordCleanup": {
+      "deletedCount": 1,
+      "recordAbsent": true
+    }
+  },
+  "limitations": "Local backend to Atlas only. Does not verify Render-to-Atlas connectivity, Android sync or parent usability.",
+  "status": "pass",
+  "credentialScope": {
+    "user": "suniye-evidence",
+    "lifetime": "one week",
+    "privilege": "readWrite on suniye.preferences only",
+    "cluster": "SuniyePilot only",
+    "network": "Previously approved current-computer IP only; no Render outbound access or broad allowlist added"
+  },
+  "initialPreferences": {
+    "language": "hi",
+    "speed": 0.85,
+    "textScale": 1.3,
+    "placement": "right"
+  },
+  "updatedPreferences": {
+    "language": "hi",
+    "speed": 0.7,
+    "textScale": 1.6,
+    "placement": "left"
+  },
+  "nativeClientScope": "Native client code syncs speed and placement; uploads textScale=1 and does not apply a returned textScale. No Android sync runtime test is claimed.",
+  "dashboardVerification": "Refreshed Database Users list confirms suniye-evidence, one week, collection-only readWrite and one cluster."
+}

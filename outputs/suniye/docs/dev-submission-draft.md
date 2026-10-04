@@ -50,11 +50,13 @@ OCR also failed on a dense bill. I added a retake below .85 confidence. The PDF 
 
 I selected Raju after listening to two Hindi samples. Its catalogue labels it Hindi with an Indian accent. Real Eleven v4 API audio played in Android, including the Hindi amount, cached Repeat and Stop. The [evidence ledger](https://github.com/himanshu748/suniye/blob/v0.1.0-pilot/outputs/suniye/docs/verification.md) contains 87 backend tests, pronunciation checks and dated runtime results.
 
-Render's Singapore service passed an authenticated bill request with real Raju audio and rejected an unauthenticated request with 401. I tried to use the $50 hackathon credit for the $7/month always-on compute plan. Render required payment information on file even with the credit, so the service remains Free and can sleep. Hosted Gemma and Atlas sync are still unconfigured. [Live request](https://github.com/himanshu748/suniye/blob/live-evidence-2026-10-04/outputs/suniye/docs/evidence/render-live-2026-10-04.json) · [Credit-only upgrade check](https://github.com/himanshu748/suniye/blob/integration-roles-2026-10-04/outputs/suniye/docs/evidence/render-credit-only-2026-10-04.json).
+Render's Singapore service passed an authenticated bill request with real Raju audio and rejected an unauthenticated request with 401. I tried to use the $50 hackathon credit for the $7/month always-on compute plan. Render required payment information on file even with the credit, so the service remains Free and can sleep. Render's hosted Gemma and Atlas connections are still unconfigured. [Live request](https://github.com/himanshu748/suniye/blob/live-evidence-2026-10-04/outputs/suniye/docs/evidence/render-live-2026-10-04.json) · [Credit-only upgrade check](https://github.com/himanshu748/suniye/blob/integration-roles-2026-10-04/outputs/suniye/docs/evidence/render-credit-only-2026-10-04.json).
 
 Sentry's Agent Activity showed a local Gemma request taking 32.64 seconds: 24.96 seconds loading, 4.62 seconds evaluating the prompt and 2.73 seconds generating. It recorded 143 input and 11 output tokens without the reading text in the outgoing trace. That gives me a way to distinguish model loading from generation instead of blaming the voice. [Trace evidence](https://github.com/himanshu748/suniye/blob/live-evidence-2026-10-04/outputs/suniye/docs/evidence/sentry-live-2026-10-04.json).
 
 I also used Backboard for six synthetic Hindi calls comparing Gemma 3 4B with Qwen 2.5 72B. Every amount/date literal check passed, but Gemma added a meeting or event absent from the source. Qwen avoided that addition in these three cases. I am keeping original reading first and explanations experimental; this small comparison does not establish a general ranking. [Replies and source review](https://github.com/himanshu748/suniye/blob/live-evidence-2026-10-04/outputs/suniye/docs/evidence/backboard-comparison.json).
+
+I checked Atlas through real HTTP requests to the local backend. It saved Hindi settings, read them back after I closed and restarted the backend, then retained a slower speech rate and left-side control placement. A message field returned 400; an unauthenticated read returned 401. I deleted the one synthetic record and confirmed it was gone. This verifies the local backend's Atlas connection; Render-to-Atlas and Android sync are separate checks. [Persistence receipt](https://github.com/himanshu748/suniye/blob/atlas-live-2026-10-04/outputs/suniye/docs/evidence/atlas-persistence-2026-10-04.json).
 
 The integrations have different jobs. Mastra, Gemma and ElevenLabs handle online reading; Render hosts the API. I use the other tools for development, setup and diagnosis.
 
@@ -68,7 +70,7 @@ The integrations have different jobs. Mastra, Gemma and ElevenLabs handle online
 | **Backboard** | Ran six synthetic Hindi calls, three each for Gemma 3 4B and Qwen 2.5 72B, with memory, search and tools disabled. | Literal checks missed two added-context errors. Comparing the replies supports keeping the original visible and explanations optional. |
 | **Entire** | Imported 18 development checkpoints. A lookup recovered my instruction to design the controls specifically for my parents. | It connects the interface decisions to the original family request. Curated provenance is public; full private sessions stay private. |
 | **SerpApi** | Searched public official Android help pages for the caregiver guide; Gemma summarized the approved results in Hindi. | Setup needs understandable references. When a later search returned no approved pages, the guide stopped instead of inventing instructions. |
-| **MongoDB Atlas** | Preference-only routes are written for language, speed, text scale and control placement. The free cluster has a temporary user restricted to `suniye.preferences`. | Settings sync would let a caregiver restore a parent's setup. The database password and live read/write check are still pending, so I am not entering this category yet. |
+| **MongoDB Atlas** | The local backend writes caregiver settings to `suniye.preferences`, restores them after a backend restart, and updates speech speed and control placement. | Saved settings need to survive a restart. Strict routes reject message content and unauthenticated access. Render-to-Atlas and Android sync remain untested. |
 
 Backboard, Entire, Sentry and SerpApi stay outside the daily parent screen. The six Backboard calls used synthetic text, and its temporary key was revoked afterward. SerpApi searches contain public setup questions, not family messages.
 
@@ -90,7 +92,7 @@ I used Entire to import the development session locally. A checkpoint lookup rec
 
 ## Prize Categories
 
-I am entering eight categories with these evidence boundaries:
+I am entering nine categories with these evidence boundaries:
 
 - **ElevenLabs:** Raju v4 Hindi API audio played by Android and used in the film. Attribution: [elevenlabs.io](https://elevenlabs.io).
 - **Mastra:** the online reading workflow, validation and cancellation checks.
@@ -101,7 +103,8 @@ I am entering eight categories with these evidence boundaries:
 - **Render:** the free Singapore service passed authenticated original reading with real Hindi audio. Hosted Gemma remains separate.
 - **Sentry Agent Tracing:** an ingested Suniye/Gemma agent trace exposed model loading as the main delay in one request.
 - **Backboard:** six real calls compared open-weight models on synthetic Hindi sources and exposed an added-context error.
+- **MongoDB Atlas:** authenticated preference write/read, persistence after a backend restart, content-field rejection and cleanup verified against the real database.
 
-Atlas has a restricted temporary user, but its live preference read/write is still pending, so I am leaving that category out. [Sponsor ledger](https://github.com/himanshu748/suniye/blob/integration-roles-2026-10-04/outputs/suniye/docs/sponsor-tracks.md).
+The [sponsor ledger](https://github.com/himanshu748/suniye/blob/atlas-live-2026-10-04/outputs/suniye/docs/sponsor-tracks.md) links each category to its dated checks and their scope.
 
 The APK, narrated demo and provider evidence are available above. The remaining family check is specific: can each parent read a WhatsApp message and a paper label, then stop and replay without my help? I have not observed that yet. Emulator checks establish the tested app behavior; their Redmi phones and their own use need a separate check.
