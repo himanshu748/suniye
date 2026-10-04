@@ -1,6 +1,6 @@
-# Verification ledger — October 3, 2026
+# Verification ledger — October 4, 2026
 
-This records executed tests separately from planned acceptance. The app is a debug pilot, not a verified replacement for family help.
+This records executed tests separately from planned acceptance. The app is a debug pilot, not a verified replacement for family help. Earlier sections retain their dated results; the October 4 sponsor connections at the end supersede earlier provider/deployment status.
 
 ## October 3 recheck
 
@@ -45,7 +45,7 @@ H1/H2: corrected screen-coordinate masking; Android 11–13 now reject capture c
 
 Medium fixes include camera lifecycle, URI/image limits, backup exclusions, media audio focus, call hiding, Android 15 insets and PDF completion invalidation. Their presence in code is not proof of behavior on every Android version.
 
-## Required before a finished submission
+## Outstanding checklist recorded October 3
 
 - Real WhatsApp text/image/protected-screen/keyboard/notification tests on each Redmi A4.
 - Offline Hindi speech and number pronunciation, physical rear-camera focus/orientation, PDF paging and Redmi firmware/screenshots/insets. Android 15 emulator results are recorded separately when available.
@@ -96,3 +96,12 @@ A separate attempt to record the actual file picker did not pass. Android 15 run
 Two actual local Gemma checks ran through the current Fastify/Mastra backend without a speech provider. The first preserved the instruction but barely simplified it, taking 23,019 ms. The second turned प्रवेश से पूर्व अपने जूते उतारना अनिवार्य है। into प्रवेश करने से पहले अपने जूते निकालें।, preserving the remove-shoes-before-entering instruction in a warm 2,660 ms call. Both are single synthetic cases with manually compared meanings; no accuracy rate, phone latency or Android playback is claimed. [First check](evidence/editorial-gemma-first-2026-10-04.json), [Second check](evidence/editorial-gemma-2026-10-04.json).
 
 The revised film combines the existing bill and media recordings with exact source previews and a separate saved Gemma result. No production Android/backend code changed for the article/video revision.
+
+## October 4 additional sponsor connections
+
+- Render: free Singapore service deployed commit `77e2b32`. HTTPS health returned 200; unauthenticated reading returned 401; authenticated original bill reading preserved source and returned 26,166 bytes of real Raju Hindi audio. Hosted Gemma and preference sync remain unconfigured. See [receipt](evidence/render-live-2026-10-04.json).
+- Sentry Agent Tracing: a real local Gemma explanation returned 200 and its four-span trace appeared in Agent Activity. The model used 143 input and 11 output tokens. Its 32.64 seconds included 24.96 seconds loading, 4.62 seconds prompt evaluation and 2.73 seconds generation. A prior timeout remains recorded. The outgoing envelope omitted source text and configured credentials; Sentry can add network metadata. See [receipt and screenshot](evidence/sentry-live-2026-10-04.json).
+- Atlas: one-week preference-only user and current-computer IP access exist; credentials and live read/write remain pending.
+- Backboard: six real synthetic calls completed and appeared in the usage dashboard. Builder review found two Gemma added-context errors despite all literal checks passing; Qwen avoided those errors on the same three cases. No general quality ranking is claimed. Own test assistant absence was checked; key revocation was confirmed by an empty dashboard key list and API HTTP 401. See [comparison](evidence/backboard-comparison.json).
+
+The APK and Android production source did not change for these checks. This verifies provider connections, not Redmi, WhatsApp or family usability.

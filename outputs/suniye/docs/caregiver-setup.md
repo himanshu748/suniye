@@ -39,6 +39,10 @@ For online speech, select a Hindi voice with an Indian accent and listen to a sy
 
 Optional online voice is off by default. Enable it only after explaining that reading text reaches the configured backend and ElevenLabs. Atlas preference sync stores speed/size/placement, not messages or pictures. If sync is unavailable, local settings remain usable.
 
+## Hosted original reading pilot, October 4
+
+The free Singapore backend is `https://suniye-reader.onrender.com`. It requires the private family token in caregiver setup; no provider API key goes into the phone. Authenticated original-text reading and Raju narration passed a live backend check. The Free service can sleep and delay the first request by 50 seconds or more. Hosted Gemma explanations/picture descriptions and Atlas preference sync are not configured yet. Local original reading remains available when its Hindi voice is installed.
+
 ## Redmi checks
 
 Review the app's battery/background settings and any available Background autostart control. Menu names vary with firmware; no exact A4 menu path is claimed verified. After enabling the service, lock/unlock the phone and reopen WhatsApp. Check that the button stays within the display at the parent's font size and doesn't cover the keyboard/send controls. Select left/right placement together. Follow official device instructions before changing settings.

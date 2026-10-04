@@ -1,6 +1,6 @@
 ---
 title: Suniye: let my parents hear the message themselves
-published: false
+published: true
 tags: devchallenge, weekendchallenge, hf26challenge
 ---
 
@@ -50,6 +50,12 @@ OCR also failed on a dense bill. I added a retake below .85 confidence. The PDF 
 
 I selected Raju after listening to two Hindi samples. Its catalogue labels it Hindi with an Indian accent. Real Eleven v4 API audio played in Android, including the Hindi amount, cached Repeat and Stop. The [evidence ledger](https://github.com/himanshu748/suniye/blob/v0.1.0-pilot/outputs/suniye/docs/verification.md) contains 87 backend tests, pronunciation checks and dated runtime results.
 
+I deployed the original-reading backend on Render's free Singapore service. An authenticated bill request preserved its source and returned real Raju audio; an unauthenticated request returned 401. The service can sleep, and hosted Gemma explanations and Atlas sync are still unconfigured. [Live check](https://github.com/himanshu748/suniye/blob/live-evidence-2026-10-04/outputs/suniye/docs/evidence/render-live-2026-10-04.json).
+
+Sentry's Agent Activity showed a local Gemma request taking 32.64 seconds: 24.96 seconds loading, 4.62 seconds evaluating the prompt and 2.73 seconds generating. It recorded 143 input and 11 output tokens without the reading text in the outgoing trace. That gives me a way to distinguish model loading from generation instead of blaming the voice. [Trace evidence](https://github.com/himanshu748/suniye/blob/live-evidence-2026-10-04/outputs/suniye/docs/evidence/sentry-live-2026-10-04.json).
+
+I also used Backboard for six synthetic Hindi calls comparing Gemma 3 4B with Qwen 2.5 72B. Every amount/date literal check passed, but Gemma added a meeting or event absent from the source. Qwen avoided that addition in these three cases. I am keeping original reading first and explanations experimental; this small comparison does not establish a general ranking. [Replies and source review](https://github.com/himanshu748/suniye/blob/live-evidence-2026-10-04/outputs/suniye/docs/evidence/backboard-comparison.json).
+
 Claude reviewed the PRD, spec and selected source. I fixed its findings and ran separate runtime checks. Source review helped find issues; it did not establish how the app feels to my parents.
 
 ## Why Does Open Innovation Matter?
@@ -68,7 +74,7 @@ I used Entire to import the development session locally. A checkpoint lookup rec
 
 ## Prize Categories
 
-I am entering five categories with these evidence boundaries:
+I am entering eight categories with these evidence boundaries:
 
 - **ElevenLabs:** Raju v4 Hindi API audio played by Android and used in the film. Attribution: [elevenlabs.io](https://elevenlabs.io).
 - **Mastra:** the online reading workflow, validation and cancellation checks.
@@ -76,6 +82,10 @@ I am entering five categories with these evidence boundaries:
 - **Entire:** imported checkpoint lookups explaining interface decisions.
 - **SerpApi:** searches supplied two official Google Android help articles for a Gemma caregiver summary on October 2. The next day's search returned no approved articles and stopped generation. This is dated development use.
 
-Atlas, Sentry, Backboard and Render lack complete live application evidence, so I am leaving those categories out. [Sponsor ledger](https://github.com/himanshu748/suniye/blob/v0.1.0-pilot/outputs/suniye/docs/sponsor-tracks.md).
+- **Render:** the free Singapore service passed authenticated original reading with real Hindi audio. Hosted Gemma remains separate.
+- **Sentry Agent Tracing:** an ingested Suniye/Gemma agent trace exposed model loading as the main delay in one request.
+- **Backboard:** six real calls compared open-weight models on synthetic Hindi sources and exposed an added-context error.
+
+Atlas has a restricted temporary user, but its live preference read/write is still pending, so I am leaving that category out. [Sponsor ledger](https://github.com/himanshu748/suniye/blob/live-evidence-2026-10-04/outputs/suniye/docs/sponsor-tracks.md).
 
 My next check is to have each parent open a message, read a paper, stop and replay without my help. Those results still need to be collected.

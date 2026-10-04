@@ -25,7 +25,7 @@ try{
  if(!assistant.assistant_id)throw new Error('Backboard did not return an assistant ID.');
  for(const model of models)for(const fixture of cases){
   const start=performance.now();
-  const reply=await call('/threads/messages','POST',{assistant_id:assistant.assistant_id,content:fixture.source,system_prompt:instruction,llm_provider:model.provider,model_name:model.model,memory:'off',web_search:'off',image_generation:'off',video_generation:'off',tools:[],stream:false,thinking:{effort:'low',max_tokens:400,exclude_reasoning:true}});
+  const reply=await call('/threads/messages','POST',{assistant_id:assistant.assistant_id,content:fixture.source,system_prompt:instruction,llm_provider:model.provider,model_name:model.model,memory:'off',web_search:'off',image_generation:'off',video_generation:'off',tools:[],stream:false,thinking:null});
   if(reply.thread_id)cleanup.push(reply.thread_id);
   if(reply.status!=='COMPLETED'||typeof reply.content!=='string'||reply.tool_calls?.length)throw new Error('Backboard response was incomplete or requested tools; no result claimed.');
   const replyText=reply.content;

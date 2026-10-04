@@ -1,0 +1,128 @@
+{
+  "testedAt": "2026-10-04T08:17:04.273Z",
+  "integration": "sentry",
+  "material": "Synthetic fixture only; no family messages or pictures",
+  "checks": {
+    "readHttpStatus": 200,
+    "flushCompleted": true,
+    "tracePayloadPrivacy": "no source text or configured private values"
+  },
+  "limits": "Integration-specific check; not Redmi or family usability evidence",
+  "elapsedMs": 32782,
+  "readOutcome": {
+    "kind": "reading",
+    "originalText": "प्रवेश से पूर्व अपने जूते उतारना अनिवार्य है।",
+    "spokenText": "यह आसान भाषा में समझाया गया है। प्रवेश करने से पहले अपने जूते निकालें।",
+    "isExplanation": true,
+    "isDescription": false,
+    "retakeReason": ""
+  },
+  "tracePayloads": [
+    {
+      "event_id": "7cea359b33cb4d01a370d765860039b6",
+      "type": "transaction",
+      "transaction": "suniye.read",
+      "start_timestamp": 1791101824.9724674,
+      "timestamp": 1791101857.66594,
+      "tags": {
+        "app": "suniye"
+      },
+      "contexts": {
+        "trace": {
+          "trace_id": "9b428ab767b645248c7b3de8692bfa7e",
+          "span_id": "83f8f840bb538156",
+          "op": "gen_ai.invoke_agent",
+          "status": "ok",
+          "data": {
+            "gen_ai.operation.name": "invoke_agent",
+            "gen_ai.agent.name": "Suniye"
+          }
+        }
+      },
+      "spans": [
+        {
+          "span_id": "be390ba4dba1091d",
+          "parent_span_id": "83f8f840bb538156",
+          "trace_id": "9b428ab767b645248c7b3de8692bfa7e",
+          "start_timestamp": 1791101824.996947,
+          "timestamp": 1791101824.9979644,
+          "op": "suniye.stage",
+          "description": "suniye.stage",
+          "status": "ok",
+          "data": {}
+        },
+        {
+          "span_id": "a0f1eb7bafe0475b",
+          "parent_span_id": "83f8f840bb538156",
+          "trace_id": "9b428ab767b645248c7b3de8692bfa7e",
+          "start_timestamp": 1791101825.0118127,
+          "timestamp": 1791101857.6592336,
+          "op": "suniye.stage",
+          "description": "suniye.stage",
+          "status": "ok",
+          "data": {}
+        },
+        {
+          "span_id": "a143aff46bc6a658",
+          "parent_span_id": "a0f1eb7bafe0475b",
+          "trace_id": "9b428ab767b645248c7b3de8692bfa7e",
+          "start_timestamp": 1791101825.0148504,
+          "timestamp": 1791101857.653745,
+          "op": "gen_ai.chat",
+          "description": "gen_ai.chat",
+          "status": "ok",
+          "data": {
+            "gen_ai.request.model": "gemma3:4b",
+            "gen_ai.response.model": "gemma3:4b",
+            "gen_ai.operation.name": "chat",
+            "gen_ai.usage.input_tokens": 143,
+            "gen_ai.usage.output_tokens": 11,
+            "gen_ai.usage.total_tokens": 154,
+            "suniye.model.load_ms": 24962,
+            "suniye.model.prompt_ms": 4622,
+            "suniye.model.generation_ms": 2727
+          }
+        }
+      ],
+      "sdk": {
+        "name": "sentry.javascript.node",
+        "version": "10.75.3",
+        "integrations": [],
+        "packages": [
+          {
+            "name": "npm:@sentry/node",
+            "version": "10.75.3"
+          }
+        ]
+      }
+    }
+  ],
+  "transport": [
+    {
+      "eventId": "7cea359b33cb4d01a370d765860039b6",
+      "type": "transaction",
+      "httpStatus": 200
+    }
+  ],
+  "dashboardVerification": {
+    "status": "pass",
+    "view": "Agent Activity timeline and model attributes",
+    "rootDurationSeconds": 32.69,
+    "modelSpanSeconds": 32.64,
+    "inputTokens": 143,
+    "outputTokens": 11,
+    "screenshot": "sentry-agent-2026-10-04.jpg"
+  },
+  "debuggingFinding": "The successful request spent 24,962 ms loading the model, 4,622 ms evaluating the prompt and 2,727 ms generating; loading dominated this run.",
+  "earlierAttempts": [
+    {
+      "httpStatus": 503,
+      "cause": "Stale local model endpoint pointed to port 11435; existing Ollama was on port 11434."
+    },
+    {
+      "httpStatus": 504,
+      "cause": "A subsequent actual model call exceeded the 45-second timeout; dashboard showed a 45.04-second model span."
+    }
+  ],
+  "privacyLimits": "Outgoing application envelope excluded reading text and configured private values. Sentry may add network-derived metadata; this is not a no-metadata claim."
+}

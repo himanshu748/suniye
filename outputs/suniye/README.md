@@ -45,7 +45,7 @@ The model weights are about 3.3 GB on the development laptop. They are not bundl
 
 ## Data and limitations
 
-The backend does not archive reading requests. Mastra snapshot persistence and content logging are disabled. Optional Atlas sync stores preferences only. Optional Sentry traces keep stage/model/token metadata and discard prompts, reading text and identifiers. The phone privately stores the last reading and optional MP3 for Repeat; the caregiver can delete them. Device backup is disabled.
+The backend does not archive reading requests. Mastra snapshot persistence and content logging are disabled. Optional Atlas sync stores preferences only. Optional Sentry traces keep stage/model/token metadata and discard prompts, reading text and identifiers before transmission; Sentry may add network-derived metadata. The phone privately stores the last reading and optional MP3 for Repeat; the caregiver can delete them. Device backup is disabled.
 
 OCR and explanations can be wrong. A confidence threshold is a retake heuristic, not an accuracy guarantee. In one synthetic bill, both early generative OCR and bundled OCR misread words. The app now rejects the known low-confidence OCR case and prohibits Gemma from supplying guessed image text. Important amounts, dates and medicine labels still need a family member's check.
 
@@ -59,8 +59,10 @@ Suniye's code is MIT licensed. Gemma model weights have separate Gemma terms; Go
 
 The private backend now uses Raju v4 after the user redeemed the partner Creator plan. V4's free web/mobile promotion does not cover API calls; the API uses account credits. The app's optional online voice remains off until caregiver consent. Earlier Roger and rejected own-voice trials are retained as dated evidence, with their limitations.
 
-The challenge deadline is October 5 at 12:29 PM IST. Repository and demo publication are tracked in the October 4 readiness receipt; DEV publication remains separate. The family handover is bonus evidence under the rules; physical-phone testing remains important for the pilot but is not a required contest submission gate.
+The challenge deadline is October 5 at 12:29 PM IST. Repository and demo publication are tracked in the October 4 readiness receipt; the [DEV entry is published](https://dev.to/himanshu_748/suniye-let-my-parents-hear-the-message-themselves-41bh). The family handover is bonus evidence under the rules; physical-phone testing remains important for the pilot but is not a required contest submission gate.
 
 The [image/PDF walkthrough](https://github.com/himanshu748/suniye/releases/download/v0.1.0-pilot/suniye-demo-media.mp4) shows synthetic Android Share inputs, bundled OCR, live Hindi audio and two PDF pages. Its WhatsApp section shows Suniye’s help screen. The [sample image](docs/evidence/media-sample-image.png) and [two-page PDF](docs/evidence/media-sample-two-pages.pdf) are included. Actual WhatsApp and Redmi tests remain pending.
 
 [Complete judge walkthrough](https://github.com/himanshu748/suniye/releases/download/v0.1.0-pilot/suniye-demo-judge.mp4) combines the bill and media recordings, shows source files first, and includes a separate saved Gemma/Mastra result. [Editing checks](docs/evidence/judge-demo-edit-2026-10-04.json).
+
+October 4 additional live checks: [Render](docs/evidence/render-live-2026-10-04.json) serves authenticated original reading with Raju speech; [Sentry](docs/evidence/sentry-live-2026-10-04.json) displays local Gemma agent/model timing; [Backboard](docs/evidence/backboard-comparison.json) compares six synthetic explanations. These are separate from physical-phone usability.

@@ -1,0 +1,28 @@
+{
+  "testedAt": "2026-10-04T08:14:46.540Z",
+  "integration": "render",
+  "material": "Synthetic fixture only; no family messages or pictures",
+  "checks": {
+    "unauthenticatedRead": "HTTP 401",
+    "authenticatedOriginalReading": "HTTP 200",
+    "sourcePreserved": "pass",
+    "providerAudioBytes": 26166,
+    "audioFile": "render-live-hindi.mp3"
+  },
+  "limits": "Integration-specific check; not Redmi or family usability evidence; hosted original reading and voice only; hosted Gemma explanation is a separate gate; preference sync not configured; family token required; Free service can sleep and delay requests.",
+  "health": {
+    "status": "ok",
+    "capabilities": {
+      "model": "gemma3:4b",
+      "hindiSpeech": true,
+      "preferenceSync": false
+    }
+  },
+  "serviceOrigin": "https://suniye-reader.onrender.com",
+  "deployment": {
+    "tier": "Free",
+    "region": "Singapore",
+    "commit": "77e2b32b0317818d201628e583a19f918f2a1cb7",
+    "healthCheckPath": "/health"
+  }
+}
