@@ -1,0 +1,30 @@
+{
+  "checkedAt": "2026-10-04T15:21:42.036215+00:00",
+  "scope": "Parent-focused pilot. Source/build/signing checks and earlier Android 11 layout/media-state assertions; not a completed visual/touch walkthrough or physical Redmi test.",
+  "android11EarlierInternalCheck": {
+    "fontScale": 1.6,
+    "result": "INSTRUMENTATION_RESULT: fontScale=1.6\nINSTRUMENTATION_RESULT: parentUi=PASS: Repeat/Slow visible before long source, Stop after scroll, inactive microphone absent, explanation collapsed, Slow toggle restores usual speed, bundled Raju instructions stop correctly\nINSTRUMENTATION_RESULT: scope=Synthetic Android 11 emulator; no parent comprehension or Redmi claim\nINSTRUMENTATION_CODE: -1",
+    "captureExcluded": "System UI ANR dialog covered the saved capture. This does not establish visible or touch-accessible controls."
+  },
+  "laterRuntimeAttempts": {
+    "recordedBillThroughLocalFixture": "First attempt failed with a connection error; retry aborted when Android system crashed. Not scored as a pass.",
+    "finalOfflineViewProbe": "Added for a future stable emulator run; not executed on the final APK."
+  },
+  "physicalRedmiTest": "not performed",
+  "parentComprehension": "not observed",
+  "newPaidResourceOrPlan": false,
+  "providerEvidence": "parent-help-voice-2026-10-04.json and elevenlabs-only-render-2026-10-04.json",
+  "latestUiChange": "Full-source toggle remains available for any nonempty source, including short messages wrapped by enlarged fonts.",
+  "finalApk": {
+    "version": "0.3.0-parent-ux",
+    "versionCode": 3,
+    "minSdk": 30,
+    "sha256": "39d5484833272ead0147788823ee7c0e8790ed1454555b48f721e807c1d2cdfd",
+    "bytes": 53618122,
+    "signatureVerified": true,
+    "sameSigningCertificateAsVoiceOnlyRelease": true,
+    "signerSha256": "a48cd67231be46cf03b0304240e92712053ed3b3b9b4de4b7bb2141a068ed196",
+    "buildResult": "success",
+    "finalVisualTouchWalkthrough": "not completed"
+  }
+}

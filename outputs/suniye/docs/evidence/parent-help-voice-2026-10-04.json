@@ -1,0 +1,12 @@
+{
+  "checkedAt": "2026-10-04T12:07:46.433Z",
+  "provider": "elevenlabs",
+  "voiceId": "zT03pEAEi0VHKciJODfn",
+  "model": "eleven_v4",
+  "syntheticText": "बिल या कागज़ के लिए कागज़ पढ़िए दबाएँ। फोन की फोटो के लिए फोटो पढ़िए। दोबारा सुनने के लिए फिर सुनिए। आवाज़ रोकने के लिए नीचे रोकिए दबाएँ।",
+  "characters": 137,
+  "audioBytes": 100354,
+  "requests": 1,
+  "automaticRetry": false,
+  "purpose": "Bundled parent-facing instructions; no cash purchase"
+}
