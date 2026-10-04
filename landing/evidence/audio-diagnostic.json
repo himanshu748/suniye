@@ -1,0 +1,270 @@
+{
+  "checkedAt": "2026-10-04T16:32:01.773Z",
+  "elapsedMs": 17799,
+  "scope": "Explicitly authorized targeted functional diagnostic; no UI edits or full-page rerun",
+  "identity": {
+    "url": "http://127.0.0.1:3074/",
+    "title": "सुनिए — छोटी लिखावट, आराम से सुनिए"
+  },
+  "preservedBroadConfirmation": {
+    "passed": 16,
+    "failed": 1,
+    "receipt": "suniye-landing-browser-confirmation-receipt-2026-10-04.json"
+  },
+  "passed": 3,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Active desktop Slow and Stop reset actual local playback",
+      "status": "passed",
+      "evidence": {
+        "before": {
+          "at": 4412.400000002235,
+          "currentTime": 0.009182,
+          "duration": 7.76,
+          "ended": false,
+          "paused": false,
+          "playbackRate": 1,
+          "visibility": "visible",
+          "status": "सुन रहे हैं। जब चाहें रोकिए।",
+          "playLabel": "सुन रहे हैं…",
+          "playDisabled": true,
+          "stopDisabled": false
+        },
+        "slowed": {
+          "at": 4412.800000000745,
+          "currentTime": 0.009182,
+          "duration": 7.76,
+          "ended": false,
+          "paused": false,
+          "playbackRate": 0.85,
+          "visibility": "visible",
+          "status": "धीमी गति चुनी गई है।",
+          "playLabel": "सुन रहे हैं…",
+          "playDisabled": true,
+          "stopDisabled": false
+        },
+        "stopped": {
+          "at": 4413.60000000149,
+          "currentTime": 0,
+          "duration": 7.76,
+          "ended": false,
+          "paused": true,
+          "playbackRate": 0.85,
+          "visibility": "visible",
+          "status": "रोक दिया। फिर सुनने के लिए फिर सुनिए दबाएँ।",
+          "playLabel": "फिर सुनिए",
+          "playDisabled": false,
+          "stopDisabled": true
+        },
+        "method": "Synchronous real control handlers in one page-local evaluation while audio is active"
+      }
+    },
+    {
+      "name": "Actual natural completion announces end and resets controls",
+      "status": "passed",
+      "evidence": {
+        "after": {
+          "at": 12935.400000002235,
+          "currentTime": 0,
+          "duration": 7.76,
+          "ended": false,
+          "paused": true,
+          "playbackRate": 1,
+          "visibility": "visible",
+          "status": "पूरा सुन लिया। फिर सुनने के लिए फिर सुनिए दबाएँ।",
+          "playLabel": "फिर सुनिए",
+          "playDisabled": false,
+          "stopDisabled": true
+        },
+        "endedEvent": {
+          "type": "ended",
+          "phase": "document capture before app target handlers",
+          "state": {
+            "at": 12785.60000000149,
+            "currentTime": 7.76,
+            "duration": 7.76,
+            "ended": true,
+            "paused": true,
+            "playbackRate": 1,
+            "visibility": "visible",
+            "status": "सुन रहे हैं। जब चाहें रोकिए।",
+            "playLabel": "सुन रहे हैं…",
+            "playDisabled": true,
+            "stopDisabled": false
+          }
+        }
+      }
+    },
+    {
+      "name": "Local recorded MP3 only and healthy console",
+      "status": "passed",
+      "evidence": {
+        "requests": [
+          {
+            "path": "/",
+            "method": "GET"
+          },
+          {
+            "path": "/style.css",
+            "method": "GET"
+          },
+          {
+            "path": "/app.js",
+            "method": "GET"
+          },
+          {
+            "path": "/assets/android-home.png",
+            "method": "GET"
+          },
+          {
+            "path": "/assets/manrope-latin.woff2",
+            "method": "GET"
+          },
+          {
+            "path": "/assets/android-reading.png",
+            "method": "GET"
+          },
+          {
+            "path": "/assets/mark.svg",
+            "method": "GET"
+          },
+          {
+            "path": "/assets/raju-bill-sample.mp3",
+            "method": "GET"
+          },
+          {
+            "path": "/assets/mark.svg",
+            "method": "GET"
+          }
+        ],
+        "errors": [],
+        "consoleMessages": []
+      }
+    }
+  ],
+  "failures": [],
+  "events": [
+    {
+      "type": "play",
+      "phase": "document capture before app target handlers",
+      "state": {
+        "at": 3430.10000000149,
+        "currentTime": 0,
+        "duration": null,
+        "ended": false,
+        "paused": false,
+        "playbackRate": 1,
+        "visibility": "visible",
+        "status": "रिकॉर्डिंग खुल रही है। रोकिए से अभी भी रोक सकते हैं।",
+        "playLabel": "आवाज़ तैयार हो रही है…",
+        "playDisabled": true,
+        "stopDisabled": false
+      }
+    },
+    {
+      "type": "playing",
+      "phase": "document capture before app target handlers",
+      "state": {
+        "at": 4330.699999999255,
+        "currentTime": 0,
+        "duration": 7.76,
+        "ended": false,
+        "paused": false,
+        "playbackRate": 1,
+        "visibility": "visible",
+        "status": "रिकॉर्डिंग खुल रही है। रोकिए से अभी भी रोक सकते हैं।",
+        "playLabel": "आवाज़ तैयार हो रही है…",
+        "playDisabled": true,
+        "stopDisabled": false
+      }
+    },
+    {
+      "type": "pause",
+      "phase": "document capture before app target handlers",
+      "state": {
+        "at": 4414.300000000745,
+        "currentTime": 0,
+        "duration": 7.76,
+        "ended": false,
+        "paused": true,
+        "playbackRate": 0.85,
+        "visibility": "visible",
+        "status": "रोक दिया। फिर सुनने के लिए फिर सुनिए दबाएँ।",
+        "playLabel": "फिर सुनिए",
+        "playDisabled": false,
+        "stopDisabled": true
+      }
+    },
+    {
+      "type": "play",
+      "phase": "document capture before app target handlers",
+      "state": {
+        "at": 4945.800000000745,
+        "currentTime": 0,
+        "duration": 7.76,
+        "ended": false,
+        "paused": false,
+        "playbackRate": 1,
+        "visibility": "visible",
+        "status": "रिकॉर्डिंग खुल रही है। रोकिए से अभी भी रोक सकते हैं।",
+        "playLabel": "आवाज़ तैयार हो रही है…",
+        "playDisabled": true,
+        "stopDisabled": false
+      }
+    },
+    {
+      "type": "playing",
+      "phase": "document capture before app target handlers",
+      "state": {
+        "at": 4946,
+        "currentTime": 0,
+        "duration": 7.76,
+        "ended": false,
+        "paused": false,
+        "playbackRate": 1,
+        "visibility": "visible",
+        "status": "रिकॉर्डिंग खुल रही है। रोकिए से अभी भी रोक सकते हैं।",
+        "playLabel": "आवाज़ तैयार हो रही है…",
+        "playDisabled": true,
+        "stopDisabled": false
+      }
+    },
+    {
+      "type": "pause",
+      "phase": "document capture before app target handlers",
+      "state": {
+        "at": 12785.300000000745,
+        "currentTime": 7.76,
+        "duration": 7.76,
+        "ended": true,
+        "paused": true,
+        "playbackRate": 1,
+        "visibility": "visible",
+        "status": "सुन रहे हैं। जब चाहें रोकिए।",
+        "playLabel": "सुन रहे हैं…",
+        "playDisabled": true,
+        "stopDisabled": false
+      }
+    },
+    {
+      "type": "ended",
+      "phase": "document capture before app target handlers",
+      "state": {
+        "at": 12785.60000000149,
+        "currentTime": 7.76,
+        "duration": 7.76,
+        "ended": true,
+        "paused": true,
+        "playbackRate": 1,
+        "visibility": "visible",
+        "status": "सुन रहे हैं। जब चाहें रोकिए।",
+        "playLabel": "सुन रहे हैं…",
+        "playDisabled": true,
+        "stopDisabled": false
+      }
+    }
+  ],
+  "conclusionBoundary": "These states establish current active Stop and natural-completion behavior. The earlier failing click had no state telemetry, so its natural-end/visibility cause remains unproven.",
+  "processPolicy": "No browser.close or process termination; all task-created processes remain running."
+}
