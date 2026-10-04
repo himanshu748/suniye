@@ -1,0 +1,791 @@
+{
+  "checkedAt": "2026-10-04T16:57:03.827Z",
+  "elapsedMs": 35866,
+  "scope": "Explicitly requested narrow current-page real-pointer check; no UI edit or full-page rerun",
+  "locatorMethod": "Playwright locator.click with actual trusted pointer events; evaluate only preloads media or reads state, never invokes click handlers",
+  "identity": {
+    "url": "http://127.0.0.1:3074/",
+    "title": "सुनिए — छोटी लिखावट, आराम से सुनिए"
+  },
+  "currentAsset": "https://github.com/himanshu748/suniye/releases/download/parent-ux-2026-10-04/suniye-parent-ux.apk",
+  "passed": 5,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Current corrected page and actual 7.76s local recording",
+      "status": "passed",
+      "evidence": {
+        "identity": {
+          "url": "http://127.0.0.1:3074/",
+          "title": "सुनिए — छोटी लिखावट, आराम से सुनिए"
+        },
+        "currentAsset": "https://github.com/himanshu748/suniye/releases/download/parent-ux-2026-10-04/suniye-parent-ux.apk",
+        "preloaded": {
+          "atMs": 9860.199999999255,
+          "wallTime": "2026-10-04T16:57:02.360Z",
+          "currentTime": 0,
+          "duration": 7.76,
+          "readyState": 4,
+          "ended": false,
+          "paused": true,
+          "playbackRate": 1,
+          "visibility": "visible",
+          "status": "सुनने के लिए बटन दबाएँ।",
+          "playLabel": "नमूना सुनिए",
+          "playDisabled": false,
+          "stopDisabled": true,
+          "slowPressed": "false"
+        }
+      }
+    },
+    {
+      "name": "Real-pointer Play, Slow and Stop while actual clip is active",
+      "status": "passed",
+      "evidence": {
+        "playing": {
+          "atMs": 10574,
+          "wallTime": "2026-10-04T16:57:03.074Z",
+          "currentTime": 0.512111,
+          "duration": 7.76,
+          "readyState": 4,
+          "ended": false,
+          "paused": false,
+          "playbackRate": 1,
+          "visibility": "visible",
+          "status": "सुन रहे हैं। जब चाहें रोकिए।",
+          "playLabel": "सुन रहे हैं…",
+          "playDisabled": true,
+          "stopDisabled": false,
+          "slowPressed": "false"
+        },
+        "slow": {
+          "atMs": 10865.5,
+          "wallTime": "2026-10-04T16:57:03.365Z",
+          "currentTime": 0.802942,
+          "duration": 7.76,
+          "readyState": 4,
+          "ended": false,
+          "paused": false,
+          "playbackRate": 0.85,
+          "visibility": "visible",
+          "status": "धीमी गति चुनी गई है।",
+          "playLabel": "सुन रहे हैं…",
+          "playDisabled": true,
+          "stopDisabled": false,
+          "slowPressed": "true"
+        },
+        "stop": {
+          "atMs": 10964,
+          "wallTime": "2026-10-04T16:57:03.464Z",
+          "currentTime": 0,
+          "duration": 7.76,
+          "readyState": 4,
+          "ended": false,
+          "paused": true,
+          "playbackRate": 0.85,
+          "visibility": "visible",
+          "status": "रोक दिया। फिर सुनने के लिए फिर सुनिए दबाएँ।",
+          "playLabel": "फिर सुनिए",
+          "playDisabled": false,
+          "stopDisabled": true,
+          "slowPressed": "true"
+        }
+      }
+    },
+    {
+      "name": "Real-pointer Repeat and immediate Stop",
+      "status": "passed",
+      "evidence": {
+        "repeated": {
+          "atMs": 11149.39999999851,
+          "wallTime": "2026-10-04T16:57:03.649Z",
+          "currentTime": 0.019508,
+          "duration": 7.76,
+          "readyState": 4,
+          "ended": false,
+          "paused": false,
+          "playbackRate": 0.85,
+          "visibility": "visible",
+          "status": "धीमी गति से सुन रहे हैं।",
+          "playLabel": "सुन रहे हैं…",
+          "playDisabled": true,
+          "stopDisabled": false,
+          "slowPressed": "true"
+        },
+        "repeatStop": {
+          "atMs": 11301.199999999255,
+          "wallTime": "2026-10-04T16:57:03.801Z",
+          "currentTime": 0,
+          "duration": 7.76,
+          "readyState": 4,
+          "ended": false,
+          "paused": true,
+          "playbackRate": 0.85,
+          "visibility": "visible",
+          "status": "रोक दिया। फिर सुनने के लिए फिर सुनिए दबाएँ।",
+          "playLabel": "फिर सुनिए",
+          "playDisabled": false,
+          "stopDisabled": true,
+          "slowPressed": "true"
+        }
+      }
+    },
+    {
+      "name": "Trusted pointer events occurred before natural completion",
+      "status": "passed",
+      "evidence": [
+        {
+          "type": "click",
+          "control": "play-sample",
+          "isTrusted": true,
+          "state": {
+            "atMs": 9983.800000000745,
+            "wallTime": "2026-10-04T16:57:02.484Z",
+            "currentTime": 0,
+            "duration": 7.76,
+            "readyState": 4,
+            "ended": false,
+            "paused": true,
+            "playbackRate": 1,
+            "visibility": "visible",
+            "status": "सुनने के लिए बटन दबाएँ।",
+            "playLabel": "नमूना सुनिए",
+            "playDisabled": false,
+            "stopDisabled": true,
+            "slowPressed": "false"
+          }
+        },
+        {
+          "type": "click",
+          "control": "slow-sample",
+          "isTrusted": true,
+          "state": {
+            "atMs": 10842.199999999255,
+            "wallTime": "2026-10-04T16:57:03.342Z",
+            "currentTime": 0.780322,
+            "duration": 7.76,
+            "readyState": 4,
+            "ended": false,
+            "paused": false,
+            "playbackRate": 1,
+            "visibility": "visible",
+            "status": "सुन रहे हैं। जब चाहें रोकिए।",
+            "playLabel": "सुन रहे हैं…",
+            "playDisabled": true,
+            "stopDisabled": false,
+            "slowPressed": "false"
+          }
+        },
+        {
+          "type": "click",
+          "control": "stop-sample",
+          "isTrusted": true,
+          "state": {
+            "atMs": 10928.300000000745,
+            "wallTime": "2026-10-04T16:57:03.428Z",
+            "currentTime": 0.863342,
+            "duration": 7.76,
+            "readyState": 4,
+            "ended": false,
+            "paused": false,
+            "playbackRate": 0.85,
+            "visibility": "visible",
+            "status": "धीमी गति चुनी गई है।",
+            "playLabel": "सुन रहे हैं…",
+            "playDisabled": true,
+            "stopDisabled": false,
+            "slowPressed": "true"
+          }
+        },
+        {
+          "type": "click",
+          "control": "play-sample",
+          "isTrusted": true,
+          "state": {
+            "atMs": 11043,
+            "wallTime": "2026-10-04T16:57:03.543Z",
+            "currentTime": 0,
+            "duration": 7.76,
+            "readyState": 4,
+            "ended": false,
+            "paused": true,
+            "playbackRate": 0.85,
+            "visibility": "visible",
+            "status": "रोक दिया। फिर सुनने के लिए फिर सुनिए दबाएँ।",
+            "playLabel": "फिर सुनिए",
+            "playDisabled": false,
+            "stopDisabled": true,
+            "slowPressed": "true"
+          }
+        },
+        {
+          "type": "click",
+          "control": "stop-sample",
+          "isTrusted": true,
+          "state": {
+            "atMs": 11244.5,
+            "wallTime": "2026-10-04T16:57:03.744Z",
+            "currentTime": 0.094279,
+            "duration": 7.76,
+            "readyState": 4,
+            "ended": false,
+            "paused": false,
+            "playbackRate": 0.85,
+            "visibility": "visible",
+            "status": "धीमी गति से सुन रहे हैं।",
+            "playLabel": "सुन रहे हैं…",
+            "playDisabled": true,
+            "stopDisabled": false,
+            "slowPressed": "true"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Healthy console and local GETs only",
+      "status": "passed",
+      "evidence": {
+        "errors": [],
+        "external": [],
+        "requests": [
+          {
+            "path": "/",
+            "method": "GET"
+          },
+          {
+            "path": "/style.css",
+            "method": "GET"
+          },
+          {
+            "path": "/app.js",
+            "method": "GET"
+          },
+          {
+            "path": "/assets/android-home.png",
+            "method": "GET"
+          },
+          {
+            "path": "/assets/manrope-latin.woff2",
+            "method": "GET"
+          },
+          {
+            "path": "/assets/android-reading.png",
+            "method": "GET"
+          },
+          {
+            "path": "/assets/mark.svg",
+            "method": "GET"
+          },
+          {
+            "path": "/assets/raju-bill-sample.mp3",
+            "method": "GET"
+          },
+          {
+            "path": "/assets/mark.svg",
+            "method": "GET"
+          }
+        ]
+      }
+    }
+  ],
+  "failures": [],
+  "steps": [
+    {
+      "name": "Existing local MP3 preloaded before real click",
+      "state": {
+        "atMs": 9860.199999999255,
+        "wallTime": "2026-10-04T16:57:02.360Z",
+        "currentTime": 0,
+        "duration": 7.76,
+        "readyState": 4,
+        "ended": false,
+        "paused": true,
+        "playbackRate": 1,
+        "visibility": "visible",
+        "status": "सुनने के लिए बटन दबाएँ।",
+        "playLabel": "नमूना सुनिए",
+        "playDisabled": false,
+        "stopDisabled": true,
+        "slowPressed": "false"
+      }
+    },
+    {
+      "name": "Real pointer Play",
+      "actionMs": 576,
+      "state": {
+        "atMs": 10489.599999997765,
+        "wallTime": "2026-10-04T16:57:02.990Z",
+        "currentTime": 0.427821,
+        "duration": 7.76,
+        "readyState": 4,
+        "ended": false,
+        "paused": false,
+        "playbackRate": 1,
+        "visibility": "visible",
+        "status": "सुन रहे हैं। जब चाहें रोकिए।",
+        "playLabel": "सुन रहे हैं…",
+        "playDisabled": true,
+        "stopDisabled": false,
+        "slowPressed": "false"
+      }
+    },
+    {
+      "name": "Active playback confirmed before pointer Slow",
+      "state": {
+        "atMs": 10574,
+        "wallTime": "2026-10-04T16:57:03.074Z",
+        "currentTime": 0.512111,
+        "duration": 7.76,
+        "readyState": 4,
+        "ended": false,
+        "paused": false,
+        "playbackRate": 1,
+        "visibility": "visible",
+        "status": "सुन रहे हैं। जब चाहें रोकिए।",
+        "playLabel": "सुन रहे हैं…",
+        "playDisabled": true,
+        "stopDisabled": false,
+        "slowPressed": "false"
+      }
+    },
+    {
+      "name": "Real pointer Slow",
+      "actionMs": 287,
+      "state": {
+        "atMs": 10865.5,
+        "wallTime": "2026-10-04T16:57:03.365Z",
+        "currentTime": 0.802942,
+        "duration": 7.76,
+        "readyState": 4,
+        "ended": false,
+        "paused": false,
+        "playbackRate": 0.85,
+        "visibility": "visible",
+        "status": "धीमी गति चुनी गई है।",
+        "playLabel": "सुन रहे हैं…",
+        "playDisabled": true,
+        "stopDisabled": false,
+        "slowPressed": "true"
+      }
+    },
+    {
+      "name": "Real pointer Stop",
+      "actionMs": 96,
+      "state": {
+        "atMs": 10964,
+        "wallTime": "2026-10-04T16:57:03.464Z",
+        "currentTime": 0,
+        "duration": 7.76,
+        "readyState": 4,
+        "ended": false,
+        "paused": true,
+        "playbackRate": 0.85,
+        "visibility": "visible",
+        "status": "रोक दिया। फिर सुनने के लिए फिर सुनिए दबाएँ।",
+        "playLabel": "फिर सुनिए",
+        "playDisabled": false,
+        "stopDisabled": true,
+        "slowPressed": "true"
+      }
+    },
+    {
+      "name": "Real pointer Repeat",
+      "actionMs": 152,
+      "state": {
+        "atMs": 11134.300000000745,
+        "wallTime": "2026-10-04T16:57:03.634Z",
+        "currentTime": 0.015775,
+        "duration": 7.76,
+        "readyState": 4,
+        "ended": false,
+        "paused": false,
+        "playbackRate": 0.85,
+        "visibility": "visible",
+        "status": "धीमी गति से सुन रहे हैं।",
+        "playLabel": "सुन रहे हैं…",
+        "playDisabled": true,
+        "stopDisabled": false,
+        "slowPressed": "true"
+      }
+    },
+    {
+      "name": "Active Repeat confirmed before immediate pointer Stop",
+      "state": {
+        "atMs": 11149.39999999851,
+        "wallTime": "2026-10-04T16:57:03.649Z",
+        "currentTime": 0.019508,
+        "duration": 7.76,
+        "readyState": 4,
+        "ended": false,
+        "paused": false,
+        "playbackRate": 0.85,
+        "visibility": "visible",
+        "status": "धीमी गति से सुन रहे हैं।",
+        "playLabel": "सुन रहे हैं…",
+        "playDisabled": true,
+        "stopDisabled": false,
+        "slowPressed": "true"
+      }
+    },
+    {
+      "name": "Real pointer immediate Stop after Repeat",
+      "actionMs": 147,
+      "state": {
+        "atMs": 11301.199999999255,
+        "wallTime": "2026-10-04T16:57:03.801Z",
+        "currentTime": 0,
+        "duration": 7.76,
+        "readyState": 4,
+        "ended": false,
+        "paused": true,
+        "playbackRate": 0.85,
+        "visibility": "visible",
+        "status": "रोक दिया। फिर सुनने के लिए फिर सुनिए दबाएँ।",
+        "playLabel": "फिर सुनिए",
+        "playDisabled": false,
+        "stopDisabled": true,
+        "slowPressed": "true"
+      }
+    }
+  ],
+  "events": [
+    {
+      "type": "pointerdown",
+      "control": "play-sample",
+      "isTrusted": true,
+      "state": {
+        "atMs": 9982.599999997765,
+        "wallTime": "2026-10-04T16:57:02.483Z",
+        "currentTime": 0,
+        "duration": 7.76,
+        "readyState": 4,
+        "ended": false,
+        "paused": true,
+        "playbackRate": 1,
+        "visibility": "visible",
+        "status": "सुनने के लिए बटन दबाएँ।",
+        "playLabel": "नमूना सुनिए",
+        "playDisabled": false,
+        "stopDisabled": true,
+        "slowPressed": "false"
+      }
+    },
+    {
+      "type": "click",
+      "control": "play-sample",
+      "isTrusted": true,
+      "state": {
+        "atMs": 9983.800000000745,
+        "wallTime": "2026-10-04T16:57:02.484Z",
+        "currentTime": 0,
+        "duration": 7.76,
+        "readyState": 4,
+        "ended": false,
+        "paused": true,
+        "playbackRate": 1,
+        "visibility": "visible",
+        "status": "सुनने के लिए बटन दबाएँ।",
+        "playLabel": "नमूना सुनिए",
+        "playDisabled": false,
+        "stopDisabled": true,
+        "slowPressed": "false"
+      }
+    },
+    {
+      "type": "play",
+      "phase": "capture before application target handler",
+      "state": {
+        "atMs": 10109.199999999255,
+        "wallTime": "2026-10-04T16:57:02.609Z",
+        "currentTime": 0.047374,
+        "duration": 7.76,
+        "readyState": 4,
+        "ended": false,
+        "paused": false,
+        "playbackRate": 1,
+        "visibility": "visible",
+        "status": "रिकॉर्डिंग खुल रही है। रोकिए से अभी भी रोक सकते हैं।",
+        "playLabel": "आवाज़ तैयार हो रही है…",
+        "playDisabled": true,
+        "stopDisabled": false,
+        "slowPressed": "false"
+      }
+    },
+    {
+      "type": "playing",
+      "phase": "capture before application target handler",
+      "state": {
+        "atMs": 10109.800000000745,
+        "wallTime": "2026-10-04T16:57:02.610Z",
+        "currentTime": 0.048012,
+        "duration": 7.76,
+        "readyState": 4,
+        "ended": false,
+        "paused": false,
+        "playbackRate": 1,
+        "visibility": "visible",
+        "status": "रिकॉर्डिंग खुल रही है। रोकिए से अभी भी रोक सकते हैं।",
+        "playLabel": "आवाज़ तैयार हो रही है…",
+        "playDisabled": true,
+        "stopDisabled": false,
+        "slowPressed": "false"
+      }
+    },
+    {
+      "type": "pointerdown",
+      "control": "slow-sample",
+      "isTrusted": true,
+      "state": {
+        "atMs": 10841.699999999255,
+        "wallTime": "2026-10-04T16:57:03.342Z",
+        "currentTime": 0.77986,
+        "duration": 7.76,
+        "readyState": 4,
+        "ended": false,
+        "paused": false,
+        "playbackRate": 1,
+        "visibility": "visible",
+        "status": "सुन रहे हैं। जब चाहें रोकिए।",
+        "playLabel": "सुन रहे हैं…",
+        "playDisabled": true,
+        "stopDisabled": false,
+        "slowPressed": "false"
+      }
+    },
+    {
+      "type": "click",
+      "control": "slow-sample",
+      "isTrusted": true,
+      "state": {
+        "atMs": 10842.199999999255,
+        "wallTime": "2026-10-04T16:57:03.342Z",
+        "currentTime": 0.780322,
+        "duration": 7.76,
+        "readyState": 4,
+        "ended": false,
+        "paused": false,
+        "playbackRate": 1,
+        "visibility": "visible",
+        "status": "सुन रहे हैं। जब चाहें रोकिए।",
+        "playLabel": "सुन रहे हैं…",
+        "playDisabled": true,
+        "stopDisabled": false,
+        "slowPressed": "false"
+      }
+    },
+    {
+      "type": "pointerdown",
+      "control": "stop-sample",
+      "isTrusted": true,
+      "state": {
+        "atMs": 10927.5,
+        "wallTime": "2026-10-04T16:57:03.428Z",
+        "currentTime": 0.862694,
+        "duration": 7.76,
+        "readyState": 4,
+        "ended": false,
+        "paused": false,
+        "playbackRate": 0.85,
+        "visibility": "visible",
+        "status": "धीमी गति चुनी गई है।",
+        "playLabel": "सुन रहे हैं…",
+        "playDisabled": true,
+        "stopDisabled": false,
+        "slowPressed": "true"
+      }
+    },
+    {
+      "type": "click",
+      "control": "stop-sample",
+      "isTrusted": true,
+      "state": {
+        "atMs": 10928.300000000745,
+        "wallTime": "2026-10-04T16:57:03.428Z",
+        "currentTime": 0.863342,
+        "duration": 7.76,
+        "readyState": 4,
+        "ended": false,
+        "paused": false,
+        "playbackRate": 0.85,
+        "visibility": "visible",
+        "status": "धीमी गति चुनी गई है।",
+        "playLabel": "सुन रहे हैं…",
+        "playDisabled": true,
+        "stopDisabled": false,
+        "slowPressed": "true"
+      }
+    },
+    {
+      "type": "pause",
+      "phase": "capture before application target handler",
+      "state": {
+        "atMs": 10932.39999999851,
+        "wallTime": "2026-10-04T16:57:03.432Z",
+        "currentTime": 0,
+        "duration": 7.76,
+        "readyState": 1,
+        "ended": false,
+        "paused": true,
+        "playbackRate": 0.85,
+        "visibility": "visible",
+        "status": "रोक दिया। फिर सुनने के लिए फिर सुनिए दबाएँ।",
+        "playLabel": "फिर सुनिए",
+        "playDisabled": false,
+        "stopDisabled": true,
+        "slowPressed": "true"
+      }
+    },
+    {
+      "type": "pointerdown",
+      "control": "play-sample",
+      "isTrusted": true,
+      "state": {
+        "atMs": 11038.699999999255,
+        "wallTime": "2026-10-04T16:57:03.539Z",
+        "currentTime": 0,
+        "duration": 7.76,
+        "readyState": 4,
+        "ended": false,
+        "paused": true,
+        "playbackRate": 0.85,
+        "visibility": "visible",
+        "status": "रोक दिया। फिर सुनने के लिए फिर सुनिए दबाएँ।",
+        "playLabel": "फिर सुनिए",
+        "playDisabled": false,
+        "stopDisabled": true,
+        "slowPressed": "true"
+      }
+    },
+    {
+      "type": "click",
+      "control": "play-sample",
+      "isTrusted": true,
+      "state": {
+        "atMs": 11043,
+        "wallTime": "2026-10-04T16:57:03.543Z",
+        "currentTime": 0,
+        "duration": 7.76,
+        "readyState": 4,
+        "ended": false,
+        "paused": true,
+        "playbackRate": 0.85,
+        "visibility": "visible",
+        "status": "रोक दिया। फिर सुनने के लिए फिर सुनिए दबाएँ।",
+        "playLabel": "फिर सुनिए",
+        "playDisabled": false,
+        "stopDisabled": true,
+        "slowPressed": "true"
+      }
+    },
+    {
+      "type": "play",
+      "phase": "capture before application target handler",
+      "state": {
+        "atMs": 11050.800000000745,
+        "wallTime": "2026-10-04T16:57:03.551Z",
+        "currentTime": 0.000544,
+        "duration": 7.76,
+        "readyState": 4,
+        "ended": false,
+        "paused": false,
+        "playbackRate": 0.85,
+        "visibility": "visible",
+        "status": "रिकॉर्डिंग खुल रही है। रोकिए से अभी भी रोक सकते हैं।",
+        "playLabel": "आवाज़ तैयार हो रही है…",
+        "playDisabled": true,
+        "stopDisabled": false,
+        "slowPressed": "true"
+      }
+    },
+    {
+      "type": "playing",
+      "phase": "capture before application target handler",
+      "state": {
+        "atMs": 11051.199999999255,
+        "wallTime": "2026-10-04T16:57:03.551Z",
+        "currentTime": 0.000544,
+        "duration": 7.76,
+        "readyState": 4,
+        "ended": false,
+        "paused": false,
+        "playbackRate": 0.85,
+        "visibility": "visible",
+        "status": "रिकॉर्डिंग खुल रही है। रोकिए से अभी भी रोक सकते हैं।",
+        "playLabel": "आवाज़ तैयार हो रही है…",
+        "playDisabled": true,
+        "stopDisabled": false,
+        "slowPressed": "true"
+      }
+    },
+    {
+      "type": "pointerdown",
+      "control": "stop-sample",
+      "isTrusted": true,
+      "state": {
+        "atMs": 11219.5,
+        "wallTime": "2026-10-04T16:57:03.719Z",
+        "currentTime": 0.075806,
+        "duration": 7.76,
+        "readyState": 4,
+        "ended": false,
+        "paused": false,
+        "playbackRate": 0.85,
+        "visibility": "visible",
+        "status": "धीमी गति से सुन रहे हैं।",
+        "playLabel": "सुन रहे हैं…",
+        "playDisabled": true,
+        "stopDisabled": false,
+        "slowPressed": "true"
+      }
+    },
+    {
+      "type": "click",
+      "control": "stop-sample",
+      "isTrusted": true,
+      "state": {
+        "atMs": 11244.5,
+        "wallTime": "2026-10-04T16:57:03.744Z",
+        "currentTime": 0.094279,
+        "duration": 7.76,
+        "readyState": 4,
+        "ended": false,
+        "paused": false,
+        "playbackRate": 0.85,
+        "visibility": "visible",
+        "status": "धीमी गति से सुन रहे हैं।",
+        "playLabel": "सुन रहे हैं…",
+        "playDisabled": true,
+        "stopDisabled": false,
+        "slowPressed": "true"
+      }
+    },
+    {
+      "type": "pause",
+      "phase": "capture before application target handler",
+      "state": {
+        "atMs": 11249.300000000745,
+        "wallTime": "2026-10-04T16:57:03.749Z",
+        "currentTime": 0,
+        "duration": 7.76,
+        "readyState": 1,
+        "ended": false,
+        "paused": true,
+        "playbackRate": 0.85,
+        "visibility": "visible",
+        "status": "रोक दिया। फिर सुनने के लिए फिर सुनिए दबाएँ।",
+        "playLabel": "फिर सुनिए",
+        "playDisabled": false,
+        "stopDisabled": true,
+        "slowPressed": "true"
+      }
+    }
+  ],
+  "errors": [],
+  "external": [],
+  "historicalEvidencePreserved": [
+    "suniye-landing-browser-confirmation-receipt-2026-10-04.json (16/1)",
+    "suniye-audio-diagnostic-receipt-2026-10-04.json (3/0)"
+  ],
+  "boundary": "This establishes or rejects the actual current real-pointer sequence. It cannot reconstruct the unrecorded state at the historical timeout.",
+  "processPolicy": "All browsers and servers left running; no browser.close or process termination."
+}

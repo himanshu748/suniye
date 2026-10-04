@@ -84,3 +84,15 @@ Direct grounding: repository README, `outputs/suniye/README.md`, task-workspace 
 The finish detector's unavailable status is not a clean verdict. Initial defects are preserved above; the final confirmation and relayed parent review are recorded with the unresolved sequence above.
 
 Corrected current release-copy build: **282,761 bytes in 191 ms**; **10 static/source assertions passed, 0 failed**. Initial edit encoding failure and mismatched CTA assertion were caught and preserved in workspace first-attempt evidence; that build did not contain corrected copy. This completed build/source check supersedes it. No further browser pass.
+
+## Current corrected-page real-pointer verification
+
+The parent requested a separate narrow physical-pointer check because the earlier 3/0 diagnostic invoked Slow/Stop handlers in a page evaluation rather than repeating pointer input. On the current corrected 0.3 page, **5 checks passed, 0 failed**, in 35,866 ms; raw receipt `evidence/audio-pointer.json`. No UI or player code changed; no full-page/design pass occurred. Browser runner session 29776 remains running.
+
+The existing local MP3 was preloaded to readyState4, duration7.76s, paused, without autoplay. Playwright `locator.click` then supplied trusted pointer events for Play, Slow, Stop, Repeat and immediate Stop. Page evaluation only preloaded media or read telemetry; it never invoked a click handler. After real Play: currentTime0.427821, visible, playing, Stop enabled. Slow changed playbackRate0.85; at the first actual Stop click currentTime0.863342/7.76, endedfalse, pausedfalse, visible, Stop enabled. Stop then paused/reset0 and enabled Repeat with Hindi stopped status.
+
+The real Repeat click restarted playback. At its immediate Stop click currentTime0.094279/7.76, endedfalse, pausedfalse, visible, Stop enabled; it again paused/reset0 and enabled Repeat. All five click events were trusted; no ended event occurred in the pointer sequence, and the console and external-request lists were empty. Source page confirms the current parent-UX release CTA, without fetching the APK.
+
+This resolves the current real-pointer Play/Slow/Stop/Repeat flow under the stated preloaded-local-media method. The historical broad16/1 and page-handler diagnostic3/0 receipts remain unchanged. The missing state at the historical timeout still prevents assigning its exact cause, but the current pointer sequence now passes with actual state telemetry. The prior diagnostic separately preserves actual natural completion at7.76s and correct reset behavior.
+
+Workspace runner/log: `suniye-audio-pointer-check-2026-10-04.cjs` and `suniye-audio-pointer-check-2026-10-04.log`; receipt `suniye-audio-pointer-receipt-2026-10-04.json`. Real-device, family and screen-reader checks remain unrun.
