@@ -17,14 +17,14 @@ public final class Config {
     public Config(Context c){prefs=c.getSharedPreferences("family",Context.MODE_PRIVATE);}
     public String endpoint(){return prefs.getString("endpoint","");}
     public String placement(){return prefs.getString("placement","left");}
-    public boolean onlineVoice(){return prefs.getBoolean("onlineVoice",false);}
-    public void setOnlineVoice(boolean enabled){prefs.edit().putBoolean("onlineVoice",enabled).apply();}
+    public boolean onlineVoice(){return acknowledged() && prefs.getBoolean("elevenLabsConsent",false);}
+    public void setOnlineVoice(boolean enabled){prefs.edit().putBoolean("elevenLabsConsent",enabled).apply();}
     public boolean voiceCommandsEnabled(){return prefs.getBoolean("voiceCommandsEnabled",false);}
     public void setVoiceCommandsEnabled(boolean enabled){prefs.edit().putBoolean("voiceCommandsEnabled",enabled).apply();}
     public float speed(){return prefs.getFloat("speed",0.85f);}
     public String profile(){return prefs.getString("profile","parent");}
     public boolean acknowledged(){return prefs.getBoolean("screenConsent",false);}
-    public void acknowledge(){prefs.edit().putBoolean("screenConsent",true).apply();}
+    public void acknowledge(){prefs.edit().putBoolean("screenConsent",true).putBoolean("elevenLabsConsent",true).apply();}
     public void setSpeed(float speed){prefs.edit().putFloat("speed",Math.max(.5f,Math.min(1.2f,speed))).apply();}
     public void setPlacement(String side){prefs.edit().putString("placement",side.equals("right")?"right":"left").apply();}
     public void save(String endpoint,String token,String profile)throws Exception{

@@ -1,0 +1,18 @@
+{
+  "checkedAt": "2026-10-04T11:46:00Z",
+  "scope": "Local prepared-reader HTML in Codex browser; synthetic Hindi sources with real recorded Raju clips. No API calls during playback.",
+  "checks": {
+    "manualListenStatus": "pass",
+    "completedPlaybackStatus": "pass",
+    "nextPageDoesNotAutoplay": "pass",
+    "slowRecordedPlayback": "pass",
+    "stopStatus": "pass",
+    "missingRecordingDisablesListenAndSlow": "pass",
+    "noSystemOrBrowserSynthesisInSource": "pass",
+    "HindiAmountHintPreservesOriginal": "pass",
+    "mobileViewport": "390x844 verified via DOM",
+    "desktopViewport": "1280x800 verified via DOM",
+    "viewportReset": true
+  },
+  "limits": "No new human listening judgment or real-device result."
+}

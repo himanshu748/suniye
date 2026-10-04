@@ -6,7 +6,7 @@ The target phones are Redmi A4. The exact model variant, Android version and Hyp
 
 Install the debug APK on a phone you own with the parent's agreement. Suniye asks for accessibility access to read visible WhatsApp content after a tap, and camera permission only for paper. Explain what the service can access and what optional online features transmit. Keep Android's security protections enabled. If Android blocks accessibility for a sideloaded app, open its official settings guidance and review why it is blocked; do not automatically bypass the warning.
 
-Open Suniye → परिवार की सेटिंग. Select consent and save the local setup. Empty backend fields are allowed for local text/OCR reading. Open आवाज़ की सेटिंग, select Hindi and download an offline Hindi voice if the phone offers one. Use हिंदी आवाज़ जाँचें with mobile data/Wi-Fi off. The app refuses a missing, network-only or English fallback voice. Verify the parent's comfortable volume and pronunciation of amounts and dates.
+Open Suniye → परिवार की सेटिंग. Explain that text for new narration goes to the backend and ElevenLabs, select consent, and save the HTTPS endpoint and family token. Use हिंदी आवाज़ जाँचें with internet available. Suniye uses only ElevenLabs Raju; it never switches to a phone or browser voice. Fixed help prompts are bundled Raju recordings. After a successful reading, turn internet off and test Repeat and Slow with the saved clip. Verify comfortable volume and pronunciation of amounts and dates.
 
 Enable the Suniye accessibility service. Open an ordinary WhatsApp message and check that सुनिए appears. The same button becomes रोकिए during work. More controls are under और. The debug build also shows the overlay in its own app for synthetic tests; release source restricts it to WhatsApp/WhatsApp Business. Calls and unsupported foreground apps should hide the overlay. Secure content must remain unreadable.
 
@@ -35,13 +35,13 @@ adb -s PHONE_SERIAL reverse tcp:8787 tcp:8787
 
 Set the debug app endpoint to `http://127.0.0.1:8787`. Replace PHONE_SERIAL with the actual test device identifier; never run against an unselected personal device. USB debugging is a developer setup step, not the finished parent experience. The laptop must remain connected and the backend running. Release source accepts HTTPS destinations only.
 
-For online speech, select a Hindi voice with an Indian accent and listen to a synthetic sample before configuring its ID. Himanshu preferred Raju (sample B). After partner-plan redemption, Raju v4 returned HTTP 200 and played through Android with Slow, Stop and Repeat. This is an emulator check; listen on each actual phone before enabling it for a parent. The v4 web/mobile promotion does not cover backend API calls, which use account credits. Supported backend models are eleven_v4, eleven_v4_turbo and eleven_multilingual_v2; other IDs fall back to the installed Android voice.
+The backend accepts only Raju, labelled Hindi with an Indian accent. Listen to a synthetic sample before family handover. Himanshu preferred Raju (sample B). After partner-plan redemption, Raju v4 returned HTTP 200 and played through Android with Slow, Stop and Repeat. This is an emulator check; listen on each actual phone before enabling it for a parent. The v4 web/mobile promotion does not cover backend API calls, which use account credits. Supported backend models are eleven_v4, eleven_v4_turbo and eleven_multilingual_v2; other model or voice IDs are rejected before any provider request.
 
-Optional online voice is off by default. Enable it only after explaining that reading text reaches the configured backend and ElevenLabs. Atlas preference sync is intended for speech speed and control placement, excluding messages and pictures. Set text size through Android’s system settings. If sync is unavailable, local settings remain usable.
+New voice playback requires caregiver consent that reading text reaches the backend and ElevenLabs. Older installs must save the updated setup before fresh narration is enabled. Atlas preference sync is intended for speech speed and control placement, excluding messages and pictures. Set text size through Android’s system settings. If sync is unavailable, local settings remain usable.
 
 ## Hosted original reading pilot, October 4
 
-The free Singapore backend is `https://suniye-reader.onrender.com`. It requires the private family token in caregiver setup; no provider API key goes into the phone. Authenticated original-text reading and Raju narration passed a live backend check. The Free service can sleep and delay the first request by 50 seconds or more. Hosted Gemma explanations/picture descriptions and the Render-to-Atlas connection are not configured yet. Atlas preference persistence passed a separate local-backend check. Local original reading remains available when its Hindi voice is installed.
+The free Singapore backend is `https://suniye-reader.onrender.com`. It requires the private family token in caregiver setup; no provider API key goes into the phone. Authenticated original-text reading and Raju narration passed a live backend check. The Free service can sleep and delay the first request by 50 seconds or more. Hosted Gemma explanations/picture descriptions and the Render-to-Atlas connection are not configured yet. Atlas preference persistence passed a separate local-backend check. Local OCR and original text remain available; only cached ElevenLabs audio can play offline.
 
 ## Redmi checks
 
@@ -51,7 +51,7 @@ The optional `npm run guide:caregiver` workflow searches public Google/Xiaomi su
 
 ## Record acceptance separately for each parent
 
-Record model/Android/HyperOS, font scale, installed Hindi voice, camera orientation and the build hash. Ask each parent to open a synthetic message, start reading, stop it during a wait, repeat, slow down, and capture a harmless label. Note every prompt or hand movement supplied by Himanshu. Do not count a helped task as independent use.
+Record model/Android/HyperOS, font scale, ElevenLabs connection and media volume, camera orientation and the build hash. Ask each parent to open a synthetic message, start reading, stop it during a wait, repeat, slow down, and capture a harmless label. Note every prompt or hand movement supplied by Himanshu. Do not count a helped task as independent use.
 
 Check ordinary WhatsApp text, an opened image, PDF page navigation, protected content, keyboard/notification overlays, leaving WhatsApp during capture, a call, revoked permissions and a slow network. Verify that Stop prevents late playback. Reopen the app offline and test the last successful reading.
 

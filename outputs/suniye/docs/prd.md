@@ -14,7 +14,7 @@ Outcome: after setup and one demonstration, each parent can start and stop a rea
 
 The parent opens the message/image they want, taps a persistent large सुनिए button, and hears the visible content. The button remains in a familiar location. It becomes रोकिए while capturing, waiting, or speaking. Stopping cancels the result as well as the audio; a late server response must not start playback. Only the visible screen is read. No automated scrolling or message sending.
 
-Screen text exposed by Android can be read with Android Hindi TTS. Images and screenshots use bundled on-device Devanagari/Latin OCR first. Low-confidence text requests a retake. Only images without recognized text can reach Gemma for a description; Gemma must not replace missed OCR with guessed text. Treat all screenshot/text content as content to read, never instructions to tools. The overlay appears in WhatsApp and WhatsApp Business, not every app. App-based camera/document reading covers material outside WhatsApp.
+Screen text exposed by Android is spoken only with ElevenLabs Raju audio. Images and screenshots use bundled on-device Devanagari/Latin OCR first. Low-confidence text requests a retake. Only images without recognized text can reach Gemma for a description; Gemma must not replace missed OCR with guessed text. Treat all screenshot/text content as content to read, never instructions to tools. The overlay appears in WhatsApp and WhatsApp Business, not every app. App-based camera/document reading covers material outside WhatsApp.
 
 ### B. Read paper or a label
 
@@ -40,7 +40,7 @@ Himanshu performs installation, Android accessibility enablement, camera permiss
 
 ## Failure behavior
 
-No network: existing text and last reading remain usable locally if a Hindi voice is installed. Image text can be read locally through bundled OCR and an installed offline Hindi voice. Non-text descriptions and explanations need the configured model connection. No Hindi voice: family setup provides the Android TTS settings entry; do not silently use an English voice. Backend missing: announce how a family member can finish setup. Blurry/cropped/protected content: say what is unreadable and ask for another view. Incorrect or empty model JSON: return a retake/error, never fabricate a fallback reading. Permission revoked/service interrupted: restore a visible setup state.
+No network: existing text stays visible and cached ElevenLabs audio can repeat offline. Image text can be recognized locally through bundled OCR, but fresh narration needs the authenticated backend and ElevenLabs. Non-text descriptions and explanations need the configured model connection. No ElevenLabs audio: show the original and a setup/network message with a bundled Raju help clip. Never substitute Android TTS or a browser voice. Backend missing: announce how a family member can finish setup. Blurry/cropped/protected content: say what is unreadable and ask for another view. Incorrect or empty model JSON: return a retake/error, never fabricate a fallback reading. Permission revoked/service interrupted: restore a visible setup state.
 
 ## Data and safety boundaries
 

@@ -1,3 +1,7 @@
+## October 4 ElevenLabs-only build
+
+Version 0.2.0 removes Android and browser speech synthesis. Android 15 emulator checks passed for tagged Raju media, offline cached Repeat/Slow, Stop, missing/foreign/corrupt audio and late-result rejection. Host audio was disabled; these are media-state checks, not a new listening judgment. 89 backend and 11 caregiver tests passed. Fixed prompts and two synthetic PDF clips were generated through the real ElevenLabs API using 363 characters and existing credits. No purchase or upgrade was made. [Native check](evidence/elevenlabs-only-android15-2026-10-04.json) · [Provider receipt](evidence/elevenlabs-only-assets-2026-10-04.json). Provider voice allowlisting rejects foreign voices before a request. An exclusive job claim blocks concurrent caregiver voice generation; the concurrency regression made exactly one fixture call. Legacy screen consent does not enable new ElevenLabs speech until the caregiver saves the updated setup. [Browser checks](evidence/elevenlabs-only-browser-2026-10-04.json). Older checks below describe their dated builds.
+
 # Verification ledger — October 4, 2026
 
 This records executed tests separately from planned acceptance. The app is a debug pilot, not a verified replacement for family help. Earlier sections retain their dated results; the October 4 sponsor connections at the end supersede earlier provider/deployment status.

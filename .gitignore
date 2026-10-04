@@ -14,3 +14,5 @@ outputs/suniye/**/.env.*
 .entire/tmp/
 *.log
 .DS_Store
+outputs/suniye/backend/caregiver/.private-preparation/
+outputs/suniye/backend/caregiver/.private-support-index/

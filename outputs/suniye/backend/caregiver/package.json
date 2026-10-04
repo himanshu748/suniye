@@ -1,0 +1,23 @@
+{
+  "name": "suniye-caregiver-preparation",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "worker": "node worker.js",
+    "document": "node prepare.js",
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "@electric-sql/pglite": "0.5.8",
+    "@electric-sql/pglite-pgvector": "0.0.9",
+    "@temporalio/activity": "1.24.0",
+    "@temporalio/client": "1.24.0",
+    "@temporalio/worker": "1.24.0",
+    "@temporalio/workflow": "1.24.0",
+    "pdfjs-dist": "5.4.149"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-10-04T11:50:10.367040+00:00",
+  "scope": "Android 15 emulator; genuine recorded ElevenLabs Raju clips served by a synthetic loopback backend. MediaPlayer playback states checked; emulator host audio disabled. Not physical Redmi or family listening evidence.",
+  "checks": {
+    "validRajuMedia": "pass",
+    "cachedOfflineRepeat": "pass",
+    "cachedOfflineSlow": "pass",
+    "stopReleasesPlayer": "pass",
+    "missingAudioRecovery": "pass",
+    "foreignProviderRejected": "pass",
+    "corruptAudioRecovery": "pass",
+    "lateResultAfterStopRejected": "pass",
+    "legacyScreenConsentDoesNotEnableVoice": "pass"
+  },
+  "backendTests": 89,
+  "caregiverTests": 11,
+  "newProviderCharacters": 363,
+  "newPurchases": false,
+  "cashChargesInitiated": false
+}

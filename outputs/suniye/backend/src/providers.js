@@ -80,13 +80,14 @@ export function modelProvider(env = process.env, fetcher = fetch) {
   };
 }
 
+export const rajuVoiceId='zT03pEAEi0VHKciJODfn';
 export function speechProvider(env = process.env, fetcher = fetch) {
   const model=env.ELEVENLABS_MODEL_ID || 'eleven_multilingual_v2';
-  const configured=Boolean(env.ELEVENLABS_API_KEY && env.ELEVENLABS_VOICE_ID && ['eleven_multilingual_v2','eleven_v4','eleven_v4_turbo'].includes(model));
+  const configured=Boolean(env.ELEVENLABS_API_KEY && env.ELEVENLABS_VOICE_ID===rajuVoiceId && ['eleven_multilingual_v2','eleven_v4','eleven_v4_turbo'].includes(model));
   const v4=/^eleven_v4(?:_turbo)?$/.test(model);
   const baseRate=v4?1:.85;
   const voiceSettings=v4?{stability:.5,similarity_boost:.75}:{stability:.75,similarity_boost:.75,speed:.85};
-  return { configured, baseRate, narrate: async (text,signal) => {
+  return { provider:'elevenlabs', voiceId:env.ELEVENLABS_VOICE_ID, configured, baseRate, narrate: async (text,signal) => {
     if (!configured) return undefined;
     const pronunciation=hindiSpeech(text);
     if(pronunciation.length>10000)return undefined;
@@ -101,6 +102,6 @@ export function speechProvider(env = process.env, fetcher = fetch) {
       const reader=response.body.getReader(); const chunks=[]; let size=0;
       for (;;) { const {done,value}=await reader.read(); if(done)break; size+=value.length; if(size>5_000_000){await reader.cancel();return undefined;} chunks.push(value); }
       return size ? Buffer.concat(chunks).toString('base64') : undefined;
-    } catch { return undefined; } // Reading stays useful through Android Hindi TTS.
+    } catch { return undefined; } // Preserve the text without substituting another speech provider.
   }};
 }

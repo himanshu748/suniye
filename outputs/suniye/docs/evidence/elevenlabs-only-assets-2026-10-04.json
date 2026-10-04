@@ -1,0 +1,103 @@
+{
+  "checkedAt": "2026-10-04T11:17:24.194Z",
+  "provider": "elevenlabs",
+  "voiceName": "Raju",
+  "voiceId": "zT03pEAEi0VHKciJODfn",
+  "model": "eleven_v4",
+  "baseRate": 1,
+  "noPurchase": true,
+  "syntheticOnly": true,
+  "clips": [
+    {
+      "name": "busy",
+      "text": "पढ़ रहे हैं। रोकने के लिए रोकिए दबाएँ।",
+      "ttsInput": "पढ़ रहे हैं। रोकने के लिए रोकिए दबाएँ।",
+      "characters": 38,
+      "bytes": 33271,
+      "sha256": "9b3212b156f57b9a6c9ac116d33efd76fdb29d2c36248e8d1696cfa61d2c4f66",
+      "elapsedMs": 6874
+    },
+    {
+      "name": "unavailable",
+      "text": "आवाज़ नहीं मिली। इंटरनेट और परिवार की सेटिंग जाँचें।",
+      "ttsInput": "आवाज़ नहीं मिली। इंटरनेट और परिवार की सेटिंग जाँचें।",
+      "characters": 52,
+      "bytes": 33271,
+      "sha256": "f4fd6e73d2369872f6ce2ef8f4450643b681a417fd3bfd9c05166ebe521763d9",
+      "elapsedMs": 2247
+    },
+    {
+      "name": "setup",
+      "text": "परिवार के सदस्य से सेटिंग जँचवाएँ।",
+      "ttsInput": "परिवार के सदस्य से सेटिंग जँचवाएँ।",
+      "characters": 34,
+      "bytes": 20941,
+      "sha256": "792fc960193987efa94859481f8eb404c144a7273dde6b675d2cb6f8caf5e2a6",
+      "elapsedMs": 1320
+    },
+    {
+      "name": "retake",
+      "text": "पास से छोटा और साफ़ चित्र दोबारा लें।",
+      "ttsInput": "पास से छोटा और साफ़ चित्र दोबारा लें।",
+      "characters": 37,
+      "bytes": 26166,
+      "sha256": "9ae4b6478dda01e2816a73fc3a744d98661a46c0dd2a8474fbe0db5bee293c63",
+      "elapsedMs": 1386
+    },
+    {
+      "name": "open",
+      "text": "पहले संदेश, चित्र या कागज़ खोलें।",
+      "ttsInput": "पहले संदेश, चित्र या कागज़ खोलें।",
+      "characters": 33,
+      "bytes": 26793,
+      "sha256": "28091a6765f61f7a0aba79fb8e92dd46502955defa264c705b9f76a35afb3e10",
+      "elapsedMs": 1229
+    },
+    {
+      "name": "changed",
+      "text": "स्क्रीन बदल गई। फिर सुनिए दबाएँ।",
+      "ttsInput": "स्क्रीन बदल गई। फिर सुनिए दबाएँ।",
+      "characters": 32,
+      "bytes": 27420,
+      "sha256": "a728514c93eaec03bbd22892363e6a57e5a6a46482947d3498edd062e974e34b",
+      "elapsedMs": 2114
+    },
+    {
+      "name": "protected",
+      "text": "इस सुरक्षित स्क्रीन को नहीं पढ़ सकते।",
+      "ttsInput": "इस सुरक्षित स्क्रीन को नहीं पढ़ सकते।",
+      "characters": 37,
+      "bytes": 21777,
+      "sha256": "c26fb62702eaaa8c454201076965b7aec57bf20b1234b13c90d397db3b976660",
+      "elapsedMs": 1519
+    },
+    {
+      "name": "saved",
+      "text": "सेटिंग सहेज दी। अब हिंदी आवाज़ जाँचें।",
+      "ttsInput": "सेटिंग सहेज दी। अब हिंदी आवाज़ जाँचें।",
+      "characters": 38,
+      "bytes": 28047,
+      "sha256": "8b7bb2a803952e49f938e2faf5ad67134ff25b49a7797ba2721b45e2725f569d",
+      "elapsedMs": 2480
+    },
+    {
+      "name": "shoe",
+      "text": "जूते बाहर निकालकर आएँ।",
+      "ttsInput": "जूते बाहर निकालकर आएँ।",
+      "characters": 22,
+      "bytes": 14672,
+      "sha256": "4c755580c6a3e9c4c18a05aa8160dcbd4c66adbc89d8380bb111474db94786f4",
+      "elapsedMs": 1151
+    },
+    {
+      "name": "bill",
+      "text": "बिल की रकम 1250 रुपये है।",
+      "ttsInput": "बिल की रकम एक हज़ार दो सौ पचास रुपये है।",
+      "characters": 40,
+      "bytes": 26793,
+      "sha256": "7d9d6c499102fb44c4ff98480a1e039d847f8ded1edc5f73ecd6577bd872992c",
+      "elapsedMs": 1416
+    }
+  ],
+  "requestedCharacters": 363
+}

@@ -5,7 +5,7 @@
     <uses-feature android:name="android.hardware.microphone" android:required="false" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-feature android:name="android.hardware.camera.any" android:required="false" />
-    <queries><intent><action android:name="android.speech.RecognitionService" /></intent><intent><action android:name="android.intent.action.TTS_SERVICE" /></intent><package android:name="com.whatsapp"/><package android:name="com.whatsapp.w4b"/></queries>
+    <queries><intent><action android:name="android.speech.RecognitionService" /></intent><package android:name="com.whatsapp"/><package android:name="com.whatsapp.w4b"/></queries>
     <application android:name=".SuniyeApp" android:label="सुनिए" android:icon="@drawable/ic_suniye"
         android:theme="@style/AppTheme" android:allowBackup="false" android:dataExtractionRules="@xml/data_extraction_rules" android:usesCleartextTraffic="false"
         android:networkSecurityConfig="@xml/network_security" android:supportsRtl="true">

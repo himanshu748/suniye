@@ -30,7 +30,7 @@ The pilot passed bounded Android 11 and 15 emulator checks for image/PDF inputs,
 
 The short showcase follows **image or PDF → bundled OCR → Hindi text → Raju speech**. These are simple synthetic fixtures; they establish the tested path, not dense-document accuracy. [Download the image](https://raw.githubusercontent.com/himanshu748/suniye/media-showcase-2026-10-04/outputs/suniye/docs/evidence/media-sample-image.png) · [Download the two-page PDF](https://raw.githubusercontent.com/himanshu748/suniye/media-showcase-2026-10-04/outputs/suniye/docs/evidence/media-sample-two-pages.pdf) · [Showcase checks](https://github.com/himanshu748/suniye/blob/media-showcase-2026-10-04/outputs/suniye/docs/evidence/image-pdf-showcase-2026-10-04.json).
 
-[Watch the complete walkthrough](https://github.com/himanshu748/suniye/releases/download/v0.1.0-pilot/suniye-demo-judge.mp4) · [Download the pilot APK](https://github.com/himanshu748/suniye/releases/download/v0.1.0-pilot/suniye-debug.apk)
+[Watch the complete walkthrough](https://github.com/himanshu748/suniye/releases/download/v0.1.0-pilot/suniye-demo-judge.mp4) · [Download the ElevenLabs-only APK](https://github.com/himanshu748/suniye/releases/download/niche-integrations-2026-10-04/suniye-elevenlabs-only.apk)
 
 The film opens with the problem in Hindi, then shows a bill read as Hindi amount words, Repeat and Stop. It shows the exact image and PDF source files before their recognized text: नमस्ते from an image, बिल from PDF page 1 and धन्यवाद from page 2. The WhatsApp section is labelled as a setup walkthrough.
 
@@ -46,7 +46,7 @@ I began the scaffold on October 2 during the challenge. Code is MIT licensed. Th
 
 ## How I Built It
 
-The phone first reads accessible text or runs bundled Devanagari and Latin OCR. If OCR finds text, the image stays on the phone. Online speech sends the text through the backend to ElevenLabs. If OCR finds no text, an online description sends the image to the backend and its model. An installed offline Hindi voice can read the original without a backend; Redmi listening remains untested.
+The phone first reads accessible text or runs bundled Devanagari and Latin OCR. If OCR finds text, the image stays on the phone. Online speech sends the text through the backend to ElevenLabs. If OCR finds no text, an online description sends the image to the backend and its model. New narration uses ElevenLabs Raju exclusively. Fixed prompts are bundled Raju recordings; successful readings cache their Raju audio for offline Repeat and Slow. Missing audio leaves the original visible and asks for a connection check. The app never switches to Android or browser TTS; Redmi listening remains untested.
 
 Mastra runs the online reading workflow. Two stages check the source, prepare an original reading or Gemma explanation, and optionally request speech. Each run has its own cancellation signal. Stop invalidates the phone's operation, cancels the request and discards late callbacks. A deliberately delayed-response test confirmed that reading did not restart after Stop.
 
@@ -56,7 +56,7 @@ Other samples changed a date or replaced “attach” with “submit”. The qua
 
 OCR also failed on a dense bill. I added a retake below .85 confidence. The PDF invitation used in an early recording triggered that guard, so the final demonstration uses simpler text. This is a recovery heuristic, not an accuracy guarantee. Important amounts, dates and medicine labels still need a family member's check.
 
-I selected Raju after listening to two Hindi samples. Its catalogue labels it Hindi with an Indian accent. Real Eleven v4 API audio played in Android, including the Hindi amount, cached Repeat and Stop. The [evidence ledger](https://github.com/himanshu748/suniye/blob/v0.1.0-pilot/outputs/suniye/docs/verification.md) contains 87 backend tests, pronunciation checks and dated runtime results.
+I selected Raju after listening to two Hindi samples. Its catalogue labels it Hindi with an Indian accent. Real Eleven v4 API audio played in Android, including the Hindi amount, cached Repeat and Stop. The [evidence ledger](https://github.com/himanshu748/suniye/blob/v0.1.0-pilot/outputs/suniye/docs/verification.md) contains pronunciation checks and dated runtime results. The newer voice-only build passed backend tests and an Android 15 media-state check for cached replay, Slow, Stop, missing/corrupt/wrong-provider audio and late replies. The emulator host audio was disabled, so that check verifies playback state rather than another listening judgment. [Voice-only receipt](https://github.com/himanshu748/suniye/blob/niche-integrations-2026-10-04/outputs/suniye/docs/evidence/elevenlabs-only-android15-2026-10-04.json).
 
 Render's Singapore service passed an authenticated bill request with real Raju audio and rejected an unauthenticated request with 401. I tried to use the $50 hackathon credit for the $7/month always-on compute plan. Render required payment information on file even with the credit, so the service remains Free and can sleep. Render's hosted Gemma and Atlas connections are still unconfigured. [Live request](https://github.com/himanshu748/suniye/blob/live-evidence-2026-10-04/outputs/suniye/docs/evidence/render-live-2026-10-04.json) · [Credit-only upgrade check](https://github.com/himanshu748/suniye/blob/integration-roles-2026-10-04/outputs/suniye/docs/evidence/render-credit-only-2026-10-04.json).
 
@@ -65,6 +65,10 @@ Sentry's Agent Activity showed a local Gemma request taking 32.64 seconds: 24.96
 I also used Backboard for six synthetic Hindi calls comparing Gemma 3 4B with Qwen 2.5 72B. Every amount/date literal check passed, but Gemma added a meeting or event absent from the source. Qwen avoided that addition in these three cases. I am keeping original reading first and explanations experimental; this small comparison does not establish a general ranking. [Replies and source review](https://github.com/himanshu748/suniye/blob/live-evidence-2026-10-04/outputs/suniye/docs/evidence/backboard-comparison.json).
 
 I checked Atlas through real HTTP requests to the local backend. It saved Hindi settings, read them back after I closed and restarted the backend, then retained a slower speech rate and left-side control placement. A message field returned 400; an unauthenticated read returned 401. I deleted the one synthetic record and confirmed it was gone. This verifies the local backend's Atlas connection; Render-to-Atlas and Android sync are separate checks. [Persistence receipt](https://github.com/himanshu748/suniye/blob/atlas-live-2026-10-04/outputs/suniye/docs/evidence/atlas-persistence-2026-10-04.json).
+
+I added a separate caregiver tool for preparing a text PDF before handing it over. Temporal completes the pages through the original-reading Mastra workflow. In the local recovery test, I killed its worker process after page one, restarted it, and injected a retryable failure on page two. Page one was not repeated. Cancellation removed the encrypted input and rejected late writes. Document text stays outside Temporal history. Preparation makes no model or speech API calls; optional Raju recording is an explicit later step, outside the retry loop. A new shoe-instruction trial reversed the meaning, so this tool keeps the original and excludes explanations. [Recovery receipt](https://github.com/himanshu748/suniye/blob/niche-integrations-2026-10-04/outputs/suniye/docs/evidence/temporal-recovery-2026-10-04.json).
+
+For caregiver setup, local PostgreSQL with pgvector stores embeddings of three approved official Android references. Mastra combines vector similarity and keyword rank to retrieve the source URL and a fixed Hindi hint. Three setup questions found their expected reference; an unrelated cake question returned none. Reopening the database preserved the index, and a tampered URL was rejected. English caregiver queries are supported; Hindi search quality is unvalidated. This runs locally with PGlite and pgvector, without Tiger Cloud or a new cloud charge. [Query results](https://github.com/himanshu748/suniye/blob/niche-integrations-2026-10-04/outputs/suniye/docs/evidence/pgvector-source-search-2026-10-04.json).
 
 The integrations have different jobs. Mastra, Gemma and ElevenLabs handle online reading; Render hosts the API. I use the other tools for development, setup and diagnosis.
 
@@ -79,6 +83,8 @@ The integrations have different jobs. Mastra, Gemma and ElevenLabs handle online
 | **Entire** | Imported 18 development checkpoints. A lookup recovered my instruction to design the controls specifically for my parents. | It connects the interface decisions to the original family request. Curated provenance is public; full private sessions stay private. |
 | **SerpApi** | Searched public official Android help pages for the caregiver guide; Gemma summarized the approved results in Hindi. | Setup needs understandable references. When a later search returned no approved pages, the guide stopped instead of inventing instructions. |
 | **MongoDB Atlas** | The local backend writes caregiver settings to `suniye.preferences`, restores them after a backend restart, and updates speech speed and control placement. | Saved settings need to survive a restart. Strict routes reject message content and unauthenticated access. Render-to-Atlas and Android sync remain untested. |
+| **Temporal** | Recovers a separate caregiver PDF preparation job after a worker dies, with page retries and cancellation tombstones. | A prepared document should not need starting over after my computer stops. Parent playback starts only after a tap. This is local recovery evidence. |
+| **Tiger Data / pgvector** | Local PostgreSQL retrieves approved setup references using pgvector similarity and keyword rank through Mastra. | Setup questions need source links. A failed search should say it found nothing. This claims the listed pgvector use case; Tiger Cloud is not deployed. |
 
 Backboard, Entire, Sentry and SerpApi stay outside the daily parent screen. The six Backboard calls used synthetic text, and its temporary key was revoked afterward. SerpApi searches contain public setup questions, not family messages.
 
@@ -86,7 +92,7 @@ Claude reviewed the PRD, spec and selected source. I fixed its findings and ran 
 
 ## Why Does Open Innovation Matter?
 
-I can inspect Mastra's workflow, change its stages and test cancellation without handing the reading policy to a closed agent. The model and speech providers are separate modules. Both can be replaced without changing the Android controls.
+I can inspect Mastra's workflow, change its stages and test cancellation without handing the reading policy to a closed agent. The model and speech providers are separate modules. The speech output policy accepts only ElevenLabs Raju; changing it would require an explicit policy change.
 
 Local Gemma lets me repeat a failure on synthetic Hindi material and inspect the response. Gemma runs on my laptop, not inside the APK. Remote phones need an authenticated HTTPS backend for explanations and descriptions. The open workflow is running in the online reading demo; the original-reading path does not need a generative rewrite.
 
@@ -100,7 +106,7 @@ I used Entire to import the development session locally. A checkpoint lookup rec
 
 ## Prize Categories
 
-I am entering nine categories with these evidence boundaries:
+I am entering eleven categories with these evidence boundaries:
 
 - **ElevenLabs:** Raju v4 Hindi API audio played by Android and used in the film. Attribution: [elevenlabs.io](https://elevenlabs.io).
 - **Mastra:** the online reading workflow, validation and cancellation checks.
@@ -113,6 +119,11 @@ I am entering nine categories with these evidence boundaries:
 - **Backboard:** six real calls compared open-weight models on synthetic Hindi sources and exposed an added-context error.
 - **MongoDB Atlas:** authenticated preference write/read, persistence after a backend restart, content-field rejection and cleanup verified against the real database.
 
-The [sponsor ledger](https://github.com/himanshu748/suniye/blob/atlas-live-2026-10-04/outputs/suniye/docs/sponsor-tracks.md) links each category to its dated checks and their scope.
+- **Temporal:** real local worker restart, unfinished-page retry and cancellation for caregiver preparation.
+- **Tiger Data / pgvector:** local pgvector and keyword retrieval over public setup sources, including persistence and source validation.
+
+The [sponsor ledger](https://github.com/himanshu748/suniye/blob/niche-integrations-2026-10-04/outputs/suniye/docs/sponsor-tracks.md) links each category to its dated checks and their scope.
+
+[Try the prepared PDF reader with cached Raju audio](https://github.com/himanshu748/suniye/releases/download/niche-integrations-2026-10-04/elevenlabs-prepared-reader.html). Download and open the HTML, then tap सुनिए. It displays the original and the Hindi amount wording, plays only its embedded ElevenLabs recordings, and makes no provider requests. This is a caregiver export, separate from the Android app.
 
 The APK, narrated demo and provider evidence are available above. The remaining family check is specific: can each parent read a WhatsApp message and a paper label, then stop and replay without my help? I have not observed that yet. Emulator checks establish the tested app behavior; their Redmi phones and their own use need a separate check.

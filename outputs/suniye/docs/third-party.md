@@ -13,3 +13,7 @@ The application source is MIT licensed. Dependency licenses and service/model te
 - Claude: independent PRD/spec audit through the desktop app. The audit summary distinguishes review predictions from executed tests.
 
 The Android emulator's bundled default.jpg was used privately to probe vision behavior. It is not included in the redistribution package. The included shape and Hindi fixtures were generated for this project; they contain no real family messages.
+
+- Temporal TypeScript SDK 1.24.0 and local development server: actual durable document preparation and worker-recovery tests, separate from the phone.
+- PGlite 0.5.8 with pgvector 0.8.1: local PostgreSQL vector and keyword retrieval over approved public setup references. This does not deploy Tiger Cloud or use pgvectorscale/BM25.
+- all-minilm:22m through local Ollama: 384-dimensional English caregiver embeddings. Hindi query quality is unvalidated and rejected. Weights are not included in the APK or source.

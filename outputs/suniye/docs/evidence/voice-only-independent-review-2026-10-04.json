@@ -1,0 +1,14 @@
+{
+  "checkedAt": "2026-10-04T11:50:10.373496+00:00",
+  "reviewer": "Fresh Codex read-only reviewer; the shipped Impeccable role was unavailable, so the available reviewer role was used. This is not a new Claude audit.",
+  "disposition": "ship for scoped pilot",
+  "resolved": [
+    "Reject foreign voice IDs before provider requests",
+    "Exclusive filesystem claim blocks concurrent caregiver voice calls",
+    "Persist attempts before narration so uncertain calls are not retried automatically",
+    "Separate ElevenLabs consent required on upgrade",
+    "Minimum 24px Hindi helper text",
+    "Remove outdated Android/browser voice fallback instructions"
+  ],
+  "scope": "Source, screenshots, synthetic in-memory probes and documented tests; not physical Redmi, real-family listening or real-document usability."
+}

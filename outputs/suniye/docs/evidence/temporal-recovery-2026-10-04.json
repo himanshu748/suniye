@@ -1,0 +1,103 @@
+{
+  "checkedAt": "2026-10-04T11:32:34.665Z",
+  "scope": "Real local Temporal service and OS worker restart; synthetic text PDF through existing two-step Mastra original-reading workflow. Original preparation makes no LLM or voice API calls. Not hosted Temporal, Android preparation, scanned-PDF OCR or Redmi evidence.",
+  "fixture": {
+    "name": "temporal-synthetic-two-pages.pdf",
+    "sha256": "f4f8e55031714c4fb03de53a67a05163b8c5831fd8e67165325efebafca0e270",
+    "synthetic": true
+  },
+  "fees": {
+    "cloudResourcesCreated": 0,
+    "paidVoiceCalls": 0,
+    "cloudModelCalls": 0
+  },
+  "events": [
+    {
+      "event": "page_one_completed",
+      "progress": {
+        "completed": 1,
+        "total": 2,
+        "status": "paused",
+        "needsReview": 0
+      }
+    },
+    {
+      "event": "worker_process_killed",
+      "signal": "SIGKILL"
+    },
+    {
+      "event": "worker_restarted_and_document_completed",
+      "progress": {
+        "completed": 2,
+        "total": 2,
+        "status": "ready",
+        "needsReview": 0
+      },
+      "attempts": [
+        {
+          "page": 1,
+          "attempt": 1
+        },
+        {
+          "page": 2,
+          "attempt": 1
+        },
+        {
+          "page": 2,
+          "attempt": 2
+        }
+      ],
+      "originalPreserved": true,
+      "gemmaCalls": 0
+    },
+    {
+      "event": "cancelled_document",
+      "workflowStatus": "CANCELLED",
+      "inputRemoved": true,
+      "lateWriteRejected": true
+    }
+  ],
+  "history": {
+    "events": 21,
+    "decodedPayloadsChecked": 6,
+    "sourceTextAbsent": true,
+    "onlyOpaqueJobAndPageMetadata": true
+  },
+  "configuredModelNotInvoked": {
+    "id": "gemma3:4b",
+    "calls": [],
+    "results": [
+      {
+        "page": 1,
+        "result": {
+          "kind": "reading",
+          "originalText": "जूते बाहर निकालकर आएँ।",
+          "spokenText": "जूते बाहर निकालकर आएँ।",
+          "isExplanation": false,
+          "isDescription": false,
+          "retakeReason": ""
+        },
+        "needsReview": false
+      },
+      {
+        "page": 2,
+        "result": {
+          "kind": "reading",
+          "originalText": "बिल की रकम 1250 रुपये है।",
+          "spokenText": "बिल की रकम 1250 रुपये है।",
+          "isExplanation": false,
+          "isDescription": false,
+          "retakeReason": ""
+        },
+        "needsReview": false
+      }
+    ]
+  },
+  "privacy": {
+    "inputAtRest": "AES-256-GCM",
+    "expiry": "24 hours, rejected on access; cleanup on access or prune; exports retained until caregiver deletes them"
+  },
+  "browserReader": {
+    "playback": "User gesture only; tagged cached ElevenLabs Raju audio only; this preparation proof exports no audio; original shown first; switching pages or hiding tab cancels playback"
+  }
+}

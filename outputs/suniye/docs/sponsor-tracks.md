@@ -1,3 +1,11 @@
+## October 4 additional local evidence and voice policy
+
+The current build uses ElevenLabs Raju exclusively for readings and bundled help prompts. Android and browser TTS fallbacks were removed. New narration requires the configured connection; cached Raju audio repeats offline. [Voice checks](evidence/elevenlabs-only-android15-2026-10-04.json).
+
+Two more category targets have executed local evidence, bringing the submission to eleven targets. Temporal recovers a separate caregiver PDF preparation job after a worker process is killed, retries the unfinished page, and rejects cancelled jobs. pgvector retrieves three approved public Android setup references through a Mastra workflow using vector similarity and keyword rank. These tools run on the caregiver computer, separately from the parent APK. They do not deploy Temporal Cloud or Tiger Cloud. [Temporal receipt](evidence/temporal-recovery-2026-10-04.json) · [pgvector receipt](evidence/pgvector-source-search-2026-10-04.json) · [Source and instructions](../backend/caregiver/README.md).
+
+DigitalOcean was inspected but not provisioned: inference/agent credits showed $0, so it is excluded under the no-charges constraint. No new paid resource, subscription or upgrade was created. Existing ElevenLabs credits covered the fixed clips. Prize eligibility is a judging decision; local pgvector is claimed under the listed pgvector/hybrid-search use case, with its local scope disclosed.
+
 # Sponsor roles and evidence
 
 Checked October 2, 2026 against the [official challenge](https://dev.to/challenges/hacktoberfest-weekend-2026-10-01). This is a build plan and evidence ledger, not a claim that every category is ready. One entry can list multiple qualifying categories; each needs actual use.
@@ -34,13 +42,13 @@ The hosted service does not yet have a reachable Gemma model or Atlas connection
 
 The current private backend uses Raju, catalogue-labelled Indian Hindi, with Eleven v4. Himanshu preferred its sample B. After manually redeeming the partner Creator plan, real API generation and Android playback passed, including Slow, Stop and Repeat. Earlier Roger/own-voice tests and the initial Raju 402 remain dated evidence. See the [native v4 receipt](evidence/android15-raju-v4-native-2026-10-03.json). Real Redmi listening remains pending.
 
-## Nine useful targets
+## Nine existing targets (dated evidence)
 
 | Category | Role in Suniye | Current evidence | Scope or remaining check |
 | --- | --- | --- | --- |
 | Gemma | Hindi explanations and descriptions of non-text pictures | Actual local Gemma 3 4B calls; explanation returned Hindi, vision failure cases recorded | Improve description reliability; family checks of explanation accuracy |
 | Mastra | Extraction, output validation, explanation and optional speech in one cancellable workflow | Real Gemma calls passed through Mastra; backend tests exercise its workflow | Real Redmi network/cancellation behavior remains untested |
-| ElevenLabs | Hindi narration; optional caregiver-enabled online speech | Real Raju v4 API audio played in Android; Hindi amount words, Slow/Stop/Repeat verified. User preferred Raju sample B | Real Redmi listening and parent comfort |
+| ElevenLabs | Exclusive Raju Hindi speech output | Real Raju v4 API audio played in Android; Hindi amount words, Slow/Stop/Repeat verified. User preferred Raju sample B | Real Redmi listening and parent comfort |
 | Entire | Explain interface decisions from saved development sessions | 18 local imported checkpoints; `checkpoint explain` recovered the family-specific UX instruction | Curated provenance is included; full private history stays excluded |
 | Render | Host the authenticated AI workflow backend | Free Singapore service live; `/health` HTTP 200, unauthenticated read HTTP 401, authenticated original read with real Raju audio HTTP 200 | Hosted Gemma explanation/vision and Atlas connection remain unconfigured; Free service can sleep |
 | MongoDB Atlas | Persist caregiver speech speed and control placement | Real local HTTP backend → Atlas write/read, update and restart persistence passed; content-field rejection HTTP 400, auth HTTP 401, single synthetic record deleted and absence verified | Render-to-Atlas and Android sync remain untested. Backend textScale storage passed; native client does not restore it |
@@ -56,8 +64,8 @@ The parent interface contains reading controls. Model comparisons, setup referen
 | --- | --- | --- |
 | DigitalOcean | Serve Gemma separately from Render's workflow backend, or host the caregiver tooling | Connector works and there are no existing Droplets to reuse. No infrastructure provisioned. Need a concrete instance plan, spending limit, actual deployment and request proof. Account balance is not a verified credit grant. |
 | Tinker | Fine-tune source-faithful Hindi simplification to reduce added context | $10 partner offer visible. Need an appropriate supported base model, curated authorized examples, a held-out baseline, actual training and measured improvement. A general inference call would not establish this track. |
-| Temporal | Recover a caregiver batch of document pages after a worker restart | Current parent reads should cancel immediately when Stop is pressed. Add only for a real, separate batch use case and demonstrate recovery without resuming cancelled speech. |
-| Tiger Data | Retrieve approved caregiver setup material through vector/hybrid search | No retrieval corpus or implementation yet. Cost telemetry in a time-series table alone would not satisfy the listed category. Requires useful retrieval and a real database query. |
+| Temporal | Recover a caregiver batch of document pages after a worker restart | Implemented as separate local caregiver preparation; actual restart/retry/cancellation evidence above. Parent Stop does not resume speech. |
+| Tiger Data / pgvector | Retrieve approved caregiver setup material through vector/hybrid search | Actual local PostgreSQL/pgvector and Mastra queries passed. No Tiger Cloud deployment, pgvectorscale or BM25 claim. |
 | TabPFN | Predict a useful reading-quality outcome from historical device/reading data | No real historical table yet. Synthetic rows added solely to run a model would not demonstrate useful prediction. Reconsider after authorized usage data exists. |
 | Arduino | A physical reader using an UNO Q | No UNO Q available or hardware test. Do not claim. |
 | GitHub Copilot | — | Excluded by Himanshu's preference. |

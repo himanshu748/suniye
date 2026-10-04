@@ -25,6 +25,8 @@ export const reading = z.object({
   isExplanation: z.boolean(), isDescription: z.boolean(), retakeReason: z.string(),
   audioBaseRate: z.union([z.literal(.85),z.literal(1)]).optional(),
   audioBase64: z.string().optional(),
+  audioProvider: z.literal('elevenlabs').optional(),
+  audioVoiceId: z.string().max(100).optional(),
 });
 
 export const preferences = z.object({
