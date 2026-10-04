@@ -1,5 +1,13 @@
 # A simpler Suniye demo
 
+## Image/PDF attention clip, October 4
+
+The 24-second `suniye-image-pdf-to-speech.mp4` focuses on the recorded image and two-page PDF path. It shows the exact source before each reading: नमस्ते from the image, बिल from PDF page 1, then धन्यवाद from page 2. Stop remains in the native sequence. Three two-second source previews are inserted; the retained native flow runs at normal speed. The existing real Raju MP3s remain mixed separately at the observed playback rate. The GIF is a silent preview with a separate link to the voiced film.
+
+Full video decode, complete stereo audio and audible signal in all three readings passed. [Showcase receipt](evidence/image-pdf-showcase-2026-10-04.json). This is an edit of the verified emulator recording, with no fresh native run or claim about complex document accuracy, real WhatsApp, Redmi hardware or parents' use. The original pilot release is unchanged.
+
+## Bill film
+
 The current film is 32.9 seconds and shows one task: a synthetic electricity bill enters through Android Share, Raju reads ₹1,250 as “एक हज़ार दो सौ पचास रुपये,” Repeat plays the saved reading and Stop cancels it. A 10.5-second opening explains the parents’ small-print problem in Hindi. The phone occupies most of the portrait frame; captions are short. There are no model explanations, date parsing or sponsor panels in this film.
 
 The recorded APK contains the new fixed बोलिए and रोकिए controls and puts the original text above replay controls. This film does not stage microphone recognition. Actual ASR on the parents’ Redmi A4 phones remains unverified. [Voice callback checks](evidence/voice-controls-2026-10-03.json) are separate evidence.

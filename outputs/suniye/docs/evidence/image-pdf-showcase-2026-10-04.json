@@ -1,0 +1,33 @@
+{
+  "createdAt": "2026-10-04",
+  "file": "suniye-image-pdf-to-speech.mp4",
+  "seconds": 23.633333,
+  "sha256": "8278c2f746d0a03387f6ddc457bf9ea6a4f121d572fdcbf98e4c36bf2efd1fb1",
+  "preview": "image-pdf-to-speech-preview.gif",
+  "previewSha256": "91ddf5e2b124802abe3e3fd009815f9251d0dd3ba186d4528672bcea77adb3ae",
+  "sources": [
+    "media-native-2026-10-03.json",
+    "media-demo-edit-2026-10-03.json"
+  ],
+  "editing": "Focus cut of the previously verified media film. Exact source previews precede the image and both PDF pages. Native image-selected through Stop sequence runs at normal speed without interior cuts; three two-second source stills are inserted. Existing real Raju provider MP3s remain separately mixed at the observed playback rate; not device microphone capture. GIF is a silent preview.",
+  "checks": {
+    "fullDecode": "pass",
+    "completeStereoAudio": "pass",
+    "audioSeconds": 23.641687,
+    "audibleSpeech": {
+      "image": {
+        "startSeconds": 4.075,
+        "meanDb": -25.0
+      },
+      "pdf-page-one": {
+        "startSeconds": 11.973,
+        "meanDb": -20.9
+      },
+      "pdf-page-two": {
+        "startSeconds": 19.539,
+        "meanDb": -22.6
+      }
+    }
+  },
+  "scope": "Synthetic image/PDF Android Share intents, real OCR and provider speech. No new runtime run, dense-document accuracy, physical Redmi, real WhatsApp or family-usability claim."
+}

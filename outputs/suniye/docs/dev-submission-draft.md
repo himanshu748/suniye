@@ -12,6 +12,12 @@ My mother and father ask me to read WhatsApp messages, pictures, labels and docu
 
 I built Suniye, or सुनिए, an Android reading aid for those moments. It reads small print aloud in Hindi and keeps the controls large: रोकिए to stop, फिर सुनिए to hear it again, धीरे सुनिए to slow down. The pilot supports Android 11 and later.
 
+**See a photo and PDF become Hindi speech in 24 seconds.**
+
+![Silent preview: an image and both PDF pages become recognized Hindi text in Suniye](https://raw.githubusercontent.com/himanshu748/suniye/media-showcase-2026-10-04/outputs/suniye/docs/evidence/image-pdf-to-speech-preview.gif)
+
+[Play the short video with Raju's Hindi voice](https://github.com/himanshu748/suniye/releases/download/media-showcase-2026-10-04/suniye-image-pdf-to-speech.mp4). The preview above is silent. The video shows the exact source image, then नमस्ते read aloud; PDF page 1 reads बिल, and page 2 reads धन्यवाद. The large रोकिए control stays reachable.
+
 Reading an amount aloud took more care than sending the printed text to a voice API. `₹1,250` now becomes “एक हज़ार दो सौ पचास रुपये” in the speech input. The original stays visible, with a separate amount hint. Dates keep their written field order.
 
 The daily screen follows the things they already ask me to do. कागज़ पढ़िए opens the camera, फ़ोटो पढ़िए selects a photo, and फ़ाइल पढ़िए opens a PDF. Android Share accepts text, images and PDFs. A floating सुनिए control is the intended WhatsApp route after caregiver setup.
@@ -21,6 +27,8 @@ The daily screen follows the things they already ask me to do. कागज़ �
 The pilot passed bounded Android 11 and 15 emulator checks for image/PDF inputs, large text, Stop and replay, with real Hindi audio. My parents are in another city, so I have not observed them using it on their Redmi A4s.
 
 ## Demo
+
+The short showcase follows **image or PDF → bundled OCR → Hindi text → Raju speech**. These are simple synthetic fixtures; they establish the tested path, not dense-document accuracy. [Download the image](https://raw.githubusercontent.com/himanshu748/suniye/media-showcase-2026-10-04/outputs/suniye/docs/evidence/media-sample-image.png) · [Download the two-page PDF](https://raw.githubusercontent.com/himanshu748/suniye/media-showcase-2026-10-04/outputs/suniye/docs/evidence/media-sample-two-pages.pdf) · [Showcase checks](https://github.com/himanshu748/suniye/blob/media-showcase-2026-10-04/outputs/suniye/docs/evidence/image-pdf-showcase-2026-10-04.json).
 
 [Watch the complete walkthrough](https://github.com/himanshu748/suniye/releases/download/v0.1.0-pilot/suniye-demo-judge.mp4) · [Download the pilot APK](https://github.com/himanshu748/suniye/releases/download/v0.1.0-pilot/suniye-debug.apk)
 
