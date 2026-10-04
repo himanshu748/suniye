@@ -96,3 +96,11 @@ The real Repeat click restarted playback. At its immediate Stop click currentTim
 This resolves the current real-pointer Play/Slow/Stop/Repeat flow under the stated preloaded-local-media method. The historical broad16/1 and page-handler diagnostic3/0 receipts remain unchanged. The missing state at the historical timeout still prevents assigning its exact cause, but the current pointer sequence now passes with actual state telemetry. The prior diagnostic separately preserves actual natural completion at7.76s and correct reset behavior.
 
 Workspace runner/log: `suniye-audio-pointer-check-2026-10-04.cjs` and `suniye-audio-pointer-check-2026-10-04.log`; receipt `suniye-audio-pointer-receipt-2026-10-04.json`. Real-device, family and screen-reader checks remain unrun.
+
+## Existing Free Render static source preparation
+
+Pinned public b2dc5e0 is merged on this existing branch, preserving newest Android code and previously authorized a569 cancellation/no-store safeguards. Nine source-matching assets are packaged inside outputs/suniye/backend/public; an exact fixed-path module serves root/automaticHEAD and welcome redirect, preserving health/private routes. No new dependency, hosting project, plan/env change or provider request.
+
+Focused offline inject4/4 and full backend97/97 passed with existing dependencies. Historical screenshot labels were then added beside both native captures; final focused4/4 passed. This final update is copy/integration only; no fresh browser, Android build/runtime or current video capture. Workspace logs suniye-static-integration-focused-2026-10-04.log, suniye-static-integration-backend-full-2026-10-04.log, suniye-static-integration-focused-final-2026-10-04.log. Source/public byte hashes are in evidence/render-package-manifest.json.
+
+Deployment/source push is not performed; existing destination and exact guarded fast-forward proposal are in release-ledger.md. New English-explained, actual-Hindi-sound video remains blocked, with no parent-trial claim; current-video-plan.md records acceptance requirements.

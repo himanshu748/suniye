@@ -7,6 +7,7 @@ import { readInput, preferences, validateImage, PublicError } from './contracts.
 import { modelProvider, speechProvider } from './providers.js';
 import { makeReadingWorkflow } from './workflow.js';
 import { setupTelemetry } from './telemetry.js';
+import { registerLanding } from './landing-site.js';
 
 export async function buildServer({env=process.env, model=modelProvider(env),speech=speechProvider(env),preferenceStore}={}) {
   if(!env.FAMILY_TOKEN || env.FAMILY_TOKEN.length<32)throw new Error('Set a random FAMILY_TOKEN of at least 32 characters.');
@@ -39,6 +40,7 @@ export async function buildServer({env=process.env, model=modelProvider(env),spe
     const status=error instanceof PublicError?error.status:(error.statusCode===413?413:error.statusCode>=400&&error.statusCode<500?error.statusCode:500);
     return reply.code(status).send({code:error instanceof PublicError?error.code:status===413?'TOO_LARGE':status===429?'BUSY':status>=400&&status<500?'INVALID_INPUT':'READ_FAILED',message:error instanceof PublicError?error.message:status===429?'थोड़ी देर रुककर फिर कोशिश करें।':'यह पढ़ नहीं पाया। फिर कोशिश करें।'});
   });
+  registerLanding(app);
   app.get('/health',async()=>({status:'ok',capabilities:{model:model.id,hindiSpeech:speech.configured,preferenceSync:Boolean(store)}}));
   app.post('/v1/read',{config:{rateLimit:{max:12,timeWindow:'1 minute'}}},async(request,reply)=>{
     const parsed=readInput.safeParse(request.body);
