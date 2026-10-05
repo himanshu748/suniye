@@ -6,6 +6,13 @@ import {backboardAdapter} from '../src/backboard.js';
 
 const model='google/gemma-3-4b-it';
 const messages=[{role:'system',content:'Explain faithfully.'},{role:'user',content:'नमस्ते।'}];
+test('27B routing is explicit and price bounded; a substituted model fails closed',async()=>{
+ const large='google/gemma-3-27b-it';let body;
+ const adapter=backboardAdapter({BACKBOARD_API_KEY:'fixture'},async(_url,options)=>{body=JSON.parse(options.body);return Response.json({status:'COMPLETED',model_name:large,model_provider:'openrouter',content:'नमस्ते।'});});adapter.setStore(quota());
+ assert.equal((await adapter.complete({messages,model:large})).model,large);
+ assert.deepEqual(body.openrouter,{providers:['nebius/fp8'],allow_fallbacks:false,max_price:{prompt:0.12,completion:0.3}});
+ await assert.rejects(adapter.complete({messages,model}),e=>e.code==='INCOMPLETE');
+});
 test('Stop before dispatch spends nothing; Stop after dispatch cleans the returned thread',async()=>{
  const counter=quota(),controller=new AbortController(),requests=[];
  const thread='12345678-1234-1234-1234-123456789012';

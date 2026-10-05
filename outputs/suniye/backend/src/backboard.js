@@ -18,13 +18,14 @@ export function backboardAdapter(env,fetcher=fetch) {
   configured(){return Boolean(store&&env.BACKBOARD_API_KEY);},
   async complete({messages,model,schema,signal}){
    if(!env.BACKBOARD_API_KEY)throw new PublicError('MODEL_NOT_CONFIGURED','AI की सेटिंग अभी नहीं जुड़ी है। मूल पाठ सुनिए।',503);
-   if(model!=='google/gemma-3-4b-it')throw new PublicError('MODEL_NOT_CONFIGURED','परिवार की AI सेटिंग जाँचें।',503);
+   if(!['google/gemma-3-4b-it','google/gemma-3-27b-it'].includes(model))throw new PublicError('MODEL_NOT_CONFIGURED','परिवार की AI सेटिंग जाँचें।',503);
    const user=messages.filter(m=>m.role==='user');
    const content=user.map(m=>Array.isArray(m.content)?m.content.filter(p=>p.type==='text').map(p=>p.text).join('\n'):m.content).join('\n');
    if(content.length>3000)throw new PublicError('INCOMPLETE','AI के लिए छोटा हिस्सा खोलकर फिर कोशिश करें।',422);
    const images=user.flatMap(m=>Array.isArray(m.content)?m.content.filter(p=>p.type==='image_url').map(p=>p.image_url.url):[]);
    if(images.length)throw new PublicError('PICTURE_NOT_AVAILABLE','चित्र का वर्णन अभी उपलब्ध नहीं है। लिखावट का साफ़ फ़ोटो लें।',503);
-   const body={content,system_prompt:messages.filter(m=>m.role==='system').map(m=>m.content).join('\n'),llm_provider:'openrouter',model_name:model,memory:'off',web_search:'off',image_generation:'off',video_generation:'off',tools:[],stream:false,thinking:null,json_output:Boolean(schema)};
+   const routing=model==='google/gemma-3-27b-it'?{providers:['nebius/fp8'],allow_fallbacks:false,max_price:{prompt:0.12,completion:0.3}}:{providers:['deepinfra/bf16'],allow_fallbacks:false,max_price:{prompt:0.05,completion:0.1}};
+   const body={content,system_prompt:messages.filter(m=>m.role==='system').map(m=>m.content).join('\n'),llm_provider:'openrouter',model_name:model,openrouter:routing,memory:'off',web_search:'off',image_generation:'off',video_generation:'off',tools:[],stream:false,thinking:null,json_output:Boolean(schema)};
    const payload=JSON.stringify(body),headers={'X-API-Key':env.BACKBOARD_API_KEY,'content-type':'application/json'};
    if(signal?.aborted)throw new PublicError('CANCELLED','पढ़ना रोक दिया गया।',499);
    await reserve();if(signal?.aborted)throw new PublicError('CANCELLED','पढ़ना रोक दिया गया।',499);
