@@ -1,3 +1,13 @@
+# Current architecture and scope, October 5
+
+Android 0.3 recognizes image/PDF text locally and sends original text for Raju speech. The hosted backend runs Mastra with optional Backboard/OpenRouter Gemma 3 27B, strict response/model checks, explicit Nebius FP8 routing and USD-per-million-token ceilings (0.12 input, 0.30 output), no provider fallback and an Atlas eight-attempt UTC daily counter. No-text pictures receive an authored retake before Backboard upload/quota. Known relation/duration/weekday/payment anchor flips are rejected and accepted explanations include a spoken AI warning, but full meaning remains unverified.
+
+Atlas also stores preferences and public help-search caches. Live PGlite/pgvector retrieves three fixed approved topics from frozen 384-dimensional vectors; SerpApi runs bounded fixed public setup queries. Sentry sanitizes reading content and has one confirmed hosted agent trace. The caregiver website exposes these runtime functions; Entire remains development provenance. Temporal is a separate local prototype, TabPFN has no outcome table or app model, Tiger Cloud is not used.
+
+107 offline backend tests pass; live receipts, current limits and remaining native defects are in [audit dispositions](sonnet-audit-disposition-2026-10-05.md). Read the older specification below as development design/history where it describes local Ollama, pictures, prototype roles or unimplemented acceptance criteria. It does not override the current hosted limitations.
+
+## Development specification and history
+
 # Suniye — Technical specification
 
 Version 3, October 3, 2026. Claude audit completed; implementation and evidence recorded in verification.md.
@@ -63,3 +73,9 @@ PDF cache cleanup removes orphaned app-owned copies after restarts while retaini
 Home inputs use ACTION_OPEN_DOCUMENT with a per-item read grant, content:// image/PDF validation and no broad media permission. Plain-text shares are handled before any stream attachment. Parcelable failures produce authored Hindi recovery messages. FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY prevents Recents from replaying an old share. Stop remains a fixed footer on reading, camera and caregiver setup; native ripple and disabled states distinguish controls. The cream/teal palette remains consistent when system night mode is enabled. It is not a separate dark theme.
 
 Caregiver setup displays only UserMessage errors or fixed Hindi fallbacks. Raw network, URI-parser and Keystore error details are not shown. Synced preferences reject nonfinite or out-of-range speeds. The separate official-support summary uses supplied snippets and bounded sourceIndices; those checks do not establish factual faithfulness. Generated links/HTML are rejected, official source titles are Markdown-escaped, and workflow errors use stable codes. A search without approved sources stops before model synthesis.
+
+## October 5 hosted provider update
+
+The deployed text explanation route is Backboard → OpenRouter → google/gemma-3-27b-it, with strict model identity and completed-response checks. Eight attempted calls per UTC day are reserved atomically in Atlas and include uncertain calls. No automatic retry occurs. Hosted picture description is unavailable: provider extraction returns an application-authored retake before Backboard upload; the adapter also rejects images before quota reservation. Local Ollama picture trials remain separate dated evidence.
+
+Memory/search/custom tools are disabled for Backboard text requests. Best-effort deletion of only the returned request thread does not establish zero provider retention, especially after cancellation or an uncertain response. Readings are transient in the backend and no workflow snapshots are stored. Atlas stores family preferences, usage counters and public search caches. Expiring database/network access can disable settings sync and model calls; original Raju speech does not require the model. The caregiver web page shows data transmission, memory-only family token use, official source filtering and a fixed Stop footer.

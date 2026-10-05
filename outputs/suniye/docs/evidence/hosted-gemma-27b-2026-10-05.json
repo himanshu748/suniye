@@ -1,0 +1,65 @@
+{
+  "checkedAt": "2026-10-05T03:30:07.262Z",
+  "base": "https://suniye-reader.onrender.com",
+  "checks": [
+    {
+      "name": "latest-deployment",
+      "passed": true,
+      "status": "ok",
+      "revision": "24538b1bb870",
+      "capabilities": {
+        "model": "google/gemma-3-27b-it",
+        "modelProvider": "backboard",
+        "modelConfigured": true,
+        "hindiSpeech": true,
+        "pictureDescription": false,
+        "preferenceSync": true,
+        "tracing": true,
+        "caregiverHelp": true,
+        "currentSupportSearch": true
+      }
+    },
+    {
+      "name": "reserved-profile-service_backboard_2026-10-06",
+      "passed": true,
+      "status": 400
+    },
+    {
+      "name": "reserved-profile-service_support_cache",
+      "passed": true,
+      "status": 400
+    },
+    {
+      "name": "landing-disclosure-byte-match",
+      "passed": true,
+      "status": 200,
+      "sha256": "22395657e08ce827e30792eabfc7f747bdd4c18b0f6ac4ae4b62104a372af39e"
+    },
+    {
+      "name": "caregiver-fixed-stop-byte-match",
+      "passed": true,
+      "status": 200,
+      "sha256": "586e86455267189440014f91a521634c51f1d40a0d316f71a6c5981b53f8e855"
+    },
+    {
+      "name": "hosted-explanation-with-spoken-ai-warning",
+      "passed": false,
+      "error": "Explanation status 422 UNFAITHFUL"
+    },
+    {
+      "name": "hosted-27b-simple-explanation-speech",
+      "checkedAt": "2026-10-05T03:31:25.585Z",
+      "passed": true,
+      "status": 200,
+      "originalText": "दूध फ्रिज में रखा है।",
+      "spokenText": "यह आसान भाषा में समझाया गया है। AI से गलती हो सकती है। ज़रूरी बात मूल पाठ से जाँचें। दूध फ्रिज में रखा है। इसका मतलब है कि दूध को ठंडा रखने के लिए फ्रिज में रखा गया है।",
+      "audioProvider": "elevenlabs",
+      "audioVoiceId": "zT03pEAEi0VHKciJODfn",
+      "traceId": "f3ecf1e1e2a146e3bfae2ccd5398ee98",
+      "audioBytes": 109967,
+      "audioSHA256": "53bb5c7ac123b4415384ebe2e1c864c3ca5cbc412e625302a12ec111e5cfcc0c"
+    }
+  ],
+  "limits": "Actual deployed synthetic requests. Two Gemma attempts (including a rejected weekday answer); one requested Raju narration per attempt, no narration on rejected output. Existing promotional balance only. All eight daily model attempts now reserved; no automatic retry or quota reset. No Android/WhatsApp/parent test or billing receipt.",
+  "builderReview": "The 27B milk sentence added a reason about keeping milk cold. The anchor guard did not flag that added context. A passing request/audio check is not a faithfulness approval."
+}

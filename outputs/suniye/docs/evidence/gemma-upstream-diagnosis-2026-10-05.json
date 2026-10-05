@@ -1,0 +1,12 @@
+{
+  "checkedAt": "2026-10-05T03:13:45.730Z",
+  "scope": "One local text-only provider diagnostic, not hosted success",
+  "backboardHTTP": 200,
+  "providerStatus": "FAILED",
+  "upstreamHTTP": 429,
+  "upstreamProvider": "DeepInfra",
+  "upstreamCode": "engine_overloaded",
+  "limitSource": "upstream_provider_shared_pool",
+  "model": "google/gemma-3-4b-it",
+  "nextAction": "Explicit hosted 27B routing with token-price ceilings; no new key, purchase, retry loop or quota reset."
+}

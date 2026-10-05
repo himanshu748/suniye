@@ -1,0 +1,77 @@
+{
+  "checkedAt": "2026-10-05T01:55:34.909Z",
+  "base": "https://suniye-reader.onrender.com",
+  "scope": "Requests to the deployed public Render service. Synthetic readings only. No physical Redmi or WhatsApp claim.",
+  "checks": [
+    {
+      "name": "hosted-health",
+      "passed": true,
+      "status": "ok",
+      "revision": "11cb17b860a6",
+      "capabilities": {
+        "model": "google/gemma-3-4b-it",
+        "modelProvider": "backboard",
+        "modelConfigured": true,
+        "hindiSpeech": true,
+        "preferenceSync": true,
+        "tracing": true,
+        "caregiverHelp": true,
+        "currentSupportSearch": true
+      }
+    },
+    {
+      "name": "auth-boundary",
+      "passed": true,
+      "status": 401
+    },
+    {
+      "name": "atlas-write-read",
+      "passed": true,
+      "writeStatus": 200,
+      "readStatus": 200,
+      "contentRejectedStatus": 400,
+      "preferences": {
+        "language": "hi",
+        "speed": 0.7,
+        "textScale": 1.5,
+        "placement": "left"
+      }
+    },
+    {
+      "name": "hosted-pgvector-permissions",
+      "passed": false,
+      "error": "SyntaxError: Unexpected end of JSON input"
+    },
+    {
+      "name": "hosted-pgvector-display",
+      "passed": false,
+      "error": "SyntaxError: Unexpected end of JSON input"
+    },
+    {
+      "name": "hosted-pgvector-restricted",
+      "passed": false,
+      "error": "SyntaxError: Unexpected end of JSON input"
+    },
+    {
+      "name": "hosted-serpapi",
+      "passed": false,
+      "error": "SyntaxError: Unexpected end of JSON input"
+    },
+    {
+      "name": "hosted-original-hindi-speech",
+      "passed": false,
+      "error": "SyntaxError: Unexpected end of JSON input"
+    },
+    {
+      "name": "hosted-gemma-explanation-speech",
+      "passed": false,
+      "error": "SyntaxError: Unexpected end of JSON input"
+    },
+    {
+      "name": "hosted-gemma-picture-speech",
+      "passed": false,
+      "error": "SyntaxError: Unexpected end of JSON input"
+    }
+  ],
+  "profile": "hosted_audit_d2161437-1e9"
+}

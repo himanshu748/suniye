@@ -1,0 +1,51 @@
+{
+  "checkedAt": "2026-10-05T03:12:11.384Z",
+  "base": "https://suniye-reader.onrender.com",
+  "checks": [
+    {
+      "name": "latest-deployment",
+      "passed": true,
+      "status": "ok",
+      "revision": "b57ca8babde2",
+      "capabilities": {
+        "model": "google/gemma-3-4b-it",
+        "modelProvider": "backboard",
+        "modelConfigured": true,
+        "hindiSpeech": true,
+        "pictureDescription": false,
+        "preferenceSync": true,
+        "tracing": true,
+        "caregiverHelp": true,
+        "currentSupportSearch": true
+      }
+    },
+    {
+      "name": "reserved-profile-service_backboard_2026-10-06",
+      "passed": true,
+      "status": 400
+    },
+    {
+      "name": "reserved-profile-service_support_cache",
+      "passed": true,
+      "status": 400
+    },
+    {
+      "name": "landing-disclosure-byte-match",
+      "passed": true,
+      "status": 200,
+      "sha256": "22395657e08ce827e30792eabfc7f747bdd4c18b0f6ac4ae4b62104a372af39e"
+    },
+    {
+      "name": "caregiver-fixed-stop-byte-match",
+      "passed": true,
+      "status": 200,
+      "sha256": "5d3f002564c24479da978c42093ab631a2c764f34b8e35622ef05d1a57d65bcf"
+    },
+    {
+      "name": "hosted-explanation-with-spoken-ai-warning",
+      "passed": false,
+      "error": "Explanation status 422 INCOMPLETE"
+    }
+  ],
+  "limits": "Actual deployed synthetic requests. One Gemma attempt and one ElevenLabs narration, existing promotional balance only. No Android/WhatsApp/parent test or billing receipt."
+}

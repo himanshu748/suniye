@@ -1,3 +1,15 @@
+# Current verification, October 5
+
+Backend suite: 107/107 pass after Sonnet fixes and explicit 27B routing. These are offline regressions, distinct from provider checks. `/health` reports deployed 24538b1 and Gemma 3 27B. The signed-in Render dashboard confirmed deployment `dep-db1hisgu01pc73efubk0` Live after the model environment change.
+
+Hosted receipts cover original Raju speech, auth, Atlas write/read, content-field rejection, persistence across deploy/process replacement, exact synthetic cleanup and picture fallback without model spending. Three simultaneous pgvector help topics passed. Sentry hosted ingestion was read in its authenticated dashboard. [Live checks](evidence/hosted-e2e-2026-10-05.json) · [pgvector](evidence/hosted-pgvector-concurrent-2026-10-05.json) · [Sentry](evidence/hosted-sentry-2026-10-05.json).
+
+Provider failures are retained: initial picture path failed; fixed route is now disabled before upload/quota. A later 4B request failed upstream throttling. The hosted 27B weekday output was rejected before speech; the milk sentence returned real Raju warning/audio but added context. [New outcomes](evidence/hosted-gemma-27b-2026-10-05.json) · [Earlier failure](evidence/hosted-route-failure-2026-10-05.json). Eight daily attempts are used; no counters were reset.
+
+[Independent Sonnet 5.5 audit and dispositions](sonnet-audit-disposition-2026-10-05.md) record fixes and unresolved meaning, retention, native error/replay/disclosure, time/unit pronunciation, Atlas expiry, proxy rate-limit and actual-device gates. Current native 0.3 video/touch walkthrough, real WhatsApp/Redmi and parent comprehension remain unverified. Historical videos remain labelled. These checks do not establish a replacement for family help or a prize win.
+
+## Dated verification history
+
 ## October 4 ElevenLabs-only build
 
 Version 0.2.0 removes Android and browser speech synthesis. Android 15 emulator checks passed for tagged Raju media, offline cached Repeat/Slow, Stop, missing/foreign/corrupt audio and late-result rejection. Host audio was disabled; these are media-state checks, not a new listening judgment. 89 backend and 11 caregiver tests passed. Fixed prompts and two synthetic PDF clips were generated through the real ElevenLabs API using 363 characters and existing credits. No purchase or upgrade was made. [Native check](evidence/elevenlabs-only-android15-2026-10-04.json) · [Provider receipt](evidence/elevenlabs-only-assets-2026-10-04.json). Provider voice allowlisting rejects foreign voices before a request. An exclusive job claim blocks concurrent caregiver voice generation; the concurrency regression made exactly one fixture call. Legacy screen consent does not enable new ElevenLabs speech until the caregiver saves the updated setup. [Browser checks](evidence/elevenlabs-only-browser-2026-10-04.json). Older checks below describe their dated builds.

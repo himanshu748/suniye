@@ -1,3 +1,32 @@
+# Sponsor roles and evidence
+
+## Current status, October 5
+
+This section supersedes the dated history below. Ten category targets have distinct roles; this is not ten guaranteed qualifications or an assertion that all services stay healthy. [Official category requirements](https://dev.to/challenges/hacktoberfest-weekend-2026-10-01).
+
+| Category | Actual use and why | Evidence and limits |
+| --- | --- | --- |
+| Mastra | Authenticated original/explanation/speech workflow; Stop must discard late results. | 107 backend tests pass, including delayed replies and cancellation; hosted original/model requests executed. No real Redmi proof. |
+| ElevenLabs | Original Hindi reading, fixed help prompts, offline replay/Slow, narrated films. | Real Raju audio in Android and hosted requests; strict voice ID `zT03pEAEi0VHKciJODfn`. No alternative speech engine. Physical listening remains pending. |
+| Gemma | Optional separate explanation of formal Hindi. | Hosted 4B success followed by upstream throttling; explicit 27B route returns warning + Raju speech but can add context. Rejected weekday output preserved. Original remains available. |
+| Backboard | Compare open-weight models and provide hosted Gemma while the laptop is off. | Six actual comparative calls, plus runtime calls. Memory/search/tools off, eight attempted calls/day, best-effort thread deletion. No general ranking or zero-retention claim. |
+| Render | Serve authenticated backend and caregiver page while family is elsewhere. | Existing Free Singapore service deployed 24538b1; HTTP receipts and dashboard Live. Can sleep. Credit-only Starter rejected for lack of payment method; no upgrade. |
+| MongoDB Atlas | Preferences, persistent quota counters and public help-cache records. | Hosted write/read and content rejection; settings survived deploy/process replacement; two synthetic records cleaned with hosted null readback. Android sync untested. One-week restricted access requires maintenance. |
+| Sentry Agent Tracing | Diagnose actual agent/model wait and token use without reading content. | Signed-in hosted trace: 4.13s total, 2.89s model, 158 tokens; no input/output content displayed. One synthetic run; cost is a dashboard estimate. |
+| SerpApi | Fixed public caregiver queries for current official setup references. | HTTP 200, zero approved URLs; approved help fallback. Old cached result has no raw-row counts, so rejection cause is unknown. New instrumentation counts rows/reasons. |
+| Tiger Data / pgvector | Retrieve approved setup references with keyword/vector ranking. | Live PGlite/pgvector 0.8.1 with three fixed topics, 384-dimensional frozen public vectors; all three concurrent requests passed. No Tiger Cloud, free-form retrieval, BM25 or pgvectorscale. Listed pgvector use case fits the official category. |
+| Entire | Connect interface choices to the original family brief. | Eighteen imported development checkpoints and curated requirement lookups. Development evidence rather than an app runtime dependency; private transcripts excluded. |
+
+### Current receipts
+
+[Initial hosted checks, including failed picture request](evidence/hosted-integrations-2026-10-05.json) · [Persistence, auth, picture fallback and cleanup](evidence/hosted-e2e-2026-10-05.json) · [Current 27B outcomes](evidence/hosted-gemma-27b-2026-10-05.json) · [Concurrent pgvector topics](evidence/hosted-pgvector-concurrent-2026-10-05.json) · [Hosted Sentry readback](evidence/hosted-sentry-2026-10-05.json) · [Sonnet audit dispositions](sonnet-audit-disposition-2026-10-05.md).
+
+Eight model attempts are reserved today, including rejected/uncertain calls; reset is 05:30 IST the next day. Original speech does not use the model quota. Backboard token-price ceilings use existing promotional balance with auto-reload off. No quota reset, card, new purchase or cash charge. Atlas user/network expiry around October 11 to 12 and the existing ElevenLabs key expiry must be checked. Free Render's externally executed health run passed, but its schedule cannot guarantee uptime.
+
+Temporal is excluded from hosted claims: local worker recovery passed, Cloud activation required payment. TabPFN is excluded: 100 licensed crops were prepared, but zero actual OCR outcomes/model inference exist. DigitalOcean/Tinker/Arduino are excluded without deployed inference, measured training or hardware. Copilot remains excluded by preference.
+
+## Dated history (superseded for current status)
+
 ## October 4 additional local evidence and voice policy
 
 The current build uses ElevenLabs Raju exclusively for readings and bundled help prompts. Android and browser TTS fallbacks were removed. New narration requires the configured connection; cached Raju audio repeats offline. [Voice checks](evidence/elevenlabs-only-android15-2026-10-04.json).

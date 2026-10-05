@@ -1,0 +1,190 @@
+{
+  "checkedAt": "2026-10-05T02:10:25.589Z",
+  "base": "https://suniye-reader.onrender.com",
+  "scope": "Requests to the deployed public Render service. Synthetic readings only. No physical Redmi or WhatsApp claim.",
+  "checks": [
+    {
+      "name": "hosted-health",
+      "passed": true,
+      "status": "ok",
+      "revision": "b354b5ca9020",
+      "capabilities": {
+        "model": "google/gemma-3-4b-it",
+        "modelProvider": "backboard",
+        "modelConfigured": true,
+        "hindiSpeech": true,
+        "preferenceSync": true,
+        "tracing": true,
+        "caregiverHelp": true,
+        "currentSupportSearch": true
+      }
+    },
+    {
+      "name": "auth-boundary",
+      "passed": true,
+      "status": 401
+    },
+    {
+      "name": "atlas-write-read",
+      "passed": true,
+      "writeStatus": 200,
+      "readStatus": 200,
+      "contentRejectedStatus": 400,
+      "preferences": {
+        "language": "hi",
+        "speed": 0.7,
+        "textScale": 1.5,
+        "placement": "left"
+      }
+    },
+    {
+      "name": "hosted-pgvector-permissions",
+      "passed": true,
+      "status": 200,
+      "found": true,
+      "sources": [
+        {
+          "id": "permissions",
+          "title": "Change app permissions on your Android phone",
+          "hindiTitle": "कैमरा और माइक की अनुमति",
+          "url": "https://support.google.com/android/answer/9431959?hl=en",
+          "hint": "कैमरा या माइक की अनुमति जाँचने के लिए यह आधिकारिक मदद खोलें। केवल ज़रूरी अनुमति दें।",
+          "similarity": 0.729308740537839,
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "restricted",
+          "title": "Learn about restricted settings",
+          "hindiTitle": "स्क्रीन पढ़ने की अनुमति समझें",
+          "url": "https://support.google.com/android/answer/12623953?hl=en",
+          "hint": "स्क्रीन पढ़ने की अनुमति देने से पहले उसके असर को समझें। यह आधिकारिक मदद खोलें और परिवार के सदस्य से जँचवाएँ।",
+          "similarity": 0.4436830116415924,
+          "score": 0.016129032258064516
+        }
+      ],
+      "note": "ये आधिकारिक संदर्भ हैं। Redmi की सेटिंग परिवार के सदस्य से जँचवाएँ।",
+      "topic": "permissions",
+      "pgvector": "0.8.1",
+      "dimensions": 384,
+      "corpusHash": "7b103dbce4182dcb68dfd65aaf025e85fed79b62f58aff510cf1645f82037a81",
+      "embeddingMode": "Frozen public-source and fixed-topic vectors; live pgvector retrieval"
+    },
+    {
+      "name": "hosted-pgvector-display",
+      "passed": true,
+      "status": 200,
+      "found": true,
+      "sources": [
+        {
+          "id": "display",
+          "title": "Change text & display settings",
+          "hindiTitle": "लिखावट और बटन बड़े करें",
+          "url": "https://support.google.com/accessibility/android/answer/11183305?hl=en",
+          "hint": "लिखावट और स्क्रीन की चीज़ें बड़ी करने के लिए यह आधिकारिक मदद खोलें। कुछ तरीके Android 13 या उसके बाद के लिए हैं।",
+          "similarity": 0.6343096494674683,
+          "score": 0.01639344262295082
+        }
+      ],
+      "note": "ये आधिकारिक संदर्भ हैं। Redmi की सेटिंग परिवार के सदस्य से जँचवाएँ।",
+      "topic": "display",
+      "pgvector": "0.8.1",
+      "dimensions": 384,
+      "corpusHash": "7b103dbce4182dcb68dfd65aaf025e85fed79b62f58aff510cf1645f82037a81",
+      "embeddingMode": "Frozen public-source and fixed-topic vectors; live pgvector retrieval"
+    },
+    {
+      "name": "hosted-pgvector-restricted",
+      "passed": true,
+      "status": 200,
+      "found": true,
+      "sources": [
+        {
+          "id": "restricted",
+          "title": "Learn about restricted settings",
+          "hindiTitle": "स्क्रीन पढ़ने की अनुमति समझें",
+          "url": "https://support.google.com/android/answer/12623953?hl=en",
+          "hint": "स्क्रीन पढ़ने की अनुमति देने से पहले उसके असर को समझें। यह आधिकारिक मदद खोलें और परिवार के सदस्य से जँचवाएँ।",
+          "similarity": 0.7051230493261248,
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "permissions",
+          "title": "Change app permissions on your Android phone",
+          "hindiTitle": "कैमरा और माइक की अनुमति",
+          "url": "https://support.google.com/android/answer/9431959?hl=en",
+          "hint": "कैमरा या माइक की अनुमति जाँचने के लिए यह आधिकारिक मदद खोलें। केवल ज़रूरी अनुमति दें।",
+          "similarity": 0.4279171398902809,
+          "score": 0.016129032258064516
+        }
+      ],
+      "note": "ये आधिकारिक संदर्भ हैं। Redmi की सेटिंग परिवार के सदस्य से जँचवाएँ।",
+      "topic": "restricted",
+      "pgvector": "0.8.1",
+      "dimensions": 384,
+      "corpusHash": "7b103dbce4182dcb68dfd65aaf025e85fed79b62f58aff510cf1645f82037a81",
+      "embeddingMode": "Frozen public-source and fixed-topic vectors; live pgvector retrieval"
+    },
+    {
+      "name": "hosted-serpapi",
+      "passed": true,
+      "status": 200,
+      "retrievedAt": "2026-10-05T02:10:32.509Z",
+      "queries": [
+        "site:support.google.com/android \"Learn about restricted settings\"",
+        "site:mi.com/global/support/faq/ \"Redmi A4\" autostart"
+      ],
+      "sources": [],
+      "searchOutcomes": [
+        {
+          "queryIndex": 1,
+          "status": "results",
+          "retainedSources": 0
+        },
+        {
+          "queryIndex": 2,
+          "status": "results",
+          "retainedSources": 0
+        }
+      ],
+      "cached": false,
+      "freshReferencesFound": false,
+      "note": "Provider returned results, but all failed the official-source filter. UI directs caregivers to approved cached help."
+    },
+    {
+      "name": "hosted-original-hindi-speech",
+      "passed": true,
+      "status": 200,
+      "kind": "reading",
+      "originalText": "बिजली का बिल ₹1250 है।",
+      "spokenText": "बिजली का बिल ₹1250 है।",
+      "isExplanation": false,
+      "isDescription": false,
+      "audioProvider": "elevenlabs",
+      "audioVoiceId": "zT03pEAEi0VHKciJODfn",
+      "audioBytes": 26793,
+      "audioSHA256": "3f024d42625fbfde90a04b7aec1d2dd0cc3154524043c811d99f38ff612006d1",
+      "traceId": "028b8a463fe84eb79570699ccbfc0233"
+    },
+    {
+      "name": "hosted-gemma-explanation-speech",
+      "passed": true,
+      "status": 200,
+      "kind": "reading",
+      "originalText": "दूध फ्रिज में रखा है।",
+      "spokenText": "यह आसान भाषा में समझाया गया है। दूध फ्रिज में है।",
+      "isExplanation": true,
+      "isDescription": false,
+      "audioProvider": "elevenlabs",
+      "audioVoiceId": "zT03pEAEi0VHKciJODfn",
+      "audioBytes": 33271,
+      "audioSHA256": "b7d507f722365fcb1f03a8f4ff59e544d5a0f37db4262962d3d97f1564cd6190",
+      "traceId": "9e42c48c4428478eb72e3d2e4464496f"
+    },
+    {
+      "name": "hosted-gemma-picture-speech",
+      "passed": false,
+      "error": "AssertionError: {\"code\":\"INCOMPLETE\",\"message\":\"AI का उत्तर पूरा नहीं मिला। मूल पाठ सुनिए।\"}\n\n422 !== 200\n"
+    }
+  ],
+  "profile": "hosted_audit_4335b297-9b5"
+}

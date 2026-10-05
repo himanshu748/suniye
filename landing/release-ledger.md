@@ -1,3 +1,13 @@
+# Current release status, October 5
+
+The authenticated Render dashboard and `/health` now attest deployed backend 24538b1, with Gemma 3 27B selected explicitly in the existing Free service (deploy dep-db1hisgu01pc73efubk0). The expired CLI token is no longer the sole source of deployment evidence. Landing and caregiver bytes matched; caregiver Stop remains fixed. This supersedes the unknown-SHA status below.
+
+The current native APK is still 0.3.0-parent-ux, SHA-256 `39d5484833272ead0147788823ee7c0e8790ed1454555b48f721e807c1d2cdfd`. Backend fixes do not alter it. Current native video remains uncaptured; old films are explicitly historical. Original hosted Raju speech and an experimental 27B reply ran; that reply added context, and a weekday reply was rejected. All 107 backend tests pass. Settings survived an automatic deploy/process replacement; Sentry dashboard ingestion is confirmed. [Audit dispositions and open checks](../outputs/suniye/docs/sonnet-audit-disposition-2026-10-05.md).
+
+DEV article historical labels/live link were already present on October 4; the current revision update is tracked separately by public readback. No new paid plan/card/cash purchase or claim of real-parent use.
+
+## Historical October 4 ledger
+
 # Suniye release ledger
 
 State as checked on October 4, 2026 at 17:54 UTC: reviewed source published to codex/challenge-entry and the existing Render project page verified live. The exact deployed backend SHA is unknown because the stored Render CLI token has expired and public responses provide no commit attestation. Parents have not tried the app; motivation is helping them read independently, not observed improvement or a testimonial.

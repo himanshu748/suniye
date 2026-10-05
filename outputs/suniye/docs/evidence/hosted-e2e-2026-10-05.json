@@ -1,0 +1,109 @@
+{
+  "checkedAt": "2026-10-05T02:54:02.714Z",
+  "base": "https://suniye-reader.onrender.com",
+  "checks": [
+    {
+      "name": "deployed-fix",
+      "status": 200,
+      "data": {
+        "status": "ok",
+        "revision": "142dcb314eda",
+        "capabilities": {
+          "model": "google/gemma-3-4b-it",
+          "modelProvider": "backboard",
+          "modelConfigured": true,
+          "hindiSpeech": true,
+          "pictureDescription": false,
+          "preferenceSync": true,
+          "tracing": true,
+          "caregiverHelp": true,
+          "currentSupportSearch": true
+        }
+      },
+      "cache": null
+    },
+    {
+      "name": "unauthenticated-private-route",
+      "path": "/%761/read",
+      "status": 401
+    },
+    {
+      "name": "unauthenticated-private-route",
+      "path": "/v1/caregiver/help/permissions",
+      "status": 401
+    },
+    {
+      "name": "unauthenticated-private-route",
+      "path": "/v1/preferences/hosted_audit_4335b297-9b5",
+      "status": 401
+    },
+    {
+      "name": "atlas-retained-after-deploy-process-replacement",
+      "profile": "hosted_audit_4335b297-9b5",
+      "status": 200,
+      "data": {
+        "preferences": {
+          "language": "hi",
+          "speed": 0.7,
+          "textScale": 1.5,
+          "placement": "left"
+        }
+      },
+      "cache": "no-store"
+    },
+    {
+      "name": "atlas-retained-after-deploy-process-replacement",
+      "profile": "hosted_audit_d2161437-1e9",
+      "status": 200,
+      "data": {
+        "preferences": {
+          "language": "hi",
+          "speed": 0.7,
+          "textScale": 1.5,
+          "placement": "left"
+        }
+      },
+      "cache": "no-store"
+    },
+    {
+      "name": "hosted-picture-safe-fallback-no-model-spending",
+      "status": 200,
+      "data": {
+        "kind": "retake",
+        "originalText": "",
+        "spokenText": "",
+        "isExplanation": false,
+        "isDescription": false,
+        "retakeReason": "चित्र का वर्णन अभी उपलब्ध नहीं है। लिखावट हो तो पास से छोटा और साफ़ हिस्सा दोबारा लें।"
+      },
+      "cache": "no-store",
+      "quotaBefore": 4,
+      "quotaAfter": 4
+    },
+    {
+      "name": "synthetic-profile-cleanup",
+      "profile": "hosted_audit_4335b297-9b5",
+      "deleted": 1,
+      "hostedRead": {
+        "status": 200,
+        "data": {
+          "preferences": null
+        },
+        "cache": "no-store"
+      }
+    },
+    {
+      "name": "synthetic-profile-cleanup",
+      "profile": "hosted_audit_d2161437-1e9",
+      "deleted": 1,
+      "hostedRead": {
+        "status": 200,
+        "data": {
+          "preferences": null
+        },
+        "cache": "no-store"
+      }
+    }
+  ],
+  "limits": "Hosted HTTP checks. Process replacement established by automatic deployment, not a manual restart. No Android device connected; physical Redmi, WhatsApp and fresh native 0.3 video unavailable."
+}

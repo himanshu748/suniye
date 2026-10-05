@@ -1,0 +1,22 @@
+{
+  "checkedAt": "2026-10-05T03:09:49.955173+00:00",
+  "source": "Signed-in Sentry trace UI; checkedAt is screenshot file creation time",
+  "traceId": "9e42c48c4428478eb72e3d2e4464496f",
+  "runtimeRevision": "b354b5ca9020",
+  "projectId": "4512196944265216",
+  "rootOperation": "gen_ai.invoke_agent",
+  "transaction": "suniye.read",
+  "spans": 5,
+  "rootDurationSeconds": 4.13,
+  "modelDurationSeconds": 2.89,
+  "model": "google/gemma-3-4b-it",
+  "inputTokens": 151,
+  "outputTokens": 7,
+  "totalTokens": 158,
+  "inputPanel": "No input for this span",
+  "outputPanel": "No output for this span",
+  "sentryDisplayedCost": "<$0.01",
+  "costLimit": "Dashboard estimate, not a billing receipt; promotional balance already authorized",
+  "screenshot": "hosted-sentry-2026-10-05.png",
+  "limits": "One actual hosted synthetic explanation trace; no parent-device, aggregate performance or all-event ingestion claim."
+}
