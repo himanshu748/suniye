@@ -1,0 +1,10 @@
+{
+  "builtAt": "2026-10-05T02:04:56.635Z",
+  "corpusHash": "7b103dbce4182dcb68dfd65aaf025e85fed79b62f58aff510cf1645f82037a81",
+  "embeddingModel": "all-minilm:22m",
+  "pglite": "0.5.8",
+  "pgvector": "0.8.1",
+  "sha256": "ab4b83e5776a60b8c9e8e983f5c1ac65c34efb9bb81bde8d7dfed2f70c8c91f6",
+  "bytes": 4714161,
+  "scope": "Three public Android help documents and fixed embeddings only. No credentials, family content, preferences or reading history."
+}

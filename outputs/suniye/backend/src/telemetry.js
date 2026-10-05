@@ -25,3 +25,5 @@ export function recordModelUsage(data){
   if(typeof data.model==='string')span.setAttribute('gen_ai.response.model',data.model);
   for(const [input,output] of [['load_duration','load_ms'],['prompt_eval_duration','prompt_ms'],['eval_duration','generation_ms']])if(Number.isFinite(data[input])&&data[input]>=0)span.setAttribute('suniye.model.'+output,Math.round(data[input]/1e6));
 }
+
+export function activeTraceId(){return Sentry.getActiveSpan()?.spanContext().traceId;}

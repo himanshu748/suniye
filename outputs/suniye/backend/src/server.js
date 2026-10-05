@@ -6,7 +6,7 @@ import { MongoClient } from 'mongodb';
 import { readInput, preferences, validateImage, PublicError } from './contracts.js';
 import { modelProvider, speechProvider } from './providers.js';
 import { makeReadingWorkflow } from './workflow.js';
-import { setupTelemetry } from './telemetry.js';
+import { setupTelemetry, activeTraceId } from './telemetry.js';
 import { registerLanding } from './landing-site.js';
 import {hostedSupport} from './hosted-support.js';
 
@@ -59,7 +59,7 @@ export async function buildServer({env=process.env, model=modelProvider(env),spe
     const controller=new AbortController();
     const cancel=()=>{if(!reply.raw.writableEnded)controller.abort();};
     reply.raw.once('close',cancel); concurrent++;
-    try {return await trace('suniye.read',()=>pipeline.run(parsed.data,controller.signal));}
+    try {return await trace('suniye.read',()=>{const id=activeTraceId();if(id)reply.header('X-Suniye-Trace',id);return pipeline.run(parsed.data,controller.signal);});}
     finally {concurrent--;reply.raw.off('close',cancel);}
   });
   app.get('/v1/preferences/:profile',{},async(request,reply)=>{

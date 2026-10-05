@@ -1,7 +1,8 @@
 import {readFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
 import {PGlite} from '@electric-sql/pglite';
 import {vector} from '@electric-sql/pglite-pgvector';
-import {corpusHash,embeddingModel,indexSources,makeCachedGuideWorkflow} from '../caregiver/support-search.js';
+import {corpusHash,embeddingModel,makeCachedGuideWorkflow} from '../caregiver/support-search.js';
 import {PublicError} from './contracts.js';
 import {searchSetup} from '../evaluation/setup-guide.mjs';
 const frozen=JSON.parse(await readFile(new URL('../caregiver/hosted-vectors.json',import.meta.url),'utf8'));
@@ -10,8 +11,10 @@ export function hostedSupport(env,store,fetcher=fetch){
  let database,ready,inflight;
  async function initialise(){
   if(frozen.corpusHash!==corpusHash||frozen.embeddingModel!==embeddingModel)throw new Error('Rebuild caregiver vectors.');
-  database=new PGlite({extensions:{vector}});await database.waitReady;
-  await indexSources(database,async()=>frozen.documents);
+  const seed=await readFile(new URL('../caregiver/hosted-index.tar.gz',import.meta.url));
+  const manifest=JSON.parse(await readFile(new URL('../caregiver/hosted-index-manifest.json',import.meta.url),'utf8'));
+  if(manifest.corpusHash!==corpusHash||manifest.sha256!==createHash('sha256').update(seed).digest('hex'))throw new Error('Rebuild caregiver seed.');
+  database=new PGlite({extensions:{vector},loadDataDir:new Blob([seed]),initialMemory:128*1024*1024,postgresqlconf:["shared_buffers = '8MB'","work_mem = '1MB'","maintenance_work_mem = '8MB'"]});await database.waitReady;
   const version=(await database.query("SELECT extversion FROM pg_extension WHERE extname='vector'")).rows[0].extversion;
   return {version,workflow:makeCachedGuideWorkflow(database,async texts=>texts.map(text=>{
    const query=Object.values(frozen.queries).find(q=>q.text===text);if(!query)throw new Error('Unapproved help topic.');return query.vector;
