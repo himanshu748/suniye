@@ -12,9 +12,11 @@ My mother and father ask me to read WhatsApp messages, pictures, labels and docu
 
 I built Suniye, or सुनिए, an Android reading aid for those moments. It reads small print aloud in Hindi, with large controls for रोकिए (Stop), फिर सुनिए (Repeat) and धीरे सुनिए (Slow). The pilot supports Android 11 and later.
 
-![Historical pre-0.3 silent preview of Suniye recognizing a photo and both PDF pages](https://raw.githubusercontent.com/himanshu748/suniye/media-showcase-2026-10-04/outputs/suniye/docs/evidence/image-pdf-to-speech-preview.gif)
+![Silent preview of the current 0.3 image-to-Hindi-reading check](https://raw.githubusercontent.com/himanshu748/suniye/codex/challenge-entry/outputs/suniye/docs/evidence/current-image-pdf-preview.gif)
 
-[Hear the historical pre-0.3 image-and-PDF demo (24 seconds)](https://github.com/himanshu748/suniye/releases/download/media-showcase-2026-10-04/suniye-image-pdf-to-speech.mp4). This footage predates the 0.3 parent-UX revision. The preview above is silent. The video shows the source image, then नमस्ते read aloud; the PDF pages read बिल and धन्यवाद. These simple synthetic samples establish the demonstrated path. Dense documents need separate checks.
+[Play the current narrated image/PDF showcase (46 seconds)](https://github.com/himanshu748/suniye/releases/download/media-current-2026-10-05/suniye-current-image-pdf.mp4). It shows the exact synthetic photo, then नमस्ते read aloud, followed by both PDF pages reading बिल and धन्यवाद. The opening narration and readings use ElevenLabs Raju. The GIF is silent; the video has sound.
+
+This is the released 0.3 APK on Android 11. Its emulator could not resolve the public hostname, so a temporary localhost relay forwarded its requests to the real Render backend with normal host HTTPS validation. The image and both PDF readings completed, then Stop was reached. A later WhatsApp-help scroll assertion failed. The clip demonstrates that bounded sequence, not a complete native suite, direct phone HTTPS, dense-document OCR or real WhatsApp use. [Recording and limits](https://github.com/himanshu748/suniye/blob/codex/challenge-entry/outputs/suniye/docs/evidence/current-image-pdf-video-2026-10-05.json).
 
 An amount needed more care than sending printed text to a voice API. `₹1,250` becomes “एक हज़ार दो सौ पचास रुपये” in the speech input. The original remains visible, with a separate amount hint. Dates keep their written field order.
 
@@ -26,7 +28,7 @@ The pilot has bounded Android 11 and 15 emulator checks. The parent-focused revi
 
 [Watch the historical v0.1 walkthrough](https://github.com/himanshu748/suniye/releases/download/v0.1.0-pilot/suniye-demo-judge.mp4) · [Download the parent-UX APK](https://github.com/himanshu748/suniye/releases/download/parent-ux-2026-10-04/suniye-parent-ux.apk)
 
-The linked APK is the released 0.3.0 parent-UX revision. The films show earlier demonstrated flows; the newer revision's internal assertions do not establish a completed touch walkthrough. The cancellation/privacy safeguards and release-link corrections are published in the source repository. The [project page](https://suniye-reader.onrender.com/) is live on the existing Free Render service, with the current APK link and historical screenshots clearly labelled.
+The linked APK is the released 0.3.0 parent-UX revision. The older films are historical. The new 46-second clip shows the bounded current image/PDF sequence described above; it still does not establish a full touch walkthrough or physical-device test. The cancellation/privacy safeguards and release-link corrections are published in the source repository. The [project page](https://suniye-reader.onrender.com/) is live on the existing Free Render service, with the current APK link and historical screenshots clearly labelled.
 
 The walkthrough shows a synthetic electricity bill, Hindi amount wording, Repeat and Stop, followed by a photo and two PDF pages. It displays the source files before their recognized text. The WhatsApp section is a labelled setup walkthrough; actual WhatsApp reading remains untested.
 
@@ -54,7 +56,7 @@ The Atlas-backed limit is eight attempted model calls per UTC day, including fai
 
 A hosted picture test exposed an unsupported attachment/document-tool path. The backend now returns an authored retake before sending an image to Backboard or consuming model quota. Image/PDF text still follows Android's local OCR → original text → Raju route. Hosted picture description remains unavailable. [Data flow and retention](https://github.com/himanshu748/suniye/blob/codex/challenge-entry/outputs/suniye/docs/privacy.md).
 
-Sonnet 5.5 independently audited the source. The backend now rejects its known relation, duration, weekday and payment-word flips, reserves internal quota identifiers, warns about AI mistakes aloud, and keeps the web Stop control fixed. All 107 backend tests pass. The native APK still has gaps in daily-limit messages, explanation replay and setup disclosure; time/date/unit pronunciation, real WhatsApp, physical Redmi use and the current native video remain open. [Audit dispositions](https://github.com/himanshu748/suniye/blob/codex/challenge-entry/outputs/suniye/docs/sonnet-audit-disposition-2026-10-05.md).
+Sonnet 5.5 independently audited the source. The backend now rejects its known relation, duration, weekday and payment-word flips, reserves internal quota identifiers, warns about AI mistakes aloud, and keeps the web Stop control fixed. All 107 backend tests pass. The native APK still has gaps in daily-limit messages, explanation replay and setup disclosure; time/date/unit pronunciation, real WhatsApp, physical Redmi use and a complete native walkthrough remain open. The new focused clip records the bounded image/PDF sequence. [Audit dispositions](https://github.com/himanshu748/suniye/blob/codex/challenge-entry/outputs/suniye/docs/sonnet-audit-disposition-2026-10-05.md).
 
 ## How I Built It
 
@@ -74,7 +76,7 @@ Other replies changed a date, replaced “attach” with “submit”, or added 
 
 Bundled OCR misread a dense bill too. I added a retake below .85 confidence. An early PDF invitation triggered that guard, so the final demo uses simpler text. This is a recovery heuristic, not an accuracy guarantee. Amounts, dates and medicine labels still need a family member's check.
 
-I investigated TabPFN for choosing a retake or caregiver review. I prepared 100 CC BY 4.0 printed Hindi training-word crops from [Mozhi-Hindi](https://ilocr.iiit.ac.in/dataset/7/) and built an isolated batch harness using Suniye's unchanged ML Kit OCR pipeline. The two TabPFN data-collection attempts stopped at the host's disk-space check before boot. There are zero actual OCR observations, no model inference and no measured benefit. The confidence rule remains unchanged, and TabPFN is not a twelfth category claim.
+I investigated TabPFN for choosing a retake or caregiver review. I prepared 100 CC BY 4.0 printed Hindi training-word crops from [Mozhi-Hindi](https://ilocr.iiit.ac.in/dataset/7/) and built an isolated batch harness using Suniye's unchanged ML Kit OCR pipeline. The two TabPFN data-collection attempts stopped at the host's disk-space check before boot. There are zero actual OCR observations, no model inference and no measured benefit. The confidence rule remains unchanged, and TabPFN is not a claimed category.
 
 ### Make the wait explainable
 

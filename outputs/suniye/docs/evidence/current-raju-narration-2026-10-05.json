@@ -1,0 +1,12 @@
+{
+  "checkedAt": "2026-10-05T03:51:56.761Z",
+  "httpStatus": 200,
+  "text": "छोटे अक्षर पढ़ना मुश्किल है? सुनिए फ़ोटो और पी डी एफ का पाठ हिंदी में सुनाता है।",
+  "voiceId": "zT03pEAEi0VHKciJODfn",
+  "provider": "elevenlabs",
+  "audioBaseRate": 1,
+  "bytes": 49154,
+  "sha256": "f4fca66a786fbf45b75abd5e6a580b72513f664634399d07590db42495616b40",
+  "traceId": "de1b789855fa45b28be9039c6bc9542b",
+  "scope": "Synthetic Hindi narration for current image/PDF showcase, actual hosted original-reading route. Existing ElevenLabs credits; no Gemma attempt or purchase."
+}

@@ -123,3 +123,7 @@ The revised film combines the existing bill and media recordings with exact sour
 The APK and Android production source did not change for these checks. This verifies provider connections, not Redmi, WhatsApp or family usability.
 
 Render credit-only upgrade: $50 credit confirmed; $7/month paid compute attempted with approval. Render required payment information on file and rejected the update. No card or cash payment was added; service remains Free. [Receipt](evidence/render-credit-only-2026-10-04.json).
+
+## Later current native capture
+
+The released 0.3 APK completed synthetic image OCR, both PDF pages and their real hosted Raju playback, reaching Stop, through an explicit localhost/adb relay because emulator DNS could not resolve the public hostname. The final WhatsApp-help scroll assertion failed; overall instrumentation remains failed. The [new focused video receipt](evidence/current-image-pdf-video-2026-10-05.json) preserves that limit and separately mixed audio. This closes the lack of any current image/PDF footage, but not direct device HTTPS, full touch walkthrough, real WhatsApp or parent testing.

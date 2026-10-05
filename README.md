@@ -23,9 +23,11 @@ Today's eight model attempts are used; they reset at 05:30 IST the next day. Ori
 
 ## Android and demo limits
 
-The released APK is 0.3.0-parent-ux, SHA-256 `39d5484833272ead0147788823ee7c0e8790ed1454555b48f721e807c1d2cdfd`. Prior Android 11/15 checks cover synthetic Share inputs, OCR, PDF paging, Raju media state, cancellation and large fonts. The current touch walkthrough, real WhatsApp, physical Redmi and parent comprehension remain open. Native daily-limit messages, explanation replay, setup disclosure and some number/time pronunciation need follow-up.
+The released APK is 0.3.0-parent-ux, SHA-256 `39d5484833272ead0147788823ee7c0e8790ed1454555b48f721e807c1d2cdfd`. Prior Android 11/15 checks cover synthetic Share inputs, OCR, PDF paging, Raju media state, cancellation and large fonts. A new current image/PDF run completed three hosted Raju readings through a temporary emulator relay, then failed at the WhatsApp-help scroll. Direct emulator DNS failed. A complete touch walkthrough, real WhatsApp, physical Redmi and parent comprehension remain open. Native daily-limit messages, explanation replay, setup disclosure and some number/time pronunciation need follow-up.
 
 [Historical 0.1 walkthrough (82 seconds)](https://github.com/himanshu748/suniye/releases/download/v0.1.0-pilot/suniye-demo-judge.mp4) · [Historical image/PDF-to-speech film (24 seconds)](https://github.com/himanshu748/suniye/releases/download/media-showcase-2026-10-04/suniye-image-pdf-to-speech.mp4)
+
+[Current narrated image/PDF clip (46 seconds)](https://github.com/himanshu748/suniye/releases/download/media-current-2026-10-05/suniye-current-image-pdf.mp4) shows the released 0.3 APK with synthetic inputs and real hosted responses through the labelled relay. [Recording scope](outputs/suniye/docs/evidence/current-image-pdf-video-2026-10-05.json).
 
 These earlier films show exact synthetic source images/PDF pages and separately mixed Raju recordings; the WhatsApp portion is setup guidance. They do not show the current native revision or a parent's use. [Release ledger](landing/release-ledger.md) · [Raju-only current video plan](landing/current-video-plan.md).
 

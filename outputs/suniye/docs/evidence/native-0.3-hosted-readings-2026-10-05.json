@@ -1,0 +1,59 @@
+{
+  "scope": "Three real hosted Raju responses for current native OCR sources; transport is a temporary loopback relay because emulator DNS fails. Not direct phone HTTPS or full native-suite proof.",
+  "requests": [
+    {
+      "checkedAt": "2026-10-05T03:49:08.631Z",
+      "hostedEndpoint": "https://suniye-reader.onrender.com/v1/read",
+      "upstreamStatus": 200,
+      "elapsedMilliseconds": 1845,
+      "source": "नमस्ते",
+      "mode": "read",
+      "originalText": "नमस्ते",
+      "spokenText": "नमस्ते",
+      "kind": "reading",
+      "audioProvider": "elevenlabs",
+      "audioVoiceId": "zT03pEAEi0VHKciJODfn",
+      "audioBaseRate": 1,
+      "traceId": "292ed74b04ff40c5afc7e11e4f0c7ebd",
+      "transport": "Existing debug APK localhost exception + adb reverse + TLS-validating host fetch; emulator direct DNS failed. No mock model/speech or certificate override.",
+      "audioBytes": 6940,
+      "audioSHA256": "6784c50bcb83a399884eddbdda2447c796593523433f3823b4adfbbafac3f0fd"
+    },
+    {
+      "checkedAt": "2026-10-05T03:49:18.998Z",
+      "hostedEndpoint": "https://suniye-reader.onrender.com/v1/read",
+      "upstreamStatus": 200,
+      "elapsedMilliseconds": 1969,
+      "source": "बिल",
+      "mode": "read",
+      "originalText": "बिल",
+      "spokenText": "बिल",
+      "kind": "reading",
+      "audioProvider": "elevenlabs",
+      "audioVoiceId": "zT03pEAEi0VHKciJODfn",
+      "audioBaseRate": 1,
+      "traceId": "8071843826dc42f1b72f0fb5260be961",
+      "transport": "Existing debug APK localhost exception + adb reverse + TLS-validating host fetch; emulator direct DNS failed. No mock model/speech or certificate override.",
+      "audioBytes": 7567,
+      "audioSHA256": "366978dfcbc1e5968fd9bd946766f9d334525b4e96fcb7feeb9dc4578afaaf39"
+    },
+    {
+      "checkedAt": "2026-10-05T03:49:25.354Z",
+      "hostedEndpoint": "https://suniye-reader.onrender.com/v1/read",
+      "upstreamStatus": 200,
+      "elapsedMilliseconds": 919,
+      "source": "धन्यवाद",
+      "mode": "read",
+      "originalText": "धन्यवाद",
+      "spokenText": "धन्यवाद",
+      "kind": "reading",
+      "audioProvider": "elevenlabs",
+      "audioVoiceId": "zT03pEAEi0VHKciJODfn",
+      "audioBaseRate": 1,
+      "traceId": "1523f3a9daba4a15bdc68765aa32157e",
+      "transport": "Existing debug APK localhost exception + adb reverse + TLS-validating host fetch; emulator direct DNS failed. No mock model/speech or certificate override.",
+      "audioBytes": 7567,
+      "audioSHA256": "2d55fa5a17b0bfea29f81dea16c75213c01681055e32f11a199da34ce5dfc4b6"
+    }
+  ]
+}

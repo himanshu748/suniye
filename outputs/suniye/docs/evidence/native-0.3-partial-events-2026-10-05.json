@@ -1,0 +1,49 @@
+{
+  "events": [
+    {
+      "name": "home",
+      "elapsedMs": 2626
+    },
+    {
+      "name": "image-picker",
+      "elapsedMs": 4226
+    },
+    {
+      "name": "image-selected",
+      "elapsedMs": 4559
+    },
+    {
+      "name": "image-read-complete",
+      "elapsedMs": 10375
+    },
+    {
+      "name": "pdf-picker",
+      "elapsedMs": 14362
+    },
+    {
+      "name": "pdf-selected",
+      "elapsedMs": 15047
+    },
+    {
+      "name": "pdf-page-one-complete",
+      "elapsedMs": 20539
+    },
+    {
+      "name": "pdf-next-page",
+      "elapsedMs": 23620
+    },
+    {
+      "name": "pdf-page-two-complete",
+      "elapsedMs": 27022
+    },
+    {
+      "name": "stop",
+      "elapsedMs": 29603
+    },
+    {
+      "name": "whatsapp-help",
+      "elapsedMs": 30058
+    }
+  ],
+  "failure": "java.lang.AssertionError: Help section not reached"
+}

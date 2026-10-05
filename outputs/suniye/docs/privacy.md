@@ -4,7 +4,7 @@ Suniye is an experimental family pilot. A caregiver configures the HTTPS backend
 
 ## What leaves the phone
 
-Android recognizes image/PDF text locally with bundled ML Kit. New original speech sends recognized or shared text to Render and ElevenLabs Raju. Optional explanation also sends the text through Backboard and OpenRouter to Gemma 3 4B. The current hosted Backboard route does not forward picture attachments: it returns an authored retake. This does not make the phone's upload to Render local-only.
+Android recognizes image/PDF text locally with bundled ML Kit. New original speech sends recognized or shared text to Render and ElevenLabs Raju. Optional explanation also sends the text through Backboard and OpenRouter to Gemma 3 (currently 27B). The current hosted Backboard route does not forward picture attachments: it returns an authored retake. This does not make the phone's upload to Render local-only.
 
 Screen reading can include other visible messages, contact names, previews and timestamps. The user starts it deliberately, but the pilot does not isolate one message reliably. Share a selected message or photo when possible. Real WhatsApp and Redmi A4 behavior remains unverified. Bank screens, OTPs and private documents should not be used in the public voice check.
 

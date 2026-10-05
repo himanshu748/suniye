@@ -1,0 +1,11 @@
+{
+  "checkedAt": "2026-10-05T03:49:41Z",
+  "environment": "Android 11 emulator, existing AVD, current released 0.3 APK",
+  "apkSHA256": "39d5484833272ead0147788823ee7c0e8790ed1454555b48f721e807c1d2cdfd",
+  "hostedEndpoint": "https://suniye-reader.onrender.com",
+  "transport": "adb reverse + localhost-only TLS-validating relay; emulator direct DNS fails",
+  "elapsedSeconds": 42.79,
+  "passed": false,
+  "scope": "Synthetic Android Share content URIs, local OCR, existing hosted Raju speech; no real WhatsApp, physical Redmi or parent test. Screenrecord has no device audio; separately mixed audio must be labelled.",
+  "failureLog": "INSTRUMENTATION_RESULT: failure=java.lang.AssertionError: Help section not reached\nINSTRUMENTATION_CODE: 0\n"
+}

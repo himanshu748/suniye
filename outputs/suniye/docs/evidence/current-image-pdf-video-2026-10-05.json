@@ -1,0 +1,62 @@
+{
+  "createdAt": "2026-10-05",
+  "file": "suniye-current-image-pdf.mp4",
+  "seconds": 45.867709,
+  "bytes": 717912,
+  "sha256": "67a758ef29ce4b877f4602174755aa9d30ace17ff48cd1ec70ea199a1294de6f",
+  "apkSHA256": "39d5484833272ead0147788823ee7c0e8790ed1454555b48f721e807c1d2cdfd",
+  "scope": "Current 0.3 APK, synthetic Android Share image and two PDF pages, local OCR and three actual hosted Raju responses. Media playback completion and Stop reached; final WhatsApp help scroll assertion failed. No full-suite/real WhatsApp/Redmi/parent result.",
+  "transport": "Emulator DNS failed; existing debug localhost exception + adb reverse + localhost-only relay with normal host HTTPS certificate validation. Not direct device-to-public HTTPS proof.",
+  "editing": "Native selected-source-to-reading segments at normal speed; exact source previews inserted. Raju response MP3s mixed separately at .85 playback, approximate 1.6s recording offset. Not microphone/device sound capture. Hindi intro uses fresh hosted Raju; WhatsApp end guidance reuses dated Raju v4 narration. No silent first frame.",
+  "voicePolicy": "ElevenLabs Raju only, zT03pEAEi0VHKciJODfn",
+  "checks": {
+    "fullDecode": true,
+    "threeAudibleReadings": [
+      {
+        "phase": "Photo: Namaste",
+        "meanDb": -26.2
+      },
+      {
+        "phase": "PDF page 1: Bill",
+        "meanDb": -23.4
+      },
+      {
+        "phase": "PDF page 2: Thank you",
+        "meanDb": -27.5
+      }
+    ]
+  },
+  "nativeEvents": {
+    "home": 2.626,
+    "image-picker": 4.226,
+    "image-selected": 4.559,
+    "image-read-complete": 10.375,
+    "pdf-picker": 14.362,
+    "pdf-selected": 15.047,
+    "pdf-page-one-complete": 20.539,
+    "pdf-next-page": 23.62,
+    "pdf-page-two-complete": 27.022,
+    "stop": 29.603,
+    "whatsapp-help": 30.058
+  },
+  "audioMappings": [
+    {
+      "phase": "Photo: Namaste",
+      "clip": "native-0.mp4",
+      "audioStartSeconds": 4.874823529411765,
+      "sourceSHA256": "6784c50bcb83a399884eddbdda2447c796593523433f3823b4adfbbafac3f0fd"
+    },
+    {
+      "phase": "PDF page 1: Bill",
+      "clip": "native-1.mp4",
+      "audioStartSeconds": 4.45670588235294,
+      "sourceSHA256": "366978dfcbc1e5968fd9bd946766f9d334525b4e96fcb7feeb9dc4578afaaf39"
+    },
+    {
+      "phase": "PDF page 2: Thank you",
+      "clip": "native-2.mp4",
+      "audioStartSeconds": 2.3667058823529388,
+      "sourceSHA256": "2d55fa5a17b0bfea29f81dea16c75213c01681055e32f11a199da34ce5dfc4b6"
+    }
+  ]
+}

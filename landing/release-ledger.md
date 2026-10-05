@@ -40,3 +40,7 @@ Read-only public GETs verified all nine landing files against the reviewed packa
 The exact deployed backend SHA remains unknown: the legitimate Render CLI read failed with an expired-token error, and neither HTTP headers nor public GitHub statuses attest a deployment commit. Matching landing bytes establish the current page content, not the full backend revision. No alternate authentication or manual deployment was attempted. Preserve this distinction when describing the release.
 
 The workspace publication receipt and public desktop/mobile PNGs retain these observations. Embedded Android images and old films remain explicitly historical; a current0.3 source/OCR/audio/PDF-pages/Stop/Repeat video is still blocked. The existing DEV article still needs its reviewed historical-media labels and live link. Updating that existing post requires authenticated publishing access and has not occurred in this task.
+
+## Later focused current capture
+
+A 46-second current 0.3 image/PDF clip now exists. The sequence used actual hosted Raju responses through a temporary loopback relay due emulator DNS failure; its later WhatsApp-help scroll assertion failed. This does not close a complete current native walkthrough or direct phone HTTPS gate. [Receipt](../outputs/suniye/docs/evidence/current-image-pdf-video-2026-10-05.json).

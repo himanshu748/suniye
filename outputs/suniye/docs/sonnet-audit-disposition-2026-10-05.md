@@ -32,3 +32,7 @@ A hosted weekday output was rejected with UNFAITHFUL before speech. The milk out
 ## Prize scope
 
 Ten targets: nine runtime roles with dated executed evidence, plus Entire development provenance. This is not ten guaranteed qualifications or continuously healthy services. Tiger Data is claimed under the challenge's pgvector/hybrid retrieval use case, using hosted PGlite/pgvector, not Tiger Cloud. Temporal remains local and excluded from hosted claims; TabPFN has zero measured OCR outcomes and is excluded. Free Render can sleep despite a best-effort health schedule.
+
+## Later current native capture
+
+The released 0.3 APK completed synthetic image OCR, both PDF pages and their real hosted Raju playback, reaching Stop, through an explicit localhost/adb relay because emulator DNS could not resolve the public hostname. The final WhatsApp-help scroll assertion failed; overall instrumentation remains failed. The [new focused video receipt](evidence/current-image-pdf-video-2026-10-05.json) preserves that limit and separately mixed audio. This closes the lack of any current image/PDF footage, but not direct device HTTPS, full touch walkthrough, real WhatsApp or parent testing.
