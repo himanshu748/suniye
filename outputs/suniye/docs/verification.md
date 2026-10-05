@@ -1,14 +1,17 @@
-# Current verification, October 5
+# Current verification — October 5, 0.4
 
-Backend suite: 107/107 pass after Sonnet fixes and explicit 27B routing. These are offline regressions, distinct from provider checks. `/health` reports deployed 24538b1 and Gemma 3 27B. The signed-in Render dashboard confirmed deployment `dep-db1hisgu01pc73efubk0` Live after the model environment change.
+125/125 backend regressions and 56 shared Java/JS pronunciation fixtures pass. Actual /health reports revision 1b6318a02370, reviewed-dictionary word help, parentGenerativeParaphrase=false, and the configured 27B caregiver model.
 
-Hosted receipts cover original Raju speech, auth, Atlas write/read, content-field rejection, persistence across deploy/process replacement, exact synthetic cleanup and picture fallback without model spending. Three simultaneous pgvector help topics passed. Sentry hosted ingestion was read in its authenticated dashboard. [Live checks](evidence/hosted-e2e-2026-10-05.json) · [pgvector](evidence/hosted-pgvector-concurrent-2026-10-05.json) · [Sentry](evidence/hosted-sentry-2026-10-05.json).
+The same APK passed ParentUsabilityProbe, RecoveryProbe and MediaDemo on Android 11 at 160% fonts using direct public HTTPS, normal certificate checks and no relay. Synthetic Share image/PDF inputs, local OCR, three real Raju readings, PDF next page, Stop and the actual WhatsApp help screen passed. [Native receipt](evidence/native-0.4-e2e-2026-10-05.json) · [Recovery](evidence/native-0.4-recovery-2026-10-05.json) · [Media](evidence/native-0.4-media-2026-10-05.json).
 
-Provider failures are retained: initial picture path failed; fixed route is now disabled before upload/quota. A later 4B request failed upstream throttling. The hosted 27B weekday output was rejected before speech; the milk sentence returned real Raju warning/audio but added context. [New outcomes](evidence/hosted-gemma-27b-2026-10-05.json) · [Earlier failure](evidence/hosted-route-failure-2026-10-05.json). Eight daily attempts are used; no counters were reset.
+A real hosted dictionary request preserves the original exactly. The separate public-reference Gemma summary passed HTTP 200 and returned its approved display-settings link. Atlas counter moved 8→9 under one explicit extra-test approval; no reset or further attempt. [Dictionary](evidence/hosted-word-help-2026-10-05.json) · [Summary](evidence/hosted-public-summary-2026-10-05.json).
 
-[Independent Sonnet 5.5 audit and dispositions](sonnet-audit-disposition-2026-10-05.md) record fixes and unresolved meaning, retention, native error/replay/disclosure, time/unit pronunciation, Atlas expiry, proxy rate-limit and actual-device gates. Current native 0.3 video/touch walkthrough, real WhatsApp/Redmi and parent comprehension remain unverified. Historical videos remain labelled. These checks do not establish a replacement for family help or a prize win.
+Earlier hosted receipts remain valid for their dated scope: original speech, Atlas write/read/content rejection/process-replacement persistence/cleanup; three concurrent pgvector topics; signed-in Sentry trace ingestion. SerpApi executed but retained zero approved links. [Sponsor ledger](sponsor-tracks.md).
+
+The 82-second current film uses the exact 0.4 APK and separately mixed real Raju responses. It is not device-sound capture. Instrumentation is not physical touch, real WhatsApp sender, Redmi or parent comprehension. Dense OCR and arbitrary-date/range pronunciation remain limited. [Film receipt](evidence/native-0.4-video-2026-10-05.json) · [Audit disposition](sonnet-audit-disposition-2026-10-05.md).
 
 ## Dated verification history
+
 
 ## October 4 ElevenLabs-only build
 

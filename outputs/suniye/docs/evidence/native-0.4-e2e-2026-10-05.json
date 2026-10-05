@@ -1,7 +1,7 @@
 {
-  "checkedAt": "2026-10-05T04:38:27Z",
+  "checkedAt": "2026-10-05T05:00:28Z",
   "apkVersion": "0.4.0-parent-ux",
-  "apkSHA256": "9ddd02e7486380531d302c8afc547fff6fc3151365fb94db3406a6f33c15b710",
+  "apkSHA256": "f2a93ab8c1dcb2acc8c7ded211e7d2b1bcee254f3a41a6b852a897d2f7a47af0",
   "endpoint": "https://suniye-reader.onrender.com",
   "transport": "Direct Android HTTPS through emulator AndroidWifi. Normal certificate validation; no relay.",
   "scope": "Android 11 emulator, font scale 1.6. Synthetic fixtures and instrumentation actions. Not physical Redmi, real WhatsApp sender or parent comprehension.",

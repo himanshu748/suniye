@@ -8,121 +8,107 @@ tags: devchallenge, weekendchallenge, hf26challenge
 
 ## What I Built
 
-My mother and father ask me to read WhatsApp messages, pictures, labels and documents. Both have weak eyesight and use Redmi A4 phones. I am in another city right now, so that request can mean waiting for me to be available.
+My mother and father ask me to read WhatsApp messages, pictures, labels and documents. Both have weak eyesight and use Redmi A4 phones. I am in another city, so a small request can mean waiting for me to become available.
 
-I built Suniye, or सुनिए, an Android reading aid for those moments. It reads small print aloud in Hindi, with large controls for रोकिए (Stop), फिर सुनिए (Repeat) and धीरे सुनिए (Slow). The pilot supports Android 11 and later.
+I built **Suniye / सुनिए**, an Android 11+ reading aid that turns small print into Hindi speech. Large buttons let them stop, repeat and slow the reading themselves. A caregiver does the initial setup; daily reading should take fewer decisions.
 
-![Silent preview of the current 0.3 image-to-Hindi-reading check](https://raw.githubusercontent.com/himanshu748/suniye/codex/challenge-entry/outputs/suniye/docs/evidence/current-image-pdf-preview.gif)
+![Silent preview of the tested Android 0.4 image-to-speech workflow](https://raw.githubusercontent.com/himanshu748/suniye/codex/challenge-entry/outputs/suniye/docs/evidence/native-0.4-preview.gif)
 
-[Play the current narrated image/PDF showcase (46 seconds)](https://github.com/himanshu748/suniye/releases/download/media-current-2026-10-05/suniye-current-image-pdf.mp4). It shows the exact synthetic photo, then नमस्ते read aloud, followed by both PDF pages reading बिल and धन्यवाद. The opening narration and readings use ElevenLabs Raju. The GIF is silent; the video has sound.
+**[Watch the 82-second narrated walkthrough](https://suniye-reader.onrender.com/#walkthrough)** · **[Download Android 0.4](https://github.com/himanshu748/suniye/releases/download/parent-ux-2026-10-05/suniye-parent-ux-0.4.apk)** · **[Live project](https://suniye-reader.onrender.com/)**
 
-This is the released 0.3 APK on Android 11. Its emulator could not resolve the public hostname, so a temporary localhost relay forwarded its requests to the real Render backend with normal host HTTPS validation. The image and both PDF readings completed, then Stop was reached. A later WhatsApp-help scroll assertion failed. The clip demonstrates that bounded sequence, not a complete native suite, direct phone HTTPS, dense-document OCR or real WhatsApp use. [Recording and limits](https://github.com/himanshu748/suniye/blob/codex/challenge-entry/outputs/suniye/docs/evidence/current-image-pdf-video-2026-10-05.json).
+The video shows the exact synthetic photo, its नमस्ते reading, then two PDF pages reading बिल and धन्यवाद. All speech, including the opening and sharing guidance, is **ElevenLabs Raju**. The GIF is silent; the video has sound. This is the tested 0.4 APK calling the public Render backend directly over HTTPS. The film uses normal system text size; the separate full native suite passed at 160%.
 
-An amount needed more care than sending printed text to a voice API. `₹1,250` becomes “एक हज़ार दो सौ पचास रुपये” in the speech input. The original remains visible, with a separate amount hint. Dates keep their written field order.
+Android screenrecord did not capture device sound. I mixed the exact successful response MP3s at the app's playback speed with approximate visual/event alignment. Source previews are inserted stills; native reading waits remain. The final WhatsApp segment shows Suniye's actual help screen, not a real WhatsApp conversation. [Recording receipt](https://github.com/himanshu748/suniye/blob/codex/challenge-entry/outputs/suniye/docs/evidence/native-0.4-video-2026-10-05.json).
 
-कागज़ पढ़िए opens the camera, फ़ोटो पढ़िए selects a photo, and फ़ाइल पढ़िए opens a PDF. Android Share accepts text, images and PDFs. After caregiver setup, a floating सुनिए control is the intended WhatsApp route. The daily controls use large Hindi labels; settings and optional spoken commands stay behind caregiver setup. Stop remains below the scrolling content, where a long reading cannot push it away.
+## How my parents would use it
 
-The pilot has bounded Android 11 and 15 emulator checks. The parent-focused revision passed internal layout and bundled-Raju playback assertions at 160% fonts, but a System UI dialog covered the capture and later system crashes blocked the full touch walkthrough. That check remains open. I have not observed my parents using it on their Redmi A4s. [Parent check and limits](https://github.com/himanshu748/suniye/blob/parent-ux-2026-10-04/outputs/suniye/docs/evidence/parent-usability-check-2026-10-04.json).
+1. **Paper:** tap कागज़ पढ़िए and photograph the writing.
+2. **A saved photo or PDF:** choose फ़ोटो पढ़िए / फ़ाइल पढ़िए, or share the file to Suniye from Android's Share menu. PDFs have a next-page control.
+3. **A WhatsApp item:** share the selected text, opened photo or PDF to Suniye. A floating सुनिए screen-reading control is another intended route after caregiver accessibility setup. Actual WhatsApp sender behavior still needs testing on their phones.
+4. **Listen at their pace:** रोकिए stays below the scrolling content. फिर सुनिए repeats the current recording; धीरे सुनिए slows it. Successful audio can replay offline. A new reading needs the backend.
 
-## Demo
+An amount needed more care than passing digits to a voice API. `₹1,250` becomes “एक हज़ार दो सौ पचास रुपये” in the speech input while the original remains visible. Shared Java/JavaScript fixtures also cover compact units, percentages, signs, decimal rupees and explicit clock times. Ambiguous dates and ratios keep their written order.
 
-[Watch the historical v0.1 walkthrough](https://github.com/himanshu748/suniye/releases/download/v0.1.0-pilot/suniye-demo-judge.mp4) · [Download the parent-UX APK](https://github.com/himanshu748/suniye/releases/download/parent-ux-2026-10-04/suniye-parent-ux.apk)
+This is a pilot for my parents, not a claim that they have tested it. They are in another city. Redmi A4 behavior, their listening comfort, spoken-command recognition and independent use remain family checks.
 
-The linked APK is the released 0.3.0 parent-UX revision. The older films are historical. The new 46-second clip shows the bounded current image/PDF sequence described above; it still does not establish a full touch walkthrough or physical-device test. The cancellation/privacy safeguards and release-link corrections are published in the source repository. The [project page](https://suniye-reader.onrender.com/) is live on the existing Free Render service, with the current APK link and historical screenshots clearly labelled.
+## Demo and Code
 
-The walkthrough shows a synthetic electricity bill, Hindi amount wording, Repeat and Stop, followed by a photo and two PDF pages. It displays the source files before their recognized text. The WhatsApp section is a labelled setup walkthrough; actual WhatsApp reading remains untested.
+[Source repository](https://github.com/himanshu748/suniye) · [Caregiver setup](https://github.com/himanshu748/suniye/blob/codex/challenge-entry/outputs/suniye/docs/caregiver-setup.md) · [Current verification](https://github.com/himanshu748/suniye/blob/codex/challenge-entry/outputs/suniye/docs/verification.md)
 
-The inputs use real Android content URIs, bundled OCR and real Raju v4 API audio. Android screenrecord did not capture device sound, so I mixed the provider MP3s separately at the observed playback rate. Source previews are inserted stills; native waiting stays in the film. The Gemma reply is a separate saved backend check. [Recording notes](https://github.com/himanshu748/suniye/blob/v0.1.0-pilot/outputs/suniye/docs/demo-script.md).
+The downloadable debug pilot is **0.4.0-parent-ux**. Its SHA-256 is `f2a93ab8c1dcb2acc8c7ded211e7d2b1bcee254f3a41a6b852a897d2f7a47af0`. Earlier videos and APKs remain labelled historical. Synthetic fixtures are debug-only; provider keys and family messages stay out of the repository and APK.
 
-For a quick trial without configuring a backend, [download the prepared PDF reader](https://github.com/himanshu748/suniye/releases/download/niche-integrations-2026-10-04/elevenlabs-prepared-reader.html), open the HTML and tap सुनिए. It displays the original and Hindi amount wording, and plays its embedded Raju recordings without provider requests. This caregiver export is separate from the Android app.
-
-## Code
-
-[Source repository](https://github.com/himanshu748/suniye) · [Current 0.3 usability scope and limits](https://github.com/himanshu748/suniye/blob/parent-ux-2026-10-04/outputs/suniye/docs/parent-usability.md) · [Caregiver setup for the current release](https://github.com/himanshu748/suniye/blob/parent-ux-2026-10-04/outputs/suniye/docs/caregiver-setup.md)
-
-I began the scaffold on October 2 during the challenge. The code is MIT licensed. The debug APK includes synthetic fixtures; production source excludes them. Provider keys and family messages stay out of the public repository. Gemma weights have separate terms, and Google's bundled OCR SDK is proprietary. [Third-party notes](https://github.com/himanshu748/suniye/blob/v0.1.0-pilot/outputs/suniye/docs/third-party.md).
-
-## Current hosted check — October 5
-
-[Open the live caregiver page](https://suniye-reader.onrender.com/caregiver). A caregiver supplies the private family connection code; it stays in page memory. The page retrieves official setup references, sends a short text for original Raju speech or optional Gemma explanation, and keeps Stop available. The Android APK remains the parent’s reader; this page helps a family member configure and check it.
-
-Real deployed checks passed original Hindi Raju speech, Atlas preference write/read and content-field rejection. Those settings survived a deployment that replaced the backend process; only the two synthetic audit records were then deleted. Three simultaneous caregiver-help requests passed the live pgvector route. The browser played/replayed the bill and Stop removed its playback. [Hosted checks](https://github.com/himanshu748/suniye/blob/codex/challenge-entry/outputs/suniye/docs/evidence/hosted-e2e-2026-10-05.json) · [Concurrent help check](https://github.com/himanshu748/suniye/blob/codex/challenge-entry/outputs/suniye/docs/evidence/hosted-pgvector-concurrent-2026-10-05.json).
-
-The SerpApi call returned HTTP 200 and retained zero approved URLs. Its older cached receipt lacks raw result counts, so I cannot say whether there were no organic results or the source filter rejected them. The caregiver can still open the approved help references. New receipts count raw rows and rejection reasons.
-
-Gemma 4B initially returned an explanation and Raju audio, then its shared upstream pool throttled a later request. I explicitly switched the hosted route to Gemma 3 27B through Backboard/OpenRouter, with provider selection, token-price ceilings and no automatic fallback. A weekday answer was rejected by the meaning guard before narration. A simple milk sentence returned 109,967 bytes of Raju audio with a spoken AI warning, but added a reason about keeping milk cold. That is an execution check, not a faithfulness approval. [Both new outcomes](https://github.com/himanshu748/suniye/blob/codex/challenge-entry/outputs/suniye/docs/evidence/hosted-gemma-27b-2026-10-05.json).
-
-The Atlas-backed limit is eight attempted model calls per UTC day, including failed and uncertain calls. Today's checks used all eight; optional AI explanation resets at 05:30 IST the next day. Original reading remains available independently. Backboard memory, web search and custom tools are off. After Stop, a dispatched call can finish its bounded response to permit deletion of its returned thread, while the reader discards the result. Timeouts, unknown thread IDs and failed deletes still prevent a zero-retention promise. Atlas access rules and the evidence credential need review before their temporary window expires around October 11 to 12.
-
-A hosted picture test exposed an unsupported attachment/document-tool path. The backend now returns an authored retake before sending an image to Backboard or consuming model quota. Image/PDF text still follows Android's local OCR → original text → Raju route. Hosted picture description remains unavailable. [Data flow and retention](https://github.com/himanshu748/suniye/blob/codex/challenge-entry/outputs/suniye/docs/privacy.md).
-
-Sonnet 5.5 independently audited the source. The backend now rejects its known relation, duration, weekday and payment-word flips, reserves internal quota identifiers, warns about AI mistakes aloud, and keeps the web Stop control fixed. All 107 backend tests pass. The native APK still has gaps in daily-limit messages, explanation replay and setup disclosure; time/date/unit pronunciation, real WhatsApp, physical Redmi use and a complete native walkthrough remain open. The new focused clip records the bounded image/PDF sequence. [Audit dispositions](https://github.com/himanshu748/suniye/blob/codex/challenge-entry/outputs/suniye/docs/sonnet-audit-disposition-2026-10-05.md).
+For an offline prepared example, the separate [HTML reader](https://github.com/himanshu748/suniye/releases/download/niche-integrations-2026-10-04/elevenlabs-prepared-reader.html) displays its source and plays embedded Raju recordings. It does not generate new speech or replace the Android app.
 
 ## How I Built It
 
-The phone reads Android's accessible text or runs bundled Devanagari and Latin OCR. When OCR recognizes text, the image stays on the phone. Online narration sends that text through the authenticated backend to ElevenLabs. The current hosted provider does not support the picture-description route. A no-text picture receives an application-authored retake instead of an AI guess. Images with recognized text still use the phone’s OCR followed by Raju speech.
+### Photo/PDF → local OCR → original Hindi speech
 
-New narration uses ElevenLabs Raju exclusively. Fixed help prompts are bundled Raju recordings; successful readings cache their audio for offline Repeat and Slow. A new reading needs a connection. If audio is unavailable, the original remains visible. The app never silently switches to Android or browser TTS.
+Bundled Devanagari and Latin OCR recognizes the image or rendered PDF page on the phone. Recognized text goes through the authenticated Render backend and Mastra workflow to ElevenLabs. The image stays local on this route. The current APK refuses a no-text image before uploading it; picture description is unavailable.
 
-### Stop must stay stopped
+The voice policy accepts Raju only. Fixed instructions are bundled Raju recordings; successful readings cache their audio. Missing audio produces an explicit recovery message rather than silently changing to Android or browser TTS.
 
-Mastra runs the online reading workflow: validate the source, prepare the original or an optional explanation, then request speech if needed. Each request has its own cancellation signal. Stop invalidates the phone's operation and discards late replies. A deliberately delayed-response test checked that a stopped reading did not restart. The voice-only Android 15 check also covered cached replay, Slow, Stop, missing or corrupt audio, wrong-provider audio and late replies. Its host audio was disabled, so it verifies media state rather than another listening judgment. [Android receipt](https://github.com/himanshu748/suniye/blob/niche-integrations-2026-10-04/outputs/suniye/docs/evidence/elevenlabs-only-android15-2026-10-04.json).
+### A model failure changed the product
 
-### Keep the original when the model gets it wrong
+“Faithfulness” means keeping the original meaning. During testing, model explanations changed relationships, dates or instructions, or added plausible context absent from the source. Literal amount checks caught some errors and missed others. A hosted milk-sentence reply even added a reason about keeping milk cold.
 
-The deployed backend now uses Gemma 3 27B through Backboard for optional Hindi explanations. The earlier 4B receipt preserved a simple milk sentence and returned Raju audio; the current 27B check above exposes an added-context limitation. Picture description is unavailable on this route. Earlier local Ollama trials remain dated development evidence: A warm check changed “प्रवेश से पूर्व अपने जूते उतारना अनिवार्य है।” to “प्रवेश करने से पहले अपने जूते निकालें।” Both tell the reader to remove their shoes before entering; the Mastra response took 2.66 seconds. [Saved reply](https://github.com/himanshu748/suniye/blob/v0.1.0-pilot/outputs/suniye/docs/evidence/editorial-gemma-2026-10-04.json).
+I therefore **removed generative rewriting from the parent reading flow**. Optional शब्दों की मदद now gives reviewed dictionary definitions, clearly labels them as general meanings, and retains the unchanged original. It does not interpret a whole instruction. OCR can still be wrong, so important amounts, dates and medicine labels need comparison with the source and family help.
 
-Other replies changed a date, replaced “attach” with “submit”, or added context absent from the source. The quantity and negation guard caught some errors and missed others. Six synthetic Backboard calls comparing Gemma 3 4B and Qwen 2.5 72B also passed literal amount/date checks while exposing added-context errors. That small comparison supports keeping explanations experimental and separate from the original; it does not establish a general model ranking. [Model results](https://github.com/himanshu748/suniye/blob/v0.1.0-pilot/outputs/suniye/docs/model-evaluation.md) · [Comparison](https://github.com/himanshu748/suniye/blob/live-evidence-2026-10-04/outputs/suniye/docs/evidence/backboard-comparison.json).
+Gemma has a narrower role on the [separate caregiver page](https://suniye-reader.onrender.com/caregiver): summarize fixed public setup references retrieved by pgvector. The caregiver supplies the private family connection code; it stays in page memory. **Parent readings do not go to Gemma, Backboard or OpenRouter.**
 
-Bundled OCR misread a dense bill too. I added a retake below .85 confidence. An early PDF invitation triggered that guard, so the final demo uses simpler text. This is a recovery heuristic, not an accuracy guarantee. Amounts, dates and medicine labels still need a family member's check.
+The new hosted Gemma 3 27B request returned a Hindi summary of Google's display-settings reference and its link. It correctly retained the source's qualification that some methods need Android 13 or later. This is one inspected success, not a general accuracy score. [Exact request outcome](https://github.com/himanshu748/suniye/blob/codex/challenge-entry/outputs/suniye/docs/evidence/hosted-public-summary-2026-10-05.json).
 
-I investigated TabPFN for choosing a retake or caregiver review. I prepared 100 CC BY 4.0 printed Hindi training-word crops from [Mozhi-Hindi](https://ilocr.iiit.ac.in/dataset/7/) and built an isolated batch harness using Suniye's unchanged ML Kit OCR pipeline. The two TabPFN data-collection attempts stopped at the host's disk-space check before boot. There are zero actual OCR observations, no model inference and no measured benefit. The confidence rule remains unchanged, and TabPFN is not a claimed category.
+Backboard uses explicit provider routing, token-price ceilings and no automatic fallback. Memory, search and tools are off. Atlas counts failed and uncertain attempts as well as successes. The normal limit is eight attempts per UTC day. I approved one extra validation attempt on October 5; its persistent counter moved from eight to nine without a reset. Further model calls are capped today. Original speech and dictionary help are independent of this quota.
 
-### Make the wait explainable
+### Stop, recovery and readable controls
 
-Sentry received a real hosted explanation trace: 4.13 seconds overall, 2.89 seconds in Gemma 4B and 158 tokens. The trace view showed no input or output content. I used it to distinguish the model stage from the rest of the request; this is one synthetic run, not an average. Its displayed cost is an estimate, not a billing receipt. [Trace receipt](https://github.com/himanshu748/suniye/blob/codex/challenge-entry/outputs/suniye/docs/evidence/hosted-sentry-2026-10-05.json).
+Mastra carries a cancellation signal through the reading stages. Stop invalidates the phone's operation and discards late replies. A dispatched model call can finish a bounded response to recover its thread ID for deletion; unknown IDs, timeouts and failed deletes mean I cannot promise zero provider retention. [Data flow](https://github.com/himanshu748/suniye/blob/codex/challenge-entry/outputs/suniye/docs/privacy.md).
 
-![Actual hosted Suniye agent trace with timing and tokens, without reading content](https://raw.githubusercontent.com/himanshu748/suniye/codex/challenge-entry/outputs/suniye/docs/evidence/hosted-sentry-2026-10-05.png)
+A Sonnet 5.5 audit found native replay, failure-message and disclosure gaps. The 0.4 revision displays word help separately, replays its current recording correctly, offers an explicit original-reading button, restores cached state and speaks specific Hindi recovery prompts. No-text pictures no longer leave the phone for an unsupported description route.
 
-The earlier local trace spent 24.96 seconds loading its model within a 32.64-second model call. That remains useful development evidence, but is separate from the hosted service. [Local trace](https://github.com/himanshu748/suniye/blob/live-evidence-2026-10-04/outputs/suniye/docs/evidence/sentry-live-2026-10-04.json).
+Atlas now reconnects after transient startup/network failures without automatically repeating uncertain writes. A duplicate-key upsert race no longer disables the store. Unauthenticated traffic cannot spend the family's API bucket, while static pages avoid starving behind a shared proxy limit.
 
-Render's Free Singapore service passed an authenticated original-reading request with real Raju audio and rejected an unauthenticated request with 401. The newer hosted voice-only check returned unchanged bill text and 27,420 bytes of Raju audio. The free service can sleep. Gemma explanation and Render-to-Atlas preference write/read are now active and tested. A best-effort ten-minute GitHub health schedule is installed; its manual run passed, but it does not guarantee uptime. [Hosted check](https://github.com/himanshu748/suniye/blob/codex/challenge-entry/outputs/suniye/docs/evidence/elevenlabs-only-render-2026-10-04.json).
+### What I actually tested
 
-I tried to use the $50 hackathon credit for Render's $7/month always-on compute plan. Render required payment information on file even with the credit, so the service remains Free. [Credit-only upgrade check](https://github.com/himanshu748/suniye/blob/integration-roles-2026-10-04/outputs/suniye/docs/evidence/render-credit-only-2026-10-04.json).
+- **125 backend tests** and **56 shared Java/JavaScript pronunciation fixtures** passed.
+- The same APK passed **all three Android 11 instrumentation suites at 160% fonts**: parent layout/media state, recovery/cache behavior, and image/PDF Share → OCR → hosted Raju → next page → Stop → WhatsApp help. These were direct HTTPS requests, with normal certificate checks and no relay. [Native receipt](https://github.com/himanshu748/suniye/blob/codex/challenge-entry/outputs/suniye/docs/evidence/native-0.4-e2e-2026-10-05.json).
+- Hosted Atlas settings survived a deploy/process replacement; write/read, content-field rejection and synthetic-record cleanup passed. Three simultaneous fixed-topic pgvector requests passed. [Hosted checks](https://github.com/himanshu748/suniye/blob/codex/challenge-entry/outputs/suniye/docs/evidence/hosted-e2e-2026-10-05.json) · [Retrieval](https://github.com/himanshu748/suniye/blob/codex/challenge-entry/outputs/suniye/docs/evidence/hosted-pgvector-concurrent-2026-10-05.json).
+- Sentry's signed-in trace view confirmed a hosted agent/model request: 4.13 seconds total, 2.89 seconds in Gemma 4B and 158 tokens, without displayed input/output content. This earlier trace is one run, not an average or the new caregiver-summary trace. [Receipt](https://github.com/himanshu748/suniye/blob/codex/challenge-entry/outputs/suniye/docs/evidence/hosted-sentry-2026-10-05.json).
+
+![Earlier actual hosted Suniye agent trace: timing and token data, no reading content](https://raw.githubusercontent.com/himanshu748/suniye/codex/challenge-entry/outputs/suniye/docs/evidence/hosted-sentry-2026-10-05.png)
+
+The emulator suites exercise app views and media state; they do not establish a complete physical-touch walkthrough or actual WhatsApp/Redmi use. Dense OCR still fails some examples. Very long expanded speech can exceed its limit and leave the original visible without audio. [Audit fixes and remaining boundaries](https://github.com/himanshu748/suniye/blob/codex/challenge-entry/outputs/suniye/docs/sonnet-audit-disposition-2026-10-05.md).
 
 ## Why Does Open Innovation Matter?
 
-I can inspect Mastra's workflow, change its stages and test cancellation. The model and speech providers are separate modules, so the reading policy is visible in code. The original-reading path does not depend on a generative rewrite. The current speech policy accepts only Raju; replacing it would require an explicit policy change.
+I can inspect Mastra's workflow and change its stages when a model fails. Open model experiments exposed why a plausible rewrite is insufficient for my parents' messages. The code now makes that decision explicit: preserve the parent source, use reviewed word meanings, and restrict generative help to a separate public-reference task.
 
-Local Gemma lets me repeat failures on synthetic Hindi text and inspect the replies. It runs on my laptop, not inside the APK. Remote explanations now use the authenticated Backboard route; hosted picture description is unavailable. The open pieces make those decisions and their limits available to another builder; the OCR and speech services have their own terms.
-
-While preparing the post, I read [Samajh](https://dev.to/adityaanenenu5/samajh-a-reader-for-the-letters-my-mother-couldnt-read-2emg) and [ReadAloud](https://dev.to/yramstech/i-find-reading-hard-so-i-built-a-text-to-speech-reader-for-android-heres-how-31ci). Their work focuses on source-linked explanations and following spoken words. My focus is my parents' small-print problem, Hindi amounts and reachable Android controls.
+I began the scaffold on October 2. The code is MIT licensed; Gemma and Google's bundled OCR have separate terms. While preparing the entry, I read [Samajh](https://dev.to/adityaanenenu5/samajh-a-reader-for-the-letters-my-mother-couldnt-read-2emg) and [ReadAloud](https://dev.to/yramstech/i-find-reading-hard-so-i-built-a-text-to-speech-reader-for-android-heres-how-31ci). My focus is my parents' small-print problem, Hindi amounts and reachable Android controls.
 
 ## My Agent Session
 
-I used Entire to import the development session locally. A checkpoint lookup recovered my instruction: “they ask me to do it so ux and ui needs to be specifically for them”. That explains the large Hindi controls and separate caregiver setup. [Curated provenance](https://github.com/himanshu748/suniye/blob/v0.1.0-pilot/outputs/suniye/docs/build-provenance.md) links those instructions to the code; full private transcripts stay private.
+Entire imported eighteen development checkpoints. A lookup recovered my instruction: “they ask me to do it so ux and ui needs to be specifically for them”. That connects the large Hindi controls and separate caregiver setup to the original brief. [Curated provenance](https://github.com/himanshu748/suniye/blob/v0.1.0-pilot/outputs/suniye/docs/build-provenance.md); full private transcripts remain private.
 
-Claude reviewed the PRD, specification and selected source. I fixed findings and ran separate runtime checks. Source review helped find defects; it did not tell me how the app feels to my parents.
+Claude reviewed the PRD/specification, and Sonnet 5.5 independently audited source and targeted tests. I fixed findings and verified runtime behavior separately. Source review does not tell me how the app feels to my parents.
 
 ## Prize Categories
 
-I am targeting ten categories, with the scope of each recorded below. Temporal stays a local prototype and is excluded from the hosted integration claim; activating its Cloud trial required payment information. TabPFN also stays excluded because no representative OCR outcome table has been collected.
+Ten targets, each with a bounded role. Nine are runtime integrations; Entire is development provenance. These are claims for judging, not guaranteed qualifications.
 
-| Category | Why I used it | What actually ran and its limit |
+| Category | What it does and why | Evidence and limit |
 | --- | --- | --- |
-| ElevenLabs | My parents need to hear the original in Hindi and replay it. | Raju v4 API audio played in Android; cached replay and bundled help prompts were checked. Redmi listening is pending. Attribution: [elevenlabs.io](https://elevenlabs.io). |
-| Mastra | Stop needs to cancel work through the model and speech stages. | The reading workflow validates input, separates explanation and handles cancellation; delayed-reply tests ran. Redmi network behavior remains untested. |
-| Gemma | Formal Hindi may need a simpler, separate explanation. | Hosted Gemma 3 27B via Backboard returned Hindi explanation and Raju speech after 4B upstream throttling. Known anchor flips are rejected, but added context remains a limitation; picture description is unavailable. |
-| Render | The phones need a reachable authenticated endpoint while I am elsewhere. | Free Singapore service now serves original speech, Gemma explanation, Atlas preferences and caregiver help. Manual external health-check run passed; sleep and scheduling delays remain possible. |
-| Sentry Agent Tracing | I need to find where a long model wait is spent. | Signed-in Sentry readback confirmed the hosted agent/model trace, latency and 158 tokens, with no input/output content shown. Earlier local tracing exposed model loading. |
-| Backboard | A model endpoint lets explanations work while my laptop is off. | A six-call model comparison and hosted Gemma text requests used the same API. Runtime memory/search/tools are off; an eight-attempt daily limit and best-effort deletion bound use. No general model-ranking claim. |
-| Entire | I wanted to trace interface choices back to my family brief. | Eighteen imported checkpoints and lookups linked requirements to decisions. Curated provenance is public; full sessions stay private. |
-| SerpApi | A caregiver can check for current official setup references. | Live fixed public queries ran; this result retained zero approved URLs. The UI falls back to approved help rather than inventing instructions. |
-| MongoDB Atlas | Caregiver settings and model-use counters need a shared store. | Hosted settings write/read, message-field rejection and persistence across a deploy/process replacement passed; synthetic profiles were cleaned up. Android sync remains untested. Access expires after a week. |
-| Tiger Data / pgvector | Caregiver questions should retrieve approved setup sources. | Hosted PGlite/pgvector hybrid retrieval passed three simultaneous fixed-topic requests using frozen public vectors. This matches the listed pgvector use case; no Tiger Cloud or unrestricted search is claimed. |
+| **ElevenLabs** | Raju reads Hindi originals, fixed help and video narration; cached audio supports Repeat/Slow. | Real hosted audio played in the current Android tests. No substitute voice. Parent listening remains unobserved. Voice attribution: [ElevenLabs](https://elevenlabs.io). |
+| **Mastra** | Validates a reading, prepares unchanged source or dictionary help, and requests speech with cancellation. | Hosted reads and delayed-reply/Stop tests. It keeps narration distinct from optional caregiver AI. |
+| **Gemma** | Summarizes fixed public setup references in Hindi for the caregiver. | New hosted 27B summary with its approved source link; parent generative rewriting was removed after failures. |
+| **Backboard** | Hosts the Gemma route while my laptop is off and supported a six-call development comparison. | Actual caregiver request; memory/search/tools off, Atlas daily quota and best-effort thread deletion. No general model ranking or zero-retention claim. |
+| **Render** | Hosts the authenticated API, landing and caregiver page. | Current direct Android HTTPS and hosted receipts. Free service can sleep; scheduled health checks are best effort. |
+| **MongoDB Atlas** | Persists caregiver preferences, quota counters and public help cache. | Hosted write/read, process-replacement persistence, content rejection and the extra-call counter. Android settings-sync UI is not yet verified. Access is temporary. |
+| **Sentry Agent Tracing** | Separates workflow/model latency and token use without logging the reading. | Signed-in hosted trace readback; one earlier 4B synthetic run, not an average or billing receipt. |
+| **SerpApi** | Checks fixed public queries for current official setup references. | Live HTTP 200 returned zero approved URLs; the UI retains curated help instead of inventing links. The older cache lacks raw-row counts, so its rejection cause is unknown. |
+| **Tiger Data / pgvector** | Retrieves approved setup references using keyword/vector ranking. | Hosted PGlite/pgvector, three fixed topics and concurrent requests. The new Gemma summary consumes this retrieval. No Tiger Cloud or unrestricted search claim. |
+| **Entire** | Links interface decisions to the family brief. | Imported checkpoints and public curated provenance; not an artificial runtime dependency. |
 
-The [Tiger Data category](https://dev.to/challenges/hacktoberfest-weekend-2026-10-01#best-use-of-tiger-data) explicitly accepts pgvector and hybrid retrieval. That is why I use the existing hosted index rather than add a trial-only cloud dependency.
+The [Tiger Data category](https://dev.to/challenges/hacktoberfest-weekend-2026-10-01#best-use-of-tiger-data) explicitly accepts pgvector/hybrid retrieval. [Sponsor ledger and receipts](https://github.com/himanshu748/suniye/blob/codex/challenge-entry/outputs/suniye/docs/sponsor-tracks.md).
 
-The [current sponsor ledger](https://github.com/himanshu748/suniye/blob/codex/challenge-entry/outputs/suniye/docs/sponsor-tracks.md) separates hosted receipts, historical development evidence and missing checks. Entire is development provenance, rather than a runtime dependency.
+No cash purchase or paid resource was created. Render required payment information despite the $50 credit, so it remains Free. Temporal Cloud also required payment information and is excluded. TabPFN has no measured OCR outcome table, inference or demonstrated benefit, so it is excluded too. Atlas and provider credentials retain their temporary expiry/cap requirements.
 
-The next family check is specific: can each parent read a WhatsApp message and a paper label, then stop and replay without my help? I have not observed that yet. Emulator checks establish the tested app behavior; their Redmi phones and their own use need a separate check.
+My next family check is concrete: can each parent read a WhatsApp item and a paper label, then stop and replay without my help? I have not observed that yet. This entry reports the working pilot and its tested boundaries.

@@ -1,29 +1,33 @@
-# Data flow and retention, October 5, 2026
+# Data flow and retention — October 5, 2026
 
-Suniye is an experimental family pilot. A caregiver configures the HTTPS backend and private family token. The shared token authorizes the whole family service; it is not separate authentication for each profile. Do not publish it or put it in the APK.
+Suniye 0.4 is a family pilot. A caregiver configures the HTTPS backend and private family token. The token authorizes the whole family service, not an isolated account per profile. Never publish it or bundle it into the APK.
 
-## What leaves the phone
+## Parent reading
 
-Android recognizes image/PDF text locally with bundled ML Kit. New original speech sends recognized or shared text to Render and ElevenLabs Raju. Optional explanation also sends the text through Backboard and OpenRouter to Gemma 3 (currently 27B). The current hosted Backboard route does not forward picture attachments: it returns an authored retake. This does not make the phone's upload to Render local-only.
+Android recognizes image/PDF text locally with bundled ML Kit. New original speech sends recognized or shared text to Render and ElevenLabs Raju. Reviewed dictionary help adds separately labelled definitions and the unchanged source. **Parent readings are no longer sent to Gemma, Backboard or OpenRouter for generative paraphrasing.** A no-text image is rejected on the current phone before upload; the hosted endpoint also refuses picture description before forwarding to Backboard. Older APK behavior is historical.
 
-Screen reading can include other visible messages, contact names, previews and timestamps. The user starts it deliberately, but the pilot does not isolate one message reliably. Share a selected message or photo when possible. Real WhatsApp and Redmi A4 behavior remains unverified. Bank screens, OTPs and private documents should not be used in the public voice check.
+Screen reading can include other visible messages, contact names, previews and timestamps. The pilot does not reliably isolate one message; sharing a selected message/photo is preferable. Real WhatsApp and Redmi A4 behavior remains unverified. Avoid sensitive documents in the public caregiver test.
 
-Voice commands use Android's recognition service. On-device recognition is preferred where available; the system fallback may send microphone input to its provider. It is a short user-started session, not an always-listening assistant. There is no Android/browser TTS substitute: generated and bundled app speech uses ElevenLabs Raju.
+Optional spoken commands use Android recognition. On-device recognition is preferred where available; the system fallback may send microphone input to its provider. It is a short user-started session. All generated and bundled app speech is ElevenLabs Raju; there is no Android/browser TTS substitute.
 
-## Where information remains
+## Local and server storage
 
-The phone retains the last original text and allowed audio privately for Repeat until Forget or app data removal. Temporary voice files are deleted when playback releases; imported PDF data remains until its document cleanup. Crash/process termination may interrupt cleanup. Local content storage has no fixed expiry.
+The phone retains the last original, current word-help state and allowed audio privately for Repeat until Forget or app-data removal. Temporary playback files and imported PDFs have cleanup paths; process termination may interrupt cleanup. Local content has no fixed expiry.
 
-Render request-content logging and Mastra workflow snapshots are disabled. The backend holds request text/audio in memory while processing. This is a code policy, not proof that every infrastructure layer has zero retention.
+Render request-content logging and Mastra snapshots are disabled. Text/audio exist in memory during processing. This is an application policy, not proof that every infrastructure layer has zero retention. ElevenLabs history and provider retention settings have not been independently verified.
 
-Backboard memory, search, tools and document upload are off. After a dispatched call, the adapter allows up to 45 seconds to receive its reply, including after the client presses Stop, so it can delete the returned request thread with a separate 10-second cleanup timeout. A stopped reader receives no late result. Unknown thread IDs, provider timeouts, malformed/oversized replies, failures and unsuccessful deletes can still leave provider-held content. Deletion is best effort; memory off is not zero retention. No claim is made about deleting Backboard/OpenRouter operational logs or ElevenLabs history. Provider retention settings and histories have not been independently verified.
+Atlas stores preferences, UTC-day model/search counters and cached public support references, not parent reading content. Preference APIs reject content fields and reserve service_ IDs. Temporary database credentials and network rules expire around October 11–12; exact dashboard expiries require deliberate maintenance. Startup/network failures trigger bounded reconnection attempts; uncertain writes are not automatically retried. Model quota fails closed without Atlas. Original speech does not need model quota.
 
-Atlas stores preferences, UTC-day model/search counters and cached public support references, not reading content. The public preference API reserves `service_` identifiers for internal counters. Access uses temporary restricted database credentials and network rules, roughly expiring October 11–12; these must be checked and renewed deliberately. When Atlas is unavailable, model quota reservations fail closed; original speech remains independent of model quota.
+Sentry sanitization keeps stage, timing, model and token metadata while discarding text, URLs, credentials and arbitrary provider errors. A signed-in hosted trace was inspected, but one trace is not a comprehensive retention audit.
 
-Sentry code sanitizes transactions to stage, timing, model and token metadata and disables default PII/integrations. Reading text, URLs, credentials and arbitrary provider errors are omitted by the sanitizer tests. Configuration and a trace ID alone do not prove ingestion or retention. See the current audit receipt for dashboard status.
+## Caregiver public help
 
-SerpApi receives two fixed public setup queries, never a family reading. pgvector stores only three approved public Android references and frozen vectors for three setup topics. Tiger Cloud is not used; this hosted PGlite/pgvector route is the documented pgvector/hybrid-search use case. No unrestricted Hindi search or BM25 claim is made.
+PGlite/pgvector retrieves three approved public Android references for three fixed topics. It uses frozen public vectors and hybrid ranking, not arbitrary personal queries. SerpApi receives fixed public setup queries only.
 
-## Explanation limits
+Optional Gemma 3 27B summaries receive only the selected fixed public reference snippets through Backboard and OpenRouter, never a submitted parent reading. The separate caregiver UI warns that a summary can be wrong and keeps source links visible. Memory/search/tools/document upload are off. There is a persistent eight-attempt UTC-day quota; one explicitly approved extra test was allowed on October 5 only, without resetting the counter.
 
-Explanations are separate, experimental and audibly warn that AI can be wrong. Ordered anchors reject known quantity, negation, relation, duration, weekday and payment-word changes; they cannot verify the whole meaning. Medicines, deadlines and financial instructions require comparison with the original and family help. Original-reading mode avoids a generative rewrite, but its OCR can still be wrong.
+A dispatched model request may finish its bounded 45-second response after Stop to recover its thread ID for a separate 10-second deletion attempt; no late result reaches the stopped reader. Unknown IDs, timeouts, malformed replies or failed deletion may leave provider-held public content. Memory off and best-effort deletion do not mean zero retention.
+
+## Accuracy
+
+Removing parent paraphrasing removes that source of invented meaning. OCR can still be wrong, and dictionary meanings do not interpret a whole instruction. Amounts, dates and medicine labels require comparison with the original and family help. Long expanded speech can exceed the provider limit; the original remains visible rather than being truncated silently.

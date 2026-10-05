@@ -22,26 +22,15 @@ Android 12+ prefers an on-device recognizer. If that recognizer lacks Hindi, Sun
 
 Test those four commands on each Redmi, then check denied microphone permission, missing Hindi models, offline behavior and comfortable volume. Emulator callback tests verify action routing and cleanup, not microphone accuracy. If a phone cannot recognize the parent's speech reliably, use the large controls while recording that limitation.
 
-## Connect Gemma
+## Connect the hosted pilot
 
-Run Ollama/Gemma and the backend on the laptop first. Put provider keys only in backend/.env. Generate a random FAMILY_TOKEN, and enter that family token in phone setup. It is distinct from ElevenLabs/MongoDB/Backboard credentials and is encrypted with Android Keystore. Remote phones require a valid token-protected HTTPS endpoint. Render needs an externally reachable Gemma endpoint; deploying the Node service alone will not expose local Ollama.
+Use `https://suniye-reader.onrender.com` and the privately supplied family connection code in caregiver setup. Provider keys do not go into the phone. The token is stored using Android Keystore protection. Original reading and reviewed dictionary help use the hosted ElevenLabs route; no laptop model is needed. The current APK is 0.4.0-parent-ux.
 
-For a temporary USB developer test on a specifically selected phone:
+New speech requires caregiver consent that text reaches Render and ElevenLabs. Older installs must save updated setup before fresh narration. Raju is the only allowed voice; Himanshu preferred it as sample B. API narration consumes existing account credits; the web/mobile promotion is not an unlimited backend allowance. Listen on each actual phone before handover.
 
-```sh
-adb devices
-adb -s PHONE_SERIAL reverse tcp:8787 tcp:8787
-```
+The Free Render service can sleep, so the first request may be delayed or require another attempt. Previously cached Raju audio can replay offline; new reading needs a connection. Atlas stores speech/control preferences and persistent usage counters, not messages or pictures. Hosted settings persistence passed, but the Android sync UI needs its own check. Local settings remain usable if sync is unavailable. Text size uses Android system settings.
 
-Set the debug app endpoint to `http://127.0.0.1:8787`. Replace PHONE_SERIAL with the actual test device identifier; never run against an unselected personal device. USB debugging is a developer setup step, not the finished parent experience. The laptop must remain connected and the backend running. Release source accepts HTTPS destinations only.
-
-The backend accepts only Raju, labelled Hindi with an Indian accent. Listen to a synthetic sample before family handover. Himanshu preferred Raju (sample B). After partner-plan redemption, Raju v4 returned HTTP 200 and played through Android with Slow, Stop and Repeat. This is an emulator check; listen on each actual phone before enabling it for a parent. The v4 web/mobile promotion does not cover backend API calls, which use account credits. Supported backend models are eleven_v4, eleven_v4_turbo and eleven_multilingual_v2; other model or voice IDs are rejected before any provider request.
-
-New voice playback requires caregiver consent that reading text reaches the backend and ElevenLabs. Older installs must save the updated setup before fresh narration is enabled. Atlas preference sync is intended for speech speed and control placement, excluding messages and pictures. Set text size through Android’s system settings. If sync is unavailable, local settings remain usable.
-
-## Hosted original reading pilot, October 4
-
-The free Singapore backend is `https://suniye-reader.onrender.com`. It requires the private family token in caregiver setup; no provider API key goes into the phone. Authenticated original-text reading and Raju narration passed a live backend check. The Free service can sleep and delay the first request by 50 seconds or more. Hosted Gemma explanations/picture descriptions and the Render-to-Atlas connection are not configured yet. Atlas preference persistence passed a separate local-backend check. Local OCR and original text remain available; only cached ElevenLabs audio can play offline.
+The separate `/caregiver` page offers approved public setup references and optional Gemma summaries of those fixed snippets. It never sends a parent reading to Gemma/Backboard/OpenRouter. Word help in the app is a reviewed dictionary, not an AI rewrite. No-text picture description is unavailable. See [privacy](privacy.md).
 
 ## Redmi checks
 

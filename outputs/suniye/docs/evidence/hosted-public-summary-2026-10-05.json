@@ -1,0 +1,23 @@
+{
+  "checkedAt": "2026-10-05T04:47:46.047Z",
+  "endpoint": "https://suniye-reader.onrender.com/v1/caregiver/summary/display",
+  "approval": "Exactly one extra hosted attempt using existing promotional balance; no purchase or counter reset",
+  "callsBefore": 8,
+  "requestBody": {},
+  "sourcePolicy": "Only fixed public setup references; no parent reading",
+  "status": 200,
+  "response": {
+    "summary": "यह संदर्भ जानकारी है। फ़ोन की सेटिंग परिवार के सदस्य से जँचवाएँ। यह जानकारी दिखावट और टेक्स्ट को बड़ा करने के तरीकों के बारे में बताती है। Android 13 या उसके बाद वाले संस्करणों के लिए कुछ खास तरीके दिए गए हैं। ज़्यादा जानकारी के लिए दिए गए लिंक पर जाएँ।",
+    "sourceIndices": [
+      1
+    ],
+    "sources": [
+      {
+        "title": "Change text & display settings",
+        "snippet": "लिखावट और स्क्रीन की चीज़ें बड़ी करने के लिए यह आधिकारिक मदद खोलें। कुछ तरीके Android 13 या उसके बाद के लिए हैं।",
+        "url": "https://support.google.com/accessibility/android/answer/11183305?hl=en"
+      }
+    ]
+  },
+  "callsAfter": 9
+}

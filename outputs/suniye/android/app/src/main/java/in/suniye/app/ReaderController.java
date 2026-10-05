@@ -50,6 +50,7 @@ public final class ReaderController {
     public String original(){return original;}
     public String spoken(){return lastSpoken;}
     public boolean isWordHelp(){return wordHelp;}
+    public boolean needsOriginalAction(){return wordHelp||lastAudio==null;}
     public void readOriginal(){if(!lastSource.isEmpty())readText(lastSource);else announce("पहले कोई संदेश या कागज़ पढ़िए।");}
     public boolean hasLast(){return !lastSpoken.isEmpty();}
     private void notifyListeners(){for(Listener l:new ArrayList<>(listeners))l.onReaderChanged();}

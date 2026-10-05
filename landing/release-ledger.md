@@ -1,12 +1,15 @@
-# Current release status, October 5
+# Current release — October 5, 0.4
 
-The authenticated Render dashboard and `/health` now attest deployed backend 24538b1, with Gemma 3 27B selected explicitly in the existing Free service (deploy dep-db1hisgu01pc73efubk0). The expired CLI token is no longer the sole source of deployment evidence. Landing and caregiver bytes matched; caregiver Stop remains fixed. This supersedes the unknown-SHA status below.
+Current APK: parent-ux-2026-10-05/suniye-parent-ux-0.4.apk. SHA-256 f2a93ab8c1dcb2acc8c7ded211e7d2b1bcee254f3a41a6b852a897d2f7a47af0. Version 0.4.0-parent-ux; same signer as 0.3, update install passed.
 
-The current native APK is still 0.3.0-parent-ux, SHA-256 `39d5484833272ead0147788823ee7c0e8790ed1454555b48f721e807c1d2cdfd`. Backend fixes do not alter it. Current native video remains uncaptured; old films are explicitly historical. Original hosted Raju speech and an experimental 27B reply ran; that reply added context, and a weekday reply was rejected. All 107 backend tests pass. Settings survived an automatic deploy/process replacement; Sentry dashboard ingestion is confirmed. [Audit dispositions and open checks](../outputs/suniye/docs/sonnet-audit-disposition-2026-10-05.md).
+All three Android 11 instrumentation suites passed at 160% fonts over direct public HTTPS. Current 82-second image/PDF film uses this APK, synthetic sources and separately mixed exact Raju responses. Native capture contains the successful WhatsApp help screen. Real WhatsApp, Redmi, parent comprehension and physical touch remain untested.
 
-DEV article historical labels/live link were already present on October 4; the current revision update is tracked separately by public readback. No new paid plan/card/cash purchase or claim of real-parent use.
+Backend 124 tests + shared Java/JS 56 cases passed. The actual hosted revision 1b6318a02370 served reviewed dictionary help and the successful public-reference 27B caregiver summary. The persistent quota moved exactly 8→9 with user approval; no reset or cash purchase. Later publication-only commits update the landing/docs; final live receipt attests their revision separately.
+
+[Native evidence](../outputs/suniye/docs/evidence/native-0.4-e2e-2026-10-05.json) · [Video receipt](../outputs/suniye/docs/evidence/native-0.4-video-2026-10-05.json) · [Audit disposition](../outputs/suniye/docs/sonnet-audit-disposition-2026-10-05.md).
 
 ## Historical October 4 ledger
+
 
 # Suniye release ledger
 

@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-10-05",
+  "backend": {
+    "passed": 125,
+    "failed": 0,
+    "providerDoubles": "Most unit tests use injected providers; hosted receipts are separate",
+    "includes": "Video range seeking, no provider calls on public requests, auth, cancellation, quotas, Atlas recovery and dictionary preservation"
+  },
+  "pronunciation": {
+    "sharedJavaAndJavaScriptCases": 56,
+    "passed": true
+  },
+  "android": {
+    "version": "0.4.0-parent-ux",
+    "apkSHA256": "f2a93ab8c1dcb2acc8c7ded211e7d2b1bcee254f3a41a6b852a897d2f7a47af0",
+    "threeSuitesAtFontScale1_6": "PASS, direct hosted HTTPS",
+    "walkthroughAtFontScale1_0": "PASS, same APK, source display explicitly scrolled into view"
+  },
+  "sourceReview": "Actual Claude Sonnet 5.5; final view/controller review reported no new regression and flagged documentation; history separated",
+  "constraints": "No cash purchase, new paid resource or model-counter reset. Exactly one approved extra hosted model attempt (8 to 9). Physical Redmi, actual WhatsApp sender and parent comprehension untested."
+}

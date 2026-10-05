@@ -1,0 +1,40 @@
+{
+  "checkedAt": "2026-10-05T04:46:57.169Z",
+  "results": [
+    {
+      "method": "GET",
+      "path": "/health?now=1791175616069",
+      "status": 200,
+      "data": {
+        "status": "ok",
+        "revision": "1b6318a02370",
+        "capabilities": {
+          "model": "google/gemma-3-27b-it",
+          "modelProvider": "backboard",
+          "modelConfigured": true,
+          "hindiSpeech": true,
+          "pictureDescription": false,
+          "preferenceSync": true,
+          "tracing": true,
+          "caregiverHelp": true,
+          "currentSupportSearch": true,
+          "wordHelp": "reviewed-dictionary",
+          "parentGenerativeParaphrase": false
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/v1/read",
+      "status": 200,
+      "data": {
+        "kind": "reading",
+        "originalText": "देय ₹1250।",
+        "spokenText": "शब्दों की मदद। ये शब्दकोश के सामान्य अर्थ हैं। देय का मतलब है: जो देना बाकी है। मूल पाठ ज्यों का त्यों। देय ₹1250।",
+        "isExplanation": true,
+        "isDescription": false,
+        "retakeReason": ""
+      }
+    }
+  ]
+}

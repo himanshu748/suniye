@@ -1,3 +1,9 @@
+# Current 0.4 result — October 5
+
+All three Android 11 instrumentation suites passed at 160% fonts on the same released APK over direct public HTTPS. Repeat/Slow, long-content Stop, authored errors, cached/restored word help, missing-cache recovery, synthetic image/PDF OCR/playback, next page and WhatsApp help were exercised. [Receipt](evidence/native-0.4-e2e-2026-10-05.json).
+
+These are Activity-view/media-state checks, not physical touch or parent comprehension. Real Redmi, actual WhatsApp sender and spoken-command recognition remain unverified. The older failure history below is preserved rather than relabelled as a pass.
+
 # Parent usability pass — October 4, 2026
 
 Audience: two Hindi-speaking Redmi A4 owners with weak eyesight. Neither parent nor either physical phone has been tested by the builder, who is in another city.
@@ -9,7 +15,7 @@ Audience: two Hindi-speaking Redmi A4 owners with weak eyesight. Neither parent 
 - Repeat and Slow appear before a long recognized source. Stop stays in a separate footer when the source scrolls.
 - Slow can return to the usual 0.85 playback speed from the same button.
 - The microphone button appears only after caregiver opt-in; it does not promise hands-free wake-word control.
-- Experimental explanation is collapsed under “और विकल्प”. It is separate from reading the original.
+- Reviewed dictionary help is collapsed under “और विकल्प”. It is separate from the unchanged original; there is no generative parent rewrite.
 - “कैसे चलाएँ? सुनिए” plays a bundled ElevenLabs Raju recording without a network request. Narration has no Android or browser TTS fallback.
 - Audio prompts respect audio focus and stop when the reading screen is left. A muted media stream asks the user to raise the phone volume.
 - Camera guidance asks for a whole, well-lit paper. WhatsApp guidance distinguishes sharing to Suniye from sending to a contact.

@@ -12,6 +12,7 @@ public final class RecoveryProbe extends Instrumentation {
   runOnMainSync(()->{reader=SuniyeApp.reader(getTargetContext());reader.forget();try{Config c=new Config(getTargetContext());c.save(args.getString("endpoint"),args.getString("token"),"audit");c.acknowledge();c.setOnlineVoice(true);c.setSpeed(.85f);}catch(Exception e){throw new RuntimeException(e);}});
   activity=(MainActivity)startActivitySync(new Intent(getTargetContext(),MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK));waitForIdleSync();
   runOnMainSync(()->reader.readText("देय ₹1250।"));awaitDone();
+  runOnMainSync(()->{if(button(activity.getWindow().getDecorView(),"मूल पाठ सुनिए")!=null)throw new AssertionError("Cached original has a redundant fresh-reading action");});
   runOnMainSync(reader::explain);awaitDone();String spoken=reader.spoken();
   if(!reader.isWordHelp()||!spoken.contains("देय का मतलब")||!spoken.endsWith("मूल पाठ ज्यों का त्यों। देय ₹1250।")||!reader.original().equals("देय ₹1250।"))throw new AssertionError("Word help changed original or was not retained");
   runOnMainSync(()->{if(button(activity.getWindow().getDecorView(),"मूल पाठ सुनिए")==null||!hasText(activity.getWindow().getDecorView(),"शब्दों की मदद — सामान्य अर्थ"))throw new AssertionError("Word help or original control invisible in view tree");try{new Config(getTargetContext()).save("http://127.0.0.1:1","synthetic-token-0123456789abcdef012345","audit");}catch(Exception e){throw new RuntimeException(e);}reader.repeat();});awaitPlaying();runOnMainSync(reader::stop);

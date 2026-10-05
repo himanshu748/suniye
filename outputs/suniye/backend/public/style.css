@@ -206,3 +206,6 @@ tbody th { width: 180px; font-weight: 600; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+.walkthrough-media { width: min(100%, 360px); flex: 0 0 auto; }
+.demo-video { display: block; width: 100%; aspect-ratio: 9 / 16; border-radius: 18px; background: #fff9ef; margin-bottom: 16px; }

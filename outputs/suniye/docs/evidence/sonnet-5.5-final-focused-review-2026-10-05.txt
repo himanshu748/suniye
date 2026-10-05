@@ -1,0 +1,14 @@
+Model: Sonnet 5.5, Claude desktop Code session Suniye publication audit.
+Scope: final MainActivity / ReaderController diffs and current privacy/entry claims. Read-only; no provider requests or edits.
+
+Observed response:
+“One remaining blocker, and it is in the docs, not the code.”
+“Stale Gemma claims contradict the new privacy policy.”
+The reviewer cited older sponsor ledger rows and local Ollama setup instructions retained beneath historical headings.
+
+“Android diffs (MainActivity.java, ReaderController.java): no regression.”
+needsOriginalAction() is wordHelp || lastAudio == null. It is captured in build() and compared in onReaderChanged(), so the view rebuilds on state changes. Cached originals show Repeat/Slow/source; word help or missing audio shows the original-reading action.
+
+“I read the diffs only. I did not re-run the Android suites or the backend tests this round, and I did not touch Gemma or Atlas. The recorded evidence files were not re-checked either.”
+
+Disposition: current sponsor ledger and project README now describe only the new flow; dated sponsor experiments moved to a separately labelled history file. Native runtime tests were performed independently and are recorded in native-0.4-e2e-2026-10-05.json. A minor punctuation preference was not treated as a product defect.

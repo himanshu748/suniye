@@ -1,10 +1,12 @@
-# Current architecture and scope, October 5
+# Current architecture and scope — October 5, 0.4
 
-Android 0.3 recognizes image/PDF text locally and sends original text for Raju speech. The hosted backend runs Mastra with optional Backboard/OpenRouter Gemma 3 27B, strict response/model checks, explicit Nebius FP8 routing and USD-per-million-token ceilings (0.12 input, 0.30 output), no provider fallback and an Atlas eight-attempt UTC daily counter. No-text pictures receive an authored retake before Backboard upload/quota. Known relation/duration/weekday/payment anchor flips are rejected and accepted explanations include a spoken AI warning, but full meaning remains unverified.
+Android 0.4 uses local image/PDF OCR, then original text → authenticated Render/Mastra → ElevenLabs Raju. Reviewed dictionary help preserves the source. There is no parent generative paraphrasing. No-text images are refused before upload; hosted picture description is unavailable.
 
-Atlas also stores preferences and public help-search caches. Live PGlite/pgvector retrieves three fixed approved topics from frozen 384-dimensional vectors; SerpApi runs bounded fixed public setup queries. Sentry sanitizes reading content and has one confirmed hosted agent trace. The caregiver website exposes these runtime functions; Entire remains development provenance. Temporal is a separate local prototype, TabPFN has no outcome table or app model, Tiger Cloud is not used.
+Caregiver-only public reference retrieval uses PGlite/pgvector and fixed approved topics. Optional Gemma 3 27B through Backboard/OpenRouter summarizes those snippets with source links. Explicit Nebius FP8 routing, no fallback and USD-per-million ceilings of 0.12 input/0.30 output apply. Atlas persists eight attempts per UTC day; one dated October 5 validation allowance admits a ninth attempt, with no counter reset. Parent speech/word help is independent of model quota.
 
-107 offline backend tests pass; live receipts, current limits and remaining native defects are in [audit dispositions](sonnet-audit-disposition-2026-10-05.md). Read the older specification below as development design/history where it describes local Ollama, pictures, prototype roles or unimplemented acceptance criteria. It does not override the current hosted limitations.
+Atlas handles transient reconnection without uncertain write retry. Static/health traffic is exempt from application rate buckets; authenticated family API traffic has its own shared limits. See [privacy](privacy.md), [current verification](verification.md) and [audit disposition](sonnet-audit-disposition-2026-10-05.md) for exact operational limits.
+
+## Historical design below — superseded where it differs
 
 ## Development specification and history
 

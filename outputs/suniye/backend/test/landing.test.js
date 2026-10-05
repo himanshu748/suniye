@@ -14,7 +14,7 @@ async function server(t) {
 test('root serves exact current landing with restrictive headers and HEAD',async t=>{
   const {app,calls}=await server(t);const source=await readFile(new URL('../../../../landing/index.html',import.meta.url));
   const response=await app.inject({url:'/'});assert.equal(response.statusCode,200);assert.deepEqual(response.rawPayload,source);
-  assert.match(response.body,/parent-ux-2026-10-04\/suniye-parent-ux\.apk/);assert.match(response.body,/System UI overlay/);
+  assert.match(response.body,/parent-ux-2026-10-05\/suniye-parent-ux-0.4\.apk/);assert.match(response.body,/instrumentation suites/);
   assert.match(response.headers['content-type'],/^text\/html/);assert.match(response.headers['content-security-policy'],/connect-src 'none'/);assert.match(response.headers['content-security-policy'],/frame-ancestors 'none'/);
   assert.equal(response.headers['x-content-type-options'],'nosniff');assert.equal(response.headers['referrer-policy'],'no-referrer');assert.equal(response.headers['cache-control'],'public, max-age=0, must-revalidate');
   const head=await app.inject({method:'HEAD',url:'/'});assert.equal(head.statusCode,200);assert.equal(head.body,'');assert.equal(Number(head.headers['content-length']),source.length);assert.equal(calls(),0);
@@ -26,7 +26,7 @@ test('every allowlisted public asset is byte-identical with intended MIME',async
     assert.deepEqual(response.rawPayload,await readFile(new URL('../../../../landing/'+file,import.meta.url)),file);
     assert.equal(response.headers['content-type'],mime,url);assert.equal(response.headers['x-content-type-options'],'nosniff');
   }
-  assert.equal(Object.keys(landingFiles).length,12);assert.equal(calls(),0);
+  assert.equal(Object.keys(landingFiles).length,15);assert.equal(calls(),0);
 });
 test('no wildcard or traversal can serve server source, docs or environment files',async t=>{
   const {app,calls}=await server(t);
@@ -43,4 +43,13 @@ test('welcome redirects to canonical root and health/API behavior stays intact',
   }
   const source='Safe synthetic amount 1250.';const reading=await app.inject({method:'POST',url:'/v1/read',headers:{authorization:'Bearer '+token},payload:{requestId:randomUUID(),language:'hi',mode:'read',text:source,wantAudio:false}});
   assert.equal(reading.statusCode,200);assert.equal(reading.json().originalText,source);assert.equal(reading.headers['cache-control'],'no-store');assert.equal(calls(),1);
+});
+
+test('walkthrough player supports bounded byte ranges and rejects malformed ranges',async t=>{
+ const {app,calls}=await server(t);const source=await readFile(new URL('../../../../landing/assets/suniye-walkthrough.mp4',import.meta.url));
+ for(const [range,start,end] of [['bytes=0-31',0,31],['bytes=-16',source.length-16,source.length-1],['bytes=32-',32,source.length-1]]){
+  const r=await app.inject({url:'/assets/suniye-walkthrough.mp4',headers:{range}});assert.equal(r.statusCode,206);assert.equal(r.headers['content-range'],`bytes ${start}-${end}/${source.length}`);assert.deepEqual(r.rawPayload,source.subarray(start,end+1));
+ }
+ for(const range of ['bytes=999999999-','bytes=-0','bytes=2-1','bytes=','bytes=0-1,4-5'])assert.equal((await app.inject({url:'/assets/suniye-walkthrough.mp4',headers:{range}})).statusCode,416);
+ assert.equal(calls(),0);
 });

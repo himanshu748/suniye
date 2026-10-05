@@ -1,121 +1,29 @@
-# Sponsor roles and evidence
+# Sponsor roles and evidence — October 5 final 0.4 pass
 
-## Current status, October 5
-
-This section supersedes the dated history below. Ten category targets have distinct roles; this is not ten guaranteed qualifications or an assertion that all services stay healthy. [Official category requirements](https://dev.to/challenges/hacktoberfest-weekend-2026-10-01).
+Ten targets: nine runtime roles and Entire development provenance. Parent generative rewriting has been removed; Gemma/Backboard now summarize only fixed public caregiver references. Category decisions belong to the judges.
 
 | Category | Actual use and why | Evidence and limits |
 | --- | --- | --- |
-| Mastra | Authenticated original/explanation/speech workflow; Stop must discard late results. | 107 backend tests pass, including delayed replies and cancellation; hosted original/model requests executed. No real Redmi proof. |
-| ElevenLabs | Original Hindi reading, fixed help prompts, offline replay/Slow, narrated films. | Real Raju audio in Android and hosted requests; strict voice ID `zT03pEAEi0VHKciJODfn`. No alternative speech engine. Physical listening remains pending. |
-| Gemma | Optional separate explanation of formal Hindi. | Hosted 4B success followed by upstream throttling; explicit 27B route returns warning + Raju speech but can add context. Rejected weekday output preserved. Original remains available. |
-| Backboard | Compare open-weight models and provide hosted Gemma while the laptop is off. | Six actual comparative calls, plus runtime calls. Memory/search/tools off, eight attempted calls/day, best-effort thread deletion. No general ranking or zero-retention claim. |
-| Render | Serve authenticated backend and caregiver page while family is elsewhere. | Existing Free Singapore service deployed 24538b1; HTTP receipts and dashboard Live. Can sleep. Credit-only Starter rejected for lack of payment method; no upgrade. |
-| MongoDB Atlas | Preferences, persistent quota counters and public help-cache records. | Hosted write/read and content rejection; settings survived deploy/process replacement; two synthetic records cleaned with hosted null readback. Android sync untested. One-week restricted access requires maintenance. |
-| Sentry Agent Tracing | Diagnose actual agent/model wait and token use without reading content. | Signed-in hosted trace: 4.13s total, 2.89s model, 158 tokens; no input/output content displayed. One synthetic run; cost is a dashboard estimate. |
-| SerpApi | Fixed public caregiver queries for current official setup references. | HTTP 200, zero approved URLs; approved help fallback. Old cached result has no raw-row counts, so rejection cause is unknown. New instrumentation counts rows/reasons. |
-| Tiger Data / pgvector | Retrieve approved setup references with keyword/vector ranking. | Live PGlite/pgvector 0.8.1 with three fixed topics, 384-dimensional frozen public vectors; all three concurrent requests passed. No Tiger Cloud, free-form retrieval, BM25 or pgvectorscale. Listed pgvector use case fits the official category. |
-| Entire | Connect interface choices to the original family brief. | Eighteen imported development checkpoints and curated requirement lookups. Development evidence rather than an app runtime dependency; private transcripts excluded. |
+| ElevenLabs | Raju Hindi original reading, authored help, offline replay/Slow and film narration. | Current APK direct HTTPS → real Raju playback passed; strict voice allowlist. No other speech engine. Parent listening pending. |
+| Mastra | Validate original/word-help/speech stages and discard stopped replies. | 125 backend tests and hosted Android original/help requests. Caregiver AI is separate from parent reading. |
+| Gemma | Hindi summary of approved public setup snippets. | Hosted 27B display-topic summary returned HTTP 200 and its source link. Parent text never enters this route. One success is not a broad faithfulness metric. |
+| Backboard | Hosted Gemma endpoint while the laptop is off. | Actual current caregiver summary; prior six-call comparison retained as history. Memory/search/tools off, eight attempts/day, one approved October 5 extra test (8→9), no reset. Best-effort deletion is not zero retention. |
+| Render | Host authenticated backend, landing and caregiver app. | Actual public /health revision and direct Android HTTPS checks. Existing Free Singapore service; sleep remains possible despite health schedule. No paid upgrade. |
+| MongoDB Atlas | Preferences, persistent quotas and public help cache. | Hosted write/read, content rejection, settings persistence across process replacement, synthetic cleanup and 8→9 quota receipt. Reconnection and duplicate-race regressions pass. Android settings-sync UI not separately tested. Temporary access expires around October 11–12. |
+| Sentry Agent Tracing | Locate model/workflow latency and token use without reading content. | Signed-in hosted trace: 4.13s total, 2.89s model, 158 tokens, no displayed input/output. This earlier 4B trace is not the new summary trace or average latency. |
+| SerpApi | Fixed public searches for current official setup material. | Actual HTTP 200 retained zero approved URLs. Curated help remains available. Older cache lacks raw-row counts, so no rejection cause asserted. New outcomes count raw rows/reasons. |
+| Tiger Data / pgvector | Retrieve approved setup references using keyword/vector ranking. | Hosted PGlite/pgvector, three fixed topics and frozen public vectors; concurrent requests passed. New Gemma summary consumes its display reference. No Tiger Cloud, arbitrary queries, BM25 or pgvectorscale claim. |
+| Entire | Connect UI decisions to the family brief. | Eighteen imported development checkpoints and curated requirement lookups. Private transcripts excluded; deliberately a development integration. |
 
-Current native 0.3 OCR → hosted Raju check now completed a synthetic photo and both PDF pages through a labelled loopback relay. The later WhatsApp-help scroll assertion failed, and emulator direct DNS failed. [Actual hosted responses](evidence/native-0.3-hosted-readings-2026-10-05.json) · [Focused current film and limits](evidence/current-image-pdf-video-2026-10-05.json).
+## Current receipts
 
-### Current receipts
+- [Current Android 0.4](evidence/native-0.4-e2e-2026-10-05.json) and [film](evidence/native-0.4-video-2026-10-05.json).
+- [Hosted public Gemma/Backboard summary and exact quota](evidence/hosted-public-summary-2026-10-05.json).
+- [Hosted dictionary/source preservation](evidence/hosted-word-help-2026-10-05.json).
+- [Hosted Atlas/original speech](evidence/hosted-e2e-2026-10-05.json), [concurrent pgvector](evidence/hosted-pgvector-concurrent-2026-10-05.json), [Sentry dashboard](evidence/hosted-sentry-2026-10-05.json).
+- [Sonnet fixes and remaining boundaries](sonnet-audit-disposition-2026-10-05.md).
 
-[Initial hosted checks, including failed picture request](evidence/hosted-integrations-2026-10-05.json) · [Persistence, auth, picture fallback and cleanup](evidence/hosted-e2e-2026-10-05.json) · [Current 27B outcomes](evidence/hosted-gemma-27b-2026-10-05.json) · [Concurrent pgvector topics](evidence/hosted-pgvector-concurrent-2026-10-05.json) · [Hosted Sentry readback](evidence/hosted-sentry-2026-10-05.json) · [Sonnet audit dispositions](sonnet-audit-disposition-2026-10-05.md).
-
-Eight model attempts are reserved today, including rejected/uncertain calls; reset is 05:30 IST the next day. Original speech does not use the model quota. Backboard token-price ceilings use existing promotional balance with auto-reload off. No quota reset, card, new purchase or cash charge. Atlas user/network expiry around October 11 to 12 and the existing ElevenLabs key expiry must be checked. Free Render's externally executed health run passed, but its schedule cannot guarantee uptime.
-
-Temporal is excluded from hosted claims: local worker recovery passed, Cloud activation required payment. TabPFN is excluded: 100 licensed crops were prepared, but zero actual OCR outcomes/model inference exist. DigitalOcean/Tinker/Arduino are excluded without deployed inference, measured training or hardware. Copilot remains excluded by preference.
-
-## Dated history (superseded for current status)
-
-## October 4 additional local evidence and voice policy
-
-The current build uses ElevenLabs Raju exclusively for readings and bundled help prompts. Android and browser TTS fallbacks were removed. New narration requires the configured connection; cached Raju audio repeats offline. [Voice checks](evidence/elevenlabs-only-android15-2026-10-04.json).
-
-Two more category targets have executed local evidence, bringing the submission to eleven targets. Temporal recovers a separate caregiver PDF preparation job after a worker process is killed, retries the unfinished page, and rejects cancelled jobs. pgvector retrieves three approved public Android setup references through a Mastra workflow using vector similarity and keyword rank. These tools run on the caregiver computer, separately from the parent APK. They do not deploy Temporal Cloud or Tiger Cloud. [Temporal receipt](evidence/temporal-recovery-2026-10-04.json) · [pgvector receipt](evidence/pgvector-source-search-2026-10-04.json) · [Source and instructions](../backend/caregiver/README.md).
-
-DigitalOcean was inspected but not provisioned: inference/agent credits showed $0, so it is excluded under the no-charges constraint. No new paid resource, subscription or upgrade was created. Existing ElevenLabs credits covered the fixed clips. Prize eligibility is a judging decision; local pgvector is claimed under the listed pgvector/hybrid-search use case, with its local scope disclosed.
-
-# Sponsor roles and evidence
-
-Checked October 2, 2026 against the [official challenge](https://dev.to/challenges/hacktoberfest-weekend-2026-10-01). This is a build plan and evidence ledger, not a claim that every category is ready. One entry can list multiple qualifying categories; each needs actual use.
-
-## Integration roles
-
-The integrations have different jobs. Mastra, Gemma and ElevenLabs handle online reading; Render hosts the API. I use the other tools for development, setup and diagnosis.
-
-| Integration | How I use it | Why it belongs here |
-| --- | --- | --- |
-| **Mastra** | A two-step reading workflow validates the source, prepares an original reading or explanation, and optionally requests speech. Each request has its own cancellation signal. | Stop must discard late model or voice replies. The workflow also keeps a retake separate from a reading. |
-| **Gemma 3 4B** | Runs through Ollama on my laptop for simpler Hindi explanations and descriptions of pictures with no readable text. | Original reading covers small print; an optional explanation or description covers a different need. Added-context failures keep explanations experimental. |
-| **ElevenLabs** | Raju, labelled Indian Hindi, produces Eleven v4 audio after amounts are converted into Hindi words. Android caches it for replay and slower playback. | My parents need to hear the text. I chose the voice after listening to two samples. |
-| **Render** | Hosts the authenticated HTTPS API and keeps the ElevenLabs credential on the server. A real hosted bill request returned Hindi audio. | The phones need a reachable backend when I am in another city. This deployment supports original reading and speech; hosted Gemma is not connected yet. |
-| **Sentry Agent Tracing** | Records the reading agent, model duration, token counts and Ollama timing attributes, while omitting reading text from outgoing traces. | A 32.64-second model call spent 24.96 seconds loading. That tells me where to investigate a long wait. |
-| **Backboard** | Ran six synthetic Hindi calls, three each for Gemma 3 4B and Qwen 2.5 72B, with memory, search and tools disabled. | Literal checks missed two added-context errors. Comparing the replies supports keeping the original visible and explanations optional. |
-| **Entire** | Imported 18 development checkpoints. A lookup recovered my instruction to design the controls specifically for my parents. | It connects the interface decisions to the original family request. Curated provenance is public; full private sessions stay private. |
-| **SerpApi** | Searched public official Android help pages for the caregiver guide; Gemma summarized the approved results in Hindi. | Setup needs understandable references. When a later search returned no approved pages, the guide stopped instead of inventing instructions. |
-| **MongoDB Atlas** | The local backend writes caregiver settings to `suniye.preferences`, restores them after a backend restart, and updates speech speed and control placement. | Saved settings need to survive a restart. Strict routes reject message content and unauthenticated access. Render-to-Atlas and Android sync remain untested. |
-
-Backboard, Entire, Sentry and SerpApi stay outside the daily parent screen. The six Backboard calls used synthetic text, and its temporary key was revoked afterward. SerpApi searches contain public setup questions, not family messages.
-
-## October 4 live status
-
-Atlas check: [passing persistence receipt](evidence/atlas-persistence-2026-10-04.json), [restricted user screenshot](evidence/atlas-user-2026-10-04.jpg), [reproducible runner](../backend/evaluation/check-atlas-persistence.mjs). Run the runner from the backend directory after configuring its ignored `.env`. It creates one synthetic record and deletes only that record.
-
-Nine categories now have dated application or development evidence. Render is deployed on the free Singapore service and passed authenticated original-text Hindi speech. Sentry received a real local Gemma request and displayed the agent/model relationship, token counts and timing attributes. [Render receipt](evidence/render-live-2026-10-04.json), [Sentry receipt](evidence/sentry-live-2026-10-04.json).
-
-The hosted service does not yet have a reachable Gemma model or Atlas connection. It serves original reading and optional ElevenLabs narration. Atlas now passed real preference write/read and persistence after a local-backend restart using the one-week `suniye-evidence` user, restricted to `suniye.preferences` on SuniyePilot. Synthetic-record cleanup passed. [Atlas receipt](evidence/atlas-persistence-2026-10-04.json). Backboard completed six synthetic calls through its real API and its dashboard confirmed six events. Builder source review found two Gemma added-context errors despite passing literal checks. [Comparison](evidence/backboard-comparison.json). The temporary Backboard key was revoked and independently rejected with HTTP 401.
-
-## October 3 live status
-
-[Current receipt](evidence/integration-recheck-2026-10-03.json): four fresh checks passed: Mastra, Gemma, ElevenLabs and Entire. SerpApi is connected, but a new guide could not be generated from the returned results. The four remaining integrations lack a configured live connection or deployment. The nine targets below describe product roles and dated evidence; they are not nine fully working or confirmed qualifying categories.
-
-The current private backend uses Raju, catalogue-labelled Indian Hindi, with Eleven v4. Himanshu preferred its sample B. After manually redeeming the partner Creator plan, real API generation and Android playback passed, including Slow, Stop and Repeat. Earlier Roger/own-voice tests and the initial Raju 402 remain dated evidence. See the [native v4 receipt](evidence/android15-raju-v4-native-2026-10-03.json). Real Redmi listening remains pending.
-
-## Nine existing targets (dated evidence)
-
-| Category | Role in Suniye | Current evidence | Scope or remaining check |
-| --- | --- | --- | --- |
-| Gemma | Hindi explanations and descriptions of non-text pictures | Actual local Gemma 3 4B calls; explanation returned Hindi, vision failure cases recorded | Improve description reliability; family checks of explanation accuracy |
-| Mastra | Extraction, output validation, explanation and optional speech in one cancellable workflow | Real Gemma calls passed through Mastra; backend tests exercise its workflow | Real Redmi network/cancellation behavior remains untested |
-| ElevenLabs | Exclusive Raju Hindi speech output | Real Raju v4 API audio played in Android; Hindi amount words, Slow/Stop/Repeat verified. User preferred Raju sample B | Real Redmi listening and parent comfort |
-| Entire | Explain interface decisions from saved development sessions | 18 local imported checkpoints; `checkpoint explain` recovered the family-specific UX instruction | Curated provenance is included; full private history stays excluded |
-| Render | Host the authenticated AI workflow backend | Free Singapore service live; `/health` HTTP 200, unauthenticated read HTTP 401, authenticated original read with real Raju audio HTTP 200 | Hosted Gemma explanation/vision and Atlas connection remain unconfigured; Free service can sleep |
-| MongoDB Atlas | Persist caregiver speech speed and control placement | Real local HTTP backend → Atlas write/read, update and restart persistence passed; content-field rejection HTTP 400, auth HTTP 401, single synthetic record deleted and absence verified | Render-to-Atlas and Android sync remain untested. Backend textScale storage passed; native client does not restore it |
-| Sentry Agent Tracing | Investigate Gemma latency and failures without logging message content | Real Gemma request ingested; Agent Activity shows Suniye → gemma3:4b, 143 input and 11 output tokens, 32.64-second model span; 24.96 seconds loading | Outgoing trace omits reading content; Sentry can add network metadata. Hosted traces and real-device latency remain separate |
-| Backboard | Compare two open-weight models for faithful Hindi explanation before choosing one | Six real Gemma 3 4B/Qwen 2.5 72B calls reviewed; dashboard confirms 681 input and 254 output tokens; no memory/search/tools/reasoning | Three cases do not establish a general ranking; current production model stays local Gemma. Temporary key revoked; API rejects it with HTTP 401 |
-| SerpApi | Help Himanshu find current official Android/Redmi setup references, summarized by Gemma | Actual SerpApi searches and Mastra/Gemma Hindi summary saved; two official Android help articles retained; community posts and unrelated results excluded | Verify exact menus on the Redmi phones; no matching Xiaomi reference was returned |
-
-The parent interface contains reading controls. Model comparisons, setup reference research and trace dashboards stay with the caregiver/developer. No family message is used as a web search query. Source integration is useful work, but an installed SDK or mocked test does not prove live partner use.
-
-## Conditional categories
-
-| Category | Potential useful role | Decision and evidence required |
-| --- | --- | --- |
-| DigitalOcean | Serve Gemma separately from Render's workflow backend, or host the caregiver tooling | Connector works and there are no existing Droplets to reuse. No infrastructure provisioned. Need a concrete instance plan, spending limit, actual deployment and request proof. Account balance is not a verified credit grant. |
-| Tinker | Fine-tune source-faithful Hindi simplification to reduce added context | $10 partner offer visible. Need an appropriate supported base model, curated authorized examples, a held-out baseline, actual training and measured improvement. A general inference call would not establish this track. |
-| Temporal | Recover a caregiver batch of document pages after a worker restart | Implemented as separate local caregiver preparation; actual restart/retry/cancellation evidence above. Parent Stop does not resume speech. |
-| Tiger Data / pgvector | Retrieve approved caregiver setup material through vector/hybrid search | Actual local PostgreSQL/pgvector and Mastra queries passed. No Tiger Cloud deployment, pgvectorscale or BM25 claim. |
-| TabPFN | Predict a useful reading-quality outcome from historical device/reading data | No real historical table yet. Synthetic rows added solely to run a model would not demonstrate useful prediction. Reconsider after authorized usage data exists. |
-| Arduino | A physical reader using an UNO Q | No UNO Q available or hardware test. Do not claim. |
-| GitHub Copilot | — | Excluded by Himanshu's preference. |
-
-These are product-fit judgments, not promises of qualification or prizes. Revisit a conditional track when its required hardware, data or deployment becomes available.
-
-## Earlier credit checks, superseded by the update below
-
-Signed-in dashboards and partner offers were inspected during this session. The partner portal displayed $50 Render, $5 Backboard and $10 Tinker offers. Render issued a separate claim code; it has not been applied by this build. The Render account already has $50 remaining from an earlier promotion. Do not count these as $100 until redemption is confirmed. Backboard's offer was claimed in the partner portal but has not been redeemed in a Backboard account. Tinker's offer is available after GitHub linkage; no training or redemption is recorded. The portal did not show an ElevenLabs offer during inspection. ElevenLabs's existing free balance went from 10,000 to 9,704 credits after the narration. That balance predates the successful preset-voice API smoke. The new key is TTS-only, capped at 1,000 credits per refresh period and expires October 9; other endpoints have no access. It is saved only in the ignored backend .env. No paid upgrade was made. Raju returned payment_required via API; Roger returned actual Hindi audio. See [ElevenLabs API errors](https://elevenlabs.io/docs/eleven-api/resources/errors) and the recorded failure/success evidence.
-
-Codes, keys, billing identifiers and account contact details are deliberately absent from public evidence files. An available offer is not a deployed integration.
-
-SerpApi live receipt: two fixed queries were run twice while refining the source filter. The dashboard showed 2 / 250 searches used afterward; repeated cached queries did not raise the observed counter. The final dated guide contains two official Google help articles, not community answers or a claimed Redmi-specific procedure. At that earlier check, Atlas SuniyePilot had no database user or network allowlist entry; October 4 setup is recorded above.
-
-Before partner-plan redemption, October 3 listening choice: Himanshu preferred Raju (sample B). It is saved in My Voices and selected for browser narration. The [fresh Raju API receipt](evidence/elevenlabs-raju-recheck-2026-10-03.json) records HTTP 402 payment_required, so it is not described as working online app speech. The account displays a $1 first-month Starter offer; no paid subscription was activated.
+The official [Tiger Data category](https://dev.to/challenges/hacktoberfest-weekend-2026-10-01#best-use-of-tiger-data) includes pgvector/hybrid search. Temporal Cloud required payment information; its local prototype is excluded. TabPFN has zero real OCR observations and no inference/benefit, so is excluded. DigitalOcean/Tinker/Arduino have no deployed role. No cash purchase or paid resource was created.
 
 
-Current credit update, October 3: the user manually redeemed the Hacktoberfest Creator offer. The official offer stated three months; the actual redemption dialog stated one month. Account readback showed Creator, cancelled with access ending November 3, auto top-up off, and a paid $0 invoice. Only that current access is confirmed. No paid upgrade was made by this build. The restricted key remains TTS-only, capped at 1,000 credits and expires October 9. Raju v4 API calls succeeded using included credits. The free v4 promotion applies to web/mobile apps only, not API calls. [Plan receipt](evidence/elevenlabs-partner-plan-2026-10-03.json).
-
-October 4 Backboard credit update: the already-claimed partner code added $5 to the balance without a card or subscription. The dashboard displayed $0.0002 total spend after six calls. This used promotional credits; no new purchase was made.
-
-Render credit-only upgrade check, October 4: the dashboard confirms $50 of hackathon credit. The proposed 0.5c-512mb compute plan costs $7/month. Render rejected the approved credit-only upgrade because it requires payment information on file. No card was added and no cash purchase was made. The service remains Free. [Receipt](evidence/render-credit-only-2026-10-04.json).
+[Earlier experiments and dated provider status](sponsor-history-through-2026-10-04.md) are archived separately.

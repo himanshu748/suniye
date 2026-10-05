@@ -1,38 +1,28 @@
-# Sonnet 5.5 audit dispositions, October 5
+# Sonnet 5.5 audit disposition — final 0.4 pass
 
-The independent [audit](evidence/sonnet-5.5-audit-2026-10-05.txt) reviewed b354b5c and some concurrent edits, not the final deployed revision. Its original report and failed receipts are preserved. Current backend code is 24538b1; `/health` and the signed-in Render dashboard attest that revision. This document records later fixes, not a claim that the auditor reran them.
+The original [audit](evidence/sonnet-5.5-audit-2026-10-05.txt) and [follow-up](evidence/sonnet-5.5-reaudit-2026-10-05.txt) are preserved. Sonnet reviewed source and ran targeted tests; subsequent native/hosted receipts are separate verification, not attributed to the auditor. The [final focused review](evidence/sonnet-5.5-final-focused-review-2026-10-05.txt) found no new Android regression and flagged old documentation; that history is now separated from the current instructions.
 
-## Addressed with tests and hosted checks
+## Fixed and verified
 
-- H1: known before/after, duration, first/last, weekday and payment-word flips are rejected by ordered anchors. Every accepted explanation speaks an AI warning. The 107-test backend suite passes. This only covers those probes: the hosted 27B milk reply added context without being rejected. Full meaning preservation remains open.
-- H2: after dispatch, Stop discards the reader result but permits a bounded 45-second reply and a separate 10-second thread cleanup. The cancellation regression confirms a returned thread is deleted. Unknown IDs, timeouts, malformed/oversized replies and failed deletion still prevent zero-retention claims.
-- H3: the landing and caregiver web pages now name Backboard/OpenRouter, and [privacy.md](privacy.md) covers providers, local storage, `/tmp`/process-interruption limits, visible screen content and retention uncertainty. Native 0.3 setup disclosure is still less specific.
-- H4: hosted no-text pictures receive an authored retake before any Backboard attachment or quota reservation. The live check returned HTTP 200 and its counter stayed at four. Android local image/PDF OCR is a different route.
-- M1: new SerpApi outcomes include organic-row counts and rejection reasons. The earlier cached HTTP 200/zero-approved result does not prove why links were absent.
-- M2: a failed pgvector initialization now clears its cached promise. Three simultaneous hosted fixed-topic requests passed in 21,688 ms. This is a three-topic approved corpus, not unrestricted search or a load benchmark.
-- M4: `service_` profile identifiers are reserved. Offline tests and live GETs return 400. Internal counters cannot be initialized through the preference API.
-- M8: the opt-in hosted runner cleans only its synthetic profile in `finally`, writes uniquely dated receipts/audio and exits nonzero on failure. Its revised provider-consuming full run was not repeated. Two older synthetic profiles were cleaned through direct checks, with hosted absence confirmed.
-- Settings survived an automatic deploy/process replacement and were read from the hosted route. This was not a separate manual restart experiment. [Receipt](evidence/hosted-e2e-2026-10-05.json).
-- Sentry ingestion is now verified through its signed-in trace UI, not inferred from configuration. One hosted 4B trace showed 4.13 seconds total, 2.89 seconds model and 158 tokens, with no input/output content shown. [Receipt](evidence/hosted-sentry-2026-10-05.json).
+- **Meaning preservation:** parent generative paraphrasing was removed. Reviewed dictionary definitions are labelled separately and followed by the unchanged original. Descriptions cannot be presented as original text. Gemma now handles only fixed public caregiver setup references.
+- **Native replay:** Repeat/Slow use the current original or word-help audio; help text is displayed separately, and an explicit original-reading button is available. Restored cache and missing-cache recovery passed.
+- **Native failure UX:** seven error categories map to authored Hindi recovery and bundled Raju clips. No-text images are refused locally before upload. Setup now discloses providers, visible screen content and retention uncertainty.
+- **Speech normalization:** compact units, percentages, large rupee amounts, decimal paise, explicit clock times and signs are covered by shared Java/JS fixtures. Identifiers, dates and ratios remain literal where interpretation would be ambiguous. All 56 shared fixtures passed.
+- **Atlas recovery:** transient startup/network errors reconnect; uncertain writes are not repeated. Duplicate-key upsert races no longer mark the store unavailable. Temporary access expiry remains operational maintenance.
+- **Rate isolation:** unauthenticated requests cannot consume the family bucket. Static/health requests are exempt from the shared proxy bucket; API routes retain limits. The family deliberately shares its API quota.
+- **Cancellation/privacy:** late replies are discarded; returned model threads receive bounded cleanup attempts. Unknown IDs/timeouts still prevent a zero-retention claim.
+- **Hosted retrieval:** concurrent fixed-topic pgvector queries passed. SerpApi receipts now distinguish raw rows and rejection reasons; the older zero-approved cached result retains its uncertainty.
 
-## Still open
+## Final verification
 
-H1 general faithfulness and false positives; H2 uncertain provider retention; H3 native setup disclosure; H4 native daily-limit/model error mapping and retake prompt specificity; H5 temporary Atlas access and no retry after startup failure; H6 time/date/range pronunciation; M3 actual proxy/multi-IP rate-limit scope; M5 native Repeat/Slow after explanation and missing explanation text; M6 compact units, percentages, long unprefixed amounts, Java/JS parity and dense OCR; M7 physical Redmi/WhatsApp/current touch walkthrough.
+125 backend tests passed, plus 56 shared Java/JS speech cases. Android 11, 160% fonts: ParentUsabilityProbe, RecoveryProbe and MediaDemo all passed on the same 0.4 APK over direct public HTTPS. This checks Activity views/instrumentation and media state, not a physical touch or parent study. [Native receipt](evidence/native-0.4-e2e-2026-10-05.json).
 
-The released APK remains 0.3.0-parent-ux with SHA-256 `39d5484833272ead0147788823ee7c0e8790ed1454555b48f721e807c1d2cdfd`. No Android fix is implied by a backend deploy. Historical Android videos are labelled as such. No parent testimonial or physical-device success is claimed.
+APK SHA-256: `f2a93ab8c1dcb2acc8c7ded211e7d2b1bcee254f3a41a6b852a897d2f7a47af0`. [Current film receipt](evidence/native-0.4-video-2026-10-05.json). The film shows synthetic photo and two PDF pages with actual hosted Raju responses, Stop and the app's WhatsApp help screen. Audio is mixed from exact response MP3s; Android screenrecord did not capture device sound.
 
-Atlas credential/network access is temporary, roughly October 11 to 12; verify exact dashboard expiries before extending it. The ElevenLabs key also has an existing expiry and credit cap. No access expansion, paid plan, card or cash purchase was made in this audit.
+The [approved extra public-reference test](evidence/hosted-public-summary-2026-10-05.json) preserves its actual outcome and Atlas before/after counts. No counter reset or purchase was made. Original reading and dictionary help do not consume Gemma quota.
 
-## Current model outcome and budget
+## Remaining limits, not claimed as passed
 
-The deployed 4B request failed when DeepInfra's shared upstream pool throttled it. The local diagnosis is labelled separately from hosted evidence. The explicit 27B route restricts routing to Nebius FP8 and sets USD-per-million-token ceilings of 0.12 input and 0.30 output, with fallback off. It does not guarantee provider availability or total account spending.
+Physical Redmi A4, a real external WhatsApp sender, spoken-command recognition and parent comprehension remain unobserved. Dense OCR is imperfect; confidence is a heuristic. Natural pronunciation of arbitrary ranges/dates is not implemented; written order is preserved. Very long expanded speech can exceed its limit and leave visible text without audio. Provider retention cannot be guaranteed. Free Render can sleep despite the scheduled health check. Atlas and voice credentials retain their existing expiries/caps.
 
-A hosted weekday output was rejected with UNFAITHFUL before speech. The milk output produced real Raju speech and the AI warning, but added a reason about cold storage. Today's eight model attempts are used; reset is at 05:30 IST the following day. Original speech is independent of that model limit. No counter was reset to make a demo pass. [Current outcomes](evidence/hosted-gemma-27b-2026-10-05.json).
-
-## Prize scope
-
-Ten targets: nine runtime roles with dated executed evidence, plus Entire development provenance. This is not ten guaranteed qualifications or continuously healthy services. Tiger Data is claimed under the challenge's pgvector/hybrid retrieval use case, using hosted PGlite/pgvector, not Tiger Cloud. Temporal remains local and excluded from hosted claims; TabPFN has zero measured OCR outcomes and is excluded. Free Render can sleep despite a best-effort health schedule.
-
-## Later current native capture
-
-The released 0.3 APK completed synthetic image OCR, both PDF pages and their real hosted Raju playback, reaching Stop, through an explicit localhost/adb relay because emulator DNS could not resolve the public hostname. The final WhatsApp-help scroll assertion failed; overall instrumentation remains failed. The [new focused video receipt](evidence/current-image-pdf-video-2026-10-05.json) preserves that limit and separately mixed audio. This closes the lack of any current image/PDF footage, but not direct device HTTPS, full touch walkthrough, real WhatsApp or parent testing.
+Ten category targets describe bounded roles, not guaranteed qualifications: nine runtime roles plus Entire development provenance. Tiger Data is pgvector/PGlite, not Tiger Cloud. Temporal and TabPFN remain excluded from hosted claims.

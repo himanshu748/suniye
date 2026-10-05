@@ -1,74 +1,77 @@
 {
-  "recordedAt": "2026-10-05T05:00:24.736Z",
-  "startedAtEpochMs": 1791176385425,
-  "environment": "Android 11 emulator, font scale 1.6",
+  "recordedAt": "2026-10-05T05:01:45.419Z",
+  "startedAtEpochMs": 1791176464205,
+  "environment": "Android 11 emulator, font scale 1.0",
   "imageSource": "नमस्ते",
   "pdfPageOne": "बिल",
   "pdfPageTwo": "धन्यवाद",
   "events": [
     {
       "name": "home",
-      "elapsedMs": 3836
+      "elapsedMs": 1672
     },
     {
       "name": "image-picker",
-      "elapsedMs": 5437
+      "elapsedMs": 3274
     },
     {
       "name": "image-selected",
-      "elapsedMs": 5717
+      "elapsedMs": 3463
     },
     {
       "name": "image-read-complete",
-      "elapsedMs": 10116
+      "elapsedMs": 7018
     },
     {
       "name": "source-visible-नमस्ते",
-      "elapsedMs": 10592
+      "elapsedMs": 7475
     },
     {
       "name": "pdf-picker",
-      "elapsedMs": 13506
+      "elapsedMs": 10772
     },
     {
       "name": "pdf-selected",
-      "elapsedMs": 13860
+      "elapsedMs": 11180
     },
     {
       "name": "pdf-page-one-complete",
-      "elapsedMs": 17325
+      "elapsedMs": 17228
     },
     {
       "name": "source-visible-बिल",
-      "elapsedMs": 17778
+      "elapsedMs": 17688
     },
     {
       "name": "pdf-next-page",
-      "elapsedMs": 20699
+      "elapsedMs": 20654
     },
     {
       "name": "pdf-page-two-complete",
-      "elapsedMs": 23220
+      "elapsedMs": 23798
     },
     {
       "name": "source-visible-धन्यवाद",
-      "elapsedMs": 23679
+      "elapsedMs": 24318
     },
     {
       "name": "stop",
-      "elapsedMs": 26140
+      "elapsedMs": 26839
     },
     {
       "name": "whatsapp-help",
-      "elapsedMs": 26634
+      "elapsedMs": 27897
     },
     {
       "name": "whatsapp-share-help",
-      "elapsedMs": 33249
+      "elapsedMs": 34972
     }
   ],
   "picker": "Synthetic ACTION_SEND intents with real MediaStore PNG/PDF content URIs. Share receiver, OCR and paging exercised; no real external WhatsApp sender or completed file-picker test.",
   "reading": "Bundled OCR, actual backend Hindi TTS and MediaPlayer; base rate 1, playback .85",
   "whatsapp": "Actual Suniye help screen only; no WhatsApp account or real WhatsApp integration test",
-  "recordingStartHostEpochMs": 1791176381203
+  "recordingStartHostEpochMs": 1791176456211,
+  "apkSHA256": "f2a93ab8c1dcb2acc8c7ded211e7d2b1bcee254f3a41a6b852a897d2f7a47af0",
+  "transport": "Direct public HTTPS, normal certificate validation",
+  "suite": "MediaDemo only; separate complete three-suite receipt is at font scale 1.6"
 }

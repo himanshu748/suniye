@@ -1,0 +1,47 @@
+{
+  "createdAt": "2026-10-05T04:56:02.505Z",
+  "endpoint": "https://suniye-reader.onrender.com/v1/read",
+  "voice": "ElevenLabs Raju only",
+  "clips": [
+    {
+      "name": "intro",
+      "text": "मेरे माँ और पापा को छोटे अक्षर पढ़ने में कठिनाई होती है। सुनिए उनके लिए बनाया गया एंड्रॉयड ऐप है। यह फ़ोटो और पी डी एफ का पाठ हिंदी में सुनाता है।",
+      "bytes": 88860,
+      "sha256": "b24f16cdebab83a92b20f28df8a7a8b62c7d6f7397370f87a47d57b158d0d869",
+      "voiceId": "zT03pEAEi0VHKciJODfn",
+      "baseRate": 1
+    },
+    {
+      "name": "photo",
+      "text": "यह अभ्यास की फ़ोटो है। इसे सुनिए के साथ शेयर करते हैं। ऐप फ़ोन पर लिखावट पहचानता है, फिर हिंदी में पढ़कर सुनाता है।",
+      "bytes": 70888,
+      "sha256": "83b9c4fba67bd563841094d4bbb087fade36420dab757126b9678d3215c0d1e1",
+      "voiceId": "zT03pEAEi0VHKciJODfn",
+      "baseRate": 1
+    },
+    {
+      "name": "pdf",
+      "text": "अब दो पन्नों की पी डी एफ खोलते हैं। पहले पन्ने का पाठ सुनिए। फिर अगला पन्ना दबाकर दूसरा पन्ना सुनिए।",
+      "bytes": 58140,
+      "sha256": "2b862818df4221d84c4653bc43ba35501020fe22ea00195d25c28b2862c3206a",
+      "voiceId": "zT03pEAEi0VHKciJODfn",
+      "baseRate": 1
+    },
+    {
+      "name": "controls",
+      "text": "फिर सुनिए से वही आवाज़ दोहराएँ। धीरे सुनिए से गति कम करें। नीचे का रोकिए बटन हमेशा पहुँच में रहता है। मूल पाठ साथ रहता है।",
+      "bytes": 94711,
+      "sha256": "85e542e3c179324734b19be897c7bc3dc245852b4ee6d584cefd7018db0da7d1",
+      "voiceId": "zT03pEAEi0VHKciJODfn",
+      "baseRate": 1
+    },
+    {
+      "name": "whatsapp",
+      "text": "व्हाट्सऐप में फ़ोटो या पी डी एफ खोलिए। शेयर चुनिए, फिर सुनिए दबाइए। पहली बार परिवार का सदस्य सेटअप करे। मेरे माता-पिता के फ़ोन पर इसकी जाँच अभी बाकी है।",
+      "bytes": 94084,
+      "sha256": "01a56d92baaae13c626bb79535fccd7042259353716e6b47cfd53f6eb2d60ee1",
+      "voiceId": "zT03pEAEi0VHKciJODfn",
+      "baseRate": 1
+    }
+  ]
+}
