@@ -11,7 +11,7 @@ export function backboardAdapter(env,fetcher=fetch) {
   const id='service_backboard_'+new Date().toISOString().slice(0,10);
   try{await store.updateOne({_id:id},{$setOnInsert:{calls:0,purpose:'model-call-limit'}},{upsert:true});}catch(e){if(e.code!==11000)throw e;}
   const reserved=await store.findOneAndUpdate({_id:id,calls:{$lt:limit}},{$inc:{calls:1},$set:{updatedAt:new Date()}},{returnDocument:'after'});
-  if(!reserved)throw new PublicError('MODEL_DAILY_LIMIT','आज AI की सीमा पूरी हुई। मूल पाठ फिर सुनिए।',429);
+  if(!reserved)throw new PublicError('MODEL_DAILY_LIMIT','आज की AI सीमा पूरी है। अगली सुबह साढ़े पाँच बजे फिर मिलेगी। मूल पाठ और शब्दों की मदद अभी सुन सकते हैं।',429);
  }
  return {
   setStore(value){store=value;},

@@ -1,0 +1,51 @@
+{
+  "generatedAt": "2026-10-05T04:18:11.545Z",
+  "provider": "ElevenLabs",
+  "voiceId": "zT03pEAEi0VHKciJODfn",
+  "model": "eleven_v4",
+  "baseRate": 1,
+  "clips": [
+    {
+      "name": "model-limit",
+      "text": "आज की AI सीमा पूरी है। अगली सुबह साढ़े पाँच बजे फिर मिलेगी। मूल पाठ अभी सुन सकते हैं।",
+      "bytes": 54378,
+      "sha256": "9b4191f45e6a54b55ed5b99b31b4cd0131506c8745ff922b374dd5f009d3c843"
+    },
+    {
+      "name": "model-unavailable",
+      "text": "AI की मदद अभी नहीं मिल रही। मूल पाठ सुनिए। परिवार के सदस्य से सेवा जँचवाएँ।",
+      "bytes": 55005,
+      "sha256": "b40feb7c15981392aa70cfe1d0f8d1faa8c2ef13f8aa92442e8d2bad7005f68b"
+    },
+    {
+      "name": "picture-unavailable",
+      "text": "चित्र का वर्णन अभी उपलब्ध नहीं है। लिखावट हो तो पास से छोटा और साफ़ हिस्सा दोबारा लें।",
+      "bytes": 56886,
+      "sha256": "ad7c57417d53b1e170c0916146641df9fa5e870b6d90c94e6bb0a88bb4087509"
+    },
+    {
+      "name": "source-only",
+      "text": "पढ़ना पूरा नहीं हुआ या अर्थ बदल सकता है। मूल पाठ फिर सुनिए।",
+      "bytes": 44138,
+      "sha256": "4631a6cea32edc7226b8627cabaa047a12fee07ad6d0e5837dc12d84199f56ca"
+    },
+    {
+      "name": "retry",
+      "text": "थोड़ी देर रुककर फिर कोशिश करें।",
+      "bytes": 19688,
+      "sha256": "d66bfdeacb41dae3f210ef09cf6095f0393181a6014ac07df3d54c84c16d9c90"
+    },
+    {
+      "name": "timeout",
+      "text": "पढ़ने में समय लग रहा है। फिर सुनिए दबाकर दोबारा कोशिश करें।",
+      "bytes": 39541,
+      "sha256": "f5b35dad7214feb7b9a63b61661ab680c4eee2e65008344ebf5be34a3e003b5f"
+    },
+    {
+      "name": "no-cache",
+      "text": "सहेजी हुई आवाज़ नहीं मिली। मूल पाठ सुनिए दबाकर नई आवाज़ मँगाएँ।",
+      "bytes": 47273,
+      "sha256": "5717ea92b4adfafed55ed5fa8326993dad224811fe0fbae1a0336c488318a289"
+    }
+  ]
+}

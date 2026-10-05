@@ -12,3 +12,14 @@ test('hosted caregiver retrieval is authenticated and queries real pgvector with
  assert.equal((await app.inject({method:'POST',url:'/v1/caregiver/search',headers,payload:{text:'private message'}})).statusCode,400);
  const page=await app.inject('/caregiver');assert.equal(page.statusCode,200);assert.match(page.headers['content-security-policy'],/connect-src 'self'/);assert.match(page.headers['content-security-policy'],/media-src 'self' blob:/);
 });
+test('optional hosted Gemma help accepts only fixed public references and rejects private input',async t=>{
+ let calls=0,received;
+ const app=await buildServer({env:{FAMILY_TOKEN:token},model:{id:'test',summarizeSupport:async sources=>{calls++;received=sources;return {summary:'संदर्भ का परीक्षण सार।',sourceIndices:[1]};}},speech:{configured:false}});t.after(()=>app.close());
+ const headers={authorization:'Bearer '+token};
+ assert.equal((await app.inject({method:'POST',url:'/v1/caregiver/summary/display',payload:{}})).statusCode,401);
+ assert.equal((await app.inject({method:'POST',url:'/v1/caregiver/summary/display',headers,payload:{text:'private document'}})).statusCode,400);
+ assert.equal((await app.inject({method:'POST',url:'/v1/caregiver/summary/private',headers,payload:{}})).statusCode,400);
+ assert.equal(calls,0);
+ const r=await app.inject({method:'POST',url:'/v1/caregiver/summary/permissions',headers,payload:{}});
+ assert.equal(r.statusCode,200);assert.equal(calls,1);assert.ok(received.length>0);assert.ok(received.every(s=>s.snippet.length>0&&s.url.startsWith('https://support.google.com/')));assert.equal(r.headers['cache-control'],'no-store');
+});

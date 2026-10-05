@@ -3,6 +3,7 @@ import rateLimit from '@fastify/rate-limit';
 import { createHash, timingSafeEqual } from 'node:crypto';
 import { pathToFileURL } from 'node:url';
 import { MongoClient } from 'mongodb';
+import {resilientStore} from './resilient-store.js';
 import { readInput, preferences, validateImage, PublicError } from './contracts.js';
 import { modelProvider, speechProvider } from './providers.js';
 import { makeReadingWorkflow } from './workflow.js';
@@ -14,9 +15,11 @@ export async function buildServer({env=process.env, model=modelProvider(env),spe
   if(!env.FAMILY_TOKEN || env.FAMILY_TOKEN.length<32)throw new Error('Set a random FAMILY_TOKEN of at least 32 characters.');
   const app=Fastify({logger:false,bodyLimit:4_300_000,requestTimeout:90000,connectionTimeout:95000});
   const expected=createHash('sha256').update(env.FAMILY_TOKEN).digest();
+  const authorized=request=>timingSafeEqual(expected,createHash('sha256').update(String(request.headers.authorization||'').replace(/^Bearer /,'')).digest());
+  await app.register(rateLimit,{max:60,timeWindow:'1 minute',keyGenerator:request=>authorized(request)?'authenticated-family':'unauthenticated:'+request.ip});
+  const unauthenticatedLimit=app.rateLimit({max:60,timeWindow:'1 minute',keyGenerator:request=>'unauthenticated:'+request.ip});
   const auth=async(request,reply)=>{
-    const candidate=String(request.headers.authorization||'').replace(/^Bearer /,'');
-    if(!timingSafeEqual(expected,createHash('sha256').update(candidate).digest())) return reply.code(401).send({code:'UNAUTHORIZED',message:'परिवार की सेटिंग में कनेक्शन जाँचें।'});
+    if(!authorized(request)){await unauthenticatedLimit(request,reply);if(reply.sent)return;return reply.code(401).send({code:'UNAUTHORIZED',message:'परिवार की सेटिंग में कनेक्शन जाँचें।'});}
   };
   app.addHook('onRequest',async(request,reply)=>{
     if(request.routeOptions.url?.startsWith('/v1/')) {
@@ -25,18 +28,17 @@ export async function buildServer({env=process.env, model=modelProvider(env),spe
       return auth(request,reply);
     }
   });
-  await app.register(rateLimit,{max:60,timeWindow:'1 minute'});
   const trace=setupTelemetry(env); const pipeline=makeReadingWorkflow(model,speech,trace);
 
   let concurrent=0;
-  let mongo;
+  let connection;
   let store=preferenceStore;
   if(!store && env.MONGODB_URI) {
-    mongo=new MongoClient(env.MONGODB_URI,{serverSelectionTimeoutMS:4000});
-    try {await mongo.connect();store=mongo.db('suniye').collection('preferences');}
-    catch {await mongo.close();mongo=undefined;}
+    connection=await resilientStore(new MongoClient(env.MONGODB_URI,{serverSelectionTimeoutMS:4000,connectTimeoutMS:4000,socketTimeoutMS:5000,retryWrites:false}));
+    store=connection.store;
   }
-  app.addHook('onClose',async()=>{if(mongo)await mongo.close();});
+  const storeAvailable=()=>Boolean(store)&&(!connection||connection.available());
+  app.addHook('onClose',async()=>{if(connection)await connection.close();});
   model.setQuotaStore?.(store);
   const support=hostedSupport(env,store);
   app.addHook('onClose',()=>support.close());
@@ -45,8 +47,20 @@ export async function buildServer({env=process.env, model=modelProvider(env),spe
     return reply.code(status).send({code:error instanceof PublicError?error.code:status===413?'TOO_LARGE':status===429?'BUSY':status>=400&&status<500?'INVALID_INPUT':'READ_FAILED',message:error instanceof PublicError?error.message:status===429?'थोड़ी देर रुककर फिर कोशिश करें।':'यह पढ़ नहीं पाया। फिर कोशिश करें।'});
   });
   registerLanding(app);
-  app.get('/health',async()=>({status:'ok',revision:env.RENDER_GIT_COMMIT?.slice(0,12),capabilities:{model:model.id,modelProvider:model.runtimeProvider||'test',modelConfigured:model.runtimeConfigured?.()||false,hindiSpeech:speech.configured,pictureDescription:model.pictureDescriptionAvailable===true,preferenceSync:Boolean(store),tracing:Boolean(env.SENTRY_DSN),caregiverHelp:true,currentSupportSearch:Boolean(store&&env.SERPAPI_API_KEY)}}));
+  app.get('/health',async()=>({status:'ok',revision:env.RENDER_GIT_COMMIT?.slice(0,12),capabilities:{model:model.id,modelProvider:model.runtimeProvider||'test',modelConfigured:model.runtimeConfigured?.()||false,hindiSpeech:speech.configured,pictureDescription:model.pictureDescriptionAvailable===true,preferenceSync:storeAvailable(),tracing:Boolean(env.SENTRY_DSN),caregiverHelp:true,currentSupportSearch:Boolean(storeAvailable()&&env.SERPAPI_API_KEY),wordHelp:"reviewed-dictionary",parentGenerativeParaphrase:false}}));
   app.get('/v1/caregiver/help/:topic',async request=>support.help(request.params.topic));
+  // Gemma receives only our fixed public support references, never parent readings.
+  app.post('/v1/caregiver/summary/:topic',{config:{rateLimit:{max:3,timeWindow:'1 minute'}}},async(request,reply)=>{
+    if(request.body&&Object.keys(request.body).length)return reply.code(400).send({code:'INVALID_INPUT'});
+    const controller=new AbortController();const cancel=()=>{if(!reply.raw.writableEnded)controller.abort();};reply.raw.once('close',cancel);
+    try{
+      const help=await support.help(request.params.topic);
+      const sources=help.sources.slice(0,3).map(s=>({title:s.title||s.hindiTitle,snippet:String(s.hint||s.snippet||'').slice(0,500),url:s.url}));
+      if(controller.signal.aborted)throw new PublicError('CANCELLED','रोक दिया गया।',499);
+      const summary=await model.summarizeSupport(sources,controller.signal);
+      return {...summary,sources};
+    }finally{reply.raw.off('close',cancel);}
+  });
   app.post('/v1/caregiver/search',{config:{rateLimit:{max:3,timeWindow:'1 minute'}}},async(request,reply)=>{
     if(request.body&&Object.keys(request.body).length)return reply.code(400).send({code:'INVALID_INPUT'});
     return support.search();
@@ -63,7 +77,7 @@ export async function buildServer({env=process.env, model=modelProvider(env),spe
     finally {concurrent--;reply.raw.off('close',cancel);}
   });
   app.get('/v1/preferences/:profile',{},async(request,reply)=>{
-    if(!store)return reply.code(503).send({code:'SYNC_UNAVAILABLE',message:'सेटिंग इस फ़ोन पर सुरक्षित है।'});
+    if(!storeAvailable())return reply.code(503).send({code:'SYNC_UNAVAILABLE',message:'सेटिंग इस फ़ोन पर सुरक्षित है।'});
     if(!/^[a-zA-Z0-9_-]{1,40}$/.test(request.params.profile)||request.params.profile.startsWith('service_'))return reply.code(400).send({code:'INVALID_PROFILE'});
     const doc=await store.findOne({_id:request.params.profile});
     return {preferences:doc?.preferences||null};
@@ -71,7 +85,7 @@ export async function buildServer({env=process.env, model=modelProvider(env),spe
   app.put('/v1/preferences/:profile',{},async(request,reply)=>{
     const parsed=preferences.safeParse(request.body);
     if(!/^[a-zA-Z0-9_-]{1,40}$/.test(request.params.profile)||request.params.profile.startsWith('service_')||!parsed.success)return reply.code(400).send({code:'INVALID_PREFERENCES'});
-    if(!store)return reply.code(503).send({code:'SYNC_UNAVAILABLE',message:'सेटिंग इस फ़ोन पर सुरक्षित है।'});
+    if(!storeAvailable())return reply.code(503).send({code:'SYNC_UNAVAILABLE',message:'सेटिंग इस फ़ोन पर सुरक्षित है।'});
     await store.updateOne({_id:request.params.profile},{$set:{preferences:parsed.data,updatedAt:new Date()}},{upsert:true});
     return {saved:true};
   });

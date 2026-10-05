@@ -38,7 +38,24 @@ function currency(token){
   }
   return numeric(number)+(fraction!==undefined&&fraction.length>2?' रुपये':unit);
 }
+
+// Only explicit unit/time contexts are expanded. Bare 3:2 and ambiguous dates stay literal.
+const CONTEXT=new RegExp(`https?://[^\\s]+|www\\.[^\\s]+|[\\w.+-]+@[\\w.-]+\\.[a-zA-Z]{2,}|(?<![\\p{L}\\p{M}\\p{N}_])(?:${D}{1,2}:${D}{2}\\s*(?:AM|PM|बजे)|${D}+(?:,${D}+)*(?:\\.${D}+)?\\s*(?:mg|mcg|kg|ml|g|l|%|रुपये|रुपया))(?![\\p{L}\\p{M}\\p{N}_])`,'giu');
+function contextual(text){return text.replace(CONTEXT,token=>{
+ if(/^(?:https?:|www\.)/i.test(token)||token.includes('@'))return token;
+ const asciiToken=ascii(token);
+ const clock=/^(\d{1,2}):(\d{2})\s*(AM|PM|बजे)$/i.exec(asciiToken);
+ if(clock){const h=Number(clock[1]),m=Number(clock[2]),meridiem=clock[3].toUpperCase();if(m>59||h>23||(meridiem!=='बजे'&&(h<1||h>12)))return token;
+ const period=meridiem==='AM'?(h===12||h<4?'रात ':'सुबह '):meridiem==='PM'?(h===12||h<4?'दोपहर ':h<8?'शाम ':'रात '):'';
+ return period+cardinal(h)+(m?' बजकर '+cardinal(m)+' मिनट':' बजे');}
+ const measure=/^([0-9]+(?:,[0-9]+)*(?:\.[0-9]+)?)\s*(mg|mcg|kg|ml|g|l|%|रुपये|रुपया)$/i.exec(asciiToken);
+ if(!measure)return token;
+ const unit={mg:'मिलीग्राम',mcg:'माइक्रोग्राम',kg:'किलोग्राम',ml:'मिलिलीटर',g:'ग्राम',l:'लीटर','%':'प्रतिशत',रुपये:'रुपये',रुपया:'रुपया'}[measure[2].toLowerCase()];
+ return numeric(measure[1])+' '+unit;
+});}
+
 export function hindiSpeech(text){
+  text=contextual(text);
   return text.replace(TOKEN,(token,offset)=>{
     if(/^(?:https?:|www\.)/iu.test(token)||token.includes('@'))return token;
     const before=text.slice(0,offset),after=text.slice(offset+token.length);
