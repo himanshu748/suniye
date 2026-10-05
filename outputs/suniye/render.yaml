@@ -12,12 +12,16 @@ services:
         value: 22.18.0
       - key: FAMILY_TOKEN
         generateValue: true
-      - key: MODEL_BASE_URL
+      - key: MODEL_PROTOCOL
+        value: backboard
+      - key: BACKBOARD_API_KEY
+        sync: false
+      - key: BACKBOARD_DAILY_LIMIT
+        value: 8
+      - key: SERPAPI_API_KEY
         sync: false
       - key: MODEL_ID
         value: google/gemma-3-4b-it
-      - key: MODEL_API_KEY
-        sync: false
       - key: ELEVENLABS_API_KEY
         sync: false
       - key: ELEVENLABS_VOICE_ID

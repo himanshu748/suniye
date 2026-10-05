@@ -9,7 +9,7 @@ const queries=[
  'site:support.google.com/android "Learn about restricted settings"',
  'site:mi.com/global/support/faq/ "Redmi A4" autostart',
 ];
-export async function searchSetup(env=process.env,fetcher=fetch){
+export async function searchSetup(env=process.env,fetcher=fetch,{allowEmpty=false}={}){
  if(!env.SERPAPI_API_KEY)throw new PublicError('GUIDE_NOT_CONFIGURED','परिवार की सेटिंग की मदद के लिए SERPAPI_API_KEY अभी नहीं जोड़ा गया है।');
  const sources=[],searchOutcomes=[];
  for(const q of queries){
@@ -32,7 +32,7 @@ export async function searchSetup(env=process.env,fetcher=fetch){
   }
   searchOutcomes.push({queryIndex:searchOutcomes.length+1,status:'results',retainedSources:sources.length-before});
  }
- if(!sources.length)throw new Error('No official support results. Use manual caregiver setup.');
+ if(!sources.length&&!allowEmpty)throw new Error('No official support results. Use manual caregiver setup.');
  return {retrievedAt:new Date().toISOString(),queries,sources,searchOutcomes};
 }
 export async function createSetupGuide(env=process.env,fetcher=fetch,onSources=async()=>{}){

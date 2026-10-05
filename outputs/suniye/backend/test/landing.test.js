@@ -26,7 +26,7 @@ test('every allowlisted public asset is byte-identical with intended MIME',async
     assert.deepEqual(response.rawPayload,await readFile(new URL('../../../../landing/'+file,import.meta.url)),file);
     assert.equal(response.headers['content-type'],mime,url);assert.equal(response.headers['x-content-type-options'],'nosniff');
   }
-  assert.equal(Object.keys(landingFiles).length,9);assert.equal(calls(),0);
+  assert.equal(Object.keys(landingFiles).length,12);assert.equal(calls(),0);
 });
 test('no wildcard or traversal can serve server source, docs or environment files',async t=>{
   const {app,calls}=await server(t);
