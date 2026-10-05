@@ -1,0 +1,62 @@
+{
+  "recordedAt": "2026-10-05T04:38:22.817Z",
+  "startedAtEpochMs": 1791175063334,
+  "environment": "Android 11 emulator, font scale 1.6",
+  "imageSource": "नमस्ते",
+  "pdfPageOne": "बिल",
+  "pdfPageTwo": "धन्यवाद",
+  "events": [
+    {
+      "name": "home",
+      "elapsedMs": 2451
+    },
+    {
+      "name": "image-picker",
+      "elapsedMs": 4070
+    },
+    {
+      "name": "image-selected",
+      "elapsedMs": 4510
+    },
+    {
+      "name": "image-read-complete",
+      "elapsedMs": 8691
+    },
+    {
+      "name": "pdf-picker",
+      "elapsedMs": 13024
+    },
+    {
+      "name": "pdf-selected",
+      "elapsedMs": 13272
+    },
+    {
+      "name": "pdf-page-one-complete",
+      "elapsedMs": 16839
+    },
+    {
+      "name": "pdf-next-page",
+      "elapsedMs": 20521
+    },
+    {
+      "name": "pdf-page-two-complete",
+      "elapsedMs": 23087
+    },
+    {
+      "name": "stop",
+      "elapsedMs": 25643
+    },
+    {
+      "name": "whatsapp-help",
+      "elapsedMs": 26229
+    },
+    {
+      "name": "whatsapp-share-help",
+      "elapsedMs": 33355
+    }
+  ],
+  "picker": "Synthetic ACTION_SEND intents with real MediaStore PNG/PDF content URIs. Share receiver, OCR and paging exercised; no real external WhatsApp sender or completed file-picker test.",
+  "reading": "Bundled OCR, actual backend Hindi TTS and MediaPlayer; base rate 1, playback .85",
+  "whatsapp": "Actual Suniye help screen only; no WhatsApp account or real WhatsApp integration test",
+  "recordingStartHostEpochMs": 1791175058683
+}

@@ -1,0 +1,9 @@
+{
+  "checkedAt": "2026-10-05T04:37:38.259Z",
+  "android": "11",
+  "fontScale": 1.600000023841858,
+  "original": "देय ₹1250।",
+  "wordHelp": "शब्दों की मदद। ये शब्दकोश के सामान्य अर्थ हैं। देय का मतलब है: जो देना बाकी है। मूल पाठ ज्यों का त्यों। देय ₹1250।",
+  "passed": true,
+  "checks": "Seven authored error mappings and bundled Raju clips; hosted source + dictionary audio; distinct help label and original control; offline current-audio replay; cache restore; missing-cache explicit recovery; Stop"
+}

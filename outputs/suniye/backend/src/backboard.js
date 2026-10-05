@@ -8,9 +8,13 @@ export function backboardAdapter(env,fetcher=fetch) {
  const endpoint='https://app.backboard.io/api';
  async function reserve(){
   if(!store)throw new PublicError('MODEL_NOT_CONFIGURED','AI की सेटिंग अभी नहीं जुड़ी है। मूल पाठ सुनिए।',503);
-  const id='service_backboard_'+new Date().toISOString().slice(0,10);
+  const day=new Date().toISOString().slice(0,10);
+  // Explicit operator-approved single validation slot, expiring at UTC midnight.
+  // No counter reset; all ordinary days remain capped at eight attempts.
+  const dailyLimit=limit+(env.BACKBOARD_VALIDATION_DATE===day?1:0);
+  const id='service_backboard_'+day;
   try{await store.updateOne({_id:id},{$setOnInsert:{calls:0,purpose:'model-call-limit'}},{upsert:true});}catch(e){if(e.code!==11000)throw e;}
-  const reserved=await store.findOneAndUpdate({_id:id,calls:{$lt:limit}},{$inc:{calls:1},$set:{updatedAt:new Date()}},{returnDocument:'after'});
+  const reserved=await store.findOneAndUpdate({_id:id,calls:{$lt:dailyLimit}},{$inc:{calls:1},$set:{updatedAt:new Date()}},{returnDocument:'after'});
   if(!reserved)throw new PublicError('MODEL_DAILY_LIMIT','आज की AI सीमा पूरी है। अगली सुबह साढ़े पाँच बजे फिर मिलेगी। मूल पाठ और शब्दों की मदद अभी सुन सकते हैं।',429);
  }
  return {

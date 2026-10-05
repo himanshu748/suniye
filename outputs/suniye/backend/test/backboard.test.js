@@ -57,3 +57,13 @@ test('hosted picture fallback uploads nothing and consumes no model or speech qu
  const adapter=backboardAdapter(env,fetcher);adapter.setStore(counter);
  await assert.rejects(adapter.complete({model,messages:[{role:'user',content:[{type:'image_url',image_url:{url:image}}]}]}),e=>e.code==='PICTURE_NOT_AVAILABLE');assert.equal(counter.count(),0);assert.equal(requests,0);
 });
+
+test('dated validation allowance permits exactly nine attempts only on the approved UTC date',async()=>{
+ for(const date of [new Date().toISOString().slice(0,10),'2000-01-01']){
+  let requests=0;const adapter=backboardAdapter({BACKBOARD_API_KEY:'fixture',BACKBOARD_VALIDATION_DATE:date},async()=>{requests++;throw Error('uncertain');});const counter=quota();adapter.setStore(counter);
+  const expected=date==='2000-01-01'?8:9;
+  for(let i=0;i<expected;i++)await assert.rejects(adapter.complete({messages,model}));
+  await assert.rejects(adapter.complete({messages,model}),e=>e.code==='MODEL_DAILY_LIMIT');
+  assert.equal(requests,expected);assert.equal(counter.count(),expected);
+ }
+});

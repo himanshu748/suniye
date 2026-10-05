@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-10-05T04:38:27Z",
+  "apkVersion": "0.4.0-parent-ux",
+  "apkSHA256": "9ddd02e7486380531d302c8afc547fff6fc3151365fb94db3406a6f33c15b710",
+  "endpoint": "https://suniye-reader.onrender.com",
+  "transport": "Direct Android HTTPS through emulator AndroidWifi. Normal certificate validation; no relay.",
+  "scope": "Android 11 emulator, font scale 1.6. Synthetic fixtures and instrumentation actions. Not physical Redmi, real WhatsApp sender or parent comprehension.",
+  "passed": true,
+  "checks": [
+    {
+      "probe": "ParentUsabilityProbe",
+      "passed": true,
+      "output": "INSTRUMENTATION_RESULT: fontScale=1.6\nINSTRUMENTATION_RESULT: parentUi=PASS: Repeat/Slow visible before long source, Stop after scroll, inactive microphone absent, explanation collapsed, Slow toggle restores usual speed, cached real Raju bill plays offline, bundled Raju instructions stop correctly\nINSTRUMENTATION_RESULT: scope=Android 11 Activity view render and media-state test; System UI unreliable; no physical touch, parent comprehension or Redmi claim\nINSTRUMENTATION_CODE: -1\n"
+    },
+    {
+      "probe": "RecoveryProbe",
+      "passed": true,
+      "output": "INSTRUMENTATION_RESULT: recovery=PASS: hosted word help, original preservation, cached replay and recovery messages\nINSTRUMENTATION_CODE: -1\n"
+    },
+    {
+      "probe": "MediaDemo",
+      "passed": true,
+      "output": "INSTRUMENTATION_RESULT: demo=PASS: image/PDF share intents, OCR and Raju playback, second PDF page, Stop and labelled WhatsApp help\nINSTRUMENTATION_CODE: -1\n"
+    }
+  ]
+}
