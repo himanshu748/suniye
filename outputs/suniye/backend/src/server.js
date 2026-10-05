@@ -45,7 +45,7 @@ export async function buildServer({env=process.env, model=modelProvider(env),spe
     return reply.code(status).send({code:error instanceof PublicError?error.code:status===413?'TOO_LARGE':status===429?'BUSY':status>=400&&status<500?'INVALID_INPUT':'READ_FAILED',message:error instanceof PublicError?error.message:status===429?'थोड़ी देर रुककर फिर कोशिश करें।':'यह पढ़ नहीं पाया। फिर कोशिश करें।'});
   });
   registerLanding(app);
-  app.get('/health',async()=>({status:'ok',revision:env.RENDER_GIT_COMMIT?.slice(0,12),capabilities:{model:model.id,modelProvider:model.runtimeProvider||'test',modelConfigured:model.runtimeConfigured?.()||false,hindiSpeech:speech.configured,preferenceSync:Boolean(store),tracing:Boolean(env.SENTRY_DSN),caregiverHelp:true,currentSupportSearch:Boolean(store&&env.SERPAPI_API_KEY)}}));
+  app.get('/health',async()=>({status:'ok',revision:env.RENDER_GIT_COMMIT?.slice(0,12),capabilities:{model:model.id,modelProvider:model.runtimeProvider||'test',modelConfigured:model.runtimeConfigured?.()||false,hindiSpeech:speech.configured,pictureDescription:model.pictureDescriptionAvailable===true,preferenceSync:Boolean(store),tracing:Boolean(env.SENTRY_DSN),caregiverHelp:true,currentSupportSearch:Boolean(store&&env.SERPAPI_API_KEY)}}));
   app.get('/v1/caregiver/help/:topic',async request=>support.help(request.params.topic));
   app.post('/v1/caregiver/search',{config:{rateLimit:{max:3,timeWindow:'1 minute'}}},async(request,reply)=>{
     if(request.body&&Object.keys(request.body).length)return reply.code(400).send({code:'INVALID_INPUT'});

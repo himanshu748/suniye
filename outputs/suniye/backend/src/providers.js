@@ -54,8 +54,12 @@ export function modelProvider(env = process.env, fetcher = fetch) {
     runtimeProvider:backboard?'backboard':native?'ollama':'openai-compatible',
     setQuotaStore:backboard?store=>backboard.setStore(store):undefined,
     runtimeConfigured:()=>backboard?backboard.configured():Boolean(env.MODEL_BASE_URL),
+    pictureDescriptionAvailable:!backboard,
     extract: async (input,signal) => {
       if (input.text) return {kind:'reading', originalText:input.text, description:'', retakeReason:''};
+      // Backboard attachments enable document retrieval, which this Gemma route
+      // cannot serve. Keep images out of that service instead of spending a call.
+      if(backboard)return {kind:'retake',originalText:'',description:'',retakeReason:'चित्र का वर्णन अभी उपलब्ध नहीं है। लिखावट हो तो पास से छोटा और साफ़ हिस्सा दोबारा लें।'};
       const result=parseExtraction(await generate([
         {role:'system',content:INSTRUCTIONS},
         {role:'user',content:[{type:'text',text:'Describe the visible picture in Hindi using the required JSON. Clear shapes and illustrations are acceptable.'},{type:'image_url',image_url:{url:input.image}}]},

@@ -1,5 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {modelProvider} from '../src/providers.js';
+import {makeReadingWorkflow} from '../src/workflow.js';
 import {backboardAdapter} from '../src/backboard.js';
 
 const model='google/gemma-3-4b-it';
@@ -24,4 +26,15 @@ test('Backboard rejects a foreign or incomplete model answer before it reaches n
  const adapter=backboardAdapter({BACKBOARD_API_KEY:'fixture'},async()=>Response.json({status:'COMPLETED',model_name:'wrong-model',model_provider:'openrouter',content:'invented'}));adapter.setStore(quota());
  await assert.rejects(adapter.complete({messages,model}),e=>e.code==='INCOMPLETE');
  await assert.rejects(adapter.complete({messages:[{role:'user',content:'x'.repeat(3001)}],model}),e=>e.code==='INCOMPLETE');
+});
+
+test('hosted picture fallback uploads nothing and consumes no model or speech quota',async()=>{
+ let requests=0,narrations=0;const counter=quota();const env={MODEL_PROTOCOL:'backboard',MODEL_ID:model,BACKBOARD_API_KEY:'fixture'};
+ const fetcher=async()=>{requests++;throw Error('must not upload an image');};const provider=modelProvider(env,fetcher);provider.setQuotaStore(counter);
+ const image='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAB';
+ const flow=makeReadingWorkflow(provider,{narrate:async()=>{narrations++;}});
+ const result=await flow.run({requestId:'12345678-1234-4234-8234-123456789012',language:'hi',mode:'read',image,wantAudio:true});
+ assert.equal(result.kind,'retake');assert.match(result.retakeReason,/उपलब्ध नहीं/);assert.equal(requests,0);assert.equal(narrations,0);assert.equal(counter.count(),0);assert.equal(provider.pictureDescriptionAvailable,false);
+ const adapter=backboardAdapter(env,fetcher);adapter.setStore(counter);
+ await assert.rejects(adapter.complete({model,messages:[{role:'user',content:[{type:'image_url',image_url:{url:image}}]}]}),e=>e.code==='PICTURE_NOT_AVAILABLE');assert.equal(counter.count(),0);assert.equal(requests,0);
 });

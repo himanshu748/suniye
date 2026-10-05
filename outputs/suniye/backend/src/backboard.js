@@ -23,16 +23,9 @@ export function backboardAdapter(env,fetcher=fetch) {
    const content=user.map(m=>Array.isArray(m.content)?m.content.filter(p=>p.type==='text').map(p=>p.text).join('\n'):m.content).join('\n');
    if(content.length>3000)throw new PublicError('INCOMPLETE','AI के लिए छोटा हिस्सा खोलकर फिर कोशिश करें।',422);
    const images=user.flatMap(m=>Array.isArray(m.content)?m.content.filter(p=>p.type==='image_url').map(p=>p.image_url.url):[]);
+   if(images.length)throw new PublicError('PICTURE_NOT_AVAILABLE','चित्र का वर्णन अभी उपलब्ध नहीं है। लिखावट का साफ़ फ़ोटो लें।',503);
    const body={content,system_prompt:messages.filter(m=>m.role==='system').map(m=>m.content).join('\n'),llm_provider:'openrouter',model_name:model,memory:'off',web_search:'off',image_generation:'off',video_generation:'off',tools:[],stream:false,thinking:null,json_output:Boolean(schema)};
-   let payload=JSON.stringify(body),headers={'X-API-Key':env.BACKBOARD_API_KEY,'content-type':'application/json'};
-   if(images.length){
-    if(images.length!==1)throw new PublicError('INVALID_IMAGE','एक साफ़ चित्र भेजें।',422);
-    const match=/^data:(image\/(?:png|jpeg));base64,([A-Za-z0-9+/=]+)$/.exec(images[0]);
-    if(!match)throw new PublicError('INVALID_IMAGE','चित्र दोबारा चुनें।',422);
-    const bytes=Buffer.from(match[2],'base64');if(bytes.length>1000000)throw new PublicError('INVALID_IMAGE','चित्र का छोटा हिस्सा दोबारा लें।',422);
-    payload=new FormData();for(const [key,value]of Object.entries(body))if(value!==null)payload.set(key,typeof value==='string'?value:JSON.stringify(value));
-    payload.append('files',new Blob([bytes],{type:match[1]}),'reading.'+(match[1]==='image/png'?'png':'jpg'));headers={'X-API-Key':env.BACKBOARD_API_KEY};
-   }
+   const payload=JSON.stringify(body),headers={'X-API-Key':env.BACKBOARD_API_KEY,'content-type':'application/json'};
    await reserve();if(signal?.aborted)throw new PublicError('CANCELLED','पढ़ना रोक दिया गया।',499);
    let thread;
    try{
