@@ -35,7 +35,7 @@ export function hostedSupport(env,store,fetcher=fetch){
  return {
   async help(topic){
    if(!helpTopics.includes(topic))throw new PublicError('INVALID_TOPIC','नीचे दिए मदद के बटन में से चुनें।',400);
-   ready??=initialise();const {version,workflow}=await ready;
+   ready??=initialise().catch(async error=>{if(database)try{await database.close();}catch{}database=undefined;ready=undefined;throw error;});const {version,workflow}=await ready;
    return {...await workflow.run(frozen.queries[topic].text),topic,pgvector:version,dimensions:384,corpusHash,embeddingMode:'Frozen public-source and fixed-topic vectors; live pgvector retrieval'};
   },
   async search(){inflight??=freshSearch().finally(()=>{inflight=undefined;});return inflight;},

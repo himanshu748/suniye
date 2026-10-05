@@ -18,19 +18,19 @@ export async function searchSetup(env=process.env,fetcher=fetch,{allowEmpty=fals
   if(!response.ok)throw new Error('Setup search unavailable.');
   const bytes=await response.text();if(bytes.length>500000)throw new Error('Setup response too large.');
   const data=JSON.parse(bytes);
-  if(data.search_information?.organic_results_state==='Fully empty'){searchOutcomes.push({queryIndex:searchOutcomes.length+1,status:'empty',retainedSources:0});continue;}
+  if(data.search_information?.organic_results_state==='Fully empty'){searchOutcomes.push({queryIndex:searchOutcomes.length+1,status:'empty',rawRows:0,retainedSources:0,rejected:{protocol:0,host:0,path:0,topic:0,duplicate:0,invalid:0}});continue;}
   if(data.error)throw new Error('Setup search unavailable.');
-  const before=sources.length;
-  for(const row of (data.organic_results||[]).slice(0,5)){
-   try{const url=new URL(row.link);if(url.protocol!=='https:'||!['support.google.com','mi.com','www.mi.com'].includes(url.hostname))continue;
+  const before=sources.length,rows=(data.organic_results||[]).slice(0,5),rejected={protocol:0,host:0,path:0,topic:0,duplicate:0,invalid:0};
+  for(const row of rows){
+   try{const url=new URL(row.link);if(url.protocol!=='https:'){rejected.protocol++;continue;}if(!['support.google.com','mi.com','www.mi.com'].includes(url.hostname)){rejected.host++;continue;}
     // Community threads share Google's support host but are user-authored.
-    if(url.hostname==='support.google.com'&&!/^\/android\/answer\//.test(url.pathname))continue;
-    if(['mi.com','www.mi.com'].includes(url.hostname)&&!/^\/(?:global\/)?support\//.test(url.pathname))continue;
-    if(!/restricted settings|accessibility|autostart|background|app permissions|Redmi A4/i.test(String(row.title||'')+' '+String(row.snippet||'')))continue;
-    if(!sources.some(s=>s.url===url.href))sources.push({title:String(row.title||'Official support').slice(0,200),url:url.href,snippet:String(row.snippet||'').slice(0,1000)});
-   }catch{}
+    if(url.hostname==='support.google.com'&&!/^\/android\/answer\//.test(url.pathname)){rejected.path++;continue;}
+    if(['mi.com','www.mi.com'].includes(url.hostname)&&!/^\/(?:global\/)?support\//.test(url.pathname)){rejected.path++;continue;}
+    if(!/restricted settings|accessibility|autostart|background|app permissions|Redmi A4/i.test(String(row.title||'')+' '+String(row.snippet||''))){rejected.topic++;continue;}
+    if(sources.some(s=>s.url===url.href)){rejected.duplicate++;continue;}sources.push({title:String(row.title||'Official support').slice(0,200),url:url.href,snippet:String(row.snippet||'').slice(0,1000)});
+   }catch{rejected.invalid++;}
   }
-  searchOutcomes.push({queryIndex:searchOutcomes.length+1,status:'results',retainedSources:sources.length-before});
+  searchOutcomes.push({queryIndex:searchOutcomes.length+1,status:rows.length?'results':'empty',rawRows:rows.length,retainedSources:sources.length-before,rejected});
  }
  if(!sources.length&&!allowEmpty)throw new Error('No official support results. Use manual caregiver setup.');
  return {retrievedAt:new Date().toISOString(),queries,sources,searchOutcomes};
@@ -38,7 +38,7 @@ export async function searchSetup(env=process.env,fetcher=fetch,{allowEmpty=fals
 export async function createSetupGuide(env=process.env,fetcher=fetch,onSources=async()=>{}){
  let failure,phase='search';
  const preserveFailure=async(fn)=>{try{return await fn();}catch(error){failure=error;throw error;}};
- const schema=z.object({retrievedAt:z.string(),queries:z.array(z.string()),sources:z.array(z.object({title:z.string(),url:z.string(),snippet:z.string()})),searchOutcomes:z.array(z.object({queryIndex:z.number().int(),status:z.enum(['results','empty']),retainedSources:z.number().int()}))});
+ const schema=z.object({retrievedAt:z.string(),queries:z.array(z.string()),sources:z.array(z.object({title:z.string(),url:z.string(),snippet:z.string()})),searchOutcomes:z.array(z.object({queryIndex:z.number().int(),status:z.enum(['results','empty']),retainedSources:z.number().int(),rawRows:z.number().int(),rejected:z.record(z.string(),z.number().int())}))});
  const search=createStep({id:'find-official-setup',inputSchema:z.object({}),outputSchema:schema,execute:async()=>preserveFailure(async()=>{const result=await searchSetup(env,fetcher);await onSources(result);return result;})});
  const guideSchema=schema.extend({summary:z.string(),sourceIndices:z.array(z.number().int())});
  const summary=createStep({id:'explain-official-snippets',inputSchema:schema,outputSchema:guideSchema,execute:async({inputData})=>{phase='summary';return preserveFailure(async()=>({ ...inputData,...await modelProvider(env,fetcher).summarizeSupport(inputData.sources)}));}});

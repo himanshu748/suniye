@@ -26,16 +26,20 @@ export function backboardAdapter(env,fetcher=fetch) {
    if(images.length)throw new PublicError('PICTURE_NOT_AVAILABLE','चित्र का वर्णन अभी उपलब्ध नहीं है। लिखावट का साफ़ फ़ोटो लें।',503);
    const body={content,system_prompt:messages.filter(m=>m.role==='system').map(m=>m.content).join('\n'),llm_provider:'openrouter',model_name:model,memory:'off',web_search:'off',image_generation:'off',video_generation:'off',tools:[],stream:false,thinking:null,json_output:Boolean(schema)};
    const payload=JSON.stringify(body),headers={'X-API-Key':env.BACKBOARD_API_KEY,'content-type':'application/json'};
+   if(signal?.aborted)throw new PublicError('CANCELLED','पढ़ना रोक दिया गया।',499);
    await reserve();if(signal?.aborted)throw new PublicError('CANCELLED','पढ़ना रोक दिया गया।',499);
    let thread;
    try{
-    const response=await fetcher(endpoint+'/threads/messages',{method:'POST',redirect:'error',signal,headers,body:payload});
+    // Once dispatched, finish the bounded response so Stop still permits cleanup
+    // of its returned thread. Nothing is delivered to a cancelled reader.
+    const response=await fetcher(endpoint+'/threads/messages',{method:'POST',redirect:'error',signal:AbortSignal.timeout(45000),headers,body:payload});
     if(!response.ok){await response.body?.cancel();throw new PublicError('MODEL_UNAVAILABLE','AI अभी नहीं मिला। मूल पाठ सुनिए।',503);}
     const reader=response.body.getReader(),chunks=[];let size=0;
     for(;;){const {done,value}=await reader.read();if(done)break;size+=value.length;if(size>250000){await reader.cancel();throw new PublicError('INCOMPLETE','AI का उत्तर पूरा नहीं मिला।',422);}chunks.push(value);}
     const raw=Buffer.concat(chunks).toString('utf8');
     const data=JSON.parse(raw);thread=data.thread_id;
     if(data.status!=='COMPLETED'||data.model_name!==model||data.model_provider!=='openrouter'||data.tool_calls?.length||typeof data.content!=='string'||!data.content.trim()||data.content.length>25000)throw new PublicError('INCOMPLETE','AI का उत्तर पूरा नहीं मिला। मूल पाठ सुनिए।',422);
+    if(signal?.aborted)throw new PublicError('CANCELLED','पढ़ना रोक दिया गया।',499);
     return {model,choices:[{message:{content:data.content},finish_reason:'stop'}],usage:{prompt_tokens:data.input_tokens,completion_tokens:data.output_tokens,total_tokens:data.total_tokens}};
    }finally{
     // Delete only the request's returned thread. An uncertain call is not retried.

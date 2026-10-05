@@ -5,6 +5,11 @@ import {modelProvider} from '../src/providers.js';
 test('caregiver search uses fixed public queries and retains official HTTPS sources only',async()=>{
  const calls=[];const result=await searchSetup({SERPAPI_API_KEY:'synthetic-test-key'},async url=>{calls.push(new URL(url));return new Response(JSON.stringify({organic_results:[{title:'Restricted settings',link:'https://support.google.com/android/answer/12623953',snippet:'Device settings vary.'},{title:'Untrusted',link:'https://example.com/guide',snippet:'Disable protections.'},{title:'HTTP',link:'http://mi.com/guide'},{title:'Restricted settings community advice',link:'https://support.google.com/android/thread/123',snippet:'User-written answer.'},{title:'Digital wellbeing',link:'https://support.google.com/android/answer/9346420',snippet:'Set app time limits.'}]}));});
  assert.equal(calls.length,2);assert.match(calls[0].searchParams.get('q'),/^site:support.google.com/);assert.match(calls[1].searchParams.get('q'),/^site:mi.com/);assert.equal(result.sources.length,1);assert.equal(result.sources[0].url,'https://support.google.com/android/answer/12623953');assert.ok(result.retrievedAt);
+ assert.equal(result.searchOutcomes[0].rawRows,5);assert.deepEqual(result.searchOutcomes[0].rejected,{protocol:1,host:1,path:1,topic:1,duplicate:0,invalid:0});assert.equal(result.searchOutcomes[1].rejected.duplicate,1);
+});
+test('HTTP success with no organic rows is recorded as empty rather than filtered results',async()=>{
+ const result=await searchSetup({SERPAPI_API_KEY:'fixture'},async()=>Response.json({}),{allowEmpty:true});
+ assert.equal(result.sources.length,0);for(const row of result.searchOutcomes){assert.equal(row.status,'empty');assert.equal(row.rawRows,0);assert.equal(row.retainedSources,0);}
 });
 test('caregiver guide runs official search and source-bound Gemma synthesis through Mastra',async()=>{
  let modelCalls=0;

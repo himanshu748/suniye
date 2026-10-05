@@ -71,6 +71,26 @@ test('unfinished native model output is not accepted as a reading',async()=>{
 });
 
 const completion=text=>async()=>new Response(JSON.stringify({choices:[{finish_reason:'stop',message:{content:text}}]}));
+test('Sonnet meaning-flip probes are rejected before narration',async()=>{
+ for(const [source,result] of [
+  ['दवा खाने के बाद लें।','दवा खाने से पहले लें।'],
+  ['यह दवा 3 दिन तक लें।','यह दवा 3 हफ़्ते तक लें।'],
+  ['बिल की अंतिम तारीख 12 अक्टूबर है।','बिल की पहली तारीख 12 अक्टूबर है।'],
+  ['सोमवार को आएँ।','मंगलवार को आएँ।'],
+  ['₹1250 जमा करें।','₹1250 निकालें।'],
+  ['पैसे वापस मिलेंगे।','पैसे देने होंगे।'],
+  ['12 अक्टूबर को आएँ।','12 नवंबर को आएँ।'],
+ ])await assert.rejects(modelProvider({},completion(result)).explain(source),e=>e.code==='UNFAITHFUL');
+ assert.match(await modelProvider({},completion('दूध फ्रिज में है।')).explain('दूध फ्रिज में रखा है।'),/AI से गलती हो सकती है/);
+});
+test('preferences cannot overwrite or read internal quota and search records',async t=>{
+ let calls=0;const app=await server(t,{preferenceStore:{findOne:async()=>{calls++;},updateOne:async()=>{calls++;}}});
+ for(const method of ['GET','PUT'])for(const profile of ['service_backboard_2026-10-06','service_support_cache']){
+  const r=await app.inject({method,url:'/v1/preferences/'+profile,headers:{authorization:'Bearer '+token},...(method==='PUT'?{payload:{language:'hi',speed:.85,textScale:1,placement:'left'}}:{})});
+  assert.equal(r.statusCode,400);
+ }
+ assert.equal(calls,0);
+});
 test('explanation cannot swap quantities assigned to different items',async()=>{
  await assert.rejects(modelProvider({},completion('दूध ₹30 है और चावल ₹20 है।')).explain('दूध ₹20, चावल ₹30'),e=>e.code==='UNFAITHFUL');
 });

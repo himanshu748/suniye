@@ -64,13 +64,13 @@ export async function buildServer({env=process.env, model=modelProvider(env),spe
   });
   app.get('/v1/preferences/:profile',{},async(request,reply)=>{
     if(!store)return reply.code(503).send({code:'SYNC_UNAVAILABLE',message:'सेटिंग इस फ़ोन पर सुरक्षित है।'});
-    if(!/^[a-zA-Z0-9_-]{1,40}$/.test(request.params.profile))return reply.code(400).send({code:'INVALID_PROFILE'});
+    if(!/^[a-zA-Z0-9_-]{1,40}$/.test(request.params.profile)||request.params.profile.startsWith('service_'))return reply.code(400).send({code:'INVALID_PROFILE'});
     const doc=await store.findOne({_id:request.params.profile});
     return {preferences:doc?.preferences||null};
   });
   app.put('/v1/preferences/:profile',{},async(request,reply)=>{
     const parsed=preferences.safeParse(request.body);
-    if(!/^[a-zA-Z0-9_-]{1,40}$/.test(request.params.profile)||!parsed.success)return reply.code(400).send({code:'INVALID_PREFERENCES'});
+    if(!/^[a-zA-Z0-9_-]{1,40}$/.test(request.params.profile)||request.params.profile.startsWith('service_')||!parsed.success)return reply.code(400).send({code:'INVALID_PREFERENCES'});
     if(!store)return reply.code(503).send({code:'SYNC_UNAVAILABLE',message:'सेटिंग इस फ़ोन पर सुरक्षित है।'});
     await store.updateOne({_id:request.params.profile},{$set:{preferences:parsed.data,updatedAt:new Date()}},{upsert:true});
     return {saved:true};

@@ -6,6 +6,18 @@ import {backboardAdapter} from '../src/backboard.js';
 
 const model='google/gemma-3-4b-it';
 const messages=[{role:'system',content:'Explain faithfully.'},{role:'user',content:'नमस्ते।'}];
+test('Stop before dispatch spends nothing; Stop after dispatch cleans the returned thread',async()=>{
+ const counter=quota(),controller=new AbortController(),requests=[];
+ const thread='12345678-1234-1234-1234-123456789012';
+ const adapter=backboardAdapter({BACKBOARD_API_KEY:'fixture'},async(url,options)=>{
+  requests.push(url);if(options.method==='DELETE')return new Response(null,{status:204});
+  controller.abort();assert.equal(options.signal.aborted,false);
+  return Response.json({status:'COMPLETED',model_name:model,model_provider:'openrouter',content:'नमस्ते।',thread_id:thread});
+ });adapter.setStore(counter);
+ const stopped=new AbortController();stopped.abort();
+ await assert.rejects(adapter.complete({messages,model,signal:stopped.signal}),e=>e.code==='CANCELLED');assert.equal(counter.count(),0);
+ await assert.rejects(adapter.complete({messages,model,signal:controller.signal}),e=>e.code==='CANCELLED');assert.equal(counter.count(),1);assert.equal(requests.length,2);assert.equal(requests[1],'https://app.backboard.io/api/threads/'+thread);
+});
 function quota(){let calls=0;return {async updateOne(){},async findOneAndUpdate(query){if(calls>=query.calls.$lt)return null;return {calls:++calls};},count:()=>calls};}
 test('Backboard requires a persistent quota and counts uncertain calls without retry',async()=>{
  let calls=0;const adapter=backboardAdapter({BACKBOARD_API_KEY:'fixture'},async()=>{calls++;throw new Error('connection lost');});
