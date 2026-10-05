@@ -1,3 +1,5 @@
+import {MongoNetworkError,MongoServerSelectionError,MongoNotConnectedError} from 'mongodb';
+import {PublicError} from './contracts.js';
 // Never retry a write: its outcome may be unknown. Only reconnect for a future request.
 export async function resilientStore(client,{retryMs=30000}={}) {
  let ready=false,closed=false,pending,lastAttempt=0;
@@ -12,8 +14,11 @@ export async function resilientStore(client,{retryMs=30000}={}) {
  }
  const store={};
  for(const method of ['findOne','updateOne','findOneAndUpdate'])store[method]=async(...args)=>{
-  if(!ready&&!await connect())throw Object.assign(new Error('Preference store unavailable'),{code:'STORE_UNAVAILABLE'});
-  try{return await collection[method](...args);}catch(error){ready=false;lastAttempt=Date.now();throw error;}
+  if(!ready&&!await connect())throw new PublicError('SYNC_UNAVAILABLE','सेटिंग सेवा अभी नहीं मिल रही। मूल पाठ और शब्दों की मदद चलती रहेगी।',503);
+  try{return await collection[method](...args);}catch(error){
+   if(error instanceof MongoNetworkError||error instanceof MongoServerSelectionError||error instanceof MongoNotConnectedError||error.name==='MongoPoolClearedError'||error.name==='MongoPoolClosedError'){ready=false;lastAttempt=Date.now();throw new PublicError('SYNC_UNAVAILABLE','सेटिंग सेवा अभी नहीं मिल रही। मूल पाठ और शब्दों की मदद चलती रहेगी।',503);}
+   throw error;
+  }
  };
  await connect();
  const timer=setInterval(()=>{void connect();},retryMs);timer.unref?.();

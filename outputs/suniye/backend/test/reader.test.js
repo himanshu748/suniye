@@ -201,3 +201,12 @@ test('parent word help preserves every source and never calls a generative provi
  const exact=await p.explain('देय ₹1,250। अंतिम तिथि 12 अक्टूबर।');assert.match(exact,/देय का मतलब/);assert.match(exact,/आखिरी तारीख/);
  assert.ok(!(await p.explain('अदेय amounts')).includes('देय का मतलब'));assert.ok(!(await p.explain('अदेय amounts')).includes('अमाउंट का मतलब'));
 });
+
+test('word help never labels a generated picture description as original',async()=>{
+ const flow=makeReadingWorkflow({...model,extract:async()=>({kind:'reading',originalText:'',description:'A red cup.',retakeReason:''})},speech);
+ await assert.rejects(flow.run(input({mode:'explain'})),e=>e.code==='WORD_HELP_REQUIRES_TEXT');
+});
+test('public page traffic cannot use the authenticated family API bucket',async t=>{
+ const app=await server(t);for(let i=0;i<70;i++)assert.equal((await app.inject('/health')).statusCode,200);
+ assert.equal((await send(app,input())).statusCode,200);
+});

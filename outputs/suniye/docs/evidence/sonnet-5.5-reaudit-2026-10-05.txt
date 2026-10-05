@@ -1,0 +1,75 @@
+Independent Claude Code desktop response, Sonnet 5.5. Source reviewed: affacc6. Extracted from visible UI. Later fixes and runtime evidence are separate.
+
+Suniye re-audit, current source (Sonnet 5.5)
+Scope:
+ The tree you described as dirty is now committed as 
+affacc6
+, and 
+git status
+ is clean. I audited that source read-only. I made no edits or repository copies, and no credentials or provider calls were used. My scratch probes are in the scratchpad.
+Tests actually run
+node --test  on  hindi-speech ,  resilient-store ,  reader ,  hosted-support  and  backboard :  98 of 98 pass . I did not run the full 112 or the Java side, so the 48 shared fixtures are untested by me.
+hindiSpeech  probes on 19 strings, run against both the old  04a7dd1  and the current source.
+A  resilientStore  probe with a fake collection.
+An in-process  buildServer  rate-limit probe using  inject() .
+Not verified:
+ physical-device behaviour, live Render and Atlas behaviour, and the APK.
+High
+H1. Signs are dropped for unit and currency numbers, which regresses a case the old code handled.
+Where:
+backend/src/hindi-speech.js:43-56
+ ( CONTEXT  and  contextual ) and the Java twin  HindiSpeech.java:33-34 .
+Cause:  The new pass runs before  TOKEN . Its lookbehind allows a preceding  - ,  −  or  + , so it consumes only the digits. The sign is left as a bare character and nothing reads it.
+Probes (old to new):
+बैलेंस -500 रुपये है : "माइनस पाँच सौ रुपये" became "-पाँच सौ रुपये".
+−500 रुपये : "माइनस ..." became "−पाँच सौ रुपये".
+छूट -10% है : "माइनस दस%" became "-दस प्रतिशत".
+-5 mg : "माइनस पाँच mg" became "-पाँच मिलीग्राम".
++5%  became "+पाँच प्रतिशत".
+Why it matters:  A debit or negative balance can be heard as a credit.
+Fix:  Allow an optional sign in  CONTEXT , only when it is preceded by the start, whitespace or  ( :  (?:(?<=^|[\s(])[+−-])? . Then pass it to  numeric() , which already says "माइनस" or "प्लस". Keep  5-10 mg  as a range, which currently reads "पाँच-दस मिलीग्राम" and is fine. Change both the JS and Java copies, and add fixtures for each case above, since the current fixtures miss signed units.
+H2. A single Mongo error marks the whole store down for 30 seconds, including expected ones.
+Where: resilient-store.js:16 . Any thrown error sets  ready=false  and  lastAttempt=now , and  connect()  refuses to retry until  retryMs  (30 s) passes.
+Probe:  A fake  updateOne  that throws  {code:11000}  left  available()  false. The next  findOne  threw  STORE_UNAVAILABLE .
+Reachable path: backboard.js:12  deliberately tolerates a duplicate-key error on the first quota upsert of the day. Two concurrent first calls trigger it.  resilientStore  then flags the store down, and the very next  findOneAndUpdate  in  reserve()  throws  STORE_UNAVAILABLE . That one request fails and settings sync and Gemma stay down until the retry window passes. The race is rare, but any application-level Mongo error does the same.
+Fix:  Flag unavailable only for network, selection and timeout errors ( MongoNetworkError ,  MongoNetworkTimeoutError ,  MongoServerSelectionError ,  MongoNotConnectedError ,  MongoPoolClearedError ). Rethrow everything else untouched.
+Related, low: STORE_UNAVAILABLE  is not a  PublicError , so  server.js  returns a generic 500  READ_FAILED . Android maps that to "check your internet" for the caregiver summary and settings calls. Add a  SYNC_UNAVAILABLE  503 mapping.
+Medium
+M1.  ₹  is left in the text when a rupee word follows.
+₹500 रुपये जमा करें  now becomes "₹पाँच सौ रुपये जमा करें". The old output was "पाँच सौ रुपये रुपये", so the doubled word is gone but a stray  ₹  goes to ElevenLabs.
+Fix: let the lookbehind also exclude  ₹ , or consume a preceding  ₹  in the context match.
+M2. Rate-limit design holds, but two limits remain.
+Confirmed by probe:
+70 unauthenticated  /health  hits from one IP gave 60 × 200 then 10 × 429.
+70 bad-token requests gave 60 × 401 then 10 × 429.
+A valid-token request straight afterwards passed and kept its own counter.
+70 more authenticated requests gave exactly 12 × 429 (the 60/min family bucket).
+Limit 1: server.js  has no  trustProxy . Behind Render,  request.ip  is probably the proxy address, so every public visitor to the landing page,  /health  and the static files shares one 60/min bucket. A judge could get a 429 on the landing page after about 60 hits a minute from anyone. I could not check this live. Setting  trustProxy  to the correct hop count fixes it, but verify the real client-IP header on Render first.
+Limit 2:  The authenticated bucket is one shared key for all devices and routes. Three parents plus the caregiver page share 60/min. That is fine for the demo and worth stating.
+Side effect:  The 401 reply is sent from the app-level hook, before the route-level limiter, so the explicit  unauthenticatedLimit  is what counts bad tokens. That works as intended.
+M3. Other cases in the same family as H1.
+4 PM  (no colon) stays "चार PM".
+1.50 रुपये  reads "एक दशमलव पाँच शून्य रुपये", while  ₹1.50  reads "एक रुपया पचास पैसे". The two are inconsistent.
+1,234.50 रुपये  has the same digit-by-digit fraction.
+Both are low-risk, but I'd add fixtures to pin whatever behaviour you choose.
+M4. The word-help response copy and Android cache check out, with one wording issue.
+Confirmed: explain  returns  originalText  (the source), so  lastSource  is the real source.  readOriginal()  re-reads the source and sets  wordHelp=false .  repeat()  replays the cached help audio, or announces that no saved voice exists.
+Wording: wordHelp()  prefixes "मूल पाठ ज्यों का त्यों।". For an image reading,  workflow.js  passes  source.originalText || source.description  into  explain . That would label a model-written description as "the source as it is". It is unreachable while  pictureDescription  is false, but add a guard in  wordHelp  so it never labels a description as original.
+Cost:  The help text plus the full source doubles the characters narrated. The existing 10,000-character guard in  providers.js:99  returns no audio for long sources, so a long letter gets help text with silent audio.
+Checked, no finding
+word-help.js
+:  The glossary terms are literals, so there is no regex injection. Boundary matching worked:  due dates  and  पुनःप्रेषक  did not trigger a definition. Matching is case-insensitive, so  DUE DATE  matches.
+Caregiver page: caregiver.js  uses  textContent  and  replaceChildren , with no  innerHTML .
+Support topics: support.help  rejects any topic outside the fixed list, and the summary route rejects any request body.
+Gemma prompt:  The prompt says the snippets are untrusted data. Snippets come from SerpApi results stored in Atlas, so injection is possible in principle. The output is shown only to the caregiver and is not spoken to parents.
+Docs
+Docs are still awaiting update, as you said. I did not re-read them this round, so the stale items from my earlier report may still stand.
+Priority order
+H1, both implementations plus fixtures.
+H2, error classification in  resilient-store.js .
+M1 (the  ₹  leftover).
+trustProxy  check on Render.
+Blocked on you:
+ nothing for the code fixes. Setting 
+trustProxy
+ needs someone to look at Render's actual forwarded-IP header.

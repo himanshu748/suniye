@@ -30,15 +30,16 @@ public final class HindiSpeech {
     }
     private static boolean adjacent(int codepoint){return Character.isLetterOrDigit(codepoint)||Character.getType(codepoint)==Character.NON_SPACING_MARK||Character.getType(codepoint)==Character.COMBINING_SPACING_MARK||Character.getType(codepoint)==Character.ENCLOSING_MARK||Character.getType(codepoint)==Character.OTHER_NUMBER||Character.getType(codepoint)==Character.LETTER_NUMBER||codepoint=='_';}
 
-    private static final Pattern CONTEXT=Pattern.compile("https?://[^\\s]+|www\\.[^\\s]+|[\\w.+-]+@[\\w.-]+\\.[a-zA-Z]{2,}|(?<![\\p{L}\\p{M}\\p{N}_])(?:"+D+"{1,2}:"+D+"{2}\\s*(?:AM|PM|बजे)|"+D+"+(?:,"+D+"+)*(?:\\."+D+"+)?\\s*(?:mg|mcg|kg|ml|g|l|%|रुपये|रुपया))(?![\\p{L}\\p{M}\\p{N}_])",Pattern.CASE_INSENSITIVE);
+    private static final Pattern CONTEXT=Pattern.compile("https?://[^\\s]+|www\\.[^\\s]+|[\\w.+-]+@[\\w.-]+\\.[a-zA-Z]{2,}|(?<![\\p{L}\\p{M}\\p{N}_+−.\\-])(?:"+MONEY+"\\s*(?:रुपये|रुपया)|"+D+"{1,2}(?::"+D+"{2})?\\s*(?:AM|PM|बजे)|[+−-]?"+D+"+(?:,"+D+"+)*(?:\\."+D+"+)?\\s*(?:mg|mcg|kg|ml|g|l|%|रुपये|रुपया))(?![\\p{L}\\p{M}\\p{N}_])",Pattern.CASE_INSENSITIVE);
     private static String contextual(String text){Matcher match=CONTEXT.matcher(text);StringBuffer out=new StringBuffer();while(match.find()){
         String token=match.group(),replacement=token,value=ascii(token);
         if(!token.matches("(?i)^(?:https?:|www\\.).*")&&!token.contains("@")){
-            Matcher clock=Pattern.compile("^(\\d{1,2}):(\\d{2})\\s*(AM|PM|बजे)$",Pattern.CASE_INSENSITIVE).matcher(value);
-            Matcher measure=Pattern.compile("^([0-9]+(?:,[0-9]+)*(?:\\.[0-9]+)?)\\s*(mg|mcg|kg|ml|g|l|%|रुपये|रुपया)$",Pattern.CASE_INSENSITIVE).matcher(value);
-            if(clock.matches()){int h=Integer.parseInt(clock.group(1)),m=Integer.parseInt(clock.group(2));String part=clock.group(3).toUpperCase(java.util.Locale.ROOT);
+            Matcher clock=Pattern.compile("^(\\d{1,2})(?::(\\d{2}))?\\s*(AM|PM|बजे)$",Pattern.CASE_INSENSITIVE).matcher(value);
+            Matcher measure=Pattern.compile("^([+−-]?[0-9]+(?:,[0-9]+)*(?:\\.[0-9]+)?)\\s*(mg|mcg|kg|ml|g|l|%|रुपये|रुपया)$",Pattern.CASE_INSENSITIVE).matcher(value);
+            if(isMoney(token)){replacement=currency(token.replaceFirst("\\s*(?:रुपये|रुपया)$",""));}
+            else if(clock.matches()){int h=Integer.parseInt(clock.group(1)),m=clock.group(2)==null?0:Integer.parseInt(clock.group(2));String part=clock.group(3).toUpperCase(java.util.Locale.ROOT);
                 if(m<=59&&h<=23&&(part.equals("बजे")||(h>=1&&h<=12))){String period=part.equals("AM")?(h==12||h<4?"रात ":"सुबह "):part.equals("PM")?(h==12||h<4?"दोपहर ":h<8?"शाम ":"रात "):"";replacement=period+cardinal(h)+(m>0?" बजकर "+cardinal(m)+" मिनट":" बजे");}
-            }else if(measure.matches()){String unit=switch(measure.group(2).toLowerCase(java.util.Locale.ROOT)){case "mg"->"मिलीग्राम";case "mcg"->"माइक्रोग्राम";case "kg"->"किलोग्राम";case "ml"->"मिलिलीटर";case "g"->"ग्राम";case "l"->"लीटर";case "%"->"प्रतिशत";default->measure.group(2);};replacement=numeric(measure.group(1),false)+" "+unit;}
+            }else if(measure.matches()){String unit=switch(measure.group(2).toLowerCase(java.util.Locale.ROOT)){case "mg"->"मिलीग्राम";case "mcg"->"माइक्रोग्राम";case "kg"->"किलोग्राम";case "ml"->"मिलिलीटर";case "g"->"ग्राम";case "l"->"लीटर";case "%"->"प्रतिशत";default->measure.group(2);};replacement=unit.startsWith("रुप")?currency("₹"+measure.group(1)):numeric(measure.group(1),false)+" "+unit;}
         }match.appendReplacement(out,Matcher.quoteReplacement(replacement));
     }match.appendTail(out);return out.toString();}
 

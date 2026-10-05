@@ -26,6 +26,7 @@ export function makeReadingWorkflow(model, speech, trace = (_name, fn) => fn()) 
       ensureActive(signal);
       if(source.kind==='retake') return {kind:'retake',originalText:'',spokenText:'',isExplanation:false,isDescription:false,retakeReason:source.retakeReason};
       const isExplanation=request.mode==='explain'; const isDescription=!source.originalText.trim();
+      if(isExplanation&&isDescription)throw new PublicError('WORD_HELP_REQUIRES_TEXT','शब्दों की मदद के लिए पहले लिखावट पढ़िए।',422);
       const spokenText=isExplanation
         ? await activeStage('suniye.explain',signal,()=>model.explain(source.originalText || source.description,signal))
         : isDescription ? `यह चित्र का वर्णन है। ${source.description}` : source.originalText;

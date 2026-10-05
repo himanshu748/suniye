@@ -16,6 +16,8 @@ export async function buildServer({env=process.env, model=modelProvider(env),spe
   const app=Fastify({logger:false,bodyLimit:4_300_000,requestTimeout:90000,connectionTimeout:95000});
   const expected=createHash('sha256').update(env.FAMILY_TOKEN).digest();
   const authorized=request=>timingSafeEqual(expected,createHash('sha256').update(String(request.headers.authorization||'').replace(/^Bearer /,'')).digest());
+  // Public static files and health do not share the family's API quota.
+  app.addHook('onRoute',route=>{if(!route.url.startsWith('/v1/'))route.config={...route.config,rateLimit:false};});
   await app.register(rateLimit,{max:60,timeWindow:'1 minute',keyGenerator:request=>authorized(request)?'authenticated-family':'unauthenticated:'+request.ip});
   const unauthenticatedLimit=app.rateLimit({max:60,timeWindow:'1 minute',keyGenerator:request=>'unauthenticated:'+request.ip});
   const auth=async(request,reply)=>{
