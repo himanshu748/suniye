@@ -97,7 +97,10 @@ export function speechProvider(env = process.env, fetcher = fetch) {
     if (!configured) return undefined;
     const pronunciation=hindiSpeech(text);
     if(pronunciation.length>10000)return undefined;
-    const combined = signal ? AbortSignal.any([signal,AbortSignal.timeout(20000)]) : AbortSignal.timeout(20000);
+    // Complete document pages can take over 30 seconds to synthesize. Keep the
+    // request bounded below the Android 75-second read timeout; Stop still aborts.
+    const timeout = AbortSignal.timeout(pronunciation.length > 1000 ? 60000 : 20000);
+    const combined = signal ? AbortSignal.any([signal,timeout]) : timeout;
     try {
       const response = await fetcher(`https://api.elevenlabs.io/v1/text-to-speech/${encodeURIComponent(env.ELEVENLABS_VOICE_ID)}?output_format=mp3_44100_64`, {
         method:'POST', signal:combined, headers:{'xi-api-key':env.ELEVENLABS_API_KEY,'content-type':'application/json'},

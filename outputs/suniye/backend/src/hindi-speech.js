@@ -74,7 +74,7 @@ export function hindiSpeech(text){
       return sign+fields.split(/([/:−-])/u).map((x,i)=>i%2?({'/':' स्लैश ',':':' कोलन ','-':' डैश ','−':' डैश '}[x]):numeric(!identifier&&x.length<=2?x.replace(/^0+(?=[0-9])/u,''):x,identifier||x.length>=7)).join('');
     }
     return numeric(value,identifier||(!value.includes(',')&&value.replace(/^[+−-]/u,'').split('.')[0].length>=7));
-  }).replaceAll('[',' खुला कोष्ठक ').replaceAll(']',' बंद कोष्ठक ');
+  }).replaceAll('[अस्पष्ट शब्द]','अस्पष्ट शब्द').replaceAll('[अस्पष्ट संख्या]','अस्पष्ट संख्या').replaceAll('[',' खुला कोष्ठक ').replaceAll(']',' बंद कोष्ठक ');
 }
 export function currencyHint(text){
   const matches=[...text.matchAll(new RegExp(MONEY,'giu'))].filter(m=>(m[0].includes('₹')&&!/^[+−-]₹/u.test(m[0]))||(!/[\p{L}\p{M}\p{N}_]$/u.test(text.slice(0,m.index))&&!/^[\p{L}\p{M}\p{N}_]/u.test(text.slice(m.index+m[0].length))));

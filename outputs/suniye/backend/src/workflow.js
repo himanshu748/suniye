@@ -30,7 +30,7 @@ export function makeReadingWorkflow(model, speech, trace = (_name, fn) => fn()) 
       const body=isExplanation
         ? await activeStage('suniye.explain',signal,()=>model.explain(source.originalText || source.description,signal))
         : isDescription ? `यह चित्र का वर्णन है। ${source.description}` : source.originalText;
-      const warning=request.ocrWarning==='uncertain'?'यह चित्र से पहचाना गया पाठ है। इसमें गलतियाँ हो सकती हैं। कुछ अस्पष्ट अंकों की जगह संकेत सुनाई देगा। ज़रूरी जानकारी मूल कागज़ से जाँचें।\n\n':request.ocrWarning==='masked'?'कुछ शब्द साफ़ नहीं हैं। उनकी जगह अस्पष्ट शब्द सुनाई देगा। ज़रूरी जानकारी मूल कागज़ से जाँचें।\n\n':'';
+      const warning=request.ocrWarning==='uncertain'?'यह चित्र से पहचाना गया पाठ है। इसमें गलतियाँ हो सकती हैं। कुछ अस्पष्ट अंकों की जगह संकेत सुनाई देगा। ज़रूरी जानकारी मूल कागज़ से जाँचें।\n\n':request.ocrWarning==='masked'?'कुछ शब्द साफ़ नहीं हैं। उनकी जगह अस्पष्ट शब्द या अस्पष्ट संख्या सुनाई देगा। ज़रूरी जानकारी मूल कागज़ से जाँचें।\n\n':'';
       const spokenText=warning+body;
       ensureActive(signal);
       const audioBase64=request.wantAudio?await activeStage('suniye.narrate',signal,()=>speech.narrate(spokenText,signal)):undefined;
