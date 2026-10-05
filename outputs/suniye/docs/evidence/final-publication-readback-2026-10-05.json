@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-10-05",
+  "deploymentRevision": "a226a9162b8f",
+  "landingByteMatch": true,
+  "landingSHA256": "3ac71b7e71fc59ad4a87e61e84f336e04d3988205eaf27bb01e6fd0dc1c30f9c",
+  "currentVideoURLPresent": true,
+  "devId": 4794845,
+  "devEditedAt": "2026-10-05T04:00:54Z",
+  "devBodySHA256": "ac96f8717f1274b1ad27e6a9bc9d7117f75345f00eed7c48cdec34d7a867c1b8",
+  "devExactBodyMatch": true,
+  "releasedVideoBytes": 717912,
+  "releasedVideoSHA256": "67a758ef29ce4b877f4602174755aa9d30ace17ff48cd1ec70ea199a1294de6f",
+  "releaseDigestVerified": true,
+  "limits": "GitHub API digest and public DEV body verified. One deployed static-byte check, not native or provider reliability proof."
+}

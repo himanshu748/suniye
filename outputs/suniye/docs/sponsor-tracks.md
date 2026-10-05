@@ -17,6 +17,8 @@ This section supersedes the dated history below. Ten category targets have disti
 | Tiger Data / pgvector | Retrieve approved setup references with keyword/vector ranking. | Live PGlite/pgvector 0.8.1 with three fixed topics, 384-dimensional frozen public vectors; all three concurrent requests passed. No Tiger Cloud, free-form retrieval, BM25 or pgvectorscale. Listed pgvector use case fits the official category. |
 | Entire | Connect interface choices to the original family brief. | Eighteen imported development checkpoints and curated requirement lookups. Development evidence rather than an app runtime dependency; private transcripts excluded. |
 
+Current native 0.3 OCR → hosted Raju check now completed a synthetic photo and both PDF pages through a labelled loopback relay. The later WhatsApp-help scroll assertion failed, and emulator direct DNS failed. [Actual hosted responses](evidence/native-0.3-hosted-readings-2026-10-05.json) · [Focused current film and limits](evidence/current-image-pdf-video-2026-10-05.json).
+
 ### Current receipts
 
 [Initial hosted checks, including failed picture request](evidence/hosted-integrations-2026-10-05.json) · [Persistence, auth, picture fallback and cleanup](evidence/hosted-e2e-2026-10-05.json) · [Current 27B outcomes](evidence/hosted-gemma-27b-2026-10-05.json) · [Concurrent pgvector topics](evidence/hosted-pgvector-concurrent-2026-10-05.json) · [Hosted Sentry readback](evidence/hosted-sentry-2026-10-05.json) · [Sonnet audit dispositions](sonnet-audit-disposition-2026-10-05.md).

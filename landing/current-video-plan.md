@@ -1,3 +1,11 @@
+# Current focused capture, October 5
+
+A [46-second current 0.3 image/PDF clip](https://github.com/himanshu748/suniye/releases/download/media-current-2026-10-05/suniye-current-image-pdf.mp4) is now published. Hindi intro and all speech use ElevenLabs Raju. Synthetic photo and both PDF pages completed OCR and actual hosted speech, reaching Stop; final WhatsApp-help scroll assertion failed. Emulator DNS required an explicit localhost/adb relay to the real HTTPS backend. Provider MP3s are separately mixed, not device sound capture. [Receipt](../outputs/suniye/docs/evidence/current-image-pdf-video-2026-10-05.json).
+
+This supersedes “no current footage” for that bounded sequence. A complete touch walkthrough, direct phone HTTPS, voice-command walkthrough and real WhatsApp/Redmi use remain open. The earlier plan below remains the target for those checks.
+
+## Earlier complete capture plan
+
 # Current app video: capture plan, not a completed recording
 
 Artifact: public 0.3.0-parent-ux, tag parent-ux-2026-10-04, target b2dc5e0bea7d9167d1396ab23df3893339712ccc. Public APK is 53,618,122 bytes; release-metadata SHA-256 is 39d5484833272ead0147788823ee7c0e8790ed1454555b48f721e807c1d2cdfd. Do not substitute an earlier local 0.3 APK or present the old 0.1 video as this version.
