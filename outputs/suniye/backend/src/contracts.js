@@ -9,6 +9,7 @@ export const readInput = z.object({
   text: z.string().trim().min(1).max(12000).optional(),
   image: z.string().max(4_200_000).optional(),
   wantAudio: z.boolean().default(false),
+  ocrWarning: z.enum(['uncertain','masked']).optional(),
 }).strict().refine(x => Number(Boolean(x.text)) + Number(Boolean(x.image)) === 1, 'Supply text or image');
 
 export const extracted = z.object({
@@ -27,6 +28,7 @@ export const reading = z.object({
   audioBase64: z.string().optional(),
   audioProvider: z.literal('elevenlabs').optional(),
   audioVoiceId: z.string().max(100).optional(),
+  ocrWarning: z.enum(['uncertain','masked']).optional(),
 });
 
 export const preferences = z.object({

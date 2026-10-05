@@ -27,13 +27,15 @@ export function makeReadingWorkflow(model, speech, trace = (_name, fn) => fn()) 
       if(source.kind==='retake') return {kind:'retake',originalText:'',spokenText:'',isExplanation:false,isDescription:false,retakeReason:source.retakeReason};
       const isExplanation=request.mode==='explain'; const isDescription=!source.originalText.trim();
       if(isExplanation&&isDescription)throw new PublicError('WORD_HELP_REQUIRES_TEXT','शब्दों की मदद के लिए पहले लिखावट पढ़िए।',422);
-      const spokenText=isExplanation
+      const body=isExplanation
         ? await activeStage('suniye.explain',signal,()=>model.explain(source.originalText || source.description,signal))
         : isDescription ? `यह चित्र का वर्णन है। ${source.description}` : source.originalText;
+      const warning=request.ocrWarning==='uncertain'?'यह चित्र से पहचाना गया पाठ है। इसमें गलतियाँ हो सकती हैं। कुछ अस्पष्ट अंकों की जगह संकेत सुनाई देगा। ज़रूरी जानकारी मूल कागज़ से जाँचें।\n\n':request.ocrWarning==='masked'?'कुछ शब्द साफ़ नहीं हैं। उनकी जगह अस्पष्ट शब्द सुनाई देगा। ज़रूरी जानकारी मूल कागज़ से जाँचें।\n\n':'';
+      const spokenText=warning+body;
       ensureActive(signal);
       const audioBase64=request.wantAudio?await activeStage('suniye.narrate',signal,()=>speech.narrate(spokenText,signal)):undefined;
       ensureActive(signal);
-      return {kind:'reading',originalText:source.originalText,spokenText,isExplanation,isDescription,retakeReason:'',...(audioBase64?{audioBase64,audioBaseRate:speech.baseRate??.85,...(speech.provider==='elevenlabs'?{audioProvider:'elevenlabs',audioVoiceId:speech.voiceId}:{})}:{})};
+      return {kind:'reading',originalText:source.originalText,spokenText,isExplanation,isDescription,retakeReason:'',...(request.ocrWarning?{ocrWarning:request.ocrWarning}:{}),...(audioBase64?{audioBase64,audioBaseRate:speech.baseRate??.85,...(speech.provider==='elevenlabs'?{audioProvider:'elevenlabs',audioVoiceId:speech.voiceId}:{})}:{})};
     })});
   const workflow=createWorkflow({id:'hindi-reading',inputSchema:readInput,outputSchema:reading,options:{shouldPersistSnapshot:()=>false}}).then(extract).then(speak).commit();
   workflow.__setLogger(noopLogger);

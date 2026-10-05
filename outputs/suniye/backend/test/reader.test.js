@@ -210,3 +210,12 @@ test('public page traffic cannot use the authenticated family API bucket',async 
  const app=await server(t);for(let i=0;i<70;i++)assert.equal((await app.inject('/health')).statusCode,200);
  assert.equal((await send(app,input())).statusCode,200);
 });
+
+test('OCR cautions are spoken separately and never contaminate source or glossary input',async()=>{
+ let glossarySource,narrated;const flow=makeReadingWorkflow({...model,explain:async text=>{glossarySource=text;return 'शब्दों की मदद। '+text;}},{narrate:async text=>{narrated=text;return 'test-audio';}});
+ const text='रकम [अस्पष्ट संख्या] है।';
+ const r=await flow.run(input({text,ocrWarning:'uncertain',wantAudio:true}));assert.equal(r.originalText,text);assert.match(r.spokenText,/^यह चित्र से पहचाना गया पाठ/);assert.ok(r.spokenText.endsWith(text));assert.equal(narrated,r.spokenText);assert.equal(r.ocrWarning,'uncertain');
+ const help=await flow.run(input({text,mode:'explain',ocrWarning:'uncertain'}));assert.equal(glossarySource,text);assert.equal(help.originalText,text);assert.match(help.spokenText,/^यह चित्र से पहचाना गया पाठ/);
+ const marked=await flow.run(input({text,ocrWarning:'masked'}));assert.match(marked.spokenText,/^कुछ शब्द साफ़ नहीं हैं/);assert.equal(marked.originalText,text);
+ assert.throws(()=>readInput.parse(input({ocrWarning:'arbitrary custom warning'})));
+});
