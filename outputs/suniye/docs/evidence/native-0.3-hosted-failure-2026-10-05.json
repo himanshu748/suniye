@@ -1,0 +1,11 @@
+{
+  "checkedAt": "2026-10-05T03:40:53Z",
+  "environment": "Android 11 emulator, existing AVD, current released 0.3 APK",
+  "apkSHA256": "39d5484833272ead0147788823ee7c0e8790ed1454555b48f721e807c1d2cdfd",
+  "hostedEndpoint": "https://suniye-reader.onrender.com",
+  "elapsedSeconds": 15.7,
+  "passed": false,
+  "scope": "Synthetic Android Share content URIs, local OCR, existing hosted Raju speech; no real WhatsApp, physical Redmi or parent test. Screenrecord has no device audio; separately mixed audio must be labelled.",
+  "failureLog": "INSTRUMENTATION_RESULT: failure=java.lang.AssertionError: Online speech did not complete: अभी पढ़ नहीं पा रहे हैं। इंटरनेट जाँचकर फिर कोशिश करें।\nINSTRUMENTATION_CODE: 0\n",
+  "diagnosis": "A separate Android-runtime public HTTPS health probe failed with UnknownHostException. No TLS validation was disabled. Emulator DNS is being retried."
+}

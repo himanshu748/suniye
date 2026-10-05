@@ -20,7 +20,7 @@ Checks actually run
 Check
 Result
 npm test
- in 
+ in
 outputs/suniye/backend
 , on the working tree
 101/101 passed, but the tree included the other agent's uncommitted test, so HEAD alone is probably 100. The ledger says 97/97, which is stale.
@@ -30,20 +30,20 @@ Run directly; results are in H6 and M6 below.
 modelProvider(...).explain
  with a fake fetcher
 Offline probe of the meaning-flip guard; see H1.
-Public 
+Public
 /health
-Returned 
+Returned
 revision b354b5ca9020
-, 
+,
 x-ratelimit-limit: 60
-, 
+,
 remaining: 59
 .
 Public dev.to API for article 4794845
-HTTP 200, published 2026-10-04, last edited 
+HTTP 200, published 2026-10-04, last edited
 18:23Z
 .
-SHA-256 of both 
+SHA-256 of both
 hosted-audio/*.mp3
 Match the receipt. Both are 64 kbps mono MP3.
 Secret-pattern scan of the untracked hosted evidence files
@@ -51,13 +51,13 @@ No hits.
 No paid or provider calls were made.
 Critical
 None found in code.
- Auth, token hashing, no-store on 
+ Auth, token hashing, no-store on
 /v1
 , per-run cancellation and the Raju allowlist all held up on reading.
 High
 H1. The explanation guard accepts reversed meanings.
 providers.js:72-75
- only compares an ordered list of numbers, currency, a fixed set of negations, number words and a few day words. Reproduced with a fake model reply through 
+ only compares an ordered list of numbers, currency, a fixed set of negations, number words and a few day words. Reproduced with a fake model reply through
 explain()
 :
 Source
@@ -90,11 +90,11 @@ rejected (a false positive)
 The speech then prefixes only "यह आसान भाषा में समझाया गया है।". The write-ups do call explanations experimental, but the UI does not say so at the point of listening. Medicine, bank and date sentences are exactly where this matters. Relation words (before/after, first/last), weekday names, time units and verbs are unguarded.
 H2. Bounded retention fails on the Stop path.
 backboard.js:36-49
- deletes the Backboard thread only after a response has been parsed and 
+ deletes the Backboard thread only after a response has been parsed and
 thread
- assigned. If the parent presses Stop (the app's core feature), the client socket closes, 
+ assigned. If the parent presses Stop (the app's core feature), the client socket closes,
 server.js:60
- aborts the fetch, and 
+ aborts the fetch, and
 thread
  stays undefined. The same happens on the 45-second timeout, on a non-OK reply and on an oversized reply. The request text may then remain in a Backboard thread with no deletion attempt. Whether Backboard keeps such threads is unconfirmed, but the code makes no attempt to clean up in these cases. The cancelled call also still counts against the 8/day quota (
 reserve()
@@ -107,7 +107,7 @@ There is no privacy or retention document.
 Nothing addresses ElevenLabs history retention.
 At b354b5c, no-text photos and PDF pages were uploaded as files to Backboard. The other agent's fix (uncommitted at my reading, live as 142dcb3 per your note) blocks this.
 H4. At HEAD, the image path wasted quota and misled the parent.
- Backboard returned INCOMPLETE and 8 attempts/day were burned (the failure happened after 
+ Backboard returned INCOMPLETE and 8 attempts/day were burned (the failure happened after
 reserve()
 ). Android then spoke the "open a smaller part of the paper" clip. Your live fix covers the quota and the upload.
 Remaining native mismatch: BackendClient.java  handles codes it does not know ( PICTURE_NOT_AVAILABLE ,  MODEL_DAILY_LIMIT ,  MODEL_UNAVAILABLE ) by falling to the default "check your internet" message. Every 429, including the daily AI limit, maps to "wait a moment and try again". Waiting does not help until the UTC reset at  05:30 IST .
@@ -133,19 +133,19 @@ hindi-speech.js:51-55
 Medium
 M1. "Fresh SerpApi" evidence does not prove what it says.
 setup-guide.mjs:21
- records 
+ records
 status:'results'
  for anything that is not "Fully empty", without counting organic rows. The receipt note "provider returned results, but all failed the official-source filter" is therefore unproven; the log has no row count or reject reason. A call that returned no rows would look identical. Add raw-row and reject-reason counts before claiming the filter is the cause.
 M2. Hosted pgvector is a three-topic lookup, not search.
 hosted-support.js
- accepts only fixed topic names and returns precomputed vectors. It is honestly labelled "Frozen... vectors" in the response, but "three live pgvector topics passed" overstates general retrieval. A failed 
+ accepts only fixed topic names and returns precomputed vectors. It is honestly labelled "Frozen... vectors" in the response, but "three live pgvector topics passed" overstates general retrieval. A failed
 initialise()
  is also cached forever (
 ready??=initialise()
 ), until the next restart. The earlier 11cb17b run returned empty bodies for all three help calls, which looks like a crash (probably memory on the 512 MB Free tier). I cannot confirm that is fixed under concurrent load.
 M3. Backend rate-limit scope is unverified.
 Fastify has no  trustProxy , and Render and Cloudflare sit in front.
-If all clients share one IP, the 60/min limit and the 12/min  /v1/read  limit are global, and unauthenticated hits on  / ,  /health  or 
+If all clients share one IP, the 60/min limit and the 12/min  /v1/read  limit are global, and unauthenticated hits on  / ,  /health  or
 /caregiver.js
  can starve the parents.
 Auth runs before the rate limit, so bad tokens are never throttled either.
@@ -181,17 +181,17 @@ Claim versus proof
 Claim
 Status
 Raju-only voice in the app and backend
-Holds in the code. 
+Holds in the code.
 VoicePolicy
-, the server 
+, the server
 rajuVoiceId
  check, and no TTS in the Android main source or backend src. A repo-wide TTS grep timed out and did not complete. Hosted audio hashes match the receipt.
 Video narrator stays Raju
-Not stated for the planned new video. 
+Not stated for the planned new video.
 current-video-plan.md
  calls for "English spoken explanation" without naming the voice. Say Raju (multilingual v2) explicitly and record the voice ID in the receipt.
 Hosted Hindi speech, Gemma explanation (trivial sample), Atlas write/read, 3 pgvector topics
-Pass at b354b5c in 
+Pass at b354b5c in
 hosted-integrations-2026-10-05.json
  and, per your note, again on 142dcb3. Restart persistence of settings was not checked.
 Hosted image description
@@ -203,7 +203,7 @@ Root README:  "Hosted Gemma and Render-to-Atlas remain unconfigured."
 Live landing page (
 landing/index.html
 ):  "hosted model not yet connected," while  /caregiver  on the same origin describes Backboard Gemma.
-Repo draft, 
+Repo draft,
 sponsor-tracks.md
 , verification ledger:  the same, plus "production model stays local Gemma", "Backboard key revoked" and "Render deployed 77e2b32".
 landing/release-ledger.md
