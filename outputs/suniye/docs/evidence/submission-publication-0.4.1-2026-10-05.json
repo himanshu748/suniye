@@ -1,0 +1,101 @@
+{
+  "checkedAt": "2026-10-05T06:19:15Z",
+  "article": {
+    "id": 4794845,
+    "url": "https://dev.to/himanshu_748/suniye-let-my-parents-hear-the-message-themselves-41bh",
+    "publishedAt": "2026-10-04T07:44:01Z",
+    "editedAt": "2026-10-05T06:16:40Z",
+    "bodySHA256": "cf473d06698023a13d283ab498ac38d53626902d5a14777bf5ef6afb1ae9bb9d",
+    "matchesRepositoryDraft": true,
+    "tags": "devchallenge, weekendchallenge, hf26challenge",
+    "parentUseStatusStatement": false
+  },
+  "release": {
+    "url": "https://github.com/himanshu748/suniye/releases/tag/real-documents-2026-10-05",
+    "draft": false,
+    "assets": [
+      {
+        "name": "suniye-parent-ux-0.4.1.apk",
+        "status": 200,
+        "sha256": "f90fd8a8eb4d05c362cd952e514ad4bf20e78501f5c6bf63bdde968a89e4eeca",
+        "githubDigestMatches": true,
+        "bytes": 54019602
+      },
+      {
+        "name": "suniye-real-documents-walkthrough.mp4",
+        "status": 200,
+        "sha256": "6f41e19b5e8f27a1bc1f90dfaffc134f9697064b9ac874a554dfbb4442355323",
+        "githubDigestMatches": true,
+        "bytes": 3722171
+      },
+      {
+        "name": "suniye-walkthrough-en.vtt",
+        "status": 200,
+        "sha256": "f42a897748b6c0b97f5e6ca0f38c419208750a33cc6ee239b840adaba853676a",
+        "githubDigestMatches": true,
+        "bytes": 1616
+      }
+    ]
+  },
+  "hosted": {
+    "health": {
+      "status": "ok",
+      "revision": "fe15f6f8cb95",
+      "capabilities": {
+        "model": "google/gemma-3-27b-it",
+        "modelProvider": "backboard",
+        "modelConfigured": true,
+        "hindiSpeech": true,
+        "pictureDescription": false,
+        "preferenceSync": true,
+        "tracing": true,
+        "caregiverHelp": true,
+        "currentSupportSearch": true,
+        "wordHelp": "reviewed-dictionary",
+        "parentGenerativeParaphrase": false
+      }
+    },
+    "media": [
+      {
+        "path": "/assets/suniye-walkthrough.mp4",
+        "bytes": 3722171,
+        "sha256": "6f41e19b5e8f27a1bc1f90dfaffc134f9697064b9ac874a554dfbb4442355323",
+        "identical": true
+      },
+      {
+        "path": "/assets/walkthrough-en.vtt",
+        "bytes": 1616,
+        "sha256": "f42a897748b6c0b97f5e6ca0f38c419208750a33cc6ee239b840adaba853676a",
+        "identical": true
+      },
+      {
+        "path": "/assets/walkthrough-poster.png",
+        "bytes": 215895,
+        "sha256": "b928596fe6b2cd6d27d8f08a3d8b4282dff729cedc156c8e6f11de3560e5871d",
+        "identical": true
+      },
+      {
+        "path": "/assets/android-reading.png",
+        "bytes": 78715,
+        "sha256": "e72206d18dccd2dad898ed694287c5516f8a1e755bf1e53bebfb93599177cee3",
+        "identical": true
+      }
+    ],
+    "videoRangeStatus": 206
+  },
+  "deadlineUTC": "2026-10-05T06:59:00Z",
+  "scope": "Public DEV API exact-body readback, GitHub digest and download status, actual hosted asset byte comparisons. Browser playback observed separately.",
+  "browserPlayback": {
+    "checkedAt": "2026-10-05T06:20:13Z",
+    "browser": "Comet",
+    "url": "https://suniye-reader.onrender.com/#walkthrough",
+    "started": true,
+    "soundEnabled": true,
+    "volumePercent": 100,
+    "observedIntermediateSeconds": 45,
+    "observedEndedSeconds": 140.032,
+    "finalControl": "play",
+    "updatedLandscapeLayoutInspected": true,
+    "scope": "Native browser controls showed Audio playing, a 0:45/2:20 frame, and final elapsed 2:20 with Play restored. Refreshed full-width landscape layout inspected; no subjective pronunciation score inferred."
+  }
+}

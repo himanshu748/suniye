@@ -23,7 +23,7 @@ JAVA_HOME=/path/to/jdk17 python3 outputs/suniye/scripts/check-hindi-speech.py
 JAVA_HOME=/path/to/jdk17 python3 outputs/suniye/scripts/check-ocr-transcript.py
 ```
 
-The full playback durations were 30.976 seconds (image), 188.422 seconds (PDF page 1) and 161.15 seconds (PDF page 2). Request waits were 8.466, 40.817 and 30.504 seconds respectively. These are individual observations, not a latency benchmark. Android screenrecord capped the page-1 footage at 180 seconds; the instrumentation continued through the full playback and controls. The 140.032-second film export passed full decoding and visual inspection; its measured mean audio is −19.9 dB. [Film receipt](evidence/native-real-documents-video-2026-10-05.json). Hosted browser playback is checked separately from the exported-file checks.
+The full playback durations were 30.976 seconds (image), 188.422 seconds (PDF page 1) and 161.15 seconds (PDF page 2). Request waits were 8.466, 40.817 and 30.504 seconds respectively. These are individual observations, not a latency benchmark. Android screenrecord capped the page-1 footage at 180 seconds; the instrumentation continued through the full playback and controls. The 140.032-second film export passed full decoding and visual inspection; its measured mean audio is −19.9 dB. [Film receipt](evidence/native-real-documents-video-2026-10-05.json). The public browser player reached 2:20 with sound enabled; the refreshed full-width landscape layout was inspected. [Publication and browser receipt](evidence/submission-publication-0.4.1-2026-10-05.json).
 
 ## Hosted integration receipts
 
