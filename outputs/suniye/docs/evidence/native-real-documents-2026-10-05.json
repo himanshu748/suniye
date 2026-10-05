@@ -1,0 +1,252 @@
+{
+  "checkedAt": "2026-10-05T06:07:18Z",
+  "version": "0.4.1-real-documents",
+  "versionCode": 5,
+  "apkSHA256": "f90fd8a8eb4d05c362cd952e514ad4bf20e78501f5c6bf63bdde968a89e4eeca",
+  "backend": {
+    "status": "ok",
+    "revision": "6a842bf3ee81",
+    "capabilities": {
+      "model": "google/gemma-3-27b-it",
+      "modelProvider": "backboard",
+      "modelConfigured": true,
+      "hindiSpeech": true,
+      "pictureDescription": false,
+      "preferenceSync": true,
+      "tracing": true,
+      "caregiverHelp": true,
+      "currentSupportSearch": true,
+      "wordHelp": "reviewed-dictionary",
+      "parentGenerativeParaphrase": false
+    }
+  },
+  "backendTests": {
+    "passed": 127,
+    "failed": 0
+  },
+  "sharedPronunciationCases": 57,
+  "ocrHarness": {
+    "command": "JAVA_HOME=/path/to/jdk17 python3 outputs/suniye/scripts/check-ocr-transcript.py",
+    "passed": true
+  },
+  "largeFontChecks": {
+    "checkedAt": "2026-10-05T05:56:29Z",
+    "apkSHA256": "f90fd8a8eb4d05c362cd952e514ad4bf20e78501f5c6bf63bdde968a89e4eeca",
+    "fontScale": 1.6,
+    "checks": [
+      {
+        "probe": "ParentUsabilityProbe",
+        "passed": true,
+        "output": "INSTRUMENTATION_RESULT: fontScale=1.6\nINSTRUMENTATION_RESULT: parentUi=PASS: Repeat/Slow visible before long source, Stop after scroll, inactive microphone absent, explanation collapsed, Slow toggle restores usual speed, cached real Raju bill plays offline, bundled Raju instructions stop correctly\nINSTRUMENTATION_RESULT: scope=Android 11 Activity view render and media-state test; System UI unreliable; instrumented emulator scope; not physical-device validation\nINSTRUMENTATION_CODE: -1\n"
+      },
+      {
+        "probe": "RealMediaDemo",
+        "passed": true,
+        "output": "INSTRUMENTATION_RESULT: result=PASS: uncertain OCR review, Stop and Forget\nINSTRUMENTATION_CODE: -1\n"
+      }
+    ]
+  },
+  "recovery": {
+    "checkedAt": "2026-10-05T05:57:41.193Z",
+    "android": "11",
+    "fontScale": 1.600000023841858,
+    "original": "देय ₹1250।",
+    "wordHelp": "शब्दों की मदद। ये शब्दकोश के सामान्य अर्थ हैं। देय का मतलब है: जो देना बाकी है। मूल पाठ ज्यों का त्यों। देय ₹1250।",
+    "passed": true,
+    "checks": "Seven authored error mappings and bundled Raju clips; hosted source + dictionary audio; distinct help label and original control; offline current-audio replay; cache restore; missing-cache explicit recovery; Stop",
+    "apkSHA256": "f90fd8a8eb4d05c362cd952e514ad4bf20e78501f5c6bf63bdde968a89e4eeca"
+  },
+  "realDocumentStages": [
+    {
+      "checkedAt": "2026-10-05T05:58:36.947Z",
+      "stage": "image",
+      "startedAtEpochMs": 1791179866307,
+      "events": [
+        {
+          "name": "home",
+          "elapsedMs": 730
+        },
+        {
+          "name": "shared",
+          "elapsedMs": 2950
+        },
+        {
+          "name": "uncertainty-visible",
+          "elapsedMs": 3599
+        },
+        {
+          "name": "review-approved",
+          "elapsedMs": 7649
+        },
+        {
+          "name": "playback-start",
+          "elapsedMs": 16115
+        },
+        {
+          "name": "source-visible",
+          "elapsedMs": 17132
+        },
+        {
+          "name": "playback-complete",
+          "elapsedMs": 47091
+        },
+        {
+          "name": "repeat-playing",
+          "elapsedMs": 48272
+        },
+        {
+          "name": "stop",
+          "elapsedMs": 50640
+        }
+      ],
+      "originalPreservedByBackend": true,
+      "readingCompleted": true,
+      "repeatAndStop": true,
+      "environment": "Android 11 emulator; font scale 1.0",
+      "input": "consumer-hi.png",
+      "transport": "Direct public Render HTTPS, normal certificate validation",
+      "scope": "Public notice content via real ACTION_SEND; OCR review explicitly approved in instrumentation; actual Raju audio and MediaPlayer completion. No external WhatsApp sender exercised.",
+      "recordingStartHostEpochMs": 1791179864286,
+      "apkSHA256": "f90fd8a8eb4d05c362cd952e514ad4bf20e78501f5c6bf63bdde968a89e4eeca",
+      "recognizedSourceChars": 192,
+      "recognizedSourceSHA256": "32016b83da60c26060c220d91a7a27b78f9f797b98ce2bcc39575a7aa6c167c8",
+      "spokenTextChars": 330,
+      "spokenTextSHA256": "a2aabb4c9780ba2283d44ebd8da6a1d1f9e3ea7afb19e4e044415eda7ec39944",
+      "contentNote": "Exact full document text omitted from public receipt; source URLs, file hashes and limited screenshot excerpts are published in real-document-walkthrough.md.",
+      "audioSHA256": "a34aacdf77fa594ebef3f326907c530e1e5aeb5ef62c0fd4f0dc7311e31f873f",
+      "audioBytes": 204635,
+      "playbackSeconds": 30.976,
+      "requestWaitSeconds": 8.466
+    },
+    {
+      "checkedAt": "2026-10-05T06:02:41.329Z",
+      "stage": "pdf1",
+      "startedAtEpochMs": 1791179919310,
+      "events": [
+        {
+          "name": "home",
+          "elapsedMs": 1111
+        },
+        {
+          "name": "shared",
+          "elapsedMs": 2795
+        },
+        {
+          "name": "uncertainty-visible",
+          "elapsedMs": 5062
+        },
+        {
+          "name": "review-approved",
+          "elapsedMs": 9217
+        },
+        {
+          "name": "playback-start",
+          "elapsedMs": 50034
+        },
+        {
+          "name": "source-visible",
+          "elapsedMs": 51022
+        },
+        {
+          "name": "playback-complete",
+          "elapsedMs": 238456
+        },
+        {
+          "name": "repeat-playing",
+          "elapsedMs": 239650
+        },
+        {
+          "name": "stop",
+          "elapsedMs": 242019
+        }
+      ],
+      "originalPreservedByBackend": true,
+      "readingCompleted": true,
+      "repeatAndStop": true,
+      "environment": "Android 11 emulator; font scale 1.0",
+      "input": "up-electricity-notice.pdf",
+      "transport": "Direct public Render HTTPS, normal certificate validation",
+      "scope": "Public notice content via real ACTION_SEND; OCR review explicitly approved in instrumentation; actual Raju audio and MediaPlayer completion. No external WhatsApp sender exercised.",
+      "apkSHA256": "f90fd8a8eb4d05c362cd952e514ad4bf20e78501f5c6bf63bdde968a89e4eeca",
+      "recordingLimitSeconds": 180,
+      "recordingStartHostEpochMs": null,
+      "recordingNote": "Recorder reached its 180-second limit; instrumentation continued through full playback, Repeat and Stop.",
+      "recognizedSourceChars": 1876,
+      "recognizedSourceSHA256": "c5b7bb50f99b498ad92b86856a7cbfe8cabc60c0f73c0f884becb776aec31cac",
+      "spokenTextChars": 2014,
+      "spokenTextSHA256": "3e18f64ba4534f2ce30e1d06bdce9e5909bb5d8edb30edc91fdfc02f47d209ea",
+      "contentNote": "Exact full document text omitted from public receipt; source URLs, file hashes and limited screenshot excerpts are published in real-document-walkthrough.md.",
+      "audioSHA256": "e91a4e8ab9d537d71ee4813778d9c532282bc0cb0c453f10920b145785219d12",
+      "audioBytes": 1270221,
+      "playbackSeconds": 188.422,
+      "requestWaitSeconds": 40.817
+    },
+    {
+      "checkedAt": "2026-10-05T06:06:22.257Z",
+      "stage": "pdf2",
+      "startedAtEpochMs": 1791180180656,
+      "events": [
+        {
+          "name": "home",
+          "elapsedMs": 349
+        },
+        {
+          "name": "shared",
+          "elapsedMs": 1437
+        },
+        {
+          "name": "uncertainty-visible",
+          "elapsedMs": 1838
+        },
+        {
+          "name": "next-page",
+          "elapsedMs": 2290
+        },
+        {
+          "name": "review-approved",
+          "elapsedMs": 6396
+        },
+        {
+          "name": "playback-start",
+          "elapsedMs": 36900
+        },
+        {
+          "name": "source-visible",
+          "elapsedMs": 37869
+        },
+        {
+          "name": "playback-complete",
+          "elapsedMs": 198050
+        },
+        {
+          "name": "repeat-playing",
+          "elapsedMs": 199244
+        },
+        {
+          "name": "stop",
+          "elapsedMs": 201601
+        }
+      ],
+      "originalPreservedByBackend": true,
+      "readingCompleted": true,
+      "repeatAndStop": true,
+      "environment": "Android 11 emulator; font scale 1.0",
+      "input": "up-electricity-notice.pdf",
+      "transport": "Direct public Render HTTPS, normal certificate validation",
+      "scope": "Public notice content via real ACTION_SEND; OCR review explicitly approved in instrumentation; actual Raju audio and MediaPlayer completion. No external WhatsApp sender exercised.",
+      "recordingStartHostEpochMs": 1791180179285,
+      "apkSHA256": "f90fd8a8eb4d05c362cd952e514ad4bf20e78501f5c6bf63bdde968a89e4eeca",
+      "recognizedSourceChars": 1616,
+      "recognizedSourceSHA256": "733b5217c17daaa2c9e4df2b6abef522201cc7020c8dfdae5b5080c66257a296",
+      "spokenTextChars": 1754,
+      "spokenTextSHA256": "528736ca564b4921d19d9204287a6127432d259de15a0b6506fc60ba0ec5b8f1",
+      "contentNote": "Exact full document text omitted from public receipt; source URLs, file hashes and limited screenshot excerpts are published in real-document-walkthrough.md.",
+      "audioSHA256": "228968ca04f53eb46f1c2662c0afe3663b54e63ef49af12f3dd02cbd77c31462",
+      "audioBytes": 1093007,
+      "playbackSeconds": 161.15,
+      "requestWaitSeconds": 30.504
+    }
+  ],
+  "scope": "Android 11 instrumented emulator. Actual public document inputs, on-phone OCR, authenticated public Render HTTPS and ElevenLabs Raju playback. Full playback completion, source/caution separation, Repeat and Stop. External WhatsApp sender, physical device and microphone recognition are outside these checks.",
+  "purchase": false
+}

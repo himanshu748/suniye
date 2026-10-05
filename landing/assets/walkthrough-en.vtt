@@ -1,58 +1,41 @@
 WEBVTT
 
-00:00:00.000 --> 00:00:03.827
-My parents have trouble reading small print.
+1
+00:00:00.000 --> 00:00:08.880
+My parents ask me to read small print. Suniye turns a shared image or P D F into Hindi speech, with large controls.
 
-00:00:03.867 --> 00:00:07.693
-Suniye is an Android app built for them.
+2
+00:00:08.880 --> 00:00:16.960
+This image is cropped from a real public electricity notice. Share the picture to Suniye. Text recognition happens on the phone.
 
-00:00:07.733 --> 00:00:11.560
-It reads text from photos and PDFs in Hindi.
+3
+00:00:16.960 --> 00:00:26.400
+O C R can make mistakes. This page needs a separate confirmation. The app speaks a warning first. Flagged number groups are withheld.
 
-00:00:11.600 --> 00:00:14.682
-This is a synthetic practice photo.
+4
+00:00:26.400 --> 00:00:56.433
+Hindi audio: an OCR caution, then the notice about contacting the consumer grievance forum. The recognized source stays visible.
 
-00:00:14.722 --> 00:00:17.805
-Share it to Suniye. The phone recognizes its text,
+5
+00:00:56.433 --> 00:01:07.233
+Now a complete two page Hindi notice, with paragraphs, dates, and numbers. Suniye reads one page at a time. These are excerpts from completed playback checks.
 
-00:00:17.845 --> 00:00:20.927
-then the app reads it aloud in Hindi.
+6
+00:01:07.233 --> 00:01:30.233
+Page 1 begins with the OCR caution and the notice heading. The full page completed playback in the recorded test.
 
-00:00:20.967 --> 00:00:28.260
-App reading: “Namaste” (Hello).
+7
+00:01:30.233 --> 00:01:40.567
+The next page has its own review. Repeat replays the recording. Slow reduces its speed. Stop stays below the scrolling text.
 
-00:00:28.300 --> 00:00:32.144
-Now open a two-page PDF.
+8
+00:01:40.567 --> 00:02:00.567
+A later excerpt from page 2. Flagged number groups are spoken as “unclear number”; OCR can still make mistakes.
 
-00:00:32.184 --> 00:00:36.027
-Listen to page one, then tap Next page.
+9
+00:02:00.567 --> 00:02:11.700
+In WhatsApp, open the image or P D F. Choose Share, then Suniye. For a text message, use Share if available, or copy it into Suniye.
 
-00:00:36.067 --> 00:00:45.527
-App reading: “Bill”.
-
-00:00:45.567 --> 00:00:47.527
-Exact second-page source: “Thank you”.
-
-00:00:47.567 --> 00:00:54.227
-App reading: “Dhanyavaad” (Thank you).
-
-00:00:54.267 --> 00:01:00.382
-Repeat plays the same recording; Slow reduces its speed.
-
-00:01:00.422 --> 00:01:06.537
-Stop stays at the bottom. The original remains available.
-
-00:01:06.577 --> 00:01:10.615
-In WhatsApp, open the photo or PDF.
-
-00:01:10.655 --> 00:01:14.692
-Choose Share, then Suniye. A caregiver sets it up first.
-
-00:01:14.732 --> 00:01:18.770
-Testing on my parents’ actual phones is still pending.
-
-00:01:18.810 --> 00:01:20.270
-Try the pilot with a caregiver.
-
-00:01:20.310 --> 00:01:21.770
-suniye-reader.onrender.com
+10
+00:02:11.700 --> 00:02:19.940
+English explanations for this walkthrough. Hindi controls and reading in the app. Every voice you hear is ElevenLabs Raju.

@@ -7,8 +7,7 @@ import { execFileSync } from "node:child_process";
 
 const root = dirname(fileURLToPath(import.meta.url));
 const started = performance.now();
-const files = ["index.html", "style.css", "app.js", "assets/mark.svg", "assets/android-home.png",
-  "assets/android-reading.png", "assets/raju-bill-sample.mp3", "assets/manrope-latin.woff2", "assets/MANROPE-OFL.txt"];
+const files = ["index.html", "caregiver.html", "caregiver.css", "caregiver.js", "style.css", "app.js", "assets/mark.svg", "assets/android-home.png", "assets/android-reading.png", "assets/raju-bill-sample.mp3", "assets/manrope-latin.woff2", "assets/MANROPE-OFL.txt", "assets/suniye-walkthrough.mp4", "assets/walkthrough-en.vtt", "assets/walkthrough-poster.png"];
 const html = await readFile(resolve(root, "index.html"), "utf8");
 assert.match(html, /<html lang="hi">/);
 assert.match(html, /name="viewport"/);
@@ -22,8 +21,9 @@ for (const match of html.matchAll(/\b(?:href|src)="([^"]+)"/g)) {
   if (target.startsWith("#")) {
     if (target !== "#") assert(ids.includes(target.slice(1)), `Missing anchor ${target}`);
   } else if (!/^https:\/\//.test(target)) {
-    assert(files.includes(target), `Unexpected or unbuilt local asset ${target}`);
-    await stat(resolve(root, target));
+    const local = target === "/caregiver" ? "caregiver.html" : target;
+    assert(files.includes(local), `Unexpected or unbuilt local asset ${target}`);
+    await stat(resolve(root, local));
   }
 }
 assert.doesNotMatch(await readFile(resolve(root, "style.css"), "utf8"), /https?:\/\/|@import/);
@@ -38,7 +38,9 @@ for (const file of files) {
   manifest.push({ file, bytes: body.byteLength, sha256: createHash("sha256").update(body).digest("hex") });
 }
 const bytes = manifest.reduce((total, file) => total + file.bytes, 0);
-assert(bytes < 350_000, `Static package exceeds 350 KB budget: ${bytes}`);
+const coreBytes = manifest.filter(x => !x.file.endsWith(".mp4")).reduce((n,x) => n+x.bytes,0);
+assert(coreBytes < 2_000_000, `Non-video assets exceed 2 MB: ${coreBytes}`);
+assert(bytes < 20_000_000, `Walkthrough package exceeds 20 MB: ${bytes}`);
 await writeFile(resolve(output, "build-manifest.json"), JSON.stringify({
   builtAt: new Date().toISOString(), elapsedMs: Math.round(performance.now() - started), bytes,
   scope: "Static local build; no minifier, dependency install, runtime provider call or deployment", files: manifest,

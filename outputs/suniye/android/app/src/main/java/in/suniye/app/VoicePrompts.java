@@ -3,6 +3,7 @@ package in.suniye.app;
 public final class VoicePrompts {
     private VoicePrompts(){}
     public static String asset(String message){
+        if(message.startsWith("कुछ शब्द साफ़ नहीं हैं। दोबारा फ़ोटो"))return "review-ocr";
         if(message.startsWith("आज की AI सीमा"))return "model-limit";
         if(message.startsWith("AI की मदद"))return "model-unavailable";
         if(message.startsWith("चित्र का वर्णन अभी"))return "picture-unavailable";

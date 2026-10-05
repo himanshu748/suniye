@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 public final class HindiSpeech {
     private HindiSpeech() {}
     private static final String[] WORDS = {"शून्य", "एक", "दो", "तीन", "चार", "पाँच", "छह", "सात", "आठ", "नौ", "दस", "ग्यारह", "बारह", "तेरह", "चौदह", "पंद्रह", "सोलह", "सत्रह", "अठारह", "उन्नीस", "बीस", "इक्कीस", "बाईस", "तेईस", "चौबीस", "पच्चीस", "छब्बीस", "सत्ताईस", "अट्ठाईस", "उनतीस", "तीस", "इकतीस", "बत्तीस", "तैंतीस", "चौंतीस", "पैंतीस", "छत्तीस", "सैंतीस", "अड़तीस", "उनतालीस", "चालीस", "इकतालीस", "बयालीस", "तैंतालीस", "चवालीस", "पैंतालीस", "छियालीस", "सैंतालीस", "अड़तालीस", "उनचास", "पचास", "इक्यावन", "बावन", "तिरपन", "चौवन", "पचपन", "छप्पन", "सत्तावन", "अट्ठावन", "उनसठ", "साठ", "इकसठ", "बासठ", "तिरसठ", "चौंसठ", "पैंसठ", "छियासठ", "सड़सठ", "अड़सठ", "उनहत्तर", "सत्तर", "इकहत्तर", "बहत्तर", "तिहत्तर", "चौहत्तर", "पचहत्तर", "छिहत्तर", "सतहत्तर", "अठहत्तर", "उनासी", "अस्सी", "इक्यासी", "बयासी", "तिरासी", "चौरासी", "पचासी", "छियासी", "सत्तासी", "अट्ठासी", "नवासी", "नब्बे", "इक्यानवे", "बानवे", "तिरानवे", "चौरानवे", "पचानवे", "छियानवे", "सत्तानवे", "अट्ठानवे", "निन्यानवे"};
+    static boolean isNumberWord(String word){return java.util.Arrays.asList(WORDS).contains(word)||java.util.Arrays.asList("सौ","हजार","हज़ार","लाख","करोड़","पांच","छः","डेढ़","ढाई","सवा","साढ़े","पौने").contains(word);}
     private static final String D="[0-9०-९]";
     private static final String MONEY="(?:[+−-]₹\\s*|₹[+−-]?\\s*|(?:Rs\\.?|INR|रु\\.?)\\s*(?:[+−-](?=[0-9०-९]))?)"+D+"+(?:,"+D+"+)*(?:\\."+D+"+)?(?:\\s*/-)?";
     private static final Pattern TOKEN=Pattern.compile("https?://[^\\s]+|www\\.[^\\s]+|[\\w.+-]+@[\\w.-]+\\.[a-zA-Z]{2,}|"+MONEY+"|(?:\\+91[ -]?)?[6-9६-९]"+D+"{4}[ -]?"+D+"{5}|[+−-]?"+D+"+(?:[/:−-]"+D+"+){1,2}|[+−-]?"+D+"+(?:,"+D+"+)*(?:\\."+D+"+)?",Pattern.CASE_INSENSITIVE);
@@ -59,7 +60,7 @@ public final class HindiSpeech {
             }
         }
         matcher.appendReplacement(out,Matcher.quoteReplacement(replacement));
-    }matcher.appendTail(out);return out.toString().replace("["," खुला कोष्ठक ").replace("]"," बंद कोष्ठक ");}
+    }matcher.appendTail(out);return out.toString().replace("[अस्पष्ट शब्द]","अस्पष्ट शब्द").replace("[अस्पष्ट संख्या]","अस्पष्ट संख्या").replace("["," खुला कोष्ठक ").replace("]"," बंद कोष्ठक ");}
     public static String currencyHint(String text){Matcher m=Pattern.compile(MONEY,Pattern.CASE_INSENSITIVE).matcher(text);StringBuilder out=new StringBuilder();int count=0;while(m.find()){
         if((!m.group().contains("₹")||m.group().matches("^[+−-]₹.*"))&&((m.start()>0&&adjacent(text.codePointBefore(m.start())))||(m.end()<text.length()&&adjacent(text.codePointAt(m.end())))))continue;
         count++;if(count<=3){if(out.length()>0)out.append(" • ");out.append(currency(m.group()));}

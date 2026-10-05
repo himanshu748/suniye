@@ -14,7 +14,7 @@ async function server(t) {
 test('root serves exact current landing with restrictive headers and HEAD',async t=>{
   const {app,calls}=await server(t);const source=await readFile(new URL('../../../../landing/index.html',import.meta.url));
   const response=await app.inject({url:'/'});assert.equal(response.statusCode,200);assert.deepEqual(response.rawPayload,source);
-  assert.match(response.body,/parent-ux-2026-10-05\/suniye-parent-ux-0.4\.apk/);assert.match(response.body,/instrumentation suites/);
+  assert.match(response.body,/real-documents-2026-10-05\/suniye-parent-ux-0.4.1\.apk/);assert.match(response.body,/Android 11 emulator/);
   assert.match(response.headers['content-type'],/^text\/html/);assert.match(response.headers['content-security-policy'],/connect-src 'none'/);assert.match(response.headers['content-security-policy'],/frame-ancestors 'none'/);
   assert.equal(response.headers['x-content-type-options'],'nosniff');assert.equal(response.headers['referrer-policy'],'no-referrer');assert.equal(response.headers['cache-control'],'public, max-age=0, must-revalidate');
   const head=await app.inject({method:'HEAD',url:'/'});assert.equal(head.statusCode,200);assert.equal(head.body,'');assert.equal(Number(head.headers['content-length']),source.length);assert.equal(calls(),0);

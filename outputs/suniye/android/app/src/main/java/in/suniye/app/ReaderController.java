@@ -32,11 +32,11 @@ public final class ReaderController {
     private MediaPlayer player;private File audioFile;private Future<?> job;
     private final android.media.AudioManager audio;private android.media.AudioFocusRequest focus;private boolean waiting=false;
     private boolean wordHelp=false;private boolean busy=false;private String status="एक बटन दबाएँ, फिर आराम से सुनें।";
-    private String original="",lastSpoken="",lastSource="";private byte[] lastAudio;private float lastAudioRate=.85f;
+    private String original="",lastSpoken="",lastSource="",pendingOcr="",ocrWarning="";private byte[] lastAudio;private float lastAudioRate=.85f;
 
     public ReaderController(Context context){
         this.context=context;audio=context.getSystemService(android.media.AudioManager.class);config=new Config(context);cache=context.getSharedPreferences("last-reading",Context.MODE_PRIVATE);
-        wordHelp=cache.getBoolean("wordHelp",false);original=cache.getString("original","");lastSpoken=cache.getString("spoken","");lastSource=cache.getString("source","");
+        ocrWarning=cache.getString("ocrWarning","");wordHelp=cache.getBoolean("wordHelp",false);original=cache.getString("original","");lastSpoken=cache.getString("spoken","");lastSource=cache.getString("source","");
         lastAudioRate=cache.getFloat("audioBaseRate",.85f);if(lastAudioRate!=.85f&&lastAudioRate!=1f)lastAudioRate=.85f;
         File saved=new File(context.getFilesDir(),"last-reading.mp3");try{if(VoicePolicy.allowed(cache.getString("audioProvider",""),cache.getString("audioVoiceId",""))&&saved.exists()&&saved.length()<=5_000_000)lastAudio=java.nio.file.Files.readAllBytes(saved.toPath());}catch(Exception ignored){}
 
@@ -48,15 +48,19 @@ public final class ReaderController {
     public boolean hasAudio(){return player!=null;}
     public String status(){return status;}
     public String original(){return original;}
+    public String displayedText(){return pendingOcr.isEmpty()?original:pendingOcr;}
+    public boolean hasUncertainText(){return !pendingOcr.isEmpty();}
+    public void readUncertainText(){String text=pendingOcr;if(!text.isEmpty()){long id=begin("पढ़ रहे हैं।");readTextForOperation(text,id,"uncertain");}}
+    private boolean reviewChoice(){if(pendingOcr.isEmpty())return false;announceFor("कुछ शब्द साफ़ नहीं हैं। दोबारा फ़ोटो लें, या सावधानी से सुनिए दबाएँ।",generation.get());return true;}
     public String spoken(){return lastSpoken;}
     public boolean isWordHelp(){return wordHelp;}
     public boolean needsOriginalAction(){return wordHelp||lastAudio==null;}
-    public void readOriginal(){if(!lastSource.isEmpty())readText(lastSource);else announce("पहले कोई संदेश या कागज़ पढ़िए।");}
+    public void readOriginal(){if(reviewChoice())return;if(!lastSource.isEmpty()){String text=lastSource,warning=ocrWarning;long id=begin("पढ़ रहे हैं।");readTextForOperation(text,id,warning);}else announce("पहले कोई संदेश या कागज़ पढ़िए।");}
     public boolean hasLast(){return !lastSpoken.isEmpty();}
     private void notifyListeners(){for(Listener l:new ArrayList<>(listeners))l.onReaderChanged();}
     public void stop(){
         generation.incrementAndGet();if(job!=null)job.cancel(true);HttpURLConnection active=connection.getAndSet(null);if(active!=null)disconnectWorker.execute(()->{try{active.disconnect();}catch(Exception ignored){}});
-        releasePlayer();abandonFocus();waiting=false;busy=false;status="रोक दिया। जब चाहें फिर सुनिए।";notifyListeners();
+        pendingOcr="";releasePlayer();abandonFocus();waiting=false;busy=false;status="रोक दिया। जब चाहें फिर सुनिए।";notifyListeners();
     }
     private long begin(String message){stop();long id=generation.get();busy=true;waiting=true;status=message;haptic();notifyListeners();prompt(message,id);pulse(id);return id;}
     private void pulse(long id){main.postDelayed(()->{if(current(id)&&waiting&&busy){prompt("अभी पढ़ रहे हैं। रोकने के लिए रोकिए दबाएँ।",id);pulse(id);}},10000);}
@@ -69,28 +73,37 @@ public final class ReaderController {
         if(text.length()>12000){announce("छोटा हिस्सा खोलकर फिर सुनिए दबाएँ।");return;}
         long id=begin("पढ़ रहे हैं।");readTextForOperation(text,id);
     }
-    public void readTextForOperation(String text,long id){
+    public void readTextForOperation(String text,long id){readTextForOperation(text,id,"");}
+    private void readTextForOperation(String text,long id,String warning){
         if(!current(id))return;if(text==null||text.isBlank()||text.length()>12000){announceFor("छोटा और साफ़ हिस्सा खोलें।",id);return;}
-        wordHelp=false;original=text;lastSpoken=text;lastSource=text;lastAudio=null;saveLast();
-        if(config.onlineVoice()&&!config.endpoint().isEmpty()){job=worker.submit(()->{try{request(null,text,"read",id);}catch(Exception e){fail(e,id);}});}else announceFor("आवाज़ के लिए परिवार की सेटिंग में ElevenLabs चालू करें।",id);
+        ocrWarning=warning;wordHelp=false;original=text;lastSpoken=text;lastSource=text;lastAudio=null;saveLast();
+        if(config.onlineVoice()&&!config.endpoint().isEmpty()){job=worker.submit(()->{try{request(null,text,"read",id,warning);}catch(Exception e){fail(e,id);}});}else announceFor("आवाज़ के लिए परिवार की सेटिंग में ElevenLabs चालू करें।",id);
     }
     public void readImage(ImageLoader loader){readImageForOperation(loader,begin("चित्र पढ़ रहे हैं। रोकने के लिए रोकिए दबाएँ।"));}
     public void readImageForOperation(ImageLoader loader,long id){
         if(!current(id))return;busy=true;status="चित्र पढ़ रहे हैं। थोड़ा इंतज़ार करें।";notifyListeners();
         job=worker.submit(()->{
             Bitmap bitmap=null;
-            try{if(!current(id))return;bitmap=loader.load();if(!current(id))return;String text=LocalText.read(bitmap);if(!current(id))return;
-                if(!text.isBlank()){main.post(()->{if(current(id))readTextForOperation(text,id);});return;}
+            try{if(!current(id))return;bitmap=loader.load();if(!current(id))return;LocalText.Result recognized=LocalText.inspect(bitmap);if(!current(id))return;
+                if(recognized.text().length()>12000)throw new UserMessage("कागज़ का छोटा हिस्सा पास से लें।");
+                if(!recognized.text().isBlank()&&!recognized.readable()){
+                    if(recognized.reviewable())main.post(()->{if(current(id)){wordHelp=false;original="";lastSpoken="";lastSource="";lastAudio=null;ocrWarning="";saveLast();pendingOcr=recognized.reviewText();announceFor("कुछ शब्द साफ़ नहीं हैं। दोबारा फ़ोटो लें, या सावधानी से सुनिए दबाएँ।",id);}});
+                    else main.post(()->announceFor("कुछ शब्द साफ़ नहीं हैं। पास से छोटा हिस्सा दोबारा लें।",id));return;
+                }
+                String text=recognized.unclear()>0?recognized.safeText():recognized.text();
+                if(!text.isBlank()){main.post(()->{if(current(id))readTextForOperation(text,id,recognized.unclear()>0?"masked":"");});return;}
                 main.post(()->announceFor("चित्र का वर्णन अभी उपलब्ध नहीं है। लिखावट हो तो पास से छोटा और साफ़ हिस्सा दोबारा लें।",id));}
             catch(Exception e){fail(e,id);}finally{if(bitmap!=null&&!bitmap.isRecycled())bitmap.recycle();}
         });
     }
     public void explain(){
+        if(reviewChoice())return;
         if(lastSource.isEmpty()){announce("पहले कोई संदेश या चित्र पढ़िए।");return;}
-        String source=lastSource;long id=begin("शब्दों की मदद पढ़ रहे हैं।");job=worker.submit(()->{try{request(null,source,"explain",id);}catch(Exception e){fail(e,id);}});
+        String source=lastSource,warning=ocrWarning;long id=begin("शब्दों की मदद पढ़ रहे हैं।");job=worker.submit(()->{try{request(null,source,"explain",id,warning);}catch(Exception e){fail(e,id);}});
     }
-    private void request(String image,String text,String mode,long id)throws Exception{
+    private void request(String image,String text,String mode,long id,String warning)throws Exception{
         JSONObject input=new JSONObject().put("requestId",UUID.randomUUID().toString()).put("language","hi").put("mode",mode).put("wantAudio",config.onlineVoice());
+        if(!warning.isEmpty())input.put("ocrWarning",warning);
         if(image!=null)input.put("image",image);else input.put("text",text);
         JSONObject response=BackendClient.send(config,input,connection,()->!current(id)||Thread.currentThread().isInterrupted());
         main.post(()->{
@@ -99,15 +112,15 @@ public final class ReaderController {
             String spoken=response.optString("spokenText","");if(!"reading".equals(response.optString("kind"))||spoken.isBlank()||spoken.length()>16000){announceFor("यह साफ़ पढ़ नहीं पाया। दोबारा चित्र लें।",id);return;}
             byte[] audio=null;try{String encoded=response.optString("audioBase64","");if(VoicePolicy.allowed(response.optString("audioProvider"),response.optString("audioVoiceId"))&&!encoded.isEmpty()&&encoded.length()<6_800_000)audio=Base64.decode(encoded,Base64.DEFAULT);}catch(Exception ignored){}
             double providerRate=response.optDouble("audioBaseRate",.85);final float audioRate=(providerRate==1)?1f:.85f;
-            wordHelp="explain".equals(mode);
+            ocrWarning=warning;wordHelp="explain".equals(mode);
             lastAudioRate=audioRate;original=response.optString("originalText","");
             lastSpoken=spoken;lastSource=original.isBlank()?spoken:original;lastAudio=audio;saveLast();
             status=wordHelp?"शब्दों की मदद सुनिए।":"सुनिए।";notifyListeners();speak(spoken,audio,id,audioRate);
         });
     }
     private void fail(Exception error,long id){main.post(()->{if(!current(id))return;String message=error instanceof UserMessage?error.getMessage():"अभी पढ़ नहीं पा रहे हैं। इंटरनेट जाँचकर फिर कोशिश करें।";announceFor(message,id);});}
-    public void repeat(){if(!hasLast()){announce("पहले कोई संदेश या कागज़ पढ़िए।");return;}if(lastAudio==null){announce("सहेजी हुई आवाज़ नहीं मिली। मूल पाठ सुनिए दबाकर नई आवाज़ मँगाएँ।");return;}stop();long id=generation.get();status="फिर सुनिए।";speak(lastSpoken,lastAudio,id);}
-    public void slower(){config.setSpeed(Math.max(.5f,config.speed()-.15f));if(hasLast())repeat();else announce(config.speed()<.701f?"अब आवाज़ धीरे पढ़ेगी।":"अब आवाज़ सामान्य गति से पढ़ेगी।");}
+    public void repeat(){if(reviewChoice())return;if(!hasLast()){announce("पहले कोई संदेश या कागज़ पढ़िए।");return;}if(lastAudio==null){announce("सहेजी हुई आवाज़ नहीं मिली। मूल पाठ सुनिए दबाकर नई आवाज़ मँगाएँ।");return;}stop();long id=generation.get();status="फिर सुनिए।";speak(lastSpoken,lastAudio,id);}
+    public void slower(){if(reviewChoice())return;config.setSpeed(Math.max(.5f,config.speed()-.15f));if(hasLast())repeat();else announce(config.speed()<.701f?"अब आवाज़ धीरे पढ़ेगी।":"अब आवाज़ सामान्य गति से पढ़ेगी।");}
     public void announce(String message){stop();announceFor(message,generation.get());}
     public void announceFor(String message,long id){if(!current(id))return;waiting=false;abandonFocus();busy=false;status=message;notifyListeners();prompt(message,id);}
     public void captureFailed(String message,long id){announceFor(message,id);}
@@ -143,8 +156,8 @@ public final class ReaderController {
             p.setOnErrorListener((failed,w,e)->{if(current(id)&&player==failed)voiceUnavailable(id);return true;});p.prepareAsync();
         }catch(Exception ignored){voiceUnavailable(id);}
     }
-    private void saveLast(){cache.edit().putBoolean("wordHelp",wordHelp).putString("original",original).putString("spoken",lastSpoken).putString("source",lastSource).putFloat("audioBaseRate",lastAudioRate).putString("audioProvider",lastAudio==null?"":"elevenlabs").putString("audioVoiceId",lastAudio==null?"":VoicePolicy.RAJU).apply();File file=new File(context.getFilesDir(),"last-reading.mp3");try{if(lastAudio==null)file.delete();else try(FileOutputStream out=new FileOutputStream(file)){out.write(lastAudio);}}catch(Exception ignored){file.delete();}}
-    public void forget(){stop();SuniyeApp.document(context).clear();wordHelp=false;original="";lastSpoken="";lastSource="";lastAudio=null;cache.edit().clear().apply();new File(context.getFilesDir(),"last-reading.mp3").delete();status="पिछला पढ़ना मिटा दिया।";notifyListeners();}
+    private void saveLast(){cache.edit().putString("ocrWarning",ocrWarning).putBoolean("wordHelp",wordHelp).putString("original",original).putString("spoken",lastSpoken).putString("source",lastSource).putFloat("audioBaseRate",lastAudioRate).putString("audioProvider",lastAudio==null?"":"elevenlabs").putString("audioVoiceId",lastAudio==null?"":VoicePolicy.RAJU).apply();File file=new File(context.getFilesDir(),"last-reading.mp3");try{if(lastAudio==null)file.delete();else try(FileOutputStream out=new FileOutputStream(file)){out.write(lastAudio);}}catch(Exception ignored){file.delete();}}
+    public void forget(){stop();SuniyeApp.document(context).clear();ocrWarning="";wordHelp=false;original="";lastSpoken="";lastSource="";lastAudio=null;cache.edit().clear().apply();new File(context.getFilesDir(),"last-reading.mp3").delete();status="पिछला पढ़ना मिटा दिया।";notifyListeners();}
     private void abandonFocus(){if(focus!=null){audio.abandonAudioFocusRequest(focus);focus=null;}}
     private void releasePlayer(){if(player!=null){player.setOnPreparedListener(null);player.setOnCompletionListener(null);player.setOnErrorListener(null);try{player.stop();}catch(Exception ignored){}player.release();player=null;}if(audioFile!=null){audioFile.delete();audioFile=null;}}
 }

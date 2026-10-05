@@ -1,0 +1,165 @@
+{
+  "createdAt": "2026-10-05T06:09:15Z",
+  "file": "suniye-real-documents-walkthrough.mp4",
+  "seconds": 140.032,
+  "sha256": "6f41e19b5e8f27a1bc1f90dfaffc134f9697064b9ac874a554dfbb4442355323",
+  "bytes": 3722171,
+  "apkSHA256": "f90fd8a8eb4d05c362cd952e514ad4bf20e78501f5c6bf63bdde968a89e4eeca",
+  "voicePolicy": "ElevenLabs Raju only; English explanation clips and Hindi app readings",
+  "scope": "Current 0.4.1 APK on Android 11 emulator, full actual image and two PDF page playback tests. Film uses image audio and labelled PDF excerpts. Public dated source notices, not private WhatsApp messages. WhatsApp segment explains the Share route; external sender not exercised.",
+  "editing": "English narration and source stills intercut with real native screen recordings. Generation waits are omitted; PDF readings are excerpts. Exact response MP3s mixed at .85 playback speed with approximate event alignment. Android screenrecord did not capture device sound. Final dialogue loudness normalized to -16 LUFS target, true peak -1.5 dB; no alternate voice.",
+  "checks": {
+    "fullDecode": true,
+    "meanAudioDb": -19.9
+  },
+  "timeline": [
+    {
+      "name": "intro",
+      "start": 0,
+      "seconds": 8.88
+    },
+    {
+      "name": "image",
+      "start": 8.88,
+      "seconds": 8.08
+    },
+    {
+      "name": "caution",
+      "start": 16.96,
+      "seconds": 9.44
+    },
+    {
+      "name": "native-image",
+      "start": 26.4,
+      "seconds": 30.033
+    },
+    {
+      "name": "pdf",
+      "start": 56.433,
+      "seconds": 10.8
+    },
+    {
+      "name": "native-pdf1",
+      "start": 67.233,
+      "seconds": 23.0
+    },
+    {
+      "name": "controls",
+      "start": 90.233,
+      "seconds": 10.333
+    },
+    {
+      "name": "native-pdf2",
+      "start": 100.567,
+      "seconds": 20.0
+    },
+    {
+      "name": "whatsapp",
+      "start": 120.567,
+      "seconds": 11.133
+    },
+    {
+      "name": "end",
+      "start": 131.7,
+      "seconds": 8.24
+    }
+  ],
+  "audioMappings": [
+    {
+      "stage": "image",
+      "rawStart": 18.136,
+      "audioStart": 0,
+      "seconds": 30.023529411764706,
+      "audioSHA256": "a34aacdf77fa594ebef3f326907c530e1e5aeb5ef62c0fd4f0dc7311e31f873f",
+      "approximateAlignment": true
+    },
+    {
+      "stage": "pdf1",
+      "rawStart": 52.034,
+      "audioStart": 0,
+      "seconds": 23,
+      "audioSHA256": "e91a4e8ab9d537d71ee4813778d9c532282bc0cb0c453f10920b145785219d12",
+      "approximateAlignment": true
+    },
+    {
+      "stage": "pdf2",
+      "rawStart": 2,
+      "seconds": 8,
+      "narration": "controls",
+      "editing": "Native action followed by a held last frame under English narration"
+    },
+    {
+      "stage": "pdf2",
+      "rawStart": 51.21217647058823,
+      "audioStart": 11,
+      "seconds": 20,
+      "audioSHA256": "228968ca04f53eb46f1c2662c0afe3663b54e63ef49af12f3dd02cbd77c31462",
+      "approximateAlignment": true
+    },
+    {
+      "stage": "image",
+      "rawStart": 49,
+      "seconds": 3.5,
+      "narration": "end",
+      "editing": "Native action followed by a held last frame under English narration"
+    }
+  ],
+  "narration": {
+    "createdAt": "2026-10-05T05:53:25Z",
+    "provider": "ElevenLabs",
+    "voiceId": "zT03pEAEi0VHKciJODfn",
+    "model": "eleven_v4",
+    "language": "en",
+    "calls": [
+      {
+        "name": "intro",
+        "text": "My parents ask me to read small print. Suniye turns a shared image or P D F into Hindi speech, with large controls.",
+        "seconds": 8.48,
+        "bytes": 68380,
+        "sha256": "96c41e33ad147f3ea8d637fd2215fc66f83ec46dea74b2dfd088e5761e688a2c"
+      },
+      {
+        "name": "image",
+        "text": "This image is cropped from a real public electricity notice. Share the picture to Suniye. Text recognition happens on the phone.",
+        "seconds": 7.68,
+        "bytes": 61901,
+        "sha256": "d788149975a3b4073854af55a8f2a76daff37189aa32b94c78a061933b700ada"
+      },
+      {
+        "name": "caution",
+        "text": "O C R can make mistakes. This page needs a separate confirmation. The app speaks a warning first. Flagged number groups are withheld.",
+        "seconds": 9.04,
+        "bytes": 72977,
+        "sha256": "5a7bc32aa6046a3f20f3bf5c9cb18632efc86a1f795454bb62c4533f8c2c578c"
+      },
+      {
+        "name": "pdf",
+        "text": "Now a complete two page Hindi notice, with paragraphs, dates, and numbers. Suniye reads one page at a time. These are excerpts from completed playback checks.",
+        "seconds": 10.4,
+        "bytes": 83844,
+        "sha256": "ebb5cfdf33bdd493f4a0514ff6701070a29c6adf88919534d2757a9f71f3ff5a"
+      },
+      {
+        "name": "controls",
+        "text": "The next page has its own review. Repeat replays the recording. Slow reduces its speed. Stop stays below the scrolling text.",
+        "seconds": 9.92,
+        "bytes": 79874,
+        "sha256": "72eed8bafeb75d648c13014d67650799287ab7745ecde5cb3763c5a6de849fc9"
+      },
+      {
+        "name": "whatsapp",
+        "text": "In WhatsApp, open the image or P D F. Choose Share, then Suniye. For a text message, use Share if available, or copy it into Suniye.",
+        "seconds": 10.72,
+        "bytes": 86352,
+        "sha256": "e254b7b5b5ba83f8fa59a43ef0e55e885c5931cd6bcfcd030c4013914bf7692b"
+      },
+      {
+        "name": "end",
+        "text": "English explanations for this walkthrough. Hindi controls and reading in the app. Every voice you hear is ElevenLabs Raju.",
+        "seconds": 7.84,
+        "bytes": 63364,
+        "sha256": "a935a23fe15e80e53e53aeb75b2bd116bc15f8f9fa22cbd91fd369b3c911c42c"
+      }
+    ]
+  }
+}

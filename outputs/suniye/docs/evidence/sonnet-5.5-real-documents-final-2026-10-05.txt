@@ -1,0 +1,22 @@
+Suniye focused OCR follow-up audit — October 5, 2026
+Model shown in Claude desktop Code: Sonnet 5.5.
+Source: existing Suniye publication audit session, response to the final narrow verification request.
+Transcribed from the visible response; unrelated private session/UI data omitted.
+
+Verdict: "No concrete blocker in the diffs you listed."
+
+The reviewer read code and ran a few offline probes. It did not rerun the 127 backend tests, 57 shared pronunciation fixtures, standalone OCR harness, Android build or hosted requests. Those results are separately recorded by the builder.
+
+Verified:
+- Java maps the exact [अस्पष्ट शब्द] and [अस्पष्ट संख्या] markers before general bracket reading (source inspection).
+- Backend probe of "कुल [अस्पष्ट संख्या] रुपये [अस्पष्ट शब्द] देय" produced "कुल अस्पष्ट संख्या रुपये अस्पष्ट शब्द देय".
+- Backend probe of [abc] retained ordinary bracket pronunciation.
+- The committed backend 6a842bf uses 20 seconds for <=1000 pronunciation characters and 60 seconds above that, below Android's 75-second read timeout.
+- AbortSignal.any preserves cancellation from the caller.
+- scripts/check-ocr-transcript.py exists.
+
+Minor, not blocking: directly adjoining hand-written marker strings have no inserted space. OcrTranscript does not produce this case because it joins tokens with spaces.
+
+Earlier focused reviews found and prompted fixes for stale cached playback during a pending OCR review, masking only part of an uncertain number, warning text stored as source, noisy spoken brackets, and an undocumented standalone OCR harness. The reviewer confirmed the cache guards, full numeric-run masking, Stop/Forget clearing and separate ocrWarning source/spoken handling in the preceding follow-up.
+
+Not checked by this reviewer: hosted behavior, live timings, final video or concurrently edited publication docs.
