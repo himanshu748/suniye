@@ -4,6 +4,8 @@ My parents have weak eyesight and ask me to read WhatsApp messages, pictures, la
 
 [Download Android 0.4.1](https://github.com/himanshu748/suniye/releases/download/real-documents-2026-10-05/suniye-parent-ux-0.4.1.apk) · [English-narrated real-document walkthrough](https://suniye-reader.onrender.com/#walkthrough) · [Live project](https://suniye-reader.onrender.com/) · [Caregiver help](https://suniye-reader.onrender.com/caregiver) · [Entry](https://dev.to/himanshu_748/suniye-let-my-parents-hear-the-message-themselves-41bh)
 
+<p align="center"><img src="landing/assets/android-home.png" alt="Suniye home screen with large Hindi controls" width="260"> <img src="landing/assets/android-reading.png" alt="Suniye reading a shared document with Stop, Repeat and Slow" width="260"></p>
+
 ## What happens to a photo or PDF?
 
 Android Share sends selected text, an image or PDF to Suniye. Bundled OCR reads image/PDF text locally. The authenticated Render backend runs Mastra and requests Hindi speech from ElevenLabs Raju. The original stays visible; cached audio supports offline Repeat and Slow. ₹1,250 is spoken as “एक हज़ार दो सौ पचास रुपये”. There is no fallback to another voice.
@@ -24,6 +26,20 @@ APK SHA-256: `f90fd8a8eb4d05c362cd952e514ad4bf20e78501f5c6bf63bdde968a89e4eeca`.
 ## Limits
 
 Current Android checks use an emulator. Physical Redmi A4 behavior, an external WhatsApp sender and microphone recognition require separate device checks. OCR can be wrong, including confident words; its confidence threshold is a heuristic. Uncertain pages require an explicit review choice and an audible warning, and flagged numeric groups are withheld. Check important details against the source document. Free Render may sleep. Temporary Atlas access and provider credentials require maintenance; original speech is independent of the eight-attempt daily model quota. No cash purchase or paid resource was created.
+
+## Run it yourself
+
+Backend (Node 22):
+
+```bash
+cd outputs/suniye/backend
+cp .env.example .env        # FAMILY_TOKEN must be 32+ random chars:
+                            #   python3 -c 'import secrets; print(secrets.token_urlsafe(32))'
+                            # add ELEVENLABS_API_KEY + ELEVENLABS_VOICE_ID for Hindi speech; the rest is optional
+npm ci && npm test && npm start   # serves on PORT (default 8787); GET /health lists configured capabilities
+```
+
+Android (JDK 17 + Android SDK): `cd outputs/suniye/android && bash ./gradlew assembleDebug`. The pure-Java speech, OCR and voice-command checks run without the SDK: `python3 outputs/suniye/scripts/check-hindi-speech.py` (also `check-ocr-transcript.py`, `check-voice-commands.py`). CI runs all of these on every push and pull request. Full details: [development notes](outputs/suniye/README.md#development).
 
 ## Integrations and source
 

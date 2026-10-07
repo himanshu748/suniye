@@ -1,0 +1,42 @@
+name: CI
+on:
+  push:
+    branches: [codex/challenge-entry, main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  backend:
+    name: Backend tests (Node 22)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: outputs/suniye/backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: outputs/suniye/backend/package-lock.json
+      - run: npm ci --no-audit --no-fund
+      - run: npm run check
+      - run: npm test
+  android-pure-java:
+    name: Shared Hindi speech, OCR policy and voice-command checks (JDK 17)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - run: python3 outputs/suniye/scripts/check-hindi-speech.py
+      - run: python3 outputs/suniye/scripts/check-ocr-transcript.py
+      - run: python3 outputs/suniye/scripts/check-voice-commands.py
